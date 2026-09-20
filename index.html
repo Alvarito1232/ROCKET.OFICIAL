@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROCKET - Plataforma de Servicios & Automatización</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        spaceBg: '#090a10',
+                        cardBg: '#111526',
+                        accentOrange: '#f97316',
+                        accentFlame: '#ff4500',
+                        accentCyan: '#06b6d4',
+                        yapePurple: '#710193',
+                        yapeTeal: '#00d0b7'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&display=swap');
+
+        body {
+            background-color: #090a10;
+            color: #f3f4f6;
+            overflow-x: hidden;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .font-orbitron {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        /* Screen Shake Animation during Launch */
+        @keyframes rumble {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            10% { transform: translate(-3px, -4px) rotate(-0.5deg); }
+            20% { transform: translate(4px, 2px) rotate(0.5deg); }
+            30% { transform: translate(-4px, 3px) rotate(-1deg); }
+            40% { transform: translate(3px, -2px) rotate(1deg); }
+            50% { transform: translate(-2px, 4px) rotate(-0.5deg); }
+            60% { transform: translate(4px, 2px) rotate(0.5deg); }
+            70% { transform: translate(-3px, -3px) rotate(-1deg); }
+            80% { transform: translate(3px, 4px) rotate(0.5deg); }
+            90% { transform: translate(-2px, -2px) rotate(0deg); }
+            100% { transform: translate(0, 0) rotate(0deg); }
+        }
+
+        .rumbling {
+            animation: rumble 0.1s infinite;
+        }
+
+        /* Glassmorphism Effect */
+        .glass-panel {
+            background: rgba(17, 21, 38, 0.75);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-panel:hover {
+            border-color: rgba(249, 115, 22, 0.4);
+            box-shadow: 0 10px 30px -10px rgba(249, 115, 22, 0.3);
+        }
+
+        /* Shuttle Ignition animation */
+        @keyframes flamePulse {
+            0% { transform: scaleY(1) scaleX(1); opacity: 0.9; }
+            50% { transform: scaleY(1.4) scaleX(1.15); opacity: 1; }
+            100% { transform: scaleY(1.1) scaleX(0.95); opacity: 0.85; }
+        }
+
+        .launch-flame {
+            animation: flamePulse 0.08s infinite alternate;
+        }
+
+        /* Shuttle launch travel */
+        .shuttle-launching {
+            transition: transform 3.5s cubic-bezier(0.25, 1, 0.5, 1);
+            transform: translateY(-160vh) scale(0.8) !important;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #090a10;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #f97316;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-accentOrange selection:text-white">
+
+    <!-- INTRO LANDING / LAUNCH PAD SCREEN -->
+    <div id="introScreen" class="fixed inset-0 z-50 flex flex-col justify-between items-center px-4 py-8 overflow-hidden bg-gradient-to-b from-[#090a10] via-[#1a0f1d] to-[#2d1208] transition-opacity duration-1000">
+        
+        <!-- Stars Overlay -->
+        <div class="absolute inset-0 opacity-40 pointer-events-none" style="background-image: radial-gradient(1.5px 1.5px at 40px 60px, #ffffff, rgba(0,0,0,0)), radial-gradient(2px 2px at 150px 230px, #f97316, rgba(0,0,0,0)), radial-gradient(1.5px 1.5px at 280px 120px, #ffffff, rgba(0,0,0,0)); background-size: 320px 320px;"></div>
+
+        <!-- Canvas for Dynamic Smoke and Fire Particle Physics -->
+        <canvas id="smokeCanvas" class="absolute inset-0 z-10 pointer-events-none w-full h-full"></canvas>
+
+        <!-- Top Header Info -->
+        <div class="z-20 text-center pt-4">
+            <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono font-semibold bg-accentOrange/10 text-accentOrange border border-accentOrange/30 backdrop-blur-md">
+                <span class="w-2 h-2 rounded-full bg-accentOrange animate-ping"></span>
+                SISTEMA LISTO PARA DESPEGUE
+            </span>
+        </div>
+
+        <!-- Center Brand & Password Field -->
+        <div class="z-20 w-full max-w-sm mx-auto text-center my-auto flex flex-col items-center">
+            
+            <h1 class="text-5xl md:text-7xl font-black tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-200 to-accentFlame font-orbitron drop-shadow-[0_0_35px_rgba(249,115,22,0.6)] mb-2">
+                ROCKET
+            </h1>
+            <p class="text-xs text-amber-200/70 tracking-widest font-mono uppercase mb-8">Plataforma de Servicios Automatizados</p>
+
+            <!-- Key Entry Form Box -->
+            <div id="loginCard" class="w-full glass-panel p-6 rounded-2xl border border-orange-500/30 shadow-2xl shadow-orange-950/50 backdrop-blur-xl">
+                <form onsubmit="handleLaunch(event)" class="space-y-4">
+                    <div class="text-left">
+                        <label for="accessKey" class="block text-xs font-mono font-semibold text-orange-300 uppercase tracking-wider mb-2 flex items-center justify-between">
+                            <span>CLAVE DE ACCESO</span>
+                            <span class="text-[10px] text-gray-400 font-normal">(Opcional: presiona despegar directo)</span>
+                        </label>
+                        <div class="relative">
+                            <input type="password" id="accessKey" placeholder="••••••••" class="w-full bg-black/60 border border-white/15 focus:border-accentOrange text-white text-center font-mono tracking-widest text-lg rounded-xl py-3 px-4 outline-none transition-all placeholder:text-gray-600 focus:ring-2 focus:ring-accentOrange/40">
+                            <i data-lucide="key-round" class="w-5 h-5 text-gray-500 absolute left-3 top-3.5"></i>
+                        </div>
+                    </div>
+
+                    <button type="submit" id="launchBtn" class="w-full bg-gradient-to-r from-accentFlame via-accentOrange to-amber-500 hover:from-amber-500 hover:to-accentFlame text-white font-orbitron font-bold text-base py-4 rounded-xl shadow-lg shadow-orange-600/40 transition-all transform hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-3">
+                        <i data-lucide="rocket" class="w-5 h-5 animate-bounce"></i>
+                        <span>DESPEGAR / ACCEDER</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Shuttle Graphic Positioned on the Ground Launch Pad -->
+        <div id="shuttleWrapper" class="relative z-20 w-full flex flex-col items-center justify-end h-48 md:h-64 pointer-events-none">
+            
+            <!-- Shuttle SVG Asset -->
+            <div id="shuttleGraphic" class="relative transition-transform duration-300">
+                <svg class="w-32 h-44 md:w-40 md:h-56 filter drop-shadow-[0_0_20px_rgba(255,100,0,0.5)]" viewBox="0 0 100 140" fill="none">
+                    <!-- Fuel Tank (Center Orange) -->
+                    <path d="M45 20 C45 5, 55 5, 55 20 L55 105 C55 110, 45 110, 45 105 Z" fill="#d97706" stroke="#b45309" stroke-width="1.5"/>
+                    <!-- Solid Rocket Boosters (Sides White) -->
+                    <path d="M32 35 C32 25, 40 25, 40 35 L40 110 L32 110 Z" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+                    <path d="M60 35 C60 25, 68 25, 68 35 L68 110 L60 110 Z" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+                    <path d="M32 25 L36 15 L40 25 Z" fill="#dc2626"/>
+                    <path d="M60 25 L64 15 L68 25 Z" fill="#dc2626"/>
+                    <!-- Orbiter Body (Shuttle) -->
+                    <path d="M50 30 C42 55, 42 85, 25 100 L75 100 C58 85, 58 55, 50 30 Z" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+                    <!-- Cockpit Windows -->
+                    <path d="M46 45 L54 45 L52 48 L48 48 Z" fill="#0f172a"/>
+                    <!-- Wings Black Leading Edges -->
+                    <path d="M25 100 L35 85 L35 100 Z" fill="#1e293b"/>
+                    <path d="M75 100 L65 85 L65 100 Z" fill="#1e293b"/>
+                    <!-- Vertical Stabilizer Tail -->
+                    <path d="M48 80 L52 80 L51 98 L49 98 Z" fill="#ffffff" stroke="#94a3b8"/>
+
+                    <!-- Ignited Rocket Flames (Controlled by JS) -->
+                    <g id="shuttleFlames" class="opacity-0 transition-opacity duration-200">
+                        <path d="M46 108 L50 138 L54 108 Z" fill="#ff4500" class="launch-flame"/>
+                        <path d="M48 108 L50 128 L52 108 Z" fill="#facc15" class="launch-flame"/>
+                        <path d="M34 110 L36 128 L38 110 Z" fill="#ff4500" class="launch-flame"/>
+                        <path d="M62 110 L64 128 L66 110 Z" fill="#ff4500" class="launch-flame"/>
+                    </g>
+                </svg>
+            </div>
+
+            <!-- Launch Pad Structure Base -->
+            <div class="w-64 md:w-96 h-4 bg-gradient-to-r from-gray-800 via-gray-600 to-gray-800 rounded-t-md border-t border-gray-500 shadow-2xl flex justify-center items-center">
+                <div class="w-full h-1 bg-gradient-to-r from-transparent via-amber-500 to-transparent opacity-75"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN DASHBOARD APP (Revealed after launch) -->
+    <div id="mainDashboard" class="min-h-screen opacity-0 transition-opacity duration-1000 hidden">
+        
+        <!-- Navigation Header -->
+        <nav class="sticky top-0 z-40 glass-panel border-b border-white/10 px-6 py-4">
+            <div class="max-w-7xl mx-auto flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center gap-3">
+                    <div class="p-2 bg-gradient-to-br from-accentOrange to-accentFlame rounded-xl shadow-lg shadow-orange-600/30">
+                        <i data-lucide="rocket" class="w-5 h-5 text-white"></i>
+                    </div>
+                    <span class="font-orbitron font-extrabold text-xl tracking-wider text-white">
+                        ROCKET<span class="text-accentOrange">.PE</span>
+                    </span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+                    <a href="#servicios" class="hover:text-accentOrange transition-colors">Servicios</a>
+                    <a href="#pagos" class="hover:text-accentOrange transition-colors">Pagos Yape</a>
+                    <a href="#bot-status" class="hover:text-accentOrange transition-colors">Estado del Bot</a>
+                    <a href="#contacto" class="hover:text-accentOrange transition-colors">Contacto</a>
+                </div>
+
+                <!-- Live Bot Status Badge -->
+                <div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono font-medium">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span>BOT ACTIVO 24/7</span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content Container -->
+        <main class="max-w-7xl mx-auto px-6 py-12 space-y-20">
+
+            <!-- Hero Banner -->
+            <section class="relative rounded-3xl glass-panel p-8 md:p-12 overflow-hidden border border-orange-500/20">
+                <div class="absolute -right-20 -bottom-20 w-96 h-96 bg-accentOrange/10 rounded-full blur-3xl pointer-events-none"></div>
+                
+                <div class="max-w-2xl relative z-10 space-y-6">
+                    <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono bg-accentOrange/10 text-accentOrange border border-accentOrange/20">
+                        <i data-lucide="zap" class="w-3.5 h-3.5"></i> Verificación Instantánea por IA
+                    </span>
+                    <h2 class="text-3xl md:text-5xl font-extrabold text-white leading-tight">
+                        Servicios Digitales con <br/>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-200">Confirmación Automática</span>
+                    </h2>
+                    <p class="text-gray-400 text-base leading-relaxed">
+                        Elige tu servicio, realiza tu pago mediante Yape y envía el comprobante a nuestro bot de WhatsApp. El sistema procesará tu orden al instante las 24 horas del día.
+                    </p>
+                    <div class="flex flex-wrap gap-4 pt-2">
+                        <a href="#servicios" class="bg-gradient-to-r from-accentFlame to-accentOrange hover:opacity-90 text-white font-semibold px-6 py-3 rounded-xl shadow-lg shadow-orange-600/30 transition-all flex items-center gap-2">
+                            <span>Explorar Catálogo</span>
+                            <i data-lucide="arrow-down" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Services Catalog Section -->
+            <section id="servicios" class="space-y-8">
+                <div>
+                    <h3 class="text-2xl md:text-3xl font-bold text-white font-orbitron">Catálogo de Servicios</h3>
+                    <p class="text-gray-400 text-sm">Selecciona la opción que deseas contratar</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    
+                    <!-- Service 1 -->
+                    <div class="glass-panel rounded-2xl p-6 flex flex-col justify-between hover:border-orange-500/50 transition-all group">
+                        <div class="space-y-4">
+                            <div class="w-12 h-12 rounded-xl bg-orange-500/10 border border-orange-500/30 flex items-center justify-center text-accentOrange group-hover:scale-110 transition-transform">
+                                <i data-lucide="cpu" class="w-6 h-6"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-white">Servicio Express Bot</h4>
+                            <p class="text-gray-400 text-sm leading-relaxed">
+                                Procesamiento de solicitudes rápidas, consultas automáticas y respuestas de prioridad en menos de 5 minutos.
+                            </p>
+                        </div>
+                        <div class="pt-6 border-t border-white/10 mt-6 space-y-4">
+                            <div class="flex justify-between items-baseline">
+                                <span class="text-xs text-gray-400 font-mono">PRECIO:</span>
+                                <span class="text-2xl font-black text-white">S/ 20.00</span>
+                            </div>
+                            <button onclick="selectService('Servicio Express Bot', '20.00')" class="w-full bg-white/10 hover:bg-accentOrange hover:text-white text-gray-200 font-semibold py-3 rounded-xl border border-white/10 transition-all flex items-center justify-center gap-2">
+                                <span>Solicitar Ahora</span>
+                                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Service 2 (Featured) -->
+                    <div class="glass-panel rounded-2xl p-6 flex flex-col justify-between border-accentOrange/60 relative group shadow-xl shadow-orange-950/40">
+                        <span class="absolute -top-3 right-6 bg-gradient-to-r from-accentFlame to-accentOrange text-white text-[10px] font-bold font-mono px-3 py-1 rounded-full uppercase tracking-wider">
+                            Recomendado
+                        </span>
+                        <div class="space-y-4">
+                            <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 group-hover:scale-110 transition-transform">
+                                <i data-lucide="shield-check" class="w-6 h-6"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-white">Pack Pro Completo</h4>
+                            <p class="text-gray-400 text-sm leading-relaxed">
+                                Acceso total a la plataforma de automatizaciones, integración con tu WhatsApp y soporte técnico preferencial.
+                            </p>
+                        </div>
+                        <div class="pt-6 border-t border-white/10 mt-6 space-y-4">
+                            <div class="flex justify-between items-baseline">
+                                <span class="text-xs text-gray-400 font-mono">PRECIO:</span>
+                                <span class="text-2xl font-black text-white">S/ 45.00</span>
+                            </div>
+                            <button onclick="selectService('Pack Pro Completo', '45.00')" class="w-full bg-gradient-to-r from-accentFlame to-accentOrange hover:opacity-90 text-white font-semibold py-3 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2">
+                                <span>Solicitar Ahora</span>
+                                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="glass-panel rounded-2xl p-6 flex flex-col justify-between hover:border-orange-500/50 transition-all group">
+                        <div class="space-y-4">
+                            <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 group-hover:scale-110 transition-transform">
+                                <i data-lucide="sparkles" class="w-6 h-6"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-white">Desarrollo Custom</h4>
+                            <p class="text-gray-400 text-sm leading-relaxed">
+                                Configuración a medida de soluciones digitales, automatización de flujos y soporte dedicado personal.
+                            </p>
+                        </div>
+                        <div class="pt-6 border-t border-white/10 mt-6 space-y-4">
+                            <div class="flex justify-between items-baseline">
+                                <span class="text-xs text-gray-400 font-mono">PRECIO:</span>
+                                <span class="text-2xl font-black text-white">S/ 80.00</span>
+                            </div>
+                            <button onclick="selectService('Desarrollo Custom', '80.00')" class="w-full bg-white/10 hover:bg-accentOrange hover:text-white text-gray-200 font-semibold py-3 rounded-xl border border-white/10 transition-all flex items-center justify-center gap-2">
+                                <span>Solicitar Ahora</span>
+                                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- YAPE PAYMENT SECTION -->
+            <section id="pagos" class="glass-panel rounded-3xl p-8 md:p-12 border border-purple-500/30 relative overflow-hidden">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                    
+                    <div class="space-y-6">
+                        <div class="inline-flex items-center gap-2 bg-yapePurple text-white px-3 py-1 rounded-full text-xs font-bold">
+                            <span class="w-2 h-2 rounded-full bg-yapeTeal"></span>
+                            PAGOS CON YAPE PERÚ
+                        </div>
+                        <h3 class="text-3xl font-extrabold text-white">¿Cómo realizar tu pago y activar tu servicio?</h3>
+                        
+                        <ol class="space-y-4 text-sm text-gray-300">
+                            <li class="flex items-start gap-3">
+                                <span class="w-6 h-6 rounded-full bg-white/10 text-accentOrange flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">1</span>
+                                <span>Escanea el código QR de Yape o copia el número de celular indicado a continuación.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-6 h-6 rounded-full bg-white/10 text-accentOrange flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">2</span>
+                                <span>Realiza el Yape por el monto exacto del servicio elegido.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-6 h-6 rounded-full bg-white/10 text-accentOrange flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">3</span>
+                                <span>Toma una captura de pantalla del comprobante de pago.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-6 h-6 rounded-full bg-white/10 text-accentOrange flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">4</span>
+                                <span>Presiona el botón <strong>"Enviar Comprobante al Bot"</strong> para validación instantánea por WhatsApp.</span>
+                            </li>
+                        </ol>
+
+                        <!-- Copyable Yape Phone Number -->
+                        <div class="bg-black/50 p-4 rounded-xl border border-white/10 flex items-center justify-between">
+                            <div>
+                                <span class="text-xs text-gray-400 block font-mono">NÚMERO DE YAPE:</span>
+                                <span id="yapeNum" class="text-xl font-mono font-bold text-yapeTeal">987 654 321</span>
+                                <span class="text-[11px] text-gray-500 block">Titular: ROCKET DIGITAL S.A.C.</span>
+                            </div>
+                            <button onclick="copyYapeNumber()" class="bg-white/10 hover:bg-white/20 text-white px-3 py-2 rounded-lg text-xs font-mono transition-all flex items-center gap-1.5">
+                                <i data-lucide="copy" class="w-4 h-4"></i>
+                                <span id="copyBtnText">Copiar</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- QR Box -->
+                    <div class="flex flex-col items-center justify-center bg-cardBg/90 p-8 rounded-2xl border border-white/10 text-center">
+                        <div class="bg-white p-4 rounded-2xl shadow-2xl mb-4">
+                            <img src="https://placehold.co/220x220/710193/ffffff?text=QR+YAPE+ROCKET" alt="QR Yape" class="rounded-lg">
+                        </div>
+                        <p class="text-xs text-gray-400 font-mono mb-6">Aceptamos Yape de cualquier entidad bancaria</p>
+                        
+                        <a id="botWhatsappBtn" href="https://wa.me/51987654321?text=Hola%20ROCKET,%20aqu%C3%AD%20tengo%20mi%20comprobante%20de%20Yape" target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3.5 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2">
+                            <i data-lucide="message-square" class="w-5 h-5"></i>
+                            <span>Enviar Comprobante al Bot</span>
+                        </a>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Bot Status & Contact Section -->
+            <section id="bot-status" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Bot Status Card -->
+                <div class="glass-panel p-6 rounded-2xl border border-emerald-500/30 flex items-center gap-5">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+                        <i data-lucide="bot" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2 mb-1">
+                            <h4 class="font-bold text-white">Servidor de Bot en Vivo</h4>
+                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+                        </div>
+                        <p class="text-xs text-gray-400">Estado: <span class="text-emerald-400 font-mono">Operativo / 100% Uptime</span></p>
+                        <p class="text-[11px] text-gray-500 mt-1">Lector OCR de capturas Yape respondiendo en tiempo real.</p>
+                    </div>
+                </div>
+
+                <!-- Support Contact Card -->
+                <div class="glass-panel p-6 rounded-2xl border border-white/10 flex items-center gap-5">
+                    <div class="w-12 h-12 rounded-xl bg-orange-500/20 text-accentOrange flex items-center justify-center shrink-0">
+                        <i data-lucide="headphones" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white mb-1">¿Necesitas Ayuda Humana?</h4>
+                        <p class="text-xs text-gray-400">Si tienes dudas sobre tu pago o configuración:</p>
+                        <a href="https://wa.me/51987654321" target="_blank" class="text-xs text-accentOrange hover:underline font-mono mt-1 inline-block">Contactar con Soporte Técnico →</a>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="border-t border-white/10 py-8 text-center text-xs text-gray-500 font-mono">
+            <p>© 2026 ROCKET.PE — Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Canvas Setup for Smoke and Fire Particles
+        const canvas = document.getElementById('smokeCanvas');
+        const ctx = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        // Particle System State
+        let particles = [];
+        let isLaunching = false;
+
+        class Particle {
+            constructor(x, y, isFire = false) {
+                this.x = x;
+                this.y = y;
+                this.isFire = isFire;
+                
+                if (isFire) {
+                    this.vx = (Math.random() - 0.5) * 6;
+                    this.vy = Math.random() * 8 + 4;
+                    this.size = Math.random() * 12 + 6;
+                    this.color = ['#ff4500', '#f97316', '#facc15'][Math.floor(Math.random() * 3)];
+                    this.life = 1;
+                    this.decay = Math.random() * 0.05 + 0.03;
+                } else {
+                    // Smoke
+                    this.vx = (Math.random() - 0.5) * 8;
+                    this.vy = Math.random() * 2 + 1;
+                    this.size = Math.random() * 25 + 15;
+                    this.color = 'rgba(200, 200, 210, 0.25)';
+                    this.life = 1;
+                    this.decay = Math.random() * 0.015 + 0.008;
+                }
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                this.size += this.isFire ? 0.2 : 0.8;
+                this.life -= this.decay;
+            }
+
+            draw() {
+                ctx.save();
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = this.isFire ? this.color : `rgba(220, 200, 180, ${this.life * 0.3})`;
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            if (isLaunching) {
+                const shuttle = document.getElementById('shuttleWrapper');
+                const rect = shuttle.getBoundingClientRect();
+                const originX = rect.left + rect.width / 2;
+                const originY = rect.bottom - 20;
+
+                // Emit heavy smoke and fire
+                for (let i = 0; i < 6; i++) {
+                    particles.push(new Particle(originX + (Math.random() - 0.5) * 30, originY, true));
+                    particles.push(new Particle(originX + (Math.random() - 0.5) * 50, originY, false));
+                }
+            }
+
+            for (let i = particles.length - 1; i >= 0; i--) {
+                particles[i].update();
+                particles[i].draw();
+                if (particles[i].life <= 0) {
+                    particles.splice(i, 1);
+                }
+            }
+
+            requestAnimationFrame(animateParticles);
+        }
+        animateParticles();
+
+        // Handle Launch Sequence Trigger
+        function handleLaunch(event) {
+            event.preventDefault();
+            if (isLaunching) return;
+
+            isLaunching = true;
+            const intro = document.getElementById('introScreen');
+            const shuttleGraphic = document.getElementById('shuttleGraphic');
+            const flames = document.getElementById('shuttleFlames');
+            const dashboard = document.getElementById('mainDashboard');
+
+            // 1. Activate Flames & Screen Rumble
+            flames.classList.remove('opacity-0');
+            intro.classList.add('rumbling');
+
+            // 2. Lift Shuttle upwards
+            setTimeout(() => {
+                shuttleGraphic.classList.add('shuttle-launching');
+            }, 300);
+
+            // 3. Fade Out Intro and Reveal Main Dashboard
+            setTimeout(() => {
+                intro.style.opacity = '0';
+            }, 2000);
+
+            setTimeout(() => {
+                intro.classList.add('hidden');
+                intro.classList.remove('rumbling');
+                
+                dashboard.classList.remove('hidden');
+                setTimeout(() => {
+                    dashboard.classList.remove('opacity-0');
+                }, 50);
+
+                isLaunching = false;
+            }, 3000);
+        }
+
+        // Service Selection Action
+        function selectService(name, price) {
+            const message = encodeURIComponent(`Hola ROCKET, quiero contratar el servicio: ${name} (S/ ${price}). Ya realicé mi Yape, adjunto comprobante:`);
+            const btn = document.getElementById('botWhatsappBtn');
+            btn.href = `https://wa.me/51987654321?text=${message}`;
+
+            // Scroll down to payment section
+            document.getElementById('pagos').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Copy Yape Number to Clipboard
+        function copyYapeNumber() {
+            const yapeNum = "987654321";
+            const tempInput = document.createElement("input");
+            tempInput.value = yapeNum;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+
+            const btnText = document.getElementById('copyBtnText');
+            btnText.innerText = "¡Copiado!";
+            setTimeout(() => {
+                btnText.innerText = "Copiar";
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
