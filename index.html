@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ROCKET - Plataforma Futurista de Servicios</title>
+    <title>ROCKET</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Lucide Icons -->
@@ -13,11 +13,11 @@
             theme: {
                 extend: {
                     colors: {
-                        spaceBg: '#05070f',
-                        cardBg: '#0b0f19',
-                        accentOrange: '#f97316',
+                        spaceBg: '#030408',
+                        cardBg: '#090d16',
+                        neonPurple: '#a855f7',
                         accentFlame: '#ff3300',
-                        accentNeon: '#00f0ff',
+                        accentCyan: '#00f0ff',
                         yapePurple: '#710193',
                         yapeTeal: '#00d0b7'
                     },
@@ -30,10 +30,10 @@
         }
     </script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;800;900&family=Inter:wght@400;600;700&display=swap');
 
         body {
-            background-color: #05070f;
+            background-color: #030408;
             color: #f3f4f6;
             overflow-x: hidden;
             font-family: 'Inter', sans-serif;
@@ -62,22 +62,30 @@
             animation: rumble 0.08s infinite;
         }
 
-        /* Glassmorphism Panel with Cyberpunk Border */
+        /* Neon Purple Frame Banner */
+        .neon-purple-card {
+            background: rgba(10, 8, 20, 0.85);
+            backdrop-filter: blur(16px);
+            border: 2px solid rgba(168, 85, 247, 0.7);
+            box-shadow: 0 0 30px rgba(168, 85, 247, 0.35), inset 0 0 15px rgba(168, 85, 247, 0.2);
+        }
+
+        /* Glassmorphism Panel */
         .glass-panel {
-            background: rgba(11, 15, 25, 0.85);
+            background: rgba(9, 13, 22, 0.85);
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(0, 240, 255, 0.2);
-            box-shadow: 0 0 30px rgba(0, 240, 255, 0.1);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
         }
 
         .glass-panel:hover {
-            border-color: rgba(249, 115, 22, 0.5);
-            box-shadow: 0 0 35px rgba(249, 115, 22, 0.25);
+            border-color: rgba(168, 85, 247, 0.7);
+            box-shadow: 0 0 35px rgba(168, 85, 247, 0.3);
         }
 
-        /* Plasma Engine Flames */
+        /* Engine Plasma Flame Animation */
         @keyframes plasmaPulse {
-            0% { transform: scaleY(1) scaleX(1); opacity: 0.9; filter: drop-shadow(0 0 15px #00f0ff); }
+            0% { transform: scaleY(1) scaleX(1); opacity: 0.9; filter: drop-shadow(0 0 15px #a855f7); }
             50% { transform: scaleY(1.5) scaleX(1.2); opacity: 1; filter: drop-shadow(0 0 30px #ff3300); }
             100% { transform: scaleY(1.2) scaleX(0.9); opacity: 0.85; filter: drop-shadow(0 0 20px #00f0ff); }
         }
@@ -86,15 +94,14 @@
             animation: plasmaPulse 0.06s infinite alternate;
         }
 
-        /* Rocket Ascent Curve */
+        /* Rocket Ascent Animation */
         .shuttle-launching {
             transition: transform 3.8s cubic-bezier(0.15, 0.85, 0.35, 1.2);
             transform: translateY(-180vh) scale(0.65) !important;
         }
 
-        /* Holographic Image Glow for Real Shuttle */
         .shuttle-hologram {
-            filter: drop-shadow(0 0 25px rgba(0, 240, 255, 0.4)) drop-shadow(0 15px 35px rgba(255, 51, 0, 0.5));
+            filter: drop-shadow(0 0 25px rgba(168, 85, 247, 0.5)) drop-shadow(0 15px 35px rgba(255, 51, 0, 0.5));
         }
 
         /* Custom Scrollbar */
@@ -102,64 +109,76 @@
             width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #05070f;
+            background: #030408;
         }
         ::-webkit-scrollbar-thumb {
-            background: #111827;
+            background: #1e1b2e;
             border-radius: 4px;
-            border: 1px solid rgba(0, 240, 255, 0.3);
+            border: 1px solid rgba(168, 85, 247, 0.4);
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #f97316;
+            background: #a855f7;
         }
     </style>
 </head>
-<body class="antialiased selection:bg-accentOrange selection:text-white">
+<body class="antialiased selection:bg-purple-600 selection:text-white">
 
-    <!-- INTRO LANDING / LAUNCH PAD SCREEN -->
-    <div id="introScreen" class="fixed inset-0 z-50 flex flex-col justify-between items-center px-4 py-8 overflow-hidden bg-gradient-to-b from-[#05070f] via-[#0d1326] to-[#1c0a05] transition-opacity duration-1000">
+    <!-- INTRO LANDING / LAUNCH PAD SCREEN (Blueprint & Moon Background) -->
+    <div id="introScreen" class="fixed inset-0 z-50 flex flex-col justify-between items-center px-4 py-8 overflow-hidden bg-[#030408] transition-opacity duration-1000">
         
-        <!-- Stars Overlay & Grid Lines -->
-        <div class="absolute inset-0 opacity-50 pointer-events-none" style="background-image: radial-gradient(1.5px 1.5px at 40px 60px, #ffffff, rgba(0,0,0,0)), radial-gradient(2px 2px at 150px 230px, #00f0ff, rgba(0,0,0,0)), radial-gradient(1.5px 1.5px at 280px 120px, #f97316, rgba(0,0,0,0)); background-size: 300px 300px;"></div>
+        <!-- Technical Grid & Stars Backdrop -->
+        <div class="absolute inset-0 opacity-40 pointer-events-none" style="background-image: radial-gradient(1px 1px at 30px 40px, #ffffff, rgba(0,0,0,0)), radial-gradient(1.5px 1.5px at 160px 220px, #a855f7, rgba(0,0,0,0)), linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 200px 200px, 300px 300px, 40px 40px, 40px 40px;"></div>
 
-        <!-- Canvas for Dynamic Smoke, Fire and Plasma Particles -->
-        <canvas id="smokeCanvas" class="absolute inset-0 z-10 pointer-events-none w-full h-full"></canvas>
+        <!-- Moon Graphic Sphere Background -->
+        <div class="absolute w-[500px] h-[500px] md:w-[700px] md:h-[700px] rounded-full bg-gradient-to-b from-gray-300/10 via-gray-700/5 to-transparent blur-xl border border-white/5 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
 
-        <!-- Top Header Status -->
-        <div class="z-20 text-center pt-2">
-            <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-bold bg-black/60 text-accentNeon border border-accentNeon/40 backdrop-blur-md shadow-[0_0_15px_rgba(0,240,255,0.3)]">
-                <span class="w-2.5 h-2.5 rounded-full bg-accentNeon animate-ping"></span>
-                PROPULSIÓN CYBERNETICA YAPE :: LISTA
-            </span>
+        <!-- Side Technical Blueprint Specs (Left & Right) -->
+        <div class="hidden lg:block absolute left-8 top-12 text-[10px] font-mono text-gray-500/80 leading-relaxed max-w-[200px] pointer-events-none space-y-2">
+            <p class="text-purple-400 font-bold">SYSTEM SPECIFICATIONS</p>
+            <p>Manufacturer: ROCKET OSINT</p>
+            <p>Class: Orbital Launch Vehicle</p>
+            <p>Status: Standby / Ready</p>
+            <p>Payload: Digital Automation</p>
+        </div>
+        <div class="hidden lg:block absolute right-8 top-12 text-[10px] font-mono text-gray-500/80 leading-relaxed max-w-[200px] text-right pointer-events-none space-y-2">
+            <p class="text-purple-400 font-bold">STAGE STATUS</p>
+            <p>First Stage: S-IC Active</p>
+            <p>Second Stage: S-II Standby</p>
+            <p>Third Stage: S-IVB Ready</p>
+            <p>Thrust: 7,890,000 lbf</p>
         </div>
 
-        <!-- Center Brand & Password Form -->
+        <!-- Canvas for Particles (Smoke & Fire) -->
+        <canvas id="smokeCanvas" class="absolute inset-0 z-10 pointer-events-none w-full h-full"></canvas>
+
+        <!-- Top Header Banner (Purple Neon Box with ROCKET) -->
+        <div class="z-20 w-full max-w-2xl mt-4">
+            <div class="neon-purple-card rounded-2xl py-6 px-8 text-center flex flex-col items-center justify-center">
+                <div class="flex items-center justify-center gap-3">
+                    <span class="text-3xl md:text-5xl">🚀</span>
+                    <h1 class="text-4xl md:text-6xl font-black tracking-wider text-white font-orbitron drop-shadow-[0_0_20px_rgba(168,85,247,0.8)]">
+                        ROCKET
+                    </h1>
+                </div>
+            </div>
+        </div>
+
+        <!-- Center Key Entry Form Box -->
         <div class="z-20 w-full max-w-sm mx-auto text-center my-auto flex flex-col items-center">
-            
-            <h1 class="text-6xl md:text-8xl font-black tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-orange-300 to-accentFlame font-orbitron drop-shadow-[0_0_40px_rgba(0,240,255,0.6)] mb-1">
-                ROCKET
-            </h1>
-            <p class="text-xs text-cyan-300/80 tracking-[0.3em] font-mono uppercase mb-6">Plataforma de Servicios & Automatización 24/7</p>
-
-            <!-- Access Key Form -->
-            <div id="loginCard" class="w-full glass-panel p-6 rounded-2xl border border-cyan-500/30 shadow-2xl backdrop-blur-2xl relative overflow-hidden">
-                
-                <!-- Laser Scanner Line Effect -->
-                <div class="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-accentNeon to-transparent animate-pulse"></div>
-
+            <div id="loginCard" class="w-full glass-panel p-6 rounded-2xl border border-purple-500/40 shadow-2xl backdrop-blur-2xl relative overflow-hidden">
                 <form onsubmit="handleLaunch(event)" class="space-y-4">
                     <div class="text-left">
-                        <label for="accessKey" class="block text-xs font-mono font-semibold text-cyan-300 uppercase tracking-wider mb-2 flex items-center justify-between">
+                        <label for="accessKey" class="block text-xs font-mono font-semibold text-purple-300 uppercase tracking-wider mb-2 flex items-center justify-between">
                             <span>CLAVE DE ACCESO</span>
                             <span class="text-[10px] text-gray-400 font-normal">(Opcional)</span>
                         </label>
                         <div class="relative">
-                            <input type="password" id="accessKey" placeholder="••••••••" class="w-full bg-black/80 border border-cyan-500/30 focus:border-accentNeon text-accentNeon text-center font-mono tracking-widest text-lg rounded-xl py-3 px-4 outline-none transition-all placeholder:text-gray-700 focus:ring-2 focus:ring-accentNeon/50">
-                            <i data-lucide="shield-check" class="w-5 h-5 text-cyan-500/60 absolute left-3 top-3.5"></i>
+                            <input type="password" id="accessKey" placeholder="••••••••" class="w-full bg-black/80 border border-purple-500/30 focus:border-purple-400 text-purple-300 text-center font-mono tracking-widest text-lg rounded-xl py-3 px-4 outline-none transition-all placeholder:text-gray-700 focus:ring-2 focus:ring-purple-500/50">
+                            <i data-lucide="key-round" class="w-5 h-5 text-purple-400/60 absolute left-3 top-3.5"></i>
                         </div>
                     </div>
 
-                    <button type="submit" id="launchBtn" class="w-full bg-gradient-to-r from-accentFlame via-accentOrange to-amber-400 hover:from-amber-400 hover:to-accentFlame text-white font-orbitron font-black text-base py-4 rounded-xl shadow-[0_0_25px_rgba(255,51,0,0.5)] transition-all transform hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-3 tracking-wider">
+                    <button type="submit" id="launchBtn" class="w-full bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-800 hover:from-purple-500 hover:to-indigo-500 text-white font-orbitron font-black text-base py-4 rounded-xl shadow-[0_0_25px_rgba(168,85,247,0.5)] transition-all transform hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-3 tracking-wider">
                         <i data-lucide="rocket" class="w-5 h-5 animate-bounce"></i>
                         <span>DESPEGAR / ACCEDER</span>
                     </button>
@@ -167,32 +186,26 @@
             </div>
         </div>
 
-        <!-- Shuttle Real Image Mounted on Launch Pad -->
-        <div id="shuttleWrapper" class="relative z-20 w-full flex flex-col items-center justify-end h-64 md:h-80 pointer-events-none">
+        <!-- Shuttle / Logo Mounted Image -->
+        <div id="shuttleWrapper" class="relative z-20 w-full flex flex-col items-center justify-end h-56 md:h-72 pointer-events-none">
             
-            <!-- REAL PNG SHUTTLE IMAGE -->
             <div id="shuttleGraphic" class="relative transition-transform duration-300 flex flex-col items-center">
-                
-                <!-- Cutout Real Rocket Image -->
-                <img src="watermarked_img_15915677805175682810.jpg" id="shuttleImg" alt="Rocket Shuttle" class="w-48 md:w-60 h-auto object-contain shuttle-hologram">
+                <!-- Image File -->
+                <img src="ROCKET LOGO.jpg" id="shuttleImg" alt="ROCKET LOGO" class="w-40 md:w-52 h-auto object-contain shuttle-hologram rounded-xl">
 
-                <!-- Futurist Plasma / Fire Thruster Jets -->
-                <div id="shuttleFlames" class="opacity-0 transition-opacity duration-200 flex gap-4 -mt-3">
-                    <!-- Left Engine Flame -->
-                    <div class="w-4 h-16 bg-gradient-to-b from-cyan-300 via-orange-500 to-transparent rounded-full launch-flame"></div>
-                    <!-- Center Main Engine Flame -->
-                    <div class="w-6 h-24 bg-gradient-to-b from-white via-cyan-400 to-red-600 rounded-full launch-flame"></div>
-                    <!-- Right Engine Flame -->
-                    <div class="w-4 h-16 bg-gradient-to-b from-cyan-300 via-orange-500 to-transparent rounded-full launch-flame"></div>
+                <!-- Thruster Jet Flames -->
+                <div id="shuttleFlames" class="opacity-0 transition-opacity duration-200 flex gap-4 -mt-2">
+                    <div class="w-4 h-16 bg-gradient-to-b from-purple-400 via-orange-500 to-transparent rounded-full launch-flame"></div>
+                    <div class="w-6 h-24 bg-gradient-to-b from-white via-purple-300 to-red-600 rounded-full launch-flame"></div>
+                    <div class="w-4 h-16 bg-gradient-to-b from-purple-400 via-orange-500 to-transparent rounded-full launch-flame"></div>
                 </div>
-
             </div>
 
-            <!-- Futurism Base Platform -->
-            <div class="w-72 md:w-[28rem] h-5 bg-gradient-to-r from-gray-900 via-cyan-950 to-gray-900 rounded-t-lg border-t-2 border-cyan-400/60 shadow-[0_0_30px_rgba(0,240,255,0.3)] flex justify-between items-center px-4">
-                <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
-                <div class="w-3/4 h-1 bg-gradient-to-r from-transparent via-accentNeon to-transparent"></div>
-                <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
+            <!-- Base Structure Pad -->
+            <div class="w-72 md:w-[26rem] h-4 bg-gradient-to-r from-gray-900 via-purple-950 to-gray-900 rounded-t-lg border-t-2 border-purple-400/60 shadow-[0_0_30px_rgba(168,85,247,0.4)] flex justify-between items-center px-4">
+                <span class="w-2 h-2 rounded-full bg-purple-500 animate-ping"></span>
+                <div class="w-3/4 h-1 bg-gradient-to-r from-transparent via-purple-400 to-transparent"></div>
+                <span class="w-2 h-2 rounded-full bg-purple-500 animate-ping"></span>
             </div>
         </div>
     </div>
@@ -201,27 +214,27 @@
     <div id="mainDashboard" class="min-h-screen opacity-0 transition-opacity duration-1000 hidden">
         
         <!-- Navigation Header -->
-        <nav class="sticky top-0 z-40 glass-panel border-b border-cyan-500/20 px-6 py-4">
+        <nav class="sticky top-0 z-40 glass-panel border-b border-purple-500/20 px-6 py-4">
             <div class="max-w-7xl mx-auto flex justify-between items-center">
                 <!-- Logo -->
                 <div class="flex items-center gap-3">
-                    <div class="p-2 bg-gradient-to-br from-accentOrange to-accentFlame rounded-xl shadow-[0_0_15px_rgba(249,115,22,0.5)]">
+                    <div class="p-2 bg-gradient-to-br from-purple-600 to-indigo-700 rounded-xl shadow-[0_0_15px_rgba(168,85,247,0.5)]">
                         <i data-lucide="rocket" class="w-5 h-5 text-white"></i>
                     </div>
                     <span class="font-orbitron font-black text-2xl tracking-wider text-white">
-                        ROCKET<span class="text-accentNeon">.PE</span>
+                        ROCKET<span class="text-purple-400">.PE</span>
                     </span>
                 </div>
 
-                <!-- Desktop Navigation -->
+                <!-- Navigation -->
                 <div class="hidden md:flex items-center gap-8 text-sm font-semibold tracking-wide text-gray-300">
-                    <a href="#servicios" class="hover:text-accentNeon transition-colors">Servicios</a>
-                    <a href="#pagos" class="hover:text-accentNeon transition-colors">Pagos Yape</a>
-                    <a href="#bot-status" class="hover:text-accentNeon transition-colors">Estado del Bot</a>
-                    <a href="#contacto" class="hover:text-accentNeon transition-colors">Soporte</a>
+                    <a href="#servicios" class="hover:text-purple-400 transition-colors">Servicios</a>
+                    <a href="#pagos" class="hover:text-purple-400 transition-colors">Pagos Yape</a>
+                    <a href="#bot-status" class="hover:text-purple-400 transition-colors">Estado del Bot</a>
+                    <a href="#contacto" class="hover:text-purple-400 transition-colors">Soporte</a>
                 </div>
 
-                <!-- Live Bot Status Badge -->
+                <!-- Bot Status Badge -->
                 <div class="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/40 text-emerald-400 text-xs font-mono font-bold shadow-[0_0_10px_rgba(16,185,129,0.2)]">
                     <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
                     <span>BOT ACTIVO 24/7</span>
@@ -233,22 +246,22 @@
         <main class="max-w-7xl mx-auto px-6 py-12 space-y-20">
 
             <!-- Hero Section -->
-            <section class="relative rounded-3xl glass-panel p-8 md:p-12 overflow-hidden border border-cyan-500/30">
-                <div class="absolute -right-20 -bottom-20 w-96 h-96 bg-accentNeon/10 rounded-full blur-3xl pointer-events-none"></div>
+            <section class="relative rounded-3xl glass-panel p-8 md:p-12 overflow-hidden border border-purple-500/30">
+                <div class="absolute -right-20 -bottom-20 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none"></div>
                 
                 <div class="max-w-2xl relative z-10 space-y-6">
-                    <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono font-bold bg-cyan-500/10 text-accentNeon border border-cyan-500/30">
-                        <i data-lucide="cpu" class="w-3.5 h-3.5"></i> Validación Automatizada por IA
+                    <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono font-bold bg-purple-500/10 text-purple-300 border border-purple-500/30">
+                        <i data-lucide="cpu" class="w-3.5 h-3.5"></i> Verificación Automática por IA
                     </span>
                     <h2 class="text-3xl md:text-5xl font-black text-white leading-tight font-orbitron">
                         Servicios Digitales con <br/>
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-orange-300 to-amber-200">Confirmación Instantánea</span>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-300 to-amber-200">Confirmación Instantánea</span>
                     </h2>
                     <p class="text-gray-300 text-base leading-relaxed">
                         Selecciona el servicio que requieres, realiza tu Yape y envía el comprobante a nuestro bot de WhatsApp. El sistema procesará tu solicitud de inmediato.
                     </p>
                     <div class="flex flex-wrap gap-4 pt-2">
-                        <a href="#servicios" class="bg-gradient-to-r from-accentFlame via-accentOrange to-amber-500 hover:opacity-90 text-white font-bold px-7 py-3.5 rounded-xl shadow-[0_0_20px_rgba(249,115,22,0.4)] transition-all flex items-center gap-2 font-orbitron text-sm">
+                        <a href="#servicios" class="bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-800 hover:opacity-90 text-white font-bold px-7 py-3.5 rounded-xl shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all flex items-center gap-2 font-orbitron text-sm">
                             <span>Ver Servicios</span>
                             <i data-lucide="arrow-down" class="w-4 h-4"></i>
                         </a>
@@ -266,9 +279,9 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     
                     <!-- Service 1 -->
-                    <div class="glass-panel rounded-2xl p-6 flex flex-col justify-between hover:border-cyan-400/60 transition-all group">
+                    <div class="glass-panel rounded-2xl p-6 flex flex-col justify-between hover:border-purple-400/60 transition-all group">
                         <div class="space-y-4">
-                            <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-accentNeon group-hover:scale-110 transition-transform">
+                            <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 group-hover:scale-110 transition-transform">
                                 <i data-lucide="zap" class="w-6 h-6"></i>
                             </div>
                             <h4 class="text-xl font-bold text-white">Servicio Express Bot</h4>
@@ -281,7 +294,7 @@
                                 <span class="text-xs text-gray-400 font-mono">PRECIO:</span>
                                 <span class="text-3xl font-black text-white font-orbitron">S/ 20.00</span>
                             </div>
-                            <button onclick="selectService('Servicio Express Bot', '20.00')" class="w-full bg-white/10 hover:bg-accentOrange hover:text-white text-gray-200 font-bold py-3.5 rounded-xl border border-white/10 transition-all flex items-center justify-center gap-2 font-orbitron text-xs">
+                            <button onclick="selectService('Servicio Express Bot', '20.00')" class="w-full bg-white/10 hover:bg-purple-600 hover:text-white text-gray-200 font-bold py-3.5 rounded-xl border border-white/10 transition-all flex items-center justify-center gap-2 font-orbitron text-xs">
                                 <span>SOLICITAR</span>
                                 <i data-lucide="chevron-right" class="w-4 h-4"></i>
                             </button>
@@ -289,12 +302,12 @@
                     </div>
 
                     <!-- Service 2 (Featured) -->
-                    <div class="glass-panel rounded-2xl p-6 flex flex-col justify-between border-accentOrange/70 relative group shadow-[0_0_30px_rgba(249,115,22,0.25)]">
-                        <span class="absolute -top-3 right-6 bg-gradient-to-r from-accentFlame to-accentOrange text-white text-[10px] font-black font-mono px-3 py-1 rounded-full uppercase tracking-widest shadow-md">
+                    <div class="glass-panel rounded-2xl p-6 flex flex-col justify-between border-purple-500/80 relative group shadow-[0_0_30px_rgba(168,85,247,0.25)]">
+                        <span class="absolute -top-3 right-6 bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-[10px] font-black font-mono px-3 py-1 rounded-full uppercase tracking-widest shadow-md">
                             RECOMENDADO
                         </span>
                         <div class="space-y-4">
-                            <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 group-hover:scale-110 transition-transform">
+                            <div class="w-12 h-12 rounded-xl bg-purple-500/20 border border-purple-400/40 flex items-center justify-center text-purple-300 group-hover:scale-110 transition-transform">
                                 <i data-lucide="shield-check" class="w-6 h-6"></i>
                             </div>
                             <h4 class="text-xl font-bold text-white">Pack Pro Completo</h4>
@@ -307,7 +320,7 @@
                                 <span class="text-xs text-gray-400 font-mono">PRECIO:</span>
                                 <span class="text-3xl font-black text-white font-orbitron">S/ 45.00</span>
                             </div>
-                            <button onclick="selectService('Pack Pro Completo', '45.00')" class="w-full bg-gradient-to-r from-accentFlame to-accentOrange hover:opacity-90 text-white font-bold py-3.5 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 font-orbitron text-xs">
+                            <button onclick="selectService('Pack Pro Completo', '45.00')" class="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:opacity-90 text-white font-bold py-3.5 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 font-orbitron text-xs">
                                 <span>SOLICITAR</span>
                                 <i data-lucide="chevron-right" class="w-4 h-4"></i>
                             </button>
@@ -315,9 +328,9 @@
                     </div>
 
                     <!-- Service 3 -->
-                    <div class="glass-panel rounded-2xl p-6 flex flex-col justify-between hover:border-cyan-400/60 transition-all group">
+                    <div class="glass-panel rounded-2xl p-6 flex flex-col justify-between hover:border-purple-400/60 transition-all group">
                         <div class="space-y-4">
-                            <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-accentNeon group-hover:scale-110 transition-transform">
+                            <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 group-hover:scale-110 transition-transform">
                                 <i data-lucide="sparkles" class="w-6 h-6"></i>
                             </div>
                             <h4 class="text-xl font-bold text-white">Desarrollo Custom</h4>
@@ -330,7 +343,7 @@
                                 <span class="text-xs text-gray-400 font-mono">PRECIO:</span>
                                 <span class="text-3xl font-black text-white font-orbitron">S/ 80.00</span>
                             </div>
-                            <button onclick="selectService('Desarrollo Custom', '80.00')" class="w-full bg-white/10 hover:bg-accentOrange hover:text-white text-gray-200 font-bold py-3.5 rounded-xl border border-white/10 transition-all flex items-center justify-center gap-2 font-orbitron text-xs">
+                            <button onclick="selectService('Desarrollo Custom', '80.00')" class="w-full bg-white/10 hover:bg-purple-600 hover:text-white text-gray-200 font-bold py-3.5 rounded-xl border border-white/10 transition-all flex items-center justify-center gap-2 font-orbitron text-xs">
                                 <span>SOLICITAR</span>
                                 <i data-lucide="chevron-right" class="w-4 h-4"></i>
                             </button>
@@ -419,13 +432,13 @@
 
                 <!-- Support Card -->
                 <div class="glass-panel p-6 rounded-2xl border border-white/10 flex items-center gap-5" id="contacto">
-                    <div class="w-12 h-12 rounded-xl bg-orange-500/20 text-accentOrange flex items-center justify-center shrink-0">
+                    <div class="w-12 h-12 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center shrink-0">
                         <i data-lucide="headphones" class="w-6 h-6"></i>
                     </div>
                     <div>
                         <h4 class="font-bold text-white font-orbitron text-sm mb-1">Atención Personalizada</h4>
                         <p class="text-xs text-gray-400">¿Tienes dudas sobre la configuración o tu servicio?</p>
-                        <a href="https://wa.me/51987654321" target="_blank" class="text-xs text-accentNeon hover:underline font-mono mt-1 inline-block">Hablar con Soporte Humano →</a>
+                        <a href="https://wa.me/51987654321" target="_blank" class="text-xs text-purple-400 hover:underline font-mono mt-1 inline-block">Hablar con Soporte Humano →</a>
                     </div>
                 </div>
             </section>
@@ -467,15 +480,15 @@
                     this.vx = (Math.random() - 0.5) * 8;
                     this.vy = Math.random() * 10 + 6;
                     this.size = Math.random() * 14 + 6;
-                    this.color = ['#ff3300', '#f97316', '#00f0ff', '#ffffff'][Math.floor(Math.random() * 4)];
+                    this.color = ['#a855f7', '#ff3300', '#facc15', '#ffffff'][Math.floor(Math.random() * 4)];
                     this.life = 1;
                     this.decay = Math.random() * 0.04 + 0.03;
                 } else {
-                    // Futuristic Smoke
+                    // Futuristic Purple Smoke
                     this.vx = (Math.random() - 0.5) * 12;
                     this.vy = Math.random() * 3 + 1;
                     this.size = Math.random() * 30 + 20;
-                    this.color = 'rgba(0, 240, 255, 0.15)';
+                    this.color = 'rgba(168, 85, 247, 0.15)';
                     this.life = 1;
                     this.decay = Math.random() * 0.012 + 0.006;
                 }
@@ -492,7 +505,7 @@
                 ctx.save();
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fillStyle = this.isFire ? this.color : `rgba(180, 210, 240, ${this.life * 0.25})`;
+                ctx.fillStyle = this.isFire ? this.color : `rgba(200, 160, 245, ${this.life * 0.25})`;
                 ctx.fill();
                 ctx.restore();
             }
@@ -507,7 +520,6 @@
                 const originX = rect.left + rect.width / 2;
                 const originY = rect.bottom - 40;
 
-                // Emit Plasma Thruster particles
                 for (let i = 0; i < 8; i++) {
                     particles.push(new Particle(originX + (Math.random() - 0.5) * 40, originY, true));
                     particles.push(new Particle(originX + (Math.random() - 0.5) * 60, originY, false));
