@@ -1,663 +1,267 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ROCKET</title>
-    <!-- Tailwind CSS CDN -->
+    <title>ROCKET - Cargando...</title>
+    <!-- Font Awesome para iconos si se requiere -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        spaceBg: '#020307',
-                        cardBg: '#080c16',
-                        neonPurple: '#a855f7',
-                        neonBlue: '#3b82f6',
-                        accentFlame: '#ff3300',
-                        yapePurple: '#710193',
-                        yapeTeal: '#00d0b7'
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    }
-                }
-            }
-        }
-    </script>
+
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;800;900&family=Inter:wght@400;600;700&display=swap');
-
         body {
-            background-color: #020307;
-            color: #f3f4f6;
-            overflow-x: hidden;
             font-family: 'Inter', sans-serif;
-        }
-
-        .font-orbitron {
-            font-family: 'Orbitron', sans-serif;
-        }
-
-        /* Screen Shake Vibration during Launch */
-        @keyframes rumble {
-            0% { transform: translate(0, 0) rotate(0deg); }
-            10% { transform: translate(-4px, -5px) rotate(-1deg); }
-            20% { transform: translate(5px, 3px) rotate(1deg); }
-            30% { transform: translate(-5px, 4px) rotate(-1.5deg); }
-            40% { transform: translate(4px, -3px) rotate(1.5deg); }
-            50% { transform: translate(-3px, 5px) rotate(-1deg); }
-            60% { transform: translate(5px, 3px) rotate(1deg); }
-            70% { transform: translate(-4px, -4px) rotate(-1.5deg); }
-            80% { transform: translate(4px, 5px) rotate(1deg); }
-            90% { transform: translate(-3px, -3px) rotate(0deg); }
-            100% { transform: translate(0, 0) rotate(0deg); }
-        }
-
-        .rumbling {
-            animation: rumble 0.08s infinite;
-        }
-
-        /* Ambient Hero Box Frame (Glowing Border & Ambient Background) */
-        .neon-purple-card {
-            position: relative;
-            background: linear-gradient(135deg, rgba(20, 10, 35, 0.9) 0%, rgba(10, 15, 40, 0.85) 100%);
-            backdrop-filter: blur(20px);
-            border: 2px solid rgba(168, 85, 247, 0.8);
-            box-shadow: 0 0 40px rgba(168, 85, 247, 0.35), inset 0 0 25px rgba(168, 85, 247, 0.15);
+            background-color: #0b0612;
+            color: #ffffff;
             overflow: hidden;
         }
 
-        /* Custom Background Image Overlay inside Title Box */
-        .hero-bg-overlay {
-            position: absolute;
-            inset: 0;
-            background-image: radial-gradient(circle at center, rgba(59, 130, 246, 0.2), transparent 70%);
-            opacity: 0.6;
-            pointer-events-none: none;
+        /* Fondo principal con efecto de desenfoque y viñeta */
+        .bg-cyberpunk {
+            background-image: 
+                radial-gradient(circle at center, rgba(38, 16, 62, 0.7) 0%, rgba(11, 6, 18, 0.95) 100%),
+                url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
         }
 
-        /* Glassmorphism Panels */
-        .glass-panel {
-            background: rgba(8, 12, 22, 0.85);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(168, 85, 247, 0.3);
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+        /* Resplandor Neón Morado / Púrpura */
+        .neon-box {
+            background: rgba(18, 10, 31, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1.5px solid rgba(168, 85, 247, 0.6);
+            box-shadow: 
+                0 0 15px rgba(168, 85, 247, 0.3),
+                inset 0 0 15px rgba(168, 85, 247, 0.2);
+            transition: all 0.3s ease;
         }
 
-        .glass-panel:hover {
-            border-color: rgba(168, 85, 247, 0.7);
-            box-shadow: 0 0 40px rgba(168, 85, 247, 0.3);
+        .neon-box:hover {
+            box-shadow: 
+                0 0 25px rgba(168, 85, 247, 0.5),
+                inset 0 0 20px rgba(168, 85, 247, 0.3);
+            border-color: rgba(192, 132, 252, 0.9);
         }
 
-        /* Engine Plasma Flame Pulse */
-        @keyframes plasmaPulse {
-            0% { transform: scaleY(1) scaleX(1); opacity: 0.9; filter: drop-shadow(0 0 15px #a855f7); }
-            50% { transform: scaleY(1.6) scaleX(1.2); opacity: 1; filter: drop-shadow(0 0 35px #ff3300); }
-            100% { transform: scaleY(1.2) scaleX(0.95); opacity: 0.85; filter: drop-shadow(0 0 20px #3b82f6); }
+        /* Texto brillante de neón */
+        .neon-text-white {
+            text-shadow: 
+                0 0 5px rgba(255, 255, 255, 0.8),
+                0 0 10px rgba(255, 255, 255, 0.5),
+                0 0 20px rgba(168, 85, 247, 0.8),
+                0 0 35px rgba(168, 85, 247, 0.6);
         }
 
-        .launch-flame {
-            animation: plasmaPulse 0.06s infinite alternate;
+        /* Barra de carga animada */
+        .progress-bar-fill {
+            background: linear-gradient(90deg, #a855f7, #ec4899, #c084fc);
+            box-shadow: 0 0 12px rgba(168, 85, 247, 0.8);
+            transition: width 0.05s linear;
         }
 
-        /* Rocket Launch Path */
-        .shuttle-launching {
-            transition: transform 3.8s cubic-bezier(0.15, 0.85, 0.35, 1.2);
-            transform: translateY(-180vh) scale(0.6) !important;
+        /* Imagen de fondo dentro de la tarjeta */
+        .card-bg-girl {
+            background-image: 
+                linear-gradient(180deg, rgba(18, 10, 31, 0.7) 0%, rgba(18, 10, 31, 0.85) 100%),
+                url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center 30%;
         }
 
-        .shuttle-drop-shadow {
-            filter: drop-shadow(0 0 30px rgba(168, 85, 247, 0.5)) drop-shadow(0 20px 40px rgba(255, 51, 0, 0.4));
+        /* Animación de entrada suave */
+        @keyframes fadeInScale {
+            0% {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
+        .animate-fade-in {
+            animation: fadeInScale 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
-        ::-webkit-scrollbar-track {
-            background: #020307;
+
+        /* Animación de pulso para el logo */
+        @keyframes subtlePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.03); }
         }
-        ::-webkit-scrollbar-thumb {
-            background: #1e1b2e;
-            border-radius: 4px;
-            border: 1px solid rgba(168, 85, 247, 0.4);
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #a855f7;
+
+        .rocket-bounce {
+            animation: subtlePulse 2s infinite ease-in-out;
         }
     </style>
 </head>
-<body class="antialiased selection:bg-purple-600 selection:text-white">
+<body class="bg-cyberpunk min-h-screen flex flex-col items-center justify-center p-4 relative">
 
-    <!-- INTRO LANDING / LAUNCH PAD SCREEN -->
-    <div id="introScreen" class="fixed inset-0 z-50 flex flex-col justify-between items-center px-4 py-8 overflow-hidden bg-[#020307] transition-opacity duration-1000">
+    <div id="splash-container" class="w-full max-w-3xl flex flex-col items-center z-10 animate-fade-in">
         
-        <!-- Technical Grid & Ambient Lighting Backdrop -->
-        <div class="absolute inset-0 opacity-40 pointer-events-none" style="background-image: radial-gradient(1px 1px at 30px 40px, #ffffff, rgba(0,0,0,0)), radial-gradient(1.5px 1.5px at 160px 220px, #a855f7, rgba(0,0,0,0)), linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 200px 200px, 300px 300px, 50px 50px, 50px 50px;"></div>
-
-        <!-- Ambient Glow Spheres (Colors from Image 3) -->
-        <div class="absolute w-[600px] h-[600px] rounded-full bg-purple-900/20 blur-[120px] top-10 left-1/2 -translate-x-1/2 pointer-events-none"></div>
-        <div class="absolute w-[450px] h-[450px] rounded-full bg-blue-900/15 blur-[100px] bottom-10 left-1/2 -translate-x-1/2 pointer-events-none"></div>
-
-        <!-- Side Technical Specs -->
-        <div class="hidden lg:block absolute left-8 top-12 text-[10px] font-mono text-gray-500/80 leading-relaxed max-w-[200px] pointer-events-none space-y-2">
-            <p class="text-purple-400 font-bold tracking-widest">SYSTEM SPECIFICATIONS</p>
-            <p>Manufacturer: ROCKET OSINT</p>
-            <p>Class: Orbital Launch Vehicle</p>
-            <p>Status: Standby / Ready</p>
-            <p>Payload: Digital Automation</p>
-        </div>
-        <div class="hidden lg:block absolute right-8 top-12 text-[10px] font-mono text-gray-500/80 leading-relaxed max-w-[200px] text-right pointer-events-none space-y-2">
-            <p class="text-purple-400 font-bold tracking-widest">STAGE STATUS</p>
-            <p>First Stage: S-IC Active</p>
-            <p>Second Stage: S-II Standby</p>
-            <p>Third Stage: S-IVB Ready</p>
-            <p>Thrust: 7,890,000 lbf</p>
-        </div>
-
-        <!-- Canvas for Dynamic Smoke and Fire Particle Physics -->
-        <canvas id="smokeCanvas" class="absolute inset-0 z-10 pointer-events-none w-full h-full"></canvas>
-
-        <!-- TOP ENLARGED HERO TITLE BOX (Clean "ROCKET") -->
-        <div class="z-20 w-full max-w-3xl mt-4 px-2">
-            <div class="neon-purple-card rounded-2xl py-8 md:py-12 px-8 text-center flex flex-col items-center justify-center">
-                
-                <!-- Background Image Layer (Ready for custom photo) -->
-                <div class="hero-bg-overlay"></div>
-
-                <h1 class="relative z-10 text-5xl md:text-8xl font-black tracking-[0.2em] text-transparent bg-clip-text bg-gradient-to-r from-white via-purple-200 to-purple-400 font-orbitron drop-shadow-[0_0_30px_rgba(168,85,247,0.8)]">
-                    ROCKET
-                </h1>
-            </div>
-        </div>
-
-        <!-- Center Access Key Card -->
-        <div class="z-20 w-full max-w-sm mx-auto text-center my-auto flex flex-col items-center">
-            <div id="loginCard" class="w-full glass-panel p-6 rounded-2xl border border-purple-500/40 shadow-2xl backdrop-blur-2xl relative overflow-hidden">
-                <form onsubmit="handleLaunch(event)" class="space-y-4">
-                    <div class="text-left">
-                        <label for="accessKey" class="block text-xs font-mono font-semibold text-purple-300 uppercase tracking-wider mb-2 flex items-center justify-between">
-                            <span>CLAVE DE ACCESO</span>
-                            <span class="text-[10px] text-gray-400 font-normal">(OPCIONAL)</span>
-                        </label>
-                        <div class="relative">
-                            <input type="password" id="accessKey" placeholder="••••••••" class="w-full bg-black/80 border border-purple-500/30 focus:border-purple-400 text-purple-300 text-center font-mono tracking-widest text-lg rounded-xl py-3.5 px-4 outline-none transition-all placeholder:text-gray-700 focus:ring-2 focus:ring-purple-500/50">
-                            <i data-lucide="key-round" class="w-5 h-5 text-purple-400/60 absolute left-3 top-4"></i>
-                        </div>
-                    </div>
-
-                    <button type="submit" id="launchBtn" class="w-full bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-800 hover:from-purple-500 hover:to-indigo-500 text-white font-orbitron font-black text-base py-4 rounded-xl shadow-[0_0_25px_rgba(168,85,247,0.5)] transition-all transform hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-3 tracking-wider">
-                        <i data-lucide="rocket" class="w-5 h-5 animate-bounce"></i>
-                        <span>DESPEGAR / ACCEDER</span>
-                    </button>
-                </form>
-            </div>
-        </div>
-
-        <!-- ULTRA-CLEAN 3D SVG VECTOR SHUTTLE (Zero Background Lines/Artifacts) -->
-        <div id="shuttleWrapper" class="relative z-20 w-full flex flex-col items-center justify-end h-64 md:h-80 pointer-events-none">
+        <!-- Tarjeta Principal con Neon y Chica de Fondo -->
+        <div class="card-bg-girl neon-box rounded-2xl p-8 sm:p-10 w-full text-center relative overflow-hidden mb-8">
             
-            <div id="shuttleGraphic" class="relative transition-transform duration-300 flex flex-col items-center">
+            <!-- Contenido de la Tarjeta -->
+            <div class="relative z-10 flex flex-col items-center justify-center">
                 
-                <!-- Realistic Space Shuttle Vector Graphic -->
-                <svg class="w-44 h-56 md:w-56 md:h-72 shuttle-drop-shadow" viewBox="0 0 200 260" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <!-- Fuel Tank Gradients -->
-                        <linearGradient id="tankGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" stop-color="#b45309" />
-                            <stop offset="50%" stop-color="#f59e0b" />
-                            <stop offset="100%" stop-color="#92400e" />
-                        </linearGradient>
-                        <!-- Booster Gradients -->
-                        <linearGradient id="boosterGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" stop-color="#cbd5e1" />
-                            <stop offset="50%" stop-color="#ffffff" />
-                            <stop offset="100%" stop-color="#64748b" />
-                        </linearGradient>
-                        <!-- Orbiter Shuttle Gradients -->
-                        <linearGradient id="orbiterGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" stop-color="#e2e8f0" />
-                            <stop offset="40%" stop-color="#ffffff" />
-                            <stop offset="100%" stop-color="#94a3b8" />
-                        </linearGradient>
-                    </defs>
-
-                    <!-- Center Orange External Fuel Tank -->
-                    <path d="M100 15 C88 35 88 190 88 200 C88 205 112 205 112 200 C112 190 112 35 100 15 Z" fill="url(#tankGrad)" stroke="#78350f" stroke-width="1.5"/>
-                    <path d="M100 15 L100 202" stroke="#fef3c7" stroke-width="1" opacity="0.4"/>
-
-                    <!-- Left Solid Rocket Booster -->
-                    <path d="M72 45 C72 30 82 30 82 45 L82 210 L72 210 Z" fill="url(#boosterGrad)" stroke="#475569" stroke-width="1"/>
-                    <path d="M72 35 L77 20 L82 35 Z" fill="#dc2626"/>
-
-                    <!-- Right Solid Rocket Booster -->
-                    <path d="M118 45 C118 30 128 30 128 45 L128 210 L118 210 Z" fill="url(#boosterGrad)" stroke="#475569" stroke-width="1"/>
-                    <path d="M118 35 L123 20 L128 35 Z" fill="#dc2626"/>
-
-                    <!-- Main Space Shuttle Orbiter Body -->
-                    <path d="M100 50 C86 90 86 160 50 195 L150 195 C114 160 114 90 100 50 Z" fill="url(#orbiterGrad)" stroke="#334155" stroke-width="1.5"/>
-                    
-                    <!-- Wing Thermal Tiles (Black Edges) -->
-                    <path d="M50 195 L70 160 L70 195 Z" fill="#0f172a"/>
-                    <path d="M150 195 L130 160 L130 195 Z" fill="#0f172a"/>
-                    
-                    <!-- Cockpit Nose & Windows -->
-                    <path d="M100 50 C96 60 96 68 100 70 C104 68 104 60 100 50 Z" fill="#090d16"/>
-                    <path d="M93 75 L107 75 L104 80 L96 80 Z" fill="#1e293b"/>
-
-                    <!-- Vertical Tail Stabilizer -->
-                    <path d="M97 140 L103 140 L101 190 L99 190 Z" fill="#ffffff" stroke="#64748b"/>
-                </svg>
-
-                <!-- Thruster Jet Plasma Flames -->
-                <div id="shuttleFlames" class="opacity-0 transition-opacity duration-200 flex gap-4 -mt-3">
-                    <div class="w-4 h-16 bg-gradient-to-b from-purple-400 via-orange-500 to-transparent rounded-full launch-flame"></div>
-                    <div class="w-6 h-24 bg-gradient-to-b from-white via-purple-300 to-red-600 rounded-full launch-flame"></div>
-                    <div class="w-4 h-16 bg-gradient-to-b from-purple-400 via-orange-500 to-transparent rounded-full launch-flame"></div>
+                <!-- Encabezado con Cohete y Título ROCKET -->
+                <div class="flex items-center justify-center gap-3 mb-3">
+                    <span class="text-3xl sm:text-5xl rocket-bounce" role="img" aria-label="rocket">🚀</span>
+                    <h1 class="text-4xl sm:text-6xl font-black tracking-widest text-white neon-text-white uppercase">
+                        ROCKET
+                    </h1>
                 </div>
 
+                <!-- Subtítulo / Descripción -->
+                <p class="text-xs sm:text-sm md:text-base text-gray-200 font-medium max-w-xl leading-relaxed tracking-wide opacity-90 drop-shadow-md">
+                    Plataforma Integral de Servicios Digitales, Inteligencia OSINT & Soluciones Académicas
+                </p>
+            </div>
+            
+            <!-- Resplandor ambiental inferior dentro del cuadro -->
+            <div class="absolute -bottom-10 left-1/2 -translate-x-1/2 w-3/4 h-20 bg-purple-600/20 blur-2xl rounded-full pointer-events-none"></div>
+        </div>
+
+        <!-- Sección de Carga Inferior -->
+        <div class="w-full max-w-md flex flex-col items-center space-y-3">
+            
+            <!-- Barra de Progreso -->
+            <div class="w-full bg-purple-950/60 border border-purple-500/30 rounded-full h-2.5 overflow-hidden p-0.5 backdrop-blur-sm shadow-inner">
+                <div id="progress-bar" class="progress-bar-fill h-full rounded-full w-0"></div>
             </div>
 
-            <!-- Base Structure Pad -->
-            <div class="w-72 md:w-[28rem] h-4 bg-gradient-to-r from-gray-900 via-purple-950 to-gray-900 rounded-t-lg border-t-2 border-purple-400/60 shadow-[0_0_30px_rgba(168,85,247,0.4)] flex justify-between items-center px-4">
-                <span class="w-2 h-2 rounded-full bg-purple-500 animate-ping"></span>
-                <div class="w-3/4 h-1 bg-gradient-to-r from-transparent via-purple-400 to-transparent"></div>
-                <span class="w-2 h-2 rounded-full bg-purple-500 animate-ping"></span>
+            <!-- Texto de Carga y Porcentaje -->
+            <div class="flex items-center justify-between w-full text-xs font-semibold tracking-wider text-purple-300/80 px-1">
+                <div class="flex items-center space-x-2">
+                    <svg class="animate-spin h-3.5 w-3.5 text-purple-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    <span id="loading-text">Cargando...</span>
+                </div>
+                <span id="progress-percentage" class="font-mono text-purple-400">0%</span>
             </div>
         </div>
     </div>
 
-    <!-- MAIN DASHBOARD APP (Revealed After Launch) -->
-    <div id="mainDashboard" class="min-h-screen opacity-0 transition-opacity duration-1000 hidden">
-        
-        <!-- Navigation Header -->
-        <nav class="sticky top-0 z-40 glass-panel border-b border-purple-500/20 px-6 py-4">
-            <div class="max-w-7xl mx-auto flex justify-between items-center">
-                <!-- Logo -->
-                <div class="flex items-center gap-3">
-                    <div class="p-2 bg-gradient-to-br from-purple-600 to-indigo-700 rounded-xl shadow-[0_0_15px_rgba(168,85,247,0.5)]">
-                        <i data-lucide="rocket" class="w-5 h-5 text-white"></i>
-                    </div>
-                    <span class="font-orbitron font-black text-2xl tracking-wider text-white">
-                        ROCKET<span class="text-purple-400">.PE</span>
-                    </span>
-                </div>
-
-                <!-- Navigation -->
-                <div class="hidden md:flex items-center gap-8 text-sm font-semibold tracking-wide text-gray-300">
-                    <a href="#servicios" class="hover:text-purple-400 transition-colors">Servicios</a>
-                    <a href="#pagos" class="hover:text-purple-400 transition-colors">Pagos Yape</a>
-                    <a href="#bot-status" class="hover:text-purple-400 transition-colors">Estado del Bot</a>
-                    <a href="#contacto" class="hover:text-purple-400 transition-colors">Soporte</a>
-                </div>
-
-                <!-- Bot Status Badge -->
-                <div class="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/40 text-emerald-400 text-xs font-mono font-bold shadow-[0_0_10px_rgba(16,185,129,0.2)]">
-                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                    <span>BOT ACTIVO 24/7</span>
-                </div>
-            </div>
-        </nav>
-
-        <!-- Main Content -->
-        <main class="max-w-7xl mx-auto px-6 py-12 space-y-20">
-
-            <!-- Hero Section -->
-            <section class="relative rounded-3xl glass-panel p-8 md:p-12 overflow-hidden border border-purple-500/30">
-                <div class="absolute -right-20 -bottom-20 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none"></div>
-                
-                <div class="max-w-2xl relative z-10 space-y-6">
-                    <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono font-bold bg-purple-500/10 text-purple-300 border border-purple-500/30">
-                        <i data-lucide="cpu" class="w-3.5 h-3.5"></i> Verificación Automática por IA
-                    </span>
-                    <h2 class="text-3xl md:text-5xl font-black text-white leading-tight font-orbitron">
-                        Servicios Digitales con <br/>
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-300 to-amber-200">Confirmación Instantánea</span>
-                    </h2>
-                    <p class="text-gray-300 text-base leading-relaxed">
-                        Selecciona el servicio que requieres, realiza tu Yape y envía el comprobante a nuestro bot de WhatsApp. El sistema procesará tu solicitud de inmediato.
-                    </p>
-                    <div class="flex flex-wrap gap-4 pt-2">
-                        <a href="#servicios" class="bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-800 hover:opacity-90 text-white font-bold px-7 py-3.5 rounded-xl shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all flex items-center gap-2 font-orbitron text-sm">
-                            <span>Ver Servicios</span>
-                            <i data-lucide="arrow-down" class="w-4 h-4"></i>
-                        </a>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Services Catalog -->
-            <section id="servicios" class="space-y-8">
-                <div>
-                    <h3 class="text-2xl md:text-4xl font-black text-white font-orbitron tracking-wide">Catálogo de Servicios</h3>
-                    <p class="text-gray-400 text-sm font-mono mt-1">Elige la solución que deseas activar</p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    
-                    <!-- Service 1 -->
-                    <div class="glass-panel rounded-2xl p-6 flex flex-col justify-between hover:border-purple-400/60 transition-all group">
-                        <div class="space-y-4">
-                            <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 group-hover:scale-110 transition-transform">
-                                <i data-lucide="zap" class="w-6 h-6"></i>
-                            </div>
-                            <h4 class="text-xl font-bold text-white">Servicio Express Bot</h4>
-                            <p class="text-gray-400 text-sm leading-relaxed">
-                                Procesamiento de solicitudes rápidas, consultas automáticas y respuestas de prioridad en menos de 5 minutos.
-                            </p>
-                        </div>
-                        <div class="pt-6 border-t border-white/10 mt-6 space-y-4">
-                            <div class="flex justify-between items-baseline">
-                                <span class="text-xs text-gray-400 font-mono">PRECIO:</span>
-                                <span class="text-3xl font-black text-white font-orbitron">S/ 20.00</span>
-                            </div>
-                            <button onclick="selectService('Servicio Express Bot', '20.00')" class="w-full bg-white/10 hover:bg-purple-600 hover:text-white text-gray-200 font-bold py-3.5 rounded-xl border border-white/10 transition-all flex items-center justify-center gap-2 font-orbitron text-xs">
-                                <span>SOLICITAR</span>
-                                <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Service 2 (Featured) -->
-                    <div class="glass-panel rounded-2xl p-6 flex flex-col justify-between border-purple-500/80 relative group shadow-[0_0_30px_rgba(168,85,247,0.25)]">
-                        <span class="absolute -top-3 right-6 bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-[10px] font-black font-mono px-3 py-1 rounded-full uppercase tracking-widest shadow-md">
-                            RECOMENDADO
-                        </span>
-                        <div class="space-y-4">
-                            <div class="w-12 h-12 rounded-xl bg-purple-500/20 border border-purple-400/40 flex items-center justify-center text-purple-300 group-hover:scale-110 transition-transform">
-                                <i data-lucide="shield-check" class="w-6 h-6"></i>
-                            </div>
-                            <h4 class="text-xl font-bold text-white">Pack Pro Completo</h4>
-                            <p class="text-gray-400 text-sm leading-relaxed">
-                                Acceso total a la plataforma de automatizaciones, integración con tu WhatsApp y soporte técnico preferencial.
-                            </p>
-                        </div>
-                        <div class="pt-6 border-t border-white/10 mt-6 space-y-4">
-                            <div class="flex justify-between items-baseline">
-                                <span class="text-xs text-gray-400 font-mono">PRECIO:</span>
-                                <span class="text-3xl font-black text-white font-orbitron">S/ 45.00</span>
-                            </div>
-                            <button onclick="selectService('Pack Pro Completo', '45.00')" class="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:opacity-90 text-white font-bold py-3.5 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 font-orbitron text-xs">
-                                <span>SOLICITAR</span>
-                                <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Service 3 -->
-                    <div class="glass-panel rounded-2xl p-6 flex flex-col justify-between hover:border-purple-400/60 transition-all group">
-                        <div class="space-y-4">
-                            <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 group-hover:scale-110 transition-transform">
-                                <i data-lucide="sparkles" class="w-6 h-6"></i>
-                            </div>
-                            <h4 class="text-xl font-bold text-white">Desarrollo Custom</h4>
-                            <p class="text-gray-400 text-sm leading-relaxed">
-                                Configuración a medida de soluciones digitales, automatización de flujos y soporte dedicado personal.
-                            </p>
-                        </div>
-                        <div class="pt-6 border-t border-white/10 mt-6 space-y-4">
-                            <div class="flex justify-between items-baseline">
-                                <span class="text-xs text-gray-400 font-mono">PRECIO:</span>
-                                <span class="text-3xl font-black text-white font-orbitron">S/ 80.00</span>
-                            </div>
-                            <button onclick="selectService('Desarrollo Custom', '80.00')" class="w-full bg-white/10 hover:bg-purple-600 hover:text-white text-gray-200 font-bold py-3.5 rounded-xl border border-white/10 transition-all flex items-center justify-center gap-2 font-orbitron text-xs">
-                                <span>SOLICITAR</span>
-                                <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-
-            <!-- YAPE PAYMENT SECTION -->
-            <section id="pagos" class="glass-panel rounded-3xl p-8 md:p-12 border border-purple-500/40 relative overflow-hidden shadow-[0_0_40px_rgba(113,1,147,0.2)]">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-                    
-                    <div class="space-y-6">
-                        <div class="inline-flex items-center gap-2 bg-yapePurple text-white px-3.5 py-1 rounded-full text-xs font-bold font-mono">
-                            <span class="w-2 h-2 rounded-full bg-yapeTeal"></span>
-                            PAGOS OFICIALES YAPE PERÚ
-                        </div>
-                        <h3 class="text-3xl font-black text-white font-orbitron">Instrucciones de Pago</h3>
-                        
-                        <ol class="space-y-4 text-sm text-gray-300 font-medium">
-                            <li class="flex items-start gap-3">
-                                <span class="w-6 h-6 rounded-full bg-yapePurple text-yapeTeal flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">1</span>
-                                <span>Escanea el QR o copia el número celular registrado abajo.</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="w-6 h-6 rounded-full bg-yapePurple text-yapeTeal flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">2</span>
-                                <span>Realiza el Yape por el monto exacto del servicio elegido.</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="w-6 h-6 rounded-full bg-yapePurple text-yapeTeal flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">3</span>
-                                <span>Toma una captura limpia del comprobante emitido.</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="w-6 h-6 rounded-full bg-yapePurple text-yapeTeal flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">4</span>
-                                <span>Presiona <strong>"Enviar Comprobante al Bot"</strong> para la activación automática por WhatsApp.</span>
-                            </li>
-                        </ol>
-
-                        <!-- Copyable Yape Phone Number -->
-                        <div class="bg-black/70 p-4 rounded-xl border border-yapePurple/40 flex items-center justify-between">
-                            <div>
-                                <span class="text-[10px] text-gray-400 block font-mono">NÚMERO DE YAPE:</span>
-                                <span id="yapeNum" class="text-2xl font-mono font-bold text-yapeTeal">987 654 321</span>
-                                <span class="text-[11px] text-gray-500 block">Titular: ROCKET DIGITAL S.A.C.</span>
-                            </div>
-                            <button onclick="copyYapeNumber()" class="bg-yapePurple/40 hover:bg-yapePurple text-white px-4 py-2.5 rounded-lg text-xs font-mono border border-yapeTeal/30 transition-all flex items-center gap-1.5">
-                                <i data-lucide="copy" class="w-4 h-4"></i>
-                                <span id="copyBtnText">Copiar</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- QR Box -->
-                    <div class="flex flex-col items-center justify-center bg-cardBg/90 p-8 rounded-2xl border border-white/10 text-center shadow-2xl">
-                        <div class="bg-white p-4 rounded-2xl shadow-[0_0_25px_rgba(0,208,183,0.3)] mb-4">
-                            <img src="https://placehold.co/220x220/710193/ffffff?text=QR+YAPE+ROCKET" alt="QR Yape" class="rounded-lg">
-                        </div>
-                        <p class="text-xs text-gray-400 font-mono mb-6">Soporta pagos con Yape y BCP</p>
-                        
-                        <a id="botWhatsappBtn" href="https://wa.me/51987654321?text=Hola%20ROCKET,%20aqu%C3%AD%20tengo%20mi%20comprobante%20de%20Yape" target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-4 rounded-xl shadow-[0_0_20px_rgba(16,185,129,0.4)] transition-all flex items-center justify-center gap-2 font-orbitron text-xs">
-                            <i data-lucide="message-square" class="w-5 h-5"></i>
-                            <span>Enviar Comprobante al Bot</span>
-                        </a>
-                    </div>
-
-                </div>
-            </section>
-
-            <!-- Bot Status & Support -->
-            <section id="bot-status" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Bot Status Card -->
-                <div class="glass-panel p-6 rounded-2xl border border-emerald-500/30 flex items-center gap-5">
-                    <div class="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
-                        <i data-lucide="bot" class="w-6 h-6"></i>
-                    </div>
-                    <div>
-                        <div class="flex items-center gap-2 mb-1">
-                            <h4 class="font-bold text-white font-orbitron text-sm">Servidor de Bot en Vivo</h4>
-                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
-                        </div>
-                        <p class="text-xs text-gray-400">Estado: <span class="text-emerald-400 font-mono font-bold">100% Operativo</span></p>
-                        <p class="text-[11px] text-gray-500 mt-1">Lector OCR de comprobantes respondiendo en tiempo real.</p>
-                    </div>
-                </div>
-
-                <!-- Support Card -->
-                <div class="glass-panel p-6 rounded-2xl border border-white/10 flex items-center gap-5" id="contacto">
-                    <div class="w-12 h-12 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center shrink-0">
-                        <i data-lucide="headphones" class="w-6 h-6"></i>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-white font-orbitron text-sm mb-1">Atención Personalizada</h4>
-                        <p class="text-xs text-gray-400">¿Tienes dudas sobre la configuración o tu servicio?</p>
-                        <a href="https://wa.me/51987654321" target="_blank" class="text-xs text-purple-400 hover:underline font-mono mt-1 inline-block">Hablar con Soporte Humano →</a>
-                    </div>
-                </div>
-            </section>
-
-        </main>
-
-        <!-- Footer -->
-        <footer class="border-t border-white/10 py-8 text-center text-xs text-gray-500 font-mono">
-            <p>© 2026 ROCKET.PE — Todos los derechos reservados.</p>
-        </footer>
+    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 text-center text-xs text-purple-300/50 hover:text-purple-300 transition-colors">
+        <p>Redireccionando automáticamente a la plataforma...</p>
+        <div class="mt-1 flex gap-2 justify-center">
+            <button onclick="resetLoading()" class="underline hover:text-white text-[11px]">Reiniciar animación</button>
+            <span>•</span>
+            <button onclick="toggleConfig()" class="underline hover:text-white text-[11px]">Configurar URL de destino</button>
+        </div>
     </div>
 
-    <!-- JavaScript Engine -->
+    <!-- Modal de Configuración Interactiva -->
+    <div id="config-modal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4">
+        <div class="bg-purple-950/90 border border-purple-500/50 p-6 rounded-2xl max-w-sm w-full shadow-2xl">
+            <h3 class="text-lg font-bold text-purple-200 mb-2">Configurar Redirección</h3>
+            <p class="text-xs text-purple-300/70 mb-4">Ingresa la URL a la que se debe ingresar tras los 2 segundos de carga.</p>
+            
+            <label class="block text-xs font-semibold text-purple-300 mb-1">URL de Destino:</label>
+            <input type="text" id="target-url-input" value="https://google.com" class="w-full bg-black/50 border border-purple-500/40 rounded-lg p-2.5 text-sm text-white focus:outline-none focus:border-purple-400 mb-4 font-mono">
+            
+            <label class="block text-xs font-semibold text-purple-300 mb-1">Tiempo de Carga (Segundos):</label>
+            <input type="number" id="target-time-input" value="2" min="1" max="10" class="w-full bg-black/50 border border-purple-500/40 rounded-lg p-2.5 text-sm text-white focus:outline-none focus:border-purple-400 mb-5 font-mono">
+
+            <div class="flex justify-end gap-2">
+                <button onclick="toggleConfig()" class="px-4 py-2 rounded-lg bg-gray-800 text-xs font-semibold text-gray-300 hover:bg-gray-700">Cancelar</button>
+                <button onclick="saveSettings()" class="px-4 py-2 rounded-lg bg-purple-600 hover:bg-purple-500 text-xs font-semibold text-white">Guardar y Probar</button>
+            </div>
+        </div>
+    </div>
+
     <script>
-        lucide.createIcons();
+        // Parámetros de configuración iniciales
+        let loadingDuration = 2000; // 2 segundos por defecto
+        let targetUrl = "https://google.com"; // URL por defecto (cambiar por tu página)
+        
+        let startTime = null;
+        let animationFrameId = null;
 
-        // Canvas Particle System
-        const canvas = document.getElementById('smokeCanvas');
-        const ctx = canvas.getContext('2d');
+        const progressBar = document.getElementById('progress-bar');
+        const progressPercentage = document.getElementById('progress-percentage');
+        const loadingText = document.getElementById('loading-text');
 
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        resizeCanvas();
-        window.addEventListener('resize', resizeCanvas);
+        // Función para actualizar la barra de progreso de forma fluida
+        function updateProgress(timestamp) {
+            if (!startTime) startTime = timestamp;
+            const elapsed = timestamp - startTime;
+            const progress = Math.min(elapsed / loadingDuration, 1);
+            
+            // Calculamos el porcentaje entero
+            const percentage = Math.floor(progress * 100);
+            
+            // Actualizamos la interfaz
+            progressBar.style.width = `${percentage}%`;
+            progressPercentage.textContent = `${percentage}%`;
 
-        let particles = [];
-        let isLaunching = false;
+            if (progress < 1) {
+                animationFrameId = requestAnimationFrame(updateProgress);
+            } else {
+                // Proceso de carga completado
+                loadingText.textContent = "¡Completado! Entrando...";
+                progressBar.style.width = "100%";
+                progressPercentage.textContent = "100%";
 
-        class Particle {
-            constructor(x, y, isFire = false) {
-                this.x = x;
-                this.y = y;
-                this.isFire = isFire;
-                
-                if (isFire) {
-                    this.vx = (Math.random() - 0.5) * 8;
-                    this.vy = Math.random() * 10 + 6;
-                    this.size = Math.random() * 14 + 6;
-                    this.color = ['#a855f7', '#3b82f6', '#ff3300', '#ffffff'][Math.floor(Math.random() * 4)];
-                    this.life = 1;
-                    this.decay = Math.random() * 0.04 + 0.03;
-                } else {
-                    this.vx = (Math.random() - 0.5) * 12;
-                    this.vy = Math.random() * 3 + 1;
-                    this.size = Math.random() * 30 + 20;
-                    this.color = 'rgba(168, 85, 247, 0.15)';
-                    this.life = 1;
-                    this.decay = Math.random() * 0.012 + 0.006;
-                }
-            }
-
-            update() {
-                this.x += this.vx;
-                this.y += this.vy;
-                this.size += this.isFire ? 0.3 : 1;
-                this.life -= this.decay;
-            }
-
-            draw() {
-                ctx.save();
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fillStyle = this.isFire ? this.color : `rgba(168, 85, 247, ${this.life * 0.25})`;
-                ctx.fill();
-                ctx.restore();
-            }
-        }
-
-        function animateParticles() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            if (isLaunching) {
-                const shuttle = document.getElementById('shuttleWrapper');
-                const rect = shuttle.getBoundingClientRect();
-                const originX = rect.left + rect.width / 2;
-                const originY = rect.bottom - 40;
-
-                for (let i = 0; i < 8; i++) {
-                    particles.push(new Particle(originX + (Math.random() - 0.5) * 40, originY, true));
-                    particles.push(new Particle(originX + (Math.random() - 0.5) * 60, originY, false));
-                }
-            }
-
-            for (let i = particles.length - 1; i >= 0; i--) {
-                particles[i].update();
-                particles[i].draw();
-                if (particles[i].life <= 0) {
-                    particles.splice(i, 1);
-                }
-            }
-
-            requestAnimationFrame(animateParticles);
-        }
-        animateParticles();
-
-        // Launch Trigger Action
-        function handleLaunch(event) {
-            event.preventDefault();
-            if (isLaunching) return;
-
-            isLaunching = true;
-            const intro = document.getElementById('introScreen');
-            const shuttleGraphic = document.getElementById('shuttleGraphic');
-            const flames = document.getElementById('shuttleFlames');
-            const dashboard = document.getElementById('mainDashboard');
-
-            flames.classList.remove('opacity-0');
-            intro.classList.add('rumbling');
-
-            setTimeout(() => {
-                shuttleGraphic.classList.add('shuttle-launching');
-            }, 300);
-
-            setTimeout(() => {
-                intro.style.opacity = '0';
-            }, 2200);
-
-            setTimeout(() => {
-                intro.classList.add('hidden');
-                intro.classList.remove('rumbling');
-                
-                dashboard.classList.remove('hidden');
+                // Efecto visual antes de redirigir
                 setTimeout(() => {
-                    dashboard.classList.remove('opacity-0');
-                }, 50);
-
-                isLaunching = false;
-            }, 3200);
+                    document.getElementById('splash-container').classList.add('transition-all', 'duration-500', 'opacity-0', 'scale-95');
+                    setTimeout(() => {
+                        // Redirección real de la página
+                        if (targetUrl.startsWith('http://') || targetUrl.startsWith('https://')) {
+                            window.location.href = targetUrl;
+                        } else {
+                            // En caso de simulaciones locales
+                            console.log("Redirigiendo a: " + targetUrl);
+                            window.location.href = targetUrl;
+                        }
+                    }, 500);
+                }, 300);
+            }
         }
 
-        // Service Selection Action
-        function selectService(name, price) {
-            const message = encodeURIComponent(`Hola ROCKET, quiero contratar el servicio: ${name} (S/ ${price}). Adjunto mi comprobante de Yape:`);
-            const btn = document.getElementById('botWhatsappBtn');
-            btn.href = `https://wa.me/51987654321?text=${message}`;
-
-            document.getElementById('pagos').scrollIntoView({ behavior: 'smooth' });
+        // Iniciar la carga al terminar de cargar los elementos de la ventana
+        function startLoading() {
+            startTime = null;
+            if (animationFrameId) cancelAnimationFrame(animationFrameId);
+            loadingText.textContent = "Cargando...";
+            document.getElementById('splash-container').classList.remove('opacity-0', 'scale-95');
+            animationFrameId = requestAnimationFrame(updateProgress);
         }
 
-        // Copy Yape Number
-        function copyYapeNumber() {
-            const yapeNum = "987654321";
-            const tempInput = document.createElement("input");
-            tempInput.value = yapeNum;
-            document.body.appendChild(tempInput);
-            tempInput.select();
-            document.execCommand("copy");
-            document.body.removeChild(tempInput);
-
-            const btnText = document.getElementById('copyBtnText');
-            btnText.innerText = "¡Copiado!";
-            setTimeout(() => {
-                btnText.innerText = "Copiar";
-            }, 2000);
+        // Reiniciar animación
+        function resetLoading() {
+            startLoading();
         }
+
+        // Mostrar / Ocultar panel de configuración
+        function toggleConfig() {
+            const modal = document.getElementById('config-modal');
+            modal.classList.toggle('hidden');
+        }
+
+        // Guardar parámetros personalizados
+        function saveSettings() {
+            const urlInput = document.getElementById('target-url-input').value;
+            const timeInput = parseFloat(document.getElementById('target-time-input').value);
+
+            if (urlInput) targetUrl = urlInput;
+            if (timeInput && timeInput > 0) loadingDuration = timeInput * 1000;
+
+            toggleConfig();
+            resetLoading();
+        }
+
+        // Ejecutar carga automática al estar listo
+        window.onload = function() {
+            startLoading();
+        };
     </script>
 </body>
 </html>
