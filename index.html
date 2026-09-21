@@ -7,7 +7,7 @@
   <!-- Google Fonts & FontAwesome Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
@@ -27,7 +27,7 @@
       color: #e2e8f0;
       min-height: 100vh;
       overflow-x: hidden;
-      background-image: linear-gradient(rgba(11, 7, 19, 0.85), rgba(11, 7, 19, 0.95)), url('Fondoprincipal.jpg');
+      background-image: linear-gradient(rgba(11, 7, 19, 0.88), rgba(11, 7, 19, 0.96)), url('Fondoprincipal.jpg');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -42,7 +42,7 @@
       left: 0;
       width: 100vw;
       height: 100vh;
-      background-image: linear-gradient(rgba(10, 5, 18, 0.75), rgba(10, 5, 18, 0.92)), url('Fondoprincipal.jpg');
+      background-image: linear-gradient(rgba(10, 5, 18, 0.78), rgba(10, 5, 18, 0.94)), url('Fondoprincipal.jpg');
       background-size: cover;
       background-position: center;
       display: flex;
@@ -50,6 +50,7 @@
       justify-content: center;
       align-items: center;
       z-index: 9999;
+      padding: 20px;
       transition: opacity 0.8s ease, visibility 0.8s ease;
     }
 
@@ -58,29 +59,29 @@
       visibility: hidden;
     }
 
-    /* Cuadro ROCKET */
+    /* Cuadro ROCKET - Versión Imponente */
     .rocket-card {
-      width: min(90%, 580px);
-      padding: 32px 20px;
-      border-radius: 18px;
-      background-image: linear-gradient(rgba(20, 10, 35, 0.65), rgba(15, 8, 28, 0.85)), url('fondorocket.jpg');
+      width: min(92%, 650px);
+      padding: 40px 24px;
+      border-radius: 20px;
+      background-image: linear-gradient(rgba(20, 10, 35, 0.7), rgba(15, 8, 28, 0.88)), url('fondorocket.jpg');
       background-size: cover;
       background-position: center;
-      border: 1px solid rgba(168, 85, 247, 0.35);
-      box-shadow: 0 0 30px rgba(147, 51, 234, 0.2), inset 0 0 15px rgba(168, 85, 247, 0.15);
+      border: 1px solid rgba(168, 85, 247, 0.4);
+      box-shadow: 0 0 35px rgba(147, 51, 234, 0.25), inset 0 0 20px rgba(168, 85, 247, 0.2);
       text-align: center;
-      backdrop-filter: blur(8px);
+      backdrop-filter: blur(10px);
       margin-bottom: 35px;
     }
 
     .rocket-title {
-      font-size: 2.8rem;
-      font-weight: 800;
-      letter-spacing: 0.35em;
+      font-size: clamp(2.8rem, 8vw, 4.2rem);
+      font-weight: 900;
+      letter-spacing: 0.3em;
       color: #ffffff;
       text-transform: uppercase;
-      text-shadow: 0 0 12px rgba(192, 132, 252, 0.6), 0 0 25px rgba(147, 51, 234, 0.3);
-      margin-right: -0.35em; /* Compensar padding de letter-spacing */
+      text-shadow: 0 0 15px rgba(192, 132, 252, 0.8), 0 0 35px rgba(147, 51, 234, 0.5);
+      margin-right: -0.3em; /* Compensar espacio entre letras */
     }
 
     /* Contenedor Carga Minimalista */
@@ -106,14 +107,13 @@
       background: rgba(255, 255, 255, 0.12);
       border-radius: 2px;
       overflow: hidden;
-      position: relative;
     }
 
     .progress-bar-fill {
       width: 0%;
       height: 100%;
       background: linear-gradient(90deg, #8b5cf6, #d8b4fe);
-      box-shadow: 0 0 8px #a855f7;
+      box-shadow: 0 0 10px #a855f7;
       transition: width 0.05s linear;
     }
 
@@ -138,19 +138,33 @@
       opacity: 1;
     }
 
+    /* Overlay para pantalla móvil al abrir menú */
+    .sidebar-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(4px);
+      z-index: 90;
+    }
+
+    .sidebar-overlay.active {
+      display: block;
+    }
+
     /* ---- MENU LATERAL (SIDEBAR) ---- */
     .sidebar {
       width: 260px;
-      background: rgba(13, 9, 23, 0.92);
+      background: rgba(13, 9, 23, 0.95);
       backdrop-filter: blur(16px);
-      border-right: 1px solid rgba(255, 255, 255, 0.07);
+      border-right: 1px solid rgba(255, 255, 255, 0.08);
       display: flex;
       flex-direction: column;
       padding: 24px 16px;
       position: fixed;
       height: 100vh;
       z-index: 100;
-      transition: transform 0.3s ease;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .sidebar-header {
@@ -182,7 +196,6 @@
       letter-spacing: 0.05em;
     }
 
-    /* Buscador Sidebar */
     .search-box {
       position: relative;
       margin-bottom: 20px;
@@ -206,15 +219,8 @@
       color: #fff;
       font-size: 0.85rem;
       outline: none;
-      transition: all 0.2s;
     }
 
-    .search-box input:focus {
-      border-color: #a855f7;
-      background: rgba(168, 85, 247, 0.05);
-    }
-
-    /* Menú de Navegación */
     .nav-menu {
       list-style: none;
       display: flex;
@@ -269,24 +275,36 @@
       border: 1px solid rgba(168, 85, 247, 0.2);
     }
 
-    .nav-item.highlight a:hover {
-      background: rgba(168, 85, 247, 0.25);
-    }
-
     /* ---- CONTENIDO PRINCIPAL ---- */
     .main-content {
       margin-left: 260px;
       flex-grow: 1;
       padding: 30px;
       max-width: 1400px;
+      width: calc(100% - 260px);
     }
 
-    /* Barra Superior Superior */
+    /* Top Navigation Header */
     .top-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 25px;
+      gap: 15px;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #fff;
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.1rem;
     }
 
     .top-logo {
@@ -300,11 +318,12 @@
 
     .nav-tabs {
       display: flex;
-      gap: 15px;
+      gap: 10px;
       background: rgba(255, 255, 255, 0.03);
       padding: 6px 12px;
       border-radius: 20px;
       border: 1px solid rgba(255, 255, 255, 0.05);
+      overflow-x: auto;
     }
 
     .tab-btn {
@@ -317,6 +336,7 @@
       cursor: pointer;
       padding: 6px 12px;
       border-radius: 12px;
+      white-space: nowrap;
       transition: all 0.2s;
     }
 
@@ -334,6 +354,7 @@
       font-size: 0.8rem;
       font-weight: 600;
       cursor: pointer;
+      white-space: nowrap;
       transition: all 0.2s;
     }
 
@@ -342,76 +363,39 @@
       border-color: #a855f7;
     }
 
-    /* Banner Banner ROCKET Hero */
-    .hero-banner {
+    /* Banner Hero Modificado (Solo ROCKET) */
+    .hero-banner-clean {
       width: 100%;
+      min-height: 180px;
       border-radius: 20px;
-      padding: 35px 30px;
-      background-image: linear-gradient(rgba(20, 10, 35, 0.7), rgba(15, 8, 28, 0.85)), url('fondorocket.jpg');
+      padding: 40px 20px;
+      background-image: linear-gradient(rgba(20, 10, 35, 0.65), rgba(15, 8, 28, 0.85)), url('fondorocket.jpg');
       background-size: cover;
       background-position: center;
-      border: 1px solid rgba(168, 85, 247, 0.25);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(168, 85, 247, 0.35);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(168, 85, 247, 0.15);
       margin-bottom: 30px;
-      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      backdrop-filter: blur(8px);
     }
 
-    .badge-tag {
-      display: inline-block;
-      padding: 4px 10px;
-      background: rgba(168, 85, 247, 0.2);
-      border: 1px solid rgba(168, 85, 247, 0.4);
-      color: #d8b4fe;
-      border-radius: 12px;
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      margin-bottom: 12px;
-    }
-
-    .hero-title {
-      font-size: 2rem;
-      font-weight: 800;
-      color: #fff;
-      margin-bottom: 8px;
-    }
-
-    .hero-subtitle {
-      color: rgba(226, 232, 240, 0.7);
-      font-size: 0.88rem;
-      max-width: 600px;
-      margin-bottom: 20px;
-      line-height: 1.5;
-    }
-
-    .hero-search {
-      width: min(100%, 350px);
-      position: relative;
-    }
-
-    .hero-search input {
-      width: 100%;
-      padding: 10px 14px 10px 36px;
-      background: rgba(0, 0, 0, 0.4);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 10px;
-      color: #fff;
-      font-size: 0.85rem;
-      outline: none;
-    }
-
-    .hero-search i {
-      position: absolute;
-      left: 12px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: rgba(255, 255, 255, 0.4);
+    .hero-banner-title {
+      font-size: clamp(2.2rem, 6vw, 3.8rem);
+      font-weight: 900;
+      letter-spacing: 0.3em;
+      color: #ffffff;
+      text-transform: uppercase;
+      text-shadow: 0 0 12px rgba(192, 132, 252, 0.7), 0 0 25px rgba(147, 51, 234, 0.4);
+      margin-right: -0.3em;
+      text-align: center;
     }
 
     /* Grid de Cartillas de Servicios */
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 20px;
     }
 
@@ -509,36 +493,47 @@
       display: flex;
       align-items: center;
       gap: 5px;
-      transition: color 0.2s;
     }
 
-    .card-btn:hover {
-      color: #fff;
-    }
-
-    /* Responsive */
-    @media (max-width: 900px) {
+    /* =========================================================
+       MEDIA QUERIES (DISPOSITIVOS MÓVILES Y TABLETS)
+       ========================================================= */
+    @media (max-width: 992px) {
       .sidebar {
         transform: translateX(-100%);
       }
+      .sidebar.open {
+        transform: translateX(0);
+      }
       .main-content {
         margin-left: 0;
+        width: 100%;
+        padding: 20px 15px;
+      }
+      .mobile-menu-btn {
+        display: flex;
+      }
+      .nav-tabs {
+        display: none; /* Se oculta en pantallas pequeñas para dar espacio */
       }
     }
   </style>
 </head>
 <body>
 
+  <!-- Overlay para menú móvil -->
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
   <!-- =========================================================
        PANTALLA DE CARGA (SPLASH SCREEN)
        ========================================================= -->
   <div id="loading-screen">
-    <!-- Cuadro ROCKET sin cohete, limpio y elegante -->
+    <!-- Cuadro ROCKET - Imponente y Limpio -->
     <div class="rocket-card">
       <h1 class="rocket-title">ROCKET</h1>
     </div>
 
-    <!-- Indicador de carga tipo minimalista pro -->
+    <!-- Indicador de Carga Minimalista -->
     <div class="loader-container">
       <div class="loader-label">LOADING</div>
       <div class="progress-bar-bg">
@@ -554,7 +549,7 @@
   <div id="app-container">
     
     <!-- Menú Lateral Sidebar -->
-    <aside class="sidebar">
+    <aside class="sidebar" id="sidebar">
       <div class="sidebar-header">
         <div class="sidebar-logo-icon">R</div>
         <span class="sidebar-brand">ROCKET</span>
@@ -617,6 +612,9 @@
     <!-- Panel de Contenido Principal -->
     <main class="main-content">
       <header class="top-header">
+        <button class="mobile-menu-btn" id="toggle-menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
         <div class="top-logo">ROCKET</div>
         <div class="nav-tabs">
           <button class="tab-btn active">TODOS</button>
@@ -628,15 +626,9 @@
         <button class="contact-btn">Contacto</button>
       </header>
 
-      <!-- Banner de la Sección -->
-      <section class="hero-banner">
-        <span class="badge-tag">CATÁLOGO OFICIAL</span>
-        <h2 class="hero-title">Servicios & Soluciones</h2>
-        <p class="hero-subtitle">Explora nuestra gama de soluciones digitales, análisis de inteligencia OSINT, cuentas de streaming y acompañamiento académico.</p>
-        <div class="hero-search">
-          <i class="fa-solid fa-magnifying-glass"></i>
-          <input type="text" placeholder="Buscar servicio...">
-        </div>
+      <!-- Banner Hero Limpio (Únicamente ROCKET) -->
+      <section class="hero-banner-clean">
+        <h1 class="hero-banner-title">ROCKET</h1>
       </section>
 
       <!-- Mosaico de Cartillas -->
@@ -743,17 +735,18 @@
   </div>
 
   <!-- =========================================================
-       JAVASCRIPT (LÓGICA DE CARGA DE 2 SEGUNDOS)
+       JAVASCRIPT
        ========================================================= -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
+      // Pantalla de carga
       const progressFill = document.getElementById("progress-fill");
       const progressText = document.getElementById("progress-text");
       const loadingScreen = document.getElementById("loading-screen");
       const appContainer = document.getElementById("app-container");
 
-      const DURATION = 2000; // 2 segundos exactos
-      const INTERVAL = 20;   // Actualización cada 20ms
+      const DURATION = 2000;
+      const INTERVAL = 20;
       const steps = DURATION / INTERVAL;
       let currentStep = 0;
 
@@ -766,16 +759,30 @@
 
         if (currentStep >= steps) {
           clearInterval(timer);
-          
-          // Ocultar pantalla de carga
           loadingScreen.classList.add("fade-out");
-          
-          // Mostrar contenedor de servicios
           setTimeout(() => {
             appContainer.classList.add("visible");
           }, 200);
         }
       }, INTERVAL);
+
+      // Lógica Menú Móvil
+      const toggleBtn = document.getElementById("toggle-menu");
+      const sidebar = document.getElementById("sidebar");
+      const overlay = document.getElementById("sidebar-overlay");
+
+      function openSidebar() {
+        sidebar.classList.add("open");
+        overlay.classList.add("active");
+      }
+
+      function closeSidebar() {
+        sidebar.classList.remove("open");
+        overlay.classList.remove("active");
+      }
+
+      toggleBtn.addEventListener("click", openSidebar);
+      overlay.addEventListener("click", closeSidebar);
     });
   </script>
 </body>
