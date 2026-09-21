@@ -23,11 +23,11 @@
     }
 
     body {
-      background-color: #0b0713;
+      background-color: #08060a;
       color: #e2e8f0;
       min-height: 100vh;
       overflow-x: hidden;
-      background-image: linear-gradient(rgba(11, 7, 19, 0.88), rgba(11, 7, 19, 0.96)), url('Fondoprincipal.jpg');
+      background-image: linear-gradient(rgba(8, 6, 10, 0.90), rgba(8, 6, 10, 0.96)), url('Fondoprincipal.jpg');
       background-size: cover;
       background-position: center 30%;
       background-attachment: fixed;
@@ -42,7 +42,7 @@
       left: 0;
       width: 100vw;
       height: 100vh;
-      background-image: linear-gradient(rgba(10, 5, 18, 0.78), rgba(10, 5, 18, 0.94)), url('Fondoprincipal.jpg');
+      background-image: linear-gradient(rgba(8, 6, 10, 0.82), rgba(8, 6, 10, 0.95)), url('Fondoprincipal.jpg');
       background-size: cover;
       background-position: center 30%;
       display: flex;
@@ -59,12 +59,12 @@
       visibility: hidden;
     }
 
-    /* Cuadro ROCKET - Versión Impactante */
+    /* Cuadro ROCKET - Edición Imponente */
     .rocket-card {
       width: min(92%, 650px);
       padding: 38px 24px;
       border-radius: 20px;
-      background-image: linear-gradient(rgba(20, 10, 35, 0.65), rgba(15, 8, 28, 0.88)), url('fondorocket.jpg');
+      background-image: linear-gradient(rgba(18, 10, 30, 0.75), rgba(12, 6, 20, 0.90)), url('fondorocket.jpg');
       background-size: cover;
       background-position: center 35%;
       border: 1px solid rgba(168, 85, 247, 0.45);
@@ -78,15 +78,11 @@
       gap: 15px;
     }
 
-    .rocket-icon {
-      font-size: clamp(2.2rem, 6vw, 3.5rem);
-      filter: drop-shadow(0 0 12px rgba(192, 132, 252, 0.8));
-      animation: pulseRocket 2s infinite ease-in-out;
-    }
-
-    @keyframes pulseRocket {
-      0%, 100% { transform: scale(1) translateY(0); }
-      50% { transform: scale(1.08) translateY(-3px); }
+    /* Emblema Águila Vintage */
+    .eagle-emblem {
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: #e2e8f0;
+      filter: drop-shadow(0 0 10px rgba(192, 132, 252, 0.8));
     }
 
     .rocket-title {
@@ -169,7 +165,7 @@
     /* ---- MENU LATERAL (SIDEBAR) ---- */
     .sidebar {
       width: 260px;
-      background: rgba(13, 9, 23, 0.95);
+      background: rgba(10, 7, 18, 0.95);
       backdrop-filter: blur(16px);
       border-right: 1px solid rgba(255, 255, 255, 0.08);
       display: flex;
@@ -289,7 +285,7 @@
       font-size: 0.7rem !important;
     }
 
-    /* Submenús Plegables */
+    /* Submenús */
     .submenu {
       list-style: none;
       padding-left: 36px;
@@ -412,13 +408,13 @@
       border-color: #a855f7;
     }
 
-    /* Banner Hero Limpio (Solo ROCKET) */
+    /* Banner Hero */
     .hero-banner-clean {
       width: 100%;
       min-height: 180px;
       border-radius: 20px;
       padding: 40px 20px;
-      background-image: linear-gradient(rgba(20, 10, 35, 0.65), rgba(15, 8, 28, 0.85)), url('fondorocket.jpg');
+      background-image: linear-gradient(rgba(18, 10, 30, 0.70), rgba(12, 6, 20, 0.88)), url('fondorocket.jpg');
       background-size: cover;
       background-position: center 35%;
       border: 1px solid rgba(168, 85, 247, 0.35);
@@ -427,7 +423,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 12px;
+      gap: 16px;
       backdrop-filter: blur(8px);
     }
 
@@ -451,7 +447,7 @@
     }
 
     .service-card {
-      background: rgba(18, 12, 28, 0.75);
+      background: rgba(16, 10, 24, 0.80);
       border-radius: 16px;
       border: 1px solid rgba(255, 255, 255, 0.08);
       overflow: hidden;
@@ -467,7 +463,7 @@
     .card-header-img {
       height: 110px;
       width: 100%;
-      background-image: linear-gradient(rgba(18, 12, 28, 0.2), rgba(18, 12, 28, 0.9)), url('imagencartillas.jpg');
+      background-image: linear-gradient(rgba(16, 10, 24, 0.2), rgba(16, 10, 24, 0.9)), url('imagencartillas.jpg');
       background-size: cover;
       background-position: center;
       padding: 12px;
@@ -546,11 +542,11 @@
       gap: 5px;
     }
 
-    /* ---- SECCIÓN INFERIOR: GUERRA TOTAL & FRASE ---- */
+    /* ---- SECCIÓN INFERIOR: GUERRA TOTAL Y CITA ---- */
     .guerra-total-section {
       width: 100%;
       padding: 35px 25px;
-      background: rgba(13, 8, 23, 0.85);
+      background: rgba(10, 6, 16, 0.90);
       border: 1px solid rgba(168, 85, 247, 0.25);
       border-radius: 20px;
       backdrop-filter: blur(10px);
@@ -564,9 +560,9 @@
 
     .guerra-tag {
       padding: 5px 14px;
-      background: rgba(225, 29, 72, 0.15);
-      border: 1px solid rgba(225, 29, 72, 0.4);
-      color: #fda4af;
+      background: rgba(168, 85, 247, 0.15);
+      border: 1px solid rgba(168, 85, 247, 0.4);
+      color: #d8b4fe;
       font-size: 0.7rem;
       font-weight: 800;
       letter-spacing: 0.25em;
@@ -614,13 +610,11 @@
        PANTALLA DE CARGA (SPLASH SCREEN)
        ========================================================= -->
   <div id="loading-screen">
-    <!-- Cuadro ROCKET - Con Cohete y Mirada Encuadrada -->
     <div class="rocket-card">
-      <span class="rocket-icon">🚀</span>
+      <i class="fa-solid fa-crow eagle-emblem"></i>
       <h1 class="rocket-title">ROCKET</h1>
     </div>
 
-    <!-- Indicador de Carga Minimalista -->
     <div class="loader-container">
       <div class="loader-label">LOADING</div>
       <div class="progress-bar-bg">
@@ -635,7 +629,7 @@
        ========================================================= -->
   <div id="app-container">
     
-    <!-- Menú Lateral Sidebar -->
+    <!-- Sidebar -->
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-header">
         <div class="sidebar-logo-icon">R</div>
@@ -721,13 +715,15 @@
       </ul>
     </aside>
 
-    <!-- Panel de Contenido Principal -->
+    <!-- Contenido Principal -->
     <main class="main-content">
       <header class="top-header">
         <button class="mobile-menu-btn" id="toggle-menu">
           <i class="fa-solid fa-bars"></i>
         </button>
-        <div class="top-logo">🚀 ROCKET</div>
+        <div class="top-logo">
+          <i class="fa-solid fa-crow" style="font-size:0.95rem; color:#d8b4fe;"></i> ROCKET
+        </div>
         <div class="nav-tabs">
           <button class="tab-btn active">TODOS</button>
           <button class="tab-btn">DIGITALES</button>
@@ -738,13 +734,13 @@
         <button class="contact-btn">Contacto</button>
       </header>
 
-      <!-- Banner Hero Limpio (Únicamente ROCKET) -->
+      <!-- Banner Hero -->
       <section class="hero-banner-clean">
-        <span style="font-size: 2.2rem;">🚀</span>
+        <i class="fa-solid fa-crow" style="font-size:2rem; color:#e2e8f0;"></i>
         <h1 class="hero-banner-title">ROCKET</h1>
       </section>
 
-      <!-- Mosaico de Cartillas -->
+      <!-- Grid de Servicios -->
       <section class="services-grid">
         
         <div class="service-card">
@@ -839,7 +835,7 @@
 
       </section>
 
-      <!-- Sección de Cierre: GUERRA TOTAL Y FRASE IMPACTANTE -->
+      <!-- Sección de Cierre -->
       <section class="guerra-total-section">
         <span class="guerra-tag">GUERRA TOTAL</span>
         <p class="quote-text">"si existe dios... él tendrá que rogarme a mi para que lo perdone"</p>
@@ -848,12 +844,8 @@
     </main>
   </div>
 
-  <!-- =========================================================
-       JAVASCRIPT
-       ========================================================= -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      // Pantalla de carga (2 segundos exactos)
       const progressFill = document.getElementById("progress-fill");
       const progressText = document.getElementById("progress-text");
       const loadingScreen = document.getElementById("loading-screen");
@@ -880,7 +872,6 @@
         }
       }, INTERVAL);
 
-      // Desplegables de Sidebar (Reniec y Justicia)
       const dropdowns = document.querySelectorAll(".dropdown-group");
       dropdowns.forEach(dropdown => {
         const trigger = dropdown.querySelector(".dropdown-trigger");
@@ -889,7 +880,6 @@
         });
       });
 
-      // Menú Móvil
       const toggleBtn = document.getElementById("toggle-menu");
       const sidebar = document.getElementById("sidebar");
       const overlay = document.getElementById("sidebar-overlay");
