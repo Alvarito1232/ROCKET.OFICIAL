@@ -1,266 +1,676 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ROCKET - Cargando...</title>
-    <!-- Font Awesome para iconos si se requiere -->
+    <title>ROCKET - Plataforma Integral de Servicios Digitales, OSINT & Soluciones Académicas</title>
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Google Fonts Inter & Orbitron for Futuristic Vibe -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Orbitron:wght@600;800;900&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#fbf7ff',
+                            100: '#f4edff',
+                            200: '#e9dafe',
+                            300: '#d7bafd',
+                            400: '#bf8cfb',
+                            500: '#a855f7',
+                            600: '#9333ea',
+                            700: '#7e22ce',
+                            800: '#6b21a8',
+                            900: '#581c87',
+                            950: '#0b0612',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Orbitron', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
 
     <style>
         body {
             font-family: 'Inter', sans-serif;
             background-color: #0b0612;
-            color: #ffffff;
-            overflow: hidden;
+            color: #f3e8ff;
+            overflow-x: hidden;
         }
 
-        /* Fondo principal con efecto de desenfoque y viñeta */
+        /* Ambient background glow */
         .bg-cyberpunk {
             background-image: 
-                radial-gradient(circle at center, rgba(38, 16, 62, 0.7) 0%, rgba(11, 6, 18, 0.95) 100%),
+                radial-gradient(circle at 50% 0%, rgba(147, 51, 234, 0.25) 0%, rgba(11, 6, 18, 0.98) 70%),
+                radial-gradient(circle at 10% 80%, rgba(236, 72, 153, 0.15) 0%, rgba(11, 6, 18, 1) 50%),
                 url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1920&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
         }
 
-        /* Resplandor Neón Morado / Púrpura */
+        /* Splash Card Glassmorphism & Neon Glow */
         .neon-box {
-            background: rgba(18, 10, 31, 0.75);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background: rgba(18, 10, 31, 0.82);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             border: 1.5px solid rgba(168, 85, 247, 0.6);
             box-shadow: 
-                0 0 15px rgba(168, 85, 247, 0.3),
+                0 0 20px rgba(168, 85, 247, 0.35),
                 inset 0 0 15px rgba(168, 85, 247, 0.2);
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .neon-box:hover {
             box-shadow: 
-                0 0 25px rgba(168, 85, 247, 0.5),
+                0 0 30px rgba(168, 85, 247, 0.6),
                 inset 0 0 20px rgba(168, 85, 247, 0.3);
             border-color: rgba(192, 132, 252, 0.9);
         }
 
-        /* Texto brillante de neón */
-        .neon-text-white {
-            text-shadow: 
-                0 0 5px rgba(255, 255, 255, 0.8),
-                0 0 10px rgba(255, 255, 255, 0.5),
-                0 0 20px rgba(168, 85, 247, 0.8),
-                0 0 35px rgba(168, 85, 247, 0.6);
+        /* Glassmorphic Service Cards */
+        .glass-card {
+            background: rgba(22, 12, 38, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(168, 85, 247, 0.25);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* Barra de carga animada */
+        .glass-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(192, 132, 252, 0.8);
+            box-shadow: 0 10px 30px -10px rgba(168, 85, 247, 0.5),
+                        0 0 15px rgba(236, 72, 153, 0.2);
+        }
+
+        /* Text Glow */
+        .neon-text-white {
+            text-shadow: 
+                0 0 5px rgba(255, 255, 255, 0.9),
+                0 0 12px rgba(168, 85, 247, 0.9),
+                0 0 25px rgba(168, 85, 247, 0.6);
+        }
+
+        /* Progress Bar */
         .progress-bar-fill {
             background: linear-gradient(90deg, #a855f7, #ec4899, #c084fc);
-            box-shadow: 0 0 12px rgba(168, 85, 247, 0.8);
+            box-shadow: 0 0 12px rgba(168, 85, 247, 0.9);
             transition: width 0.05s linear;
         }
 
-        /* Imagen de fondo dentro de la tarjeta */
+        /* Splash Card Inner Girl Image Overlay */
         .card-bg-girl {
             background-image: 
-                linear-gradient(180deg, rgba(18, 10, 31, 0.7) 0%, rgba(18, 10, 31, 0.85) 100%),
+                linear-gradient(180deg, rgba(18, 10, 31, 0.75) 0%, rgba(18, 10, 31, 0.9) 100%),
                 url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1000&auto=format&fit=crop');
             background-size: cover;
             background-position: center 30%;
         }
 
-        /* Animación de entrada suave */
-        @keyframes fadeInScale {
-            0% {
-                opacity: 0;
-                transform: scale(0.95);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        .animate-fade-in {
-            animation: fadeInScale 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-
-        /* Animación de pulso para el logo */
+        /* Animations */
         @keyframes subtlePulse {
             0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.03); }
+            50% { transform: scale(1.04); }
         }
 
         .rocket-bounce {
             animation: subtlePulse 2s infinite ease-in-out;
         }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b0612;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4c1d95;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #7e22ce;
+        }
     </style>
 </head>
-<body class="bg-cyberpunk min-h-screen flex flex-col items-center justify-center p-4 relative">
+<body class="bg-cyberpunk min-h-screen text-slate-100 antialiased selection:bg-purple-500 selection:text-white">
 
-    <div id="splash-container" class="w-full max-w-3xl flex flex-col items-center z-10 animate-fade-in">
-        
-        <!-- Tarjeta Principal con Neon y Chica de Fondo -->
-        <div class="card-bg-girl neon-box rounded-2xl p-8 sm:p-10 w-full text-center relative overflow-hidden mb-8">
+    <!-- 1. PANTALLA DE CARGA (SPLASH SCREEN) -->
+    <div id="loading-screen" class="fixed inset-0 z-50 flex flex-col items-center justify-center p-4 transition-opacity duration-700 ease-out">
+        <div class="w-full max-w-3xl flex flex-col items-center">
             
-            <!-- Contenido de la Tarjeta -->
-            <div class="relative z-10 flex flex-col items-center justify-center">
+            <!-- Tarjeta Principal con Neón y Chica de Fondo (Coincide con la referencia) -->
+            <div class="card-bg-girl neon-box rounded-2xl p-8 sm:p-12 w-full text-center relative overflow-hidden mb-8 shadow-2xl">
                 
-                <!-- Encabezado con Cohete y Título ROCKET -->
-                <div class="flex items-center justify-center gap-3 mb-3">
-                    <span class="text-3xl sm:text-5xl rocket-bounce" role="img" aria-label="rocket">🚀</span>
-                    <h1 class="text-4xl sm:text-6xl font-black tracking-widest text-white neon-text-white uppercase">
-                        ROCKET
-                    </h1>
+                <div class="relative z-10 flex flex-col items-center justify-center">
+                    <!-- Encabezado con Cohete y Título ROCKET -->
+                    <div class="flex items-center justify-center gap-3 sm:gap-4 mb-3">
+                        <span class="text-4xl sm:text-6xl rocket-bounce" role="img" aria-label="rocket">🚀</span>
+                        <h1 class="text-4xl sm:text-7xl font-black tracking-widest text-white neon-text-white uppercase font-display">
+                            ROCKET
+                        </h1>
+                    </div>
+
+                    <!-- Subtítulo / Descripción -->
+                    <p class="text-xs sm:text-sm md:text-base text-purple-100 font-medium max-w-xl leading-relaxed tracking-wide opacity-95 drop-shadow">
+                        Plataforma Integral de Servicios Digitales, Inteligencia OSINT & Soluciones Académicas
+                    </p>
+                </div>
+                
+                <!-- Glow ambiental inferior dentro del cuadro -->
+                <div class="absolute -bottom-10 left-1/2 -translate-x-1/2 w-3/4 h-20 bg-purple-600/30 blur-2xl rounded-full pointer-events-none"></div>
+            </div>
+
+            <!-- Sección de Carga Inferior -->
+            <div class="w-full max-w-md flex flex-col items-center space-y-3">
+                
+                <!-- Barra de Progreso -->
+                <div class="w-full bg-purple-950/70 border border-purple-500/40 rounded-full h-3 overflow-hidden p-0.5 backdrop-blur-md shadow-inner">
+                    <div id="progress-bar" class="progress-bar-fill h-full rounded-full w-0"></div>
                 </div>
 
-                <!-- Subtítulo / Descripción -->
-                <p class="text-xs sm:text-sm md:text-base text-gray-200 font-medium max-w-xl leading-relaxed tracking-wide opacity-90 drop-shadow-md">
-                    Plataforma Integral de Servicios Digitales, Inteligencia OSINT & Soluciones Académicas
-                </p>
+                <!-- Texto de Carga y Porcentaje -->
+                <div class="flex items-center justify-between w-full text-xs font-semibold tracking-wider text-purple-300 px-1">
+                    <div class="flex items-center space-x-2">
+                        <svg class="animate-spin h-4 w-4 text-purple-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        <span id="loading-text" class="uppercase text-[11px] tracking-widest text-purple-200">Iniciando sistema ROCKET...</span>
+                    </div>
+                    <span id="progress-percentage" class="font-mono text-purple-300 text-sm">0%</span>
+                </div>
             </div>
-            
-            <!-- Resplandor ambiental inferior dentro del cuadro -->
-            <div class="absolute -bottom-10 left-1/2 -translate-x-1/2 w-3/4 h-20 bg-purple-600/20 blur-2xl rounded-full pointer-events-none"></div>
         </div>
+    </div>
 
-        <!-- Sección de Carga Inferior -->
-        <div class="w-full max-w-md flex flex-col items-center space-y-3">
+    <!-- 2. PAGINA PRINCIPAL DE SERVICIOS (Oculta inicialmente) -->
+    <div id="main-content" class="min-h-screen opacity-0 transition-opacity duration-1000 ease-in hidden flex flex-col">
+        
+        <!-- Header de Navegación -->
+        <header class="sticky top-0 z-40 bg-purple-950/60 backdrop-blur-xl border-b border-purple-500/20 px-4 sm:px-8 py-3.5">
+            <div class="max-w-7xl mx-auto flex items-center justify-between">
+                
+                <!-- Logo -->
+                <div class="flex items-center space-x-3 cursor-pointer" onclick="filterServices('all')">
+                    <span class="text-2xl">🚀</span>
+                    <span class="font-display font-black text-2xl tracking-widest text-white neon-text-white">ROCKET</span>
+                </div>
+
+                <!-- Navegación Escritorio -->
+                <nav class="hidden md:flex items-center space-x-1">
+                    <button onclick="filterServices('all')" class="nav-btn px-4 py-2 rounded-xl text-sm font-medium text-purple-200 hover:text-white hover:bg-purple-900/40 transition">Todos</button>
+                    <button onclick="filterServices('digital')" class="nav-btn px-4 py-2 rounded-xl text-sm font-medium text-purple-200 hover:text-white hover:bg-purple-900/40 transition">Servicios Digitales</button>
+                    <button onclick="filterServices('osint')" class="nav-btn px-4 py-2 rounded-xl text-sm font-medium text-purple-200 hover:text-white hover:bg-purple-900/40 transition">Inteligencia OSINT</button>
+                    <button onclick="filterServices('academic')" class="nav-btn px-4 py-2 rounded-xl text-sm font-medium text-purple-200 hover:text-white hover:bg-purple-900/40 transition">Soluciones Académicas</button>
+                </nav>
+
+                <!-- Estado del Sistema & Botón de Contacto -->
+                <div class="flex items-center space-x-3">
+                    <div class="hidden sm:flex items-center space-x-2 bg-purple-900/30 border border-purple-500/30 px-3 py-1.5 rounded-full text-xs text-purple-300">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        <span class="font-mono">Sistemas Online</span>
+                    </div>
+                    <button onclick="openContactModal()" class="px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white shadow-lg shadow-purple-600/30 hover:shadow-purple-500/50 transition duration-200">
+                        <i class="fa-solid fa-headset mr-1.5"></i> Contactar
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-8 py-8 sm:py-12">
             
-            <!-- Barra de Progreso -->
-            <div class="w-full bg-purple-950/60 border border-purple-500/30 rounded-full h-2.5 overflow-hidden p-0.5 backdrop-blur-sm shadow-inner">
-                <div id="progress-bar" class="progress-bar-fill h-full rounded-full w-0"></div>
+            <div class="relative rounded-3xl overflow-hidden mb-12 p-8 sm:p-12 border border-purple-500/30 bg-gradient-to-r from-purple-950/80 via-purple-900/40 to-black/80 shadow-2xl">
+                <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#a855f7_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                <div class="relative z-10 max-w-3xl">
+                    <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-purple-500/20 text-purple-300 border border-purple-500/40 mb-4">
+                        ⚡ Potencia tu presencia & análisis
+                    </span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold text-white leading-tight mb-4 font-display">
+                        Servicios Digitales, OSINT & Asesoría Integral
+                    </h2>
+                    <p class="text-purple-200/80 text-sm sm:text-base mb-6 leading-relaxed">
+                        Explora nuestro catálogo de soluciones de alto rendimiento. Diseñadas para usuarios y empresas que requieren tecnología avanzada, análisis de inteligencia e investigación académica rigurosa.
+                    </p>
+                    
+                    <!-- Barra de Búsqueda Integrada -->
+                    <div class="relative max-w-xl">
+                        <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-purple-400"></i>
+                        <input type="text" id="search-input" onkeyup="handleSearch()" placeholder="Buscar servicio (ej. OSINT, Desarrollo Web, Tesis, Auditoría)..." 
+                            class="w-full pl-11 pr-4 py-3.5 bg-black/60 border border-purple-500/40 rounded-2xl text-sm text-white placeholder-purple-300/50 focus:outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-500/30 transition shadow-inner">
+                    </div>
+                </div>
             </div>
 
-            <!-- Texto de Carga y Porcentaje -->
-            <div class="flex items-center justify-between w-full text-xs font-semibold tracking-wider text-purple-300/80 px-1">
+            <!-- Categorías y Filtros -->
+            <div class="flex flex-wrap items-center justify-between gap-4 mb-8">
+                <div>
+                    <h3 class="text-2xl font-bold text-white font-display flex items-center gap-2">
+                        <span>Catálogo de Servicios</span>
+                    </h3>
+                    <p class="text-xs text-purple-300/70">Selecciona un servicio para ver detalles completos y solicitar cotización</p>
+                </div>
+
+                <div class="flex flex-wrap gap-2">
+                    <button onclick="filterServices('all')" id="btn-all" class="filter-btn active-filter px-4 py-2 rounded-xl text-xs font-semibold border border-purple-500/40 bg-purple-600 text-white shadow-md shadow-purple-600/30 transition">Todos</button>
+                    <button onclick="filterServices('digital')" id="btn-digital" class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold border border-purple-500/20 bg-purple-950/40 text-purple-300 hover:border-purple-500/50 hover:text-white transition">Digitales</button>
+                    <button onclick="filterServices('osint')" id="btn-osint" class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold border border-purple-500/20 bg-purple-950/40 text-purple-300 hover:border-purple-500/50 hover:text-white transition">OSINT</button>
+                    <button onclick="filterServices('academic')" id="btn-academic" class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold border border-purple-500/20 bg-purple-950/40 text-purple-300 hover:border-purple-500/50 hover:text-white transition">Académicos</button>
+                </div>
+            </div>
+
+            <!-- Grilla de Tarjetas de Servicios -->
+            <div id="services-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Se poblará dinámicamente con JavaScript -->
+            </div>
+
+            <!-- Mensaje cuando no hay resultados de búsqueda -->
+            <div id="no-results" class="hidden text-center py-16 bg-purple-950/20 border border-purple-500/20 rounded-2xl">
+                <i class="fa-solid fa-search text-4xl text-purple-400 mb-3 opacity-50"></i>
+                <h4 class="text-lg font-bold text-purple-200">No se encontraron servicios</h4>
+                <p class="text-xs text-purple-300/60 mt-1">Intenta buscar con otros términos como "Tesis", "Ciberseguridad" o "OSINT".</p>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="mt-auto border-t border-purple-500/20 bg-black/60 backdrop-blur-lg py-8 px-4 sm:px-8 text-xs text-purple-300/60">
+            <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
                 <div class="flex items-center space-x-2">
-                    <svg class="animate-spin h-3.5 w-3.5 text-purple-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                    </svg>
-                    <span id="loading-text">Cargando...</span>
+                    <span class="text-lg">🚀</span>
+                    <span class="font-display font-bold text-white text-sm">ROCKET PLATFORM</span>
+                    <span>&copy; 2026 Todos los derechos reservados.</span>
                 </div>
-                <span id="progress-percentage" class="font-mono text-purple-400">0%</span>
+                <div class="flex space-x-6 text-purple-300/80">
+                    <a href="#" class="hover:text-purple-300 transition">Términos de Servicio</a>
+                    <a href="#" class="hover:text-purple-300 transition">Política de Privacidad</a>
+                    <a href="#" onclick="openContactModal(); return false;" class="hover:text-purple-300 transition">Soporte técnico</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- 3. MODAL DETALLE DE SERVICIO -->
+    <div id="service-modal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4">
+        <div class="glass-card bg-purple-950/95 border border-purple-500/50 p-6 sm:p-8 rounded-3xl max-w-xl w-full shadow-2xl relative animate-fade-in my-8 max-h-[90vh] overflow-y-auto">
+            
+            <button onclick="closeModal()" class="absolute top-5 right-5 text-purple-400 hover:text-white text-lg w-8 h-8 rounded-full bg-purple-900/40 border border-purple-500/30 flex items-center justify-center transition">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="flex items-center space-x-3 mb-4">
+                <div id="modal-icon" class="w-12 h-12 rounded-2xl bg-purple-600/30 border border-purple-400/50 flex items-center justify-center text-purple-300 text-2xl">
+                    <i class="fa-solid fa-rocket"></i>
+                </div>
+                <div>
+                    <span id="modal-category" class="text-[10px] uppercase font-bold tracking-widest text-purple-400 px-2.5 py-0.5 rounded-full bg-purple-900/50 border border-purple-500/30">Categoría</span>
+                    <h3 id="modal-title" class="text-xl sm:text-2xl font-bold text-white mt-0.5">Título del Servicio</h3>
+                </div>
+            </div>
+
+            <p id="modal-description" class="text-sm text-purple-200/90 leading-relaxed mb-6">
+                Descripción detallada del servicio seleccionado.
+            </p>
+
+            <div class="bg-black/40 rounded-2xl p-4 border border-purple-500/20 mb-6 space-y-3">
+                <h4 class="text-xs font-bold uppercase tracking-wider text-purple-300">Lo que incluye este servicio:</h4>
+                <ul id="modal-features" class="text-xs text-purple-200/80 space-y-2">
+                    <!-- Características cargadas con JS -->
+                </ul>
+            </div>
+
+            <div class="flex items-center justify-between pt-2 border-t border-purple-500/20">
+                <div>
+                    <span class="text-[10px] uppercase text-purple-400 block">Tiempo estimado</span>
+                    <span id="modal-time" class="text-sm font-semibold text-white">2 - 5 días hábiles</span>
+                </div>
+                <button onclick="requestServiceFromModal()" class="px-6 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white shadow-lg shadow-purple-600/40 transition">
+                    Solicitar Servicio <i class="fa-solid fa-arrow-right ml-1"></i>
+                </button>
             </div>
         </div>
     </div>
 
-    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 text-center text-xs text-purple-300/50 hover:text-purple-300 transition-colors">
-        <p>Redireccionando automáticamente a la plataforma...</p>
-        <div class="mt-1 flex gap-2 justify-center">
-            <button onclick="resetLoading()" class="underline hover:text-white text-[11px]">Reiniciar animación</button>
-            <span>•</span>
-            <button onclick="toggleConfig()" class="underline hover:text-white text-[11px]">Configurar URL de destino</button>
-        </div>
-    </div>
-
-    <!-- Modal de Configuración Interactiva -->
-    <div id="config-modal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4">
-        <div class="bg-purple-950/90 border border-purple-500/50 p-6 rounded-2xl max-w-sm w-full shadow-2xl">
-            <h3 class="text-lg font-bold text-purple-200 mb-2">Configurar Redirección</h3>
-            <p class="text-xs text-purple-300/70 mb-4">Ingresa la URL a la que se debe ingresar tras los 2 segundos de carga.</p>
+    <!-- 4. MODAL DE CONTACTO DIRECTO -->
+    <div id="contact-modal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4">
+        <div class="glass-card bg-purple-950/95 border border-purple-500/50 p-6 sm:p-8 rounded-3xl max-w-md w-full shadow-2xl relative">
             
-            <label class="block text-xs font-semibold text-purple-300 mb-1">URL de Destino:</label>
-            <input type="text" id="target-url-input" value="https://google.com" class="w-full bg-black/50 border border-purple-500/40 rounded-lg p-2.5 text-sm text-white focus:outline-none focus:border-purple-400 mb-4 font-mono">
-            
-            <label class="block text-xs font-semibold text-purple-300 mb-1">Tiempo de Carga (Segundos):</label>
-            <input type="number" id="target-time-input" value="2" min="1" max="10" class="w-full bg-black/50 border border-purple-500/40 rounded-lg p-2.5 text-sm text-white focus:outline-none focus:border-purple-400 mb-5 font-mono">
+            <button onclick="closeContactModal()" class="absolute top-5 right-5 text-purple-400 hover:text-white text-lg w-8 h-8 rounded-full bg-purple-900/40 border border-purple-500/30 flex items-center justify-center transition">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
 
-            <div class="flex justify-end gap-2">
-                <button onclick="toggleConfig()" class="px-4 py-2 rounded-lg bg-gray-800 text-xs font-semibold text-gray-300 hover:bg-gray-700">Cancelar</button>
-                <button onclick="saveSettings()" class="px-4 py-2 rounded-lg bg-purple-600 hover:bg-purple-500 text-xs font-semibold text-white">Guardar y Probar</button>
-            </div>
+            <h3 class="text-xl font-bold text-white mb-1 font-display">Contacto Directo ROCKET</h3>
+            <p class="text-xs text-purple-300/80 mb-6">Envíanos tus requerimientos y te responderemos inmediatamente.</p>
+
+            <form onsubmit="handleContactSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-purple-300 mb-1">Nombre o Alias</label>
+                    <input type="text" required placeholder="Tu nombre" class="w-full bg-black/60 border border-purple-500/40 rounded-xl p-2.5 text-xs text-white focus:outline-none focus:border-purple-400">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-purple-300 mb-1">Correo de Contacto / Telegram</label>
+                    <input type="text" required placeholder="ejemplo@correo.com o @usuario" class="w-full bg-black/60 border border-purple-500/40 rounded-xl p-2.5 text-xs text-white focus:outline-none focus:border-purple-400">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-purple-300 mb-1">Detalle del requerimiento</label>
+                    <textarea rows="3" required placeholder="Escribe aquí los detalles del servicio que necesitas..." class="w-full bg-black/60 border border-purple-500/40 rounded-xl p-2.5 text-xs text-white focus:outline-none focus:border-purple-400"></textarea>
+                </div>
+                <button type="submit" class="w-full py-3 rounded-xl text-xs font-bold bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white shadow-lg shadow-purple-600/40 transition">
+                    Enviar Mensaje <i class="fa-solid fa-paper-plane ml-1"></i>
+                </button>
+            </form>
         </div>
     </div>
 
     <script>
-        // Parámetros de configuración iniciales
-        let loadingDuration = 2000; // 2 segundos por defecto
-        let targetUrl = "https://google.com"; // URL por defecto (cambiar por tu página)
-        
+        // Data Base de Servicios ROCKET
+        const servicesData = [
+            {
+                id: 1,
+                category: 'digital',
+                categoryLabel: 'Servicios Digitales',
+                title: 'Desarrollo Web & Apps Cyberpunk',
+                icon: 'fa-code',
+                description: 'Diseño y desarrollo de plataformas web ultra-rápidas, landing pages interactivas y paneles web modernos con estilo neón y estética avanzada.',
+                time: '3 - 7 días hábiles',
+                features: [
+                    'Diseño responsive adaptado a móviles y PC',
+                    'Integración de animaciones neón y microinteracciones',
+                    'Optimización extrema de velocidad y SEO',
+                    'Panel de administración a medida'
+                ]
+            },
+            {
+                id: 2,
+                category: 'digital',
+                categoryLabel: 'Servicios Digitales',
+                title: 'Ciberseguridad & Hardening',
+                icon: 'fa-shield-halved',
+                description: 'Evaluación de vulnerabilidades informáticas, protección de servidores web y aseguramiento de infraestructura crítica contra ataques.',
+                time: '2 - 4 días hábiles',
+                features: [
+                    'Auditoría de seguridad en sitios web',
+                    'Protección DDoS y mitigación de amenazas',
+                    'Instalación y configuración de SSL/TLS avanzado',
+                    'Reporte completo de vulnerabilidades'
+                ]
+            },
+            {
+                id: 3,
+                category: 'digital',
+                categoryLabel: 'Servicios Digitales',
+                title: 'Automatización & Scripts Custom',
+                icon: 'fa-robot',
+                description: 'Creación de bots automatizados, web scrapers y scripts para optimización de tareas repetitivas e integración de APIs.',
+                time: '1 - 3 días hábiles',
+                features: [
+                    'Bots para Telegram, Discord o WhatsApp',
+                    'Extracción de datos web automatizada (Scraping)',
+                    'Integración de pasarelas de pago y APIs externas',
+                    'Código optimizado e instrucciones de despliegue'
+                ]
+            },
+            {
+                id: 4,
+                category: 'osint',
+                categoryLabel: 'Inteligencia OSINT',
+                title: 'Búsqueda & Rastreo de Información',
+                icon: 'fa-user-secret',
+                description: 'Investigaciones de fuentes abiertas (OSINT) para localización de datos en la red, verificación de perfiles y huella digital.',
+                time: '24 - 48 horas',
+                features: [
+                    'Análisis profundo de huella digital',
+                    'Verificación de identidad y reputación online',
+                    'Detección de filtraciones de datos corporativos',
+                    'Reporte ejecutivo con evidencias'
+                ]
+            },
+            {
+                id: 5,
+                category: 'osint',
+                categoryLabel: 'Inteligencia OSINT',
+                title: 'Auditoría de Exposición Digital',
+                icon: 'fa-magnifying-glass-chart',
+                description: 'Evaluación completa del nivel de información pública expuesta sobre tu organización o marca en Internet y redes.',
+                time: '2 - 4 días hábiles',
+                features: [
+                    'Identificación de brechas de privacidad',
+                    'Monitoreo de redes sociales y foros',
+                    'Mapeo de activos digitales expuestos',
+                    'Recomendaciones para mitigación de riesgos'
+                ]
+            },
+            {
+                id: 6,
+                category: 'academic',
+                categoryLabel: 'Soluciones Académicas',
+                title: 'Asesoría Integral de Tesis',
+                icon: 'fa-graduation-cap',
+                description: 'Acompañamiento profesional personalizado para la elaboración, estructuración y corrección de proyectos de tesis y grado.',
+                time: 'A convenir según alcance',
+                features: [
+                    'Planteamiento del problema y marco teórico',
+                    'Metodología de investigación cuantitativa y cualitativa',
+                    'Corrección de estilo, formato APA/Vancouver',
+                    'Preparación y sustentación con diapositivas'
+                ]
+            },
+            {
+                id: 7,
+                category: 'academic',
+                categoryLabel: 'Soluciones Académicas',
+                title: 'Análisis Estadístico & Software',
+                icon: 'fa-chart-pie',
+                description: 'Procesamiento de datos académicos utilizando SPSS, R, Python o Excel avanzado para investigaciones científicas.',
+                time: '2 - 5 días hábiles',
+                features: [
+                    'Pruebas de hipótesis y correlaciones',
+                    'Graficación e interpretación de resultados',
+                    'Entrega de matrices procesadas',
+                    'Explicación paso a paso de los análisis'
+                ]
+            }
+        ];
+
+        let currentFilter = 'all';
+        let currentSelectedService = null;
+
+        // Renderizar la grilla de servicios
+        function renderServices(filter = 'all', searchQuery = '') {
+            const grid = document.getElementById('services-grid');
+            const noResults = document.getElementById('no-results');
+            grid.innerHTML = '';
+
+            const filtered = servicesData.filter(service => {
+                const matchesFilter = filter === 'all' || service.category === filter;
+                const matchesSearch = service.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                                     service.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                                     service.categoryLabel.toLowerCase().includes(searchQuery.toLowerCase());
+                return matchesFilter && matchesSearch;
+            });
+
+            if (filtered.length === 0) {
+                noResults.classList.remove('hidden');
+                return;
+            } else {
+                noResults.classList.add('hidden');
+            }
+
+            filtered.forEach(service => {
+                const card = document.createElement('div');
+                card.className = 'glass-card rounded-2xl p-6 flex flex-col justify-between cursor-pointer group relative overflow-hidden';
+                card.onclick = () => openServiceModal(service.id);
+
+                card.innerHTML = `
+                    <div class="relative z-10">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-10 h-10 rounded-xl bg-purple-600/20 border border-purple-500/40 flex items-center justify-center text-purple-300 group-hover:bg-purple-600 group-hover:text-white transition duration-300">
+                                <i class="fa-solid ${service.icon}"></i>
+                            </div>
+                            <span class="text-[10px] uppercase font-bold tracking-widest text-purple-300 px-2.5 py-1 rounded-full bg-purple-900/40 border border-purple-500/20">
+                                ${service.categoryLabel}
+                            </span>
+                        </div>
+                        <h4 class="text-lg font-bold text-white mb-2 group-hover:text-purple-300 transition line-clamp-1">${service.title}</h4>
+                        <p class="text-xs text-purple-200/70 leading-relaxed mb-6 line-clamp-3">${service.description}</p>
+                    </div>
+
+                    <div class="relative z-10 flex items-center justify-between pt-4 border-t border-purple-500/15 text-xs">
+                        <span class="text-purple-400/80 font-medium"><i class="fa-regular fa-clock mr-1"></i> ${service.time}</span>
+                        <span class="text-purple-300 font-bold group-hover:translate-x-1 transition duration-200 flex items-center">
+                            Ver detalle <i class="fa-solid fa-chevron-right ml-1 text-[10px]"></i>
+                        </span>
+                    </div>
+
+                    <!-- Ambient inner light on hover -->
+                    <div class="absolute -bottom-10 -right-10 w-24 h-24 bg-purple-600/10 rounded-full blur-xl group-hover:bg-purple-600/30 transition duration-500 pointer-events-none"></div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Filtrar Servicios
+        function filterServices(category) {
+            currentFilter = category;
+            
+            // Actualizar estado de botones
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('bg-purple-600', 'text-white', 'shadow-md');
+                btn.classList.add('bg-purple-950/40', 'text-purple-300');
+            });
+
+            const activeBtn = document.getElementById(`btn-${category}`);
+            if (activeBtn) {
+                activeBtn.classList.remove('bg-purple-950/40', 'text-purple-300');
+                activeBtn.classList.add('bg-purple-600', 'text-white', 'shadow-md');
+            }
+
+            const searchInput = document.getElementById('search-input');
+            renderServices(category, searchInput ? searchInput.value : '');
+        }
+
+        // Búsqueda interactiva
+        function handleSearch() {
+            const query = document.getElementById('search-input').value;
+            renderServices(currentFilter, query);
+        }
+
+        // Modal de detalle
+        function openServiceModal(id) {
+            const service = servicesData.find(s => s.id === id);
+            if (!service) return;
+
+            currentSelectedService = service;
+            document.getElementById('modal-title').textContent = service.title;
+            document.getElementById('modal-category').textContent = service.categoryLabel;
+            document.getElementById('modal-description').textContent = service.description;
+            document.getElementById('modal-time').textContent = service.time;
+            
+            const iconContainer = document.getElementById('modal-icon');
+            iconContainer.innerHTML = `<i class="fa-solid ${service.icon}"></i>`;
+
+            const featuresList = document.getElementById('modal-features');
+            featuresList.innerHTML = '';
+            service.features.forEach(feat => {
+                const li = document.createElement('li');
+                li.className = 'flex items-center gap-2';
+                li.innerHTML = `<i class="fa-solid fa-check text-purple-400 text-[10px]"></i> <span>${feat}</span>`;
+                featuresList.appendChild(li);
+            });
+
+            document.getElementById('service-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('service-modal').classList.add('hidden');
+        }
+
+        function openContactModal() {
+            document.getElementById('contact-modal').classList.remove('hidden');
+        }
+
+        function closeContactModal() {
+            document.getElementById('contact-modal').classList.add('hidden');
+        }
+
+        function requestServiceFromModal() {
+            closeModal();
+            openContactModal();
+        }
+
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            closeContactModal();
+            
+            // Simulación de notificación estilo neón
+            const toast = document.createElement('div');
+            toast.className = 'fixed bottom-5 right-5 z-50 bg-purple-900 border border-purple-400 text-white px-5 py-3 rounded-2xl shadow-2xl flex items-center space-x-3 text-xs animate-bounce';
+            toast.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-400 text-base"></i> <span>¡Mensaje enviado con éxito! Nos contactaremos pronto.</span>`;
+            document.body.appendChild(toast);
+            
+            setTimeout(() => toast.remove(), 4000);
+        }
+
+        // LÓGICA DE PANTALLA DE CARGA (2 SEGUNDOS Y TRANSICIÓN)
+        const loadingDuration = 2000; // 2 segundos
         let startTime = null;
-        let animationFrameId = null;
 
-        const progressBar = document.getElementById('progress-bar');
-        const progressPercentage = document.getElementById('progress-percentage');
-        const loadingText = document.getElementById('loading-text');
-
-        // Función para actualizar la barra de progreso de forma fluida
-        function updateProgress(timestamp) {
+        function updateLoadingProgress(timestamp) {
             if (!startTime) startTime = timestamp;
             const elapsed = timestamp - startTime;
             const progress = Math.min(elapsed / loadingDuration, 1);
-            
-            // Calculamos el porcentaje entero
             const percentage = Math.floor(progress * 100);
-            
-            // Actualizamos la interfaz
-            progressBar.style.width = `${percentage}%`;
-            progressPercentage.textContent = `${percentage}%`;
+
+            const progressBar = document.getElementById('progress-bar');
+            const progressPercentage = document.getElementById('progress-percentage');
+            const loadingText = document.getElementById('loading-text');
+
+            if (progressBar) progressBar.style.width = `${percentage}%`;
+            if (progressPercentage) progressPercentage.textContent = `${percentage}%`;
 
             if (progress < 1) {
-                animationFrameId = requestAnimationFrame(updateProgress);
+                requestAnimationFrame(updateLoadingProgress);
             } else {
-                // Proceso de carga completado
-                loadingText.textContent = "¡Completado! Entrando...";
-                progressBar.style.width = "100%";
-                progressPercentage.textContent = "100%";
-
-                // Efecto visual antes de redirigir
+                // Completado
+                if (loadingText) loadingText.textContent = "Sistemas Listos. Accediendo...";
+                
                 setTimeout(() => {
-                    document.getElementById('splash-container').classList.add('transition-all', 'duration-500', 'opacity-0', 'scale-95');
+                    const loadingScreen = document.getElementById('loading-screen');
+                    const mainContent = document.getElementById('main-content');
+
+                    // Transición suave: desaparecer pantalla de carga
+                    loadingScreen.style.opacity = '0';
+                    loadingScreen.style.pointerEvents = 'none';
+
                     setTimeout(() => {
-                        // Redirección real de la página
-                        if (targetUrl.startsWith('http://') || targetUrl.startsWith('https://')) {
-                            window.location.href = targetUrl;
-                        } else {
-                            // En caso de simulaciones locales
-                            console.log("Redirigiendo a: " + targetUrl);
-                            window.location.href = targetUrl;
-                        }
-                    }, 500);
+                        loadingScreen.classList.add('hidden');
+                        
+                        // Mostrar la página de servicios con efecto de desvanecimiento
+                        mainContent.classList.remove('hidden');
+                        requestAnimationFrame(() => {
+                            mainContent.classList.remove('opacity-0');
+                            mainContent.classList.add('opacity-100');
+                        });
+
+                        // Renderizar tarjetas de servicios
+                        renderServices('all');
+                    }, 700);
                 }, 300);
             }
         }
 
-        // Iniciar la carga al terminar de cargar los elementos de la ventana
-        function startLoading() {
-            startTime = null;
-            if (animationFrameId) cancelAnimationFrame(animationFrameId);
-            loadingText.textContent = "Cargando...";
-            document.getElementById('splash-container').classList.remove('opacity-0', 'scale-95');
-            animationFrameId = requestAnimationFrame(updateProgress);
-        }
-
-        // Reiniciar animación
-        function resetLoading() {
-            startLoading();
-        }
-
-        // Mostrar / Ocultar panel de configuración
-        function toggleConfig() {
-            const modal = document.getElementById('config-modal');
-            modal.classList.toggle('hidden');
-        }
-
-        // Guardar parámetros personalizados
-        function saveSettings() {
-            const urlInput = document.getElementById('target-url-input').value;
-            const timeInput = parseFloat(document.getElementById('target-time-input').value);
-
-            if (urlInput) targetUrl = urlInput;
-            if (timeInput && timeInput > 0) loadingDuration = timeInput * 1000;
-
-            toggleConfig();
-            resetLoading();
-        }
-
-        // Ejecutar carga automática al estar listo
+        // Iniciar al cargar
         window.onload = function() {
-            startLoading();
+            requestAnimationFrame(updateLoadingProgress);
         };
     </script>
 </body>
