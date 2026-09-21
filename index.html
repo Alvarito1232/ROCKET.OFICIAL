@@ -1,407 +1,782 @@
 <!DOCTYPE html>
-<html lang="es" class="dark">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ROCKET - Plataforma de Servicios</title>
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts Inter & Outfit / Montserrat -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;600;800;900&display=swap" rel="stylesheet">
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        darkBg: '#09070d',
-                        purpleGlow: '#9d4edd',
-                        softViolet: '#7b2cbf',
-                        lightPinkGlow: '#e0aaff',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Montserrat', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ROCKET - Plataforma de Servicios</title>
+  <!-- Google Fonts & FontAwesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+  <style>
+    /* =========================================================
+       RESET Y ESTILOS GENERALES
+       ========================================================= */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      user-select: none;
+    }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #09070d;
-            color: #f3e8ff;
-            overflow-x: hidden;
-            min-height: 100vh;
-        }
+    body {
+      background-color: #0b0713;
+      color: #e2e8f0;
+      min-height: 100vh;
+      overflow-x: hidden;
+      background-image: linear-gradient(rgba(11, 7, 19, 0.85), rgba(11, 7, 19, 0.95)), url('Fondoprincipal.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
 
-        /* 1. Fondo Principal Encajado Perfectamente con Filtro de Color Sutil (Inspirado en Foto 3) */
-        .bg-main-wrapper {
-            background-image: 
-                linear-gradient(180deg, rgba(9, 7, 13, 0.72) 0%, rgba(15, 10, 24, 0.85) 100%),
-                url('Fondoprincipal.jpg');
-            background-size: cover;
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-        }
+    /* =========================================================
+       PANTALLA DE CARGA (SPLASH SCREEN)
+       ========================================================= */
+    #loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-image: linear-gradient(rgba(10, 5, 18, 0.75), rgba(10, 5, 18, 0.92)), url('Fondoprincipal.jpg');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.8s ease, visibility 0.8s ease;
+    }
 
-        /* Fallback de imagen en vivo por si no se localiza en servidor local */
-        .bg-main-fallback {
-            background-image: 
-                linear-gradient(180deg, rgba(9, 7, 13, 0.72) 0%, rgba(15, 10, 24, 0.88) 100%),
-                url('Fondoprincipal.jpg'),
-                url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1920&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-        }
+    #loading-screen.fade-out {
+      opacity: 0;
+      visibility: hidden;
+    }
 
-        /* 2. Cuadro Neón ROCKET Elegante y Sobrio */
-        .rocket-frame {
-            background: rgba(18, 12, 28, 0.65);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1.5px solid rgba(168, 85, 247, 0.45);
-            box-shadow: 
-                0 10px 30px rgba(0, 0, 0, 0.6),
-                0 0 20px rgba(157, 78, 221, 0.25),
-                inset 0 0 15px rgba(168, 85, 247, 0.15);
-            border-radius: 20px;
-        }
+    /* Cuadro ROCKET */
+    .rocket-card {
+      width: min(90%, 580px);
+      padding: 32px 20px;
+      border-radius: 18px;
+      background-image: linear-gradient(rgba(20, 10, 35, 0.65), rgba(15, 8, 28, 0.85)), url('fondorocket.jpg');
+      background-size: cover;
+      background-position: center;
+      border: 1px solid rgba(168, 85, 247, 0.35);
+      box-shadow: 0 0 30px rgba(147, 51, 234, 0.2), inset 0 0 15px rgba(168, 85, 247, 0.15);
+      text-align: center;
+      backdrop-filter: blur(8px);
+      margin-bottom: 35px;
+    }
 
-        /* Fondo interno del cuadro de ROCKET */
-        .rocket-inner-bg {
-            background-image: 
-                linear-gradient(180deg, rgba(25, 15, 38, 0.55) 0%, rgba(12, 7, 20, 0.75) 100%),
-                url('fondorocket.jpg'),
-                url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1000&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center 30%;
-        }
+    .rocket-title {
+      font-size: 2.8rem;
+      font-weight: 800;
+      letter-spacing: 0.35em;
+      color: #ffffff;
+      text-transform: uppercase;
+      text-shadow: 0 0 12px rgba(192, 132, 252, 0.6), 0 0 25px rgba(147, 51, 234, 0.3);
+      margin-right: -0.35em; /* Compensar padding de letter-spacing */
+    }
 
-        /* Brillo sutil y sobrio de las letras ROCKET (Sin exagerar/saturar) */
-        .subtle-title-glow {
-            text-shadow: 
-                0 0 8px rgba(255, 255, 255, 0.8),
-                0 0 18px rgba(192, 132, 252, 0.45);
-        }
+    /* Contenedor Carga Minimalista */
+    .loader-container {
+      width: min(85%, 380px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
 
-        /* 3. Estilo Minimalista Pro de Carga (Estilo Imagen 2) */
-        .loading-title {
-            letter-spacing: 0.45em;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: rgba(255, 255, 255, 0.9);
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-        }
+    .loader-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.4em;
+      color: rgba(226, 232, 240, 0.7);
+      text-transform: uppercase;
+    }
 
-        .minimal-track {
-            background: rgba(255, 255, 255, 0.15);
-            height: 2px;
-            width: 100%;
-            border-radius: 999px;
-            overflow: hidden;
-            position: relative;
-        }
+    .progress-bar-bg {
+      width: 100%;
+      height: 2px;
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 2px;
+      overflow: hidden;
+      position: relative;
+    }
 
-        .minimal-fill {
-            background: #ffffff;
-            box-shadow: 0 0 8px #ffffff, 0 0 15px rgba(224, 170, 255, 0.8);
-            height: 100%;
-            width: 0%;
-            border-radius: 999px;
-            transition: width 0.05s linear;
-        }
+    .progress-bar-fill {
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(90deg, #8b5cf6, #d8b4fe);
+      box-shadow: 0 0 8px #a855f7;
+      transition: width 0.05s linear;
+    }
 
-        .percent-text {
-            letter-spacing: 0.25em;
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: rgba(255, 255, 255, 0.85);
-            font-family: 'Montserrat', sans-serif;
-        }
+    .loader-percentage {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      color: rgba(226, 232, 240, 0.6);
+    }
 
-        /* Cartillas de servicios */
-        .glass-card {
-            background: rgba(18, 12, 28, 0.7);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(168, 85, 247, 0.25);
-            transition: all 0.35s ease;
-        }
+    /* =========================================================
+       INTERFACE PRINCIPAL (APP CONTAINER)
+       ========================================================= */
+    #app-container {
+      display: flex;
+      min-height: 100vh;
+      opacity: 0;
+      transition: opacity 0.8s ease;
+    }
 
-        .glass-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(224, 170, 255, 0.6);
-            box-shadow: 0 10px 25px -5px rgba(157, 78, 221, 0.4);
-        }
+    #app-container.visible {
+      opacity: 1;
+    }
 
-        .cartilla-header-img {
-            background-image: 
-                linear-gradient(180deg, rgba(9, 7, 13, 0.1) 0%, rgba(9, 7, 13, 0.9) 100%),
-                url('imagencartillas.jpg'),
-                url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=800&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-        }
+    /* ---- MENU LATERAL (SIDEBAR) ---- */
+    .sidebar {
+      width: 260px;
+      background: rgba(13, 9, 23, 0.92);
+      backdrop-filter: blur(16px);
+      border-right: 1px solid rgba(255, 255, 255, 0.07);
+      display: flex;
+      flex-direction: column;
+      padding: 24px 16px;
+      position: fixed;
+      height: 100vh;
+      z-index: 100;
+      transition: transform 0.3s ease;
+    }
 
-        /* Ocultar barra de desplazamiento */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #09070d; }
-        ::-webkit-scrollbar-thumb { background: #3c096c; border-radius: 3px; }
-    </style>
+    .sidebar-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      margin-bottom: 20px;
+    }
+
+    .sidebar-logo-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .sidebar-brand {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0.05em;
+    }
+
+    /* Buscador Sidebar */
+    .search-box {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .search-box i {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 0.85rem;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 10px 12px 10px 36px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      color: #fff;
+      font-size: 0.85rem;
+      outline: none;
+      transition: all 0.2s;
+    }
+
+    .search-box input:focus {
+      border-color: #a855f7;
+      background: rgba(168, 85, 247, 0.05);
+    }
+
+    /* Menú de Navegación */
+    .nav-menu {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      overflow-y: auto;
+      flex-grow: 1;
+    }
+
+    .nav-menu::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .nav-menu::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+    }
+
+    .nav-item a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px;
+      color: rgba(226, 232, 240, 0.7);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .nav-item-content {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-item i {
+      font-size: 1rem;
+      width: 18px;
+      text-align: center;
+    }
+
+    .nav-item a:hover, .nav-item.active a {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .nav-item.highlight a {
+      background: rgba(168, 85, 247, 0.15);
+      color: #d8b4fe;
+      border: 1px solid rgba(168, 85, 247, 0.2);
+    }
+
+    .nav-item.highlight a:hover {
+      background: rgba(168, 85, 247, 0.25);
+    }
+
+    /* ---- CONTENIDO PRINCIPAL ---- */
+    .main-content {
+      margin-left: 260px;
+      flex-grow: 1;
+      padding: 30px;
+      max-width: 1400px;
+    }
+
+    /* Barra Superior Superior */
+    .top-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+    }
+
+    .top-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: 0.15em;
+    }
+
+    .nav-tabs {
+      display: flex;
+      gap: 15px;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 6px 12px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .tab-btn {
+      background: none;
+      border: none;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      padding: 6px 12px;
+      border-radius: 12px;
+      transition: all 0.2s;
+    }
+
+    .tab-btn.active, .tab-btn:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .contact-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .contact-btn:hover {
+      background: #a855f7;
+      border-color: #a855f7;
+    }
+
+    /* Banner Banner ROCKET Hero */
+    .hero-banner {
+      width: 100%;
+      border-radius: 20px;
+      padding: 35px 30px;
+      background-image: linear-gradient(rgba(20, 10, 35, 0.7), rgba(15, 8, 28, 0.85)), url('fondorocket.jpg');
+      background-size: cover;
+      background-position: center;
+      border: 1px solid rgba(168, 85, 247, 0.25);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    .badge-tag {
+      display: inline-block;
+      padding: 4px 10px;
+      background: rgba(168, 85, 247, 0.2);
+      border: 1px solid rgba(168, 85, 247, 0.4);
+      color: #d8b4fe;
+      border-radius: 12px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      margin-bottom: 12px;
+    }
+
+    .hero-title {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .hero-subtitle {
+      color: rgba(226, 232, 240, 0.7);
+      font-size: 0.88rem;
+      max-width: 600px;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .hero-search {
+      width: min(100%, 350px);
+      position: relative;
+    }
+
+    .hero-search input {
+      width: 100%;
+      padding: 10px 14px 10px 36px;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 10px;
+      color: #fff;
+      font-size: 0.85rem;
+      outline: none;
+    }
+
+    .hero-search i {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    /* Grid de Cartillas de Servicios */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .service-card {
+      background: rgba(18, 12, 28, 0.75);
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(168, 85, 247, 0.4);
+      box-shadow: 0 10px 25px rgba(147, 51, 234, 0.15);
+    }
+
+    .card-header-img {
+      height: 110px;
+      width: 100%;
+      background-image: linear-gradient(rgba(18, 12, 28, 0.2), rgba(18, 12, 28, 0.9)), url('imagencartillas.jpg');
+      background-size: cover;
+      background-position: center;
+      padding: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .category-tag {
+      padding: 3px 8px;
+      background: rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 6px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: #d8b4fe;
+      letter-spacing: 0.05em;
+    }
+
+    .card-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      background: rgba(0, 0, 0, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 0.8rem;
+    }
+
+    .card-body {
+      padding: 16px;
+    }
+
+    .card-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .card-desc {
+      font-size: 0.78rem;
+      color: rgba(226, 232, 240, 0.6);
+      line-height: 1.4;
+      margin-bottom: 16px;
+      min-height: 36px;
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 12px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .card-time {
+      font-size: 0.72rem;
+      color: rgba(255, 255, 255, 0.4);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .card-btn {
+      background: none;
+      border: none;
+      color: #d8b4fe;
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: color 0.2s;
+    }
+
+    .card-btn:hover {
+      color: #fff;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .sidebar {
+        transform: translateX(-100%);
+      }
+      .main-content {
+        margin-left: 0;
+      }
+    }
+  </style>
 </head>
-<body class="bg-main-fallback min-h-screen text-slate-100 flex flex-col antialiased selection:bg-purple-600 selection:text-white">
+<body>
 
-    <!-- 1. PANTALLA DE CARGA (SPLASH SCREEN MINIMALISTA PRO - 2 SEGUNDOS) -->
-    <div id="loading-screen" class="fixed inset-0 z-50 flex flex-col items-center justify-center p-6 transition-opacity duration-700 ease-out">
-        
-        <div class="w-full max-w-xl flex flex-col items-center">
-            
-            <!-- Cuadro Neón Rocket (Unicamente dice ROCKET) -->
-            <div class="rocket-frame rocket-inner-bg px-10 py-7 sm:px-16 sm:py-9 w-full text-center relative overflow-hidden mb-12">
-                <div class="relative z-10 flex items-center justify-center gap-3 sm:gap-4">
-                    <span class="text-3xl sm:text-5xl select-none" role="img" aria-label="rocket">🚀</span>
-                    <h1 class="text-3xl sm:text-5xl font-extrabold tracking-widest text-white subtle-title-glow font-display uppercase">
-                        ROCKET
-                    </h1>
-                </div>
-            </div>
+  <!-- =========================================================
+       PANTALLA DE CARGA (SPLASH SCREEN)
+       ========================================================= -->
+  <div id="loading-screen">
+    <!-- Cuadro ROCKET sin cohete, limpio y elegante -->
+    <div class="rocket-card">
+      <h1 class="rocket-title">ROCKET</h1>
+    </div>
 
-            <!-- Indicador de Carga Estilo Minimalista Pro (Imagen 2) -->
-            <div class="w-full max-w-sm flex flex-col items-center space-y-4">
-                
-                <!-- Palabra LOADING -->
-                <span class="loading-title font-display uppercase">LOADING</span>
+    <!-- Indicador de carga tipo minimalista pro -->
+    <div class="loader-container">
+      <div class="loader-label">LOADING</div>
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" id="progress-fill"></div>
+      </div>
+      <div class="loader-percentage" id="progress-text">0 %</div>
+    </div>
+  </div>
 
-                <!-- Línea Fina de Carga -->
-                <div class="minimal-track">
-                    <div id="progress-bar" class="minimal-fill"></div>
-                </div>
+  <!-- =========================================================
+       INTERFACE PRINCIPAL
+       ========================================================= -->
+  <div id="app-container">
+    
+    <!-- Menú Lateral Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo-icon">R</div>
+        <span class="sidebar-brand">ROCKET</span>
+      </div>
 
-                <!-- Porcentaje 0 % - 100 % -->
-                <span id="progress-percentage" class="percent-text">0 %</span>
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Buscar...">
+      </div>
 
-            </div>
+      <ul class="nav-menu">
+        <li class="nav-item active">
+          <a href="#"><span class="nav-item-content"><i class="fa-solid fa-house"></i> Home</span></a>
+        </li>
+        <li class="nav-item">
+          <a href="#"><span class="nav-item-content"><i class="fa-solid fa-phone"></i> Teléfonos</span></a>
+        </li>
+        <li class="nav-item">
+          <a href="#"><span class="nav-item-content"><i class="fa-solid fa-building"></i> Sunarp</span></a>
+        </li>
+        <li class="nav-item">
+          <a href="#"><span class="nav-item-content"><i class="fa-solid fa-id-card"></i> Reniec</span> <i class="fa-solid fa-chevron-down" style="font-size:0.7rem;"></i></a>
+        </li>
+        <li class="nav-item">
+          <a href="#"><span class="nav-item-content"><i class="fa-solid fa-scale-balanced"></i> Justicia</span> <i class="fa-solid fa-chevron-down" style="font-size:0.7rem;"></i></a>
+        </li>
+        <li class="nav-item">
+          <a href="#"><span class="nav-item-content"><i class="fa-solid fa-shield-halved"></i> Sentinel</span></a>
+        </li>
+        <li class="nav-item">
+          <a href="#"><span class="nav-item-content"><i class="fa-solid fa-car"></i> Vehículo</span></a>
+        </li>
+        <li class="nav-item">
+          <a href="#"><span class="nav-item-content"><i class="fa-solid fa-car-side"></i> Síguelo Plus</span></a>
+        </li>
+        <li class="nav-item">
+          <a href="#"><span class="nav-item-content"><i class="fa-solid fa-file-lines"></i> Actas</span></a>
+        </li>
+        <li class="nav-item">
+          <a href="#"><span class="nav-item-content"><i class="fa-solid fa-chart-simple"></i> Doxing</span></a>
+        </li>
+        <li class="nav-item">
+          <a href="#"><span class="nav-item-content"><i class="fa-solid fa-user-plus"></i> Persona Plus</span></a>
+        </li>
+        <li class="nav-item">
+          <a href="#"><span class="nav-item-content"><i class="fa-solid fa-receipt"></i> Sunat</span></a>
+        </li>
+        <li class="nav-item">
+          <a href="#"><span class="nav-item-content"><i class="fa-solid fa-tv"></i> Streaming</span></a>
+        </li>
+        <li class="nav-item">
+          <a href="#"><span class="nav-item-content"><i class="fa-solid fa-code"></i> APIs</span></a>
+        </li>
+        <li class="nav-item highlight">
+          <a href="#"><span class="nav-item-content"><i class="fa-solid fa-comment-dots"></i> Chat Bot</span></a>
+        </li>
+      </ul>
+    </aside>
 
+    <!-- Panel de Contenido Principal -->
+    <main class="main-content">
+      <header class="top-header">
+        <div class="top-logo">ROCKET</div>
+        <div class="nav-tabs">
+          <button class="tab-btn active">TODOS</button>
+          <button class="tab-btn">DIGITALES</button>
+          <button class="tab-btn">OSINT</button>
+          <button class="tab-btn">STREAMING</button>
+          <button class="tab-btn">ACADÉMICOS</button>
         </div>
-    </div>
+        <button class="contact-btn">Contacto</button>
+      </header>
 
-    <!-- 2. PÁGINA PRINCIPAL DE SERVICIOS (Aparece automáticamente tras cargar) -->
-    <div id="main-content" class="min-h-screen opacity-0 transition-opacity duration-1000 ease-in hidden flex flex-col">
-        
-        <!-- Navbar Minimalista -->
-        <header class="sticky top-0 z-40 bg-black/60 backdrop-blur-md border-b border-purple-500/20 px-6 py-4">
-            <div class="max-w-6xl mx-auto flex items-center justify-between">
-                
-                <div class="flex items-center space-x-2 cursor-pointer" onclick="filterServices('all')">
-                    <span class="text-xl">🚀</span>
-                    <span class="font-display font-extrabold text-xl tracking-widest text-white">ROCKET</span>
-                </div>
-
-                <nav class="hidden md:flex items-center space-x-6 text-xs font-semibold tracking-wider text-purple-200/80">
-                    <button onclick="filterServices('all')" class="hover:text-white transition">TODOS</button>
-                    <button onclick="filterServices('digital')" class="hover:text-white transition">DIGITALES</button>
-                    <button onclick="filterServices('osint')" class="hover:text-white transition">OSINT</button>
-                    <button onclick="filterServices('academic')" class="hover:text-white transition">ACADÉMICOS</button>
-                </nav>
-
-                <button onclick="openContactModal()" class="px-4 py-2 rounded-lg text-xs font-bold bg-white/10 hover:bg-white/20 border border-white/20 text-white transition">
-                    Contacto
-                </button>
-            </div>
-        </header>
-
-        <!-- Hero Banner -->
-        <main class="flex-1 max-w-6xl w-full mx-auto px-6 py-10">
-            
-            <div class="relative rounded-2xl overflow-hidden mb-10 p-8 sm:p-12 border border-purple-500/20 bg-black/40 backdrop-blur-md">
-                <div class="relative z-10 max-w-2xl">
-                    <span class="inline-block px-3 py-1 rounded-full text-[10px] font-semibold tracking-widest bg-purple-500/20 text-purple-200 border border-purple-500/30 mb-3">
-                        CATÁLOGO OFICIAL
-                    </span>
-                    <h2 class="text-2xl sm:text-4xl font-bold text-white font-display mb-3">
-                        Servicios & Soluciones
-                    </h2>
-                    <p class="text-purple-200/80 text-xs sm:text-sm mb-6 leading-relaxed">
-                        Explora nuestra gama de soluciones digitales, análisis de inteligencia OSINT y acompañamiento académico.
-                    </p>
-                    
-                    <div class="relative max-w-md">
-                        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-purple-400/60 text-xs"></i>
-                        <input type="text" id="search-input" onkeyup="handleSearch()" placeholder="Buscar servicio..." 
-                            class="w-full pl-9 pr-4 py-2.5 bg-black/60 border border-purple-500/30 rounded-xl text-xs text-white placeholder-purple-300/40 focus:outline-none focus:border-purple-400 transition">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Grilla de Cartillas -->
-            <div id="services-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Dinámico -->
-            </div>
-
-            <div id="no-results" class="hidden text-center py-12 bg-black/40 border border-purple-500/20 rounded-xl">
-                <p class="text-xs text-purple-300/60">No se encontraron resultados para la búsqueda.</p>
-            </div>
-        </main>
-
-        <!-- Footer -->
-        <footer class="border-t border-purple-500/10 bg-black/60 py-6 px-6 text-center text-xs text-purple-300/50">
-            &copy; 2026 ROCKET. Plataforma de Servicios Digitales.
-        </footer>
-    </div>
-
-    <!-- Modal Contacto -->
-    <div id="contact-modal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-        <div class="bg-black/90 border border-purple-500/40 p-6 rounded-2xl max-w-sm w-full relative">
-            <button onclick="closeContactModal()" class="absolute top-4 right-4 text-purple-400 hover:text-white text-sm">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-            <h3 class="text-lg font-bold text-white mb-4 font-display">Contacto Directo</h3>
-            <form onsubmit="handleContactSubmit(event)" class="space-y-3 text-xs">
-                <div>
-                    <label class="block text-purple-300 mb-1">Nombre</label>
-                    <input type="text" required class="w-full bg-white/5 border border-purple-500/30 rounded-lg p-2 text-white focus:outline-none focus:border-purple-400">
-                </div>
-                <div>
-                    <label class="block text-purple-300 mb-1">Mensaje / Requerimiento</label>
-                    <textarea rows="3" required class="w-full bg-white/5 border border-purple-500/30 rounded-lg p-2 text-white focus:outline-none focus:border-purple-400"></textarea>
-                </div>
-                <button type="submit" class="w-full py-2.5 rounded-lg text-xs font-bold bg-purple-600 hover:bg-purple-500 text-white transition">
-                    Enviar
-                </button>
-            </form>
+      <!-- Banner de la Sección -->
+      <section class="hero-banner">
+        <span class="badge-tag">CATÁLOGO OFICIAL</span>
+        <h2 class="hero-title">Servicios & Soluciones</h2>
+        <p class="hero-subtitle">Explora nuestra gama de soluciones digitales, análisis de inteligencia OSINT, cuentas de streaming y acompañamiento académico.</p>
+        <div class="hero-search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" placeholder="Buscar servicio...">
         </div>
-    </div>
+      </section>
 
-    <script>
-        const servicesData = [
-            { id: 1, category: 'digital', categoryLabel: 'Digital', title: 'Desarrollo Web Cyberpunk', icon: 'fa-code', description: 'Interfaces modernas con diseño responsive y alta velocidad.', time: '3 - 5 días' },
-            { id: 2, category: 'digital', categoryLabel: 'Digital', title: 'Ciberseguridad & Auditoría', icon: 'fa-shield-halved', description: 'Evaluación de seguridad y protección de activos digitales.', time: '2 - 4 días' },
-            { id: 3, category: 'digital', categoryLabel: 'Digital', title: 'Bots & Automatización', icon: 'fa-robot', description: 'Scripts automatizados para Telegram, Discord y pasarelas.', time: '1 - 3 días' },
-            { id: 4, category: 'osint', categoryLabel: 'OSINT', title: 'Investigación & Rastreo OSINT', icon: 'fa-user-secret', description: 'Análisis de huella digital y búsqueda en fuentes abiertas.', time: '24 - 48 hrs' },
-            { id: 5, category: 'osint', categoryLabel: 'OSINT', title: 'Auditoría de Exposición Digital', icon: 'fa-magnifying-glass-chart', description: 'Monitoreo de filtraciones e información pública expuesta.', time: '2 - 3 días' },
-            { id: 6, category: 'academic', categoryLabel: 'Académico', title: 'Asesoría Académica de Tesis', icon: 'fa-graduation-cap', description: 'Acompañamiento integral, estructura y formato APA/Vancouver.', time: 'A convenir' }
-        ];
+      <!-- Mosaico de Cartillas -->
+      <section class="services-grid">
+        
+        <!-- Cartilla 1 -->
+        <div class="service-card">
+          <div class="card-header-img">
+            <span class="category-tag">DIGITAL</span>
+            <div class="card-icon"><i class="fa-solid fa-code"></i></div>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Desarrollo Web Cyberpunk</h3>
+            <p class="card-desc">Interfaces modernas con diseño responsive y alta velocidad de procesamiento.</p>
+            <div class="card-footer">
+              <span class="card-time"><i class="fa-regular fa-clock"></i> 3-5 días</span>
+              <button class="card-btn">Solicitar <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+          </div>
+        </div>
 
-        function renderServices(filter = 'all', query = '') {
-            const grid = document.getElementById('services-grid');
-            const noResults = document.getElementById('no-results');
-            grid.innerHTML = '';
+        <!-- Cartilla 2 -->
+        <div class="service-card">
+          <div class="card-header-img">
+            <span class="category-tag">OSINT</span>
+            <div class="card-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Investigación & Rastreo OSINT</h3>
+            <p class="card-desc">Análisis de huella digital y búsqueda en fuentes abiertas especializadas.</p>
+            <div class="card-footer">
+              <span class="card-time"><i class="fa-regular fa-clock"></i> 24-48 hrs</span>
+              <button class="card-btn">Solicitar <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+          </div>
+        </div>
 
-            const filtered = servicesData.filter(item => {
-                const matchFilter = filter === 'all' || item.category === filter;
-                const matchQuery = item.title.toLowerCase().includes(query.toLowerCase()) || item.description.toLowerCase().includes(query.toLowerCase());
-                return matchFilter && matchQuery;
-            });
+        <!-- Cartilla 3 -->
+        <div class="service-card">
+          <div class="card-header-img">
+            <span class="category-tag">STREAMING</span>
+            <div class="card-icon"><i class="fa-solid fa-tv"></i></div>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Cuentas Streaming Premium</h3>
+            <p class="card-desc">Acceso inmediato a plataformas de entretenimiento digital de alta definición.</p>
+            <div class="card-footer">
+              <span class="card-time"><i class="fa-regular fa-clock"></i> Inmediato</span>
+              <button class="card-btn">Solicitar <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+          </div>
+        </div>
 
-            if (filtered.length === 0) {
-                noResults.classList.remove('hidden');
-                return;
-            } else {
-                noResults.classList.add('hidden');
-            }
+        <!-- Cartilla 4 -->
+        <div class="service-card">
+          <div class="card-header-img">
+            <span class="category-tag">DIGITAL</span>
+            <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Ciberseguridad & Auditoría</h3>
+            <p class="card-desc">Evaluación de seguridad y protección de activos digitales personales y corporativos.</p>
+            <div class="card-footer">
+              <span class="card-time"><i class="fa-regular fa-clock"></i> 2-4 días</span>
+              <button class="card-btn">Solicitar <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+          </div>
+        </div>
 
-            filtered.forEach(service => {
-                const card = document.createElement('div');
-                card.className = 'glass-card rounded-xl overflow-hidden flex flex-col justify-between cursor-pointer group';
-                card.onclick = () => openContactModal();
+        <!-- Cartilla 5 -->
+        <div class="service-card">
+          <div class="card-header-img">
+            <span class="category-tag">OSINT</span>
+            <div class="card-icon"><i class="fa-solid fa-user-shield"></i></div>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Auditoría de Exposición Digital</h3>
+            <p class="card-desc">Monitoreo de filtraciones e información pública expuesta en la red.</p>
+            <div class="card-footer">
+              <span class="card-time"><i class="fa-regular fa-clock"></i> 2-3 días</span>
+              <button class="card-btn">Solicitar <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+          </div>
+        </div>
 
-                card.innerHTML = `
-                    <div class="h-24 cartilla-header-img p-4 flex items-start justify-between relative">
-                        <div class="w-8 h-8 rounded-lg bg-black/60 border border-purple-400/40 flex items-center justify-center text-purple-300 text-xs">
-                            <i class="fa-solid ${service.icon}"></i>
-                        </div>
-                        <span class="text-[9px] uppercase font-semibold text-purple-200 px-2 py-0.5 rounded bg-black/70 border border-purple-500/30">
-                            ${service.categoryLabel}
-                        </span>
-                    </div>
-                    <div class="p-4 flex-1 flex flex-col justify-between">
-                        <div>
-                            <h4 class="text-sm font-bold text-white mb-1 group-hover:text-purple-300 transition">${service.title}</h4>
-                            <p class="text-xs text-purple-200/70 leading-relaxed mb-3">${service.description}</p>
-                        </div>
-                        <div class="flex items-center justify-between pt-2 border-t border-purple-500/20 text-[11px] text-purple-300/80">
-                            <span><i class="fa-regular fa-clock mr-1"></i> ${service.time}</span>
-                            <span class="font-semibold text-white">Solicitar <i class="fa-solid fa-arrow-right text-[9px]"></i></span>
-                        </div>
-                    </div>
-                `;
-                grid.appendChild(card);
-            });
+        <!-- Cartilla 6 -->
+        <div class="service-card">
+          <div class="card-header-img">
+            <span class="category-tag">ACADÉMICO</span>
+            <div class="card-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Asesoría Académica de Tesis</h3>
+            <p class="card-desc">Acompañamiento integral, estructura y formato APA/Vancouver profesional.</p>
+            <div class="card-footer">
+              <span class="card-time"><i class="fa-regular fa-clock"></i> A convenir</span>
+              <button class="card-btn">Solicitar <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+          </div>
+        </div>
+
+      </section>
+    </main>
+  </div>
+
+  <!-- =========================================================
+       JAVASCRIPT (LÓGICA DE CARGA DE 2 SEGUNDOS)
+       ========================================================= -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const progressFill = document.getElementById("progress-fill");
+      const progressText = document.getElementById("progress-text");
+      const loadingScreen = document.getElementById("loading-screen");
+      const appContainer = document.getElementById("app-container");
+
+      const DURATION = 2000; // 2 segundos exactos
+      const INTERVAL = 20;   // Actualización cada 20ms
+      const steps = DURATION / INTERVAL;
+      let currentStep = 0;
+
+      const timer = setInterval(() => {
+        currentStep++;
+        const percent = Math.min(Math.round((currentStep / steps) * 100), 100);
+
+        progressFill.style.width = percent + "%";
+        progressText.innerText = percent + " %";
+
+        if (currentStep >= steps) {
+          clearInterval(timer);
+          
+          // Ocultar pantalla de carga
+          loadingScreen.classList.add("fade-out");
+          
+          // Mostrar contenedor de servicios
+          setTimeout(() => {
+            appContainer.classList.add("visible");
+          }, 200);
         }
-
-        function filterServices(cat) {
-            const query = document.getElementById('search-input').value;
-            renderServices(cat, query);
-        }
-
-        function handleSearch() {
-            const query = document.getElementById('search-input').value;
-            renderServices('all', query);
-        }
-
-        function openContactModal() { document.getElementById('contact-modal').classList.remove('hidden'); }
-        function closeContactModal() { document.getElementById('contact-modal').classList.add('hidden'); }
-        function handleContactSubmit(e) {
-            e.preventDefault();
-            closeContactModal();
-            alert("¡Mensaje enviado con éxito!");
-        }
-
-        // LÓGICA DE CARGA MINIMALISTA PRO (2 SEGUNDOS EXACTOS)
-        const loadingDuration = 2000;
-        let startTime = null;
-
-        function updateLoadingProgress(timestamp) {
-            if (!startTime) startTime = timestamp;
-            const elapsed = timestamp - startTime;
-            const progress = Math.min(elapsed / loadingDuration, 1);
-            const percentage = Math.floor(progress * 100);
-
-            const progressBar = document.getElementById('progress-bar');
-            const progressPercentage = document.getElementById('progress-percentage');
-
-            if (progressBar) progressBar.style.width = `${percentage}%`;
-            if (progressPercentage) progressPercentage.textContent = `${percentage} %`;
-
-            if (progress < 1) {
-                requestAnimationFrame(updateLoadingProgress);
-            } else {
-                setTimeout(() => {
-                    const loadingScreen = document.getElementById('loading-screen');
-                    const mainContent = document.getElementById('main-content');
-
-                    loadingScreen.style.opacity = '0';
-                    loadingScreen.style.pointerEvents = 'none';
-
-                    setTimeout(() => {
-                        loadingScreen.classList.add('hidden');
-                        mainContent.classList.remove('hidden');
-                        requestAnimationFrame(() => {
-                            mainContent.classList.remove('opacity-0');
-                            mainContent.classList.add('opacity-100');
-                        });
-                        renderServices('all');
-                    }, 600);
-                }, 150);
-            }
-        }
-
-        window.onload = function() {
-            requestAnimationFrame(updateLoadingProgress);
-        };
-    </script>
+      }, INTERVAL);
+    });
+  </script>
 </body>
 </html>
