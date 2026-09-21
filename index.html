@@ -29,7 +29,7 @@
       overflow-x: hidden;
       background-image: linear-gradient(rgba(11, 7, 19, 0.88), rgba(11, 7, 19, 0.96)), url('Fondoprincipal.jpg');
       background-size: cover;
-      background-position: center;
+      background-position: center 30%;
       background-attachment: fixed;
     }
 
@@ -44,7 +44,7 @@
       height: 100vh;
       background-image: linear-gradient(rgba(10, 5, 18, 0.78), rgba(10, 5, 18, 0.94)), url('Fondoprincipal.jpg');
       background-size: cover;
-      background-position: center;
+      background-position: center 30%;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -59,29 +59,44 @@
       visibility: hidden;
     }
 
-    /* Cuadro ROCKET - Versión Imponente */
+    /* Cuadro ROCKET - Versión Impactante */
     .rocket-card {
       width: min(92%, 650px);
-      padding: 40px 24px;
+      padding: 38px 24px;
       border-radius: 20px;
-      background-image: linear-gradient(rgba(20, 10, 35, 0.7), rgba(15, 8, 28, 0.88)), url('fondorocket.jpg');
+      background-image: linear-gradient(rgba(20, 10, 35, 0.65), rgba(15, 8, 28, 0.88)), url('fondorocket.jpg');
       background-size: cover;
-      background-position: center;
-      border: 1px solid rgba(168, 85, 247, 0.4);
-      box-shadow: 0 0 35px rgba(147, 51, 234, 0.25), inset 0 0 20px rgba(168, 85, 247, 0.2);
+      background-position: center 35%;
+      border: 1px solid rgba(168, 85, 247, 0.45);
+      box-shadow: 0 0 35px rgba(147, 51, 234, 0.3), inset 0 0 20px rgba(168, 85, 247, 0.2);
       text-align: center;
       backdrop-filter: blur(10px);
       margin-bottom: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .rocket-icon {
+      font-size: clamp(2.2rem, 6vw, 3.5rem);
+      filter: drop-shadow(0 0 12px rgba(192, 132, 252, 0.8));
+      animation: pulseRocket 2s infinite ease-in-out;
+    }
+
+    @keyframes pulseRocket {
+      0%, 100% { transform: scale(1) translateY(0); }
+      50% { transform: scale(1.08) translateY(-3px); }
     }
 
     .rocket-title {
-      font-size: clamp(2.8rem, 8vw, 4.2rem);
+      font-size: clamp(2.5rem, 7vw, 4rem);
       font-weight: 900;
-      letter-spacing: 0.3em;
+      letter-spacing: 0.25em;
       color: #ffffff;
       text-transform: uppercase;
-      text-shadow: 0 0 15px rgba(192, 132, 252, 0.8), 0 0 35px rgba(147, 51, 234, 0.5);
-      margin-right: -0.3em; /* Compensar espacio entre letras */
+      text-shadow: 0 0 15px rgba(192, 132, 252, 0.9), 0 0 35px rgba(147, 51, 234, 0.6);
+      margin-right: -0.25em;
     }
 
     /* Contenedor Carga Minimalista */
@@ -138,7 +153,6 @@
       opacity: 1;
     }
 
-    /* Overlay para pantalla móvil al abrir menú */
     .sidebar-overlay {
       display: none;
       position: fixed;
@@ -239,7 +253,7 @@
       border-radius: 4px;
     }
 
-    .nav-item a {
+    .nav-item a, .dropdown-trigger {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -249,6 +263,7 @@
       font-size: 0.88rem;
       font-weight: 500;
       border-radius: 8px;
+      cursor: pointer;
       transition: all 0.2s ease;
     }
 
@@ -264,9 +279,45 @@
       text-align: center;
     }
 
-    .nav-item a:hover, .nav-item.active a {
+    .nav-item a:hover, .dropdown-trigger:hover, .nav-item.active a {
       color: #fff;
       background: rgba(255, 255, 255, 0.06);
+    }
+
+    .chevron-icon {
+      transition: transform 0.3s ease;
+      font-size: 0.7rem !important;
+    }
+
+    /* Submenús Plegables */
+    .submenu {
+      list-style: none;
+      padding-left: 36px;
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      margin-top: 2px;
+      margin-bottom: 4px;
+      border-left: 1px solid rgba(255, 255, 255, 0.1);
+      margin-left: 20px;
+    }
+
+    .submenu li a {
+      padding: 6px 10px;
+      font-size: 0.8rem;
+      color: rgba(226, 232, 240, 0.55);
+    }
+
+    .submenu li a:hover {
+      color: #d8b4fe;
+    }
+
+    .dropdown-group.open .submenu {
+      display: flex;
+    }
+
+    .dropdown-group.open .chevron-icon {
+      transform: rotate(180deg);
     }
 
     .nav-item.highlight a {
@@ -284,7 +335,6 @@
       width: calc(100% - 260px);
     }
 
-    /* Top Navigation Header */
     .top-header {
       display: flex;
       justify-content: space-between;
@@ -323,7 +373,6 @@
       padding: 6px 12px;
       border-radius: 20px;
       border: 1px solid rgba(255, 255, 255, 0.05);
-      overflow-x: auto;
     }
 
     .tab-btn {
@@ -363,7 +412,7 @@
       border-color: #a855f7;
     }
 
-    /* Banner Hero Modificado (Solo ROCKET) */
+    /* Banner Hero Limpio (Solo ROCKET) */
     .hero-banner-clean {
       width: 100%;
       min-height: 180px;
@@ -371,32 +420,34 @@
       padding: 40px 20px;
       background-image: linear-gradient(rgba(20, 10, 35, 0.65), rgba(15, 8, 28, 0.85)), url('fondorocket.jpg');
       background-size: cover;
-      background-position: center;
+      background-position: center 35%;
       border: 1px solid rgba(168, 85, 247, 0.35);
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(168, 85, 247, 0.15);
       margin-bottom: 30px;
       display: flex;
       justify-content: center;
       align-items: center;
+      gap: 12px;
       backdrop-filter: blur(8px);
     }
 
     .hero-banner-title {
       font-size: clamp(2.2rem, 6vw, 3.8rem);
       font-weight: 900;
-      letter-spacing: 0.3em;
+      letter-spacing: 0.25em;
       color: #ffffff;
       text-transform: uppercase;
       text-shadow: 0 0 12px rgba(192, 132, 252, 0.7), 0 0 25px rgba(147, 51, 234, 0.4);
-      margin-right: -0.3em;
+      margin-right: -0.25em;
       text-align: center;
     }
 
-    /* Grid de Cartillas de Servicios */
+    /* Grid de Cartillas */
     .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 20px;
+      margin-bottom: 40px;
     }
 
     .service-card {
@@ -495,9 +546,45 @@
       gap: 5px;
     }
 
-    /* =========================================================
-       MEDIA QUERIES (DISPOSITIVOS MÓVILES Y TABLETS)
-       ========================================================= */
+    /* ---- SECCIÓN INFERIOR: GUERRA TOTAL & FRASE ---- */
+    .guerra-total-section {
+      width: 100%;
+      padding: 35px 25px;
+      background: rgba(13, 8, 23, 0.85);
+      border: 1px solid rgba(168, 85, 247, 0.25);
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    }
+
+    .guerra-tag {
+      padding: 5px 14px;
+      background: rgba(225, 29, 72, 0.15);
+      border: 1px solid rgba(225, 29, 72, 0.4);
+      color: #fda4af;
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.25em;
+      border-radius: 20px;
+      text-transform: uppercase;
+    }
+
+    .quote-text {
+      font-size: clamp(1rem, 2.5vw, 1.4rem);
+      font-weight: 700;
+      font-style: italic;
+      color: #f1f5f9;
+      max-width: 750px;
+      line-height: 1.5;
+      text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    }
+
+    /* Responsive */
     @media (max-width: 992px) {
       .sidebar {
         transform: translateX(-100%);
@@ -514,22 +601,22 @@
         display: flex;
       }
       .nav-tabs {
-        display: none; /* Se oculta en pantallas pequeñas para dar espacio */
+        display: none;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Overlay para menú móvil -->
   <div class="sidebar-overlay" id="sidebar-overlay"></div>
 
   <!-- =========================================================
        PANTALLA DE CARGA (SPLASH SCREEN)
        ========================================================= -->
   <div id="loading-screen">
-    <!-- Cuadro ROCKET - Imponente y Limpio -->
+    <!-- Cuadro ROCKET - Con Cohete y Mirada Encuadrada -->
     <div class="rocket-card">
+      <span class="rocket-icon">🚀</span>
       <h1 class="rocket-title">ROCKET</h1>
     </div>
 
@@ -570,12 +657,37 @@
         <li class="nav-item">
           <a href="#"><span class="nav-item-content"><i class="fa-solid fa-building"></i> Sunarp</span></a>
         </li>
-        <li class="nav-item">
-          <a href="#"><span class="nav-item-content"><i class="fa-solid fa-id-card"></i> Reniec</span> <i class="fa-solid fa-chevron-down" style="font-size:0.7rem;"></i></a>
+
+        <!-- Submenú Reniec -->
+        <li class="nav-item dropdown-group" id="dropdown-reniec">
+          <div class="dropdown-trigger">
+            <span class="nav-item-content"><i class="fa-solid fa-id-card"></i> Reniec</span>
+            <i class="fa-solid fa-chevron-down chevron-icon"></i>
+          </div>
+          <ul class="submenu">
+            <li><a href="#">Ficha Reniec</a></li>
+            <li><a href="#">Búsqueda por nombres</a></li>
+            <li><a href="#">DNI Virtual</a></li>
+            <li><a href="#">Árbol genealógico</a></li>
+            <li><a href="#">Reconocimiento facial</a></li>
+          </ul>
         </li>
-        <li class="nav-item">
-          <a href="#"><span class="nav-item-content"><i class="fa-solid fa-scale-balanced"></i> Justicia</span> <i class="fa-solid fa-chevron-down" style="font-size:0.7rem;"></i></a>
+
+        <!-- Submenú Justicia -->
+        <li class="nav-item dropdown-group" id="dropdown-justicia">
+          <div class="dropdown-trigger">
+            <span class="nav-item-content"><i class="fa-solid fa-scale-balanced"></i> Justicia</span>
+            <i class="fa-solid fa-chevron-down chevron-icon"></i>
+          </div>
+          <ul class="submenu">
+            <li><a href="#">Denuncias Policiales</a></li>
+            <li><a href="#">Carpeta Fiscal</a></li>
+            <li><a href="#">Antecedentes</a></li>
+            <li><a href="#">Requisitorias</a></li>
+            <li><a href="#">Policia</a></li>
+          </ul>
         </li>
+
         <li class="nav-item">
           <a href="#"><span class="nav-item-content"><i class="fa-solid fa-shield-halved"></i> Sentinel</span></a>
         </li>
@@ -615,7 +727,7 @@
         <button class="mobile-menu-btn" id="toggle-menu">
           <i class="fa-solid fa-bars"></i>
         </button>
-        <div class="top-logo">ROCKET</div>
+        <div class="top-logo">🚀 ROCKET</div>
         <div class="nav-tabs">
           <button class="tab-btn active">TODOS</button>
           <button class="tab-btn">DIGITALES</button>
@@ -628,13 +740,13 @@
 
       <!-- Banner Hero Limpio (Únicamente ROCKET) -->
       <section class="hero-banner-clean">
+        <span style="font-size: 2.2rem;">🚀</span>
         <h1 class="hero-banner-title">ROCKET</h1>
       </section>
 
       <!-- Mosaico de Cartillas -->
       <section class="services-grid">
         
-        <!-- Cartilla 1 -->
         <div class="service-card">
           <div class="card-header-img">
             <span class="category-tag">DIGITAL</span>
@@ -650,7 +762,6 @@
           </div>
         </div>
 
-        <!-- Cartilla 2 -->
         <div class="service-card">
           <div class="card-header-img">
             <span class="category-tag">OSINT</span>
@@ -666,7 +777,6 @@
           </div>
         </div>
 
-        <!-- Cartilla 3 -->
         <div class="service-card">
           <div class="card-header-img">
             <span class="category-tag">STREAMING</span>
@@ -682,7 +792,6 @@
           </div>
         </div>
 
-        <!-- Cartilla 4 -->
         <div class="service-card">
           <div class="card-header-img">
             <span class="category-tag">DIGITAL</span>
@@ -698,7 +807,6 @@
           </div>
         </div>
 
-        <!-- Cartilla 5 -->
         <div class="service-card">
           <div class="card-header-img">
             <span class="category-tag">OSINT</span>
@@ -714,7 +822,6 @@
           </div>
         </div>
 
-        <!-- Cartilla 6 -->
         <div class="service-card">
           <div class="card-header-img">
             <span class="category-tag">ACADÉMICO</span>
@@ -731,6 +838,13 @@
         </div>
 
       </section>
+
+      <!-- Sección de Cierre: GUERRA TOTAL Y FRASE IMPACTANTE -->
+      <section class="guerra-total-section">
+        <span class="guerra-tag">GUERRA TOTAL</span>
+        <p class="quote-text">"si existe dios... él tendrá que rogarme a mi para que lo perdone"</p>
+      </section>
+
     </main>
   </div>
 
@@ -739,7 +853,7 @@
        ========================================================= -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      // Pantalla de carga
+      // Pantalla de carga (2 segundos exactos)
       const progressFill = document.getElementById("progress-fill");
       const progressText = document.getElementById("progress-text");
       const loadingScreen = document.getElementById("loading-screen");
@@ -766,7 +880,16 @@
         }
       }, INTERVAL);
 
-      // Lógica Menú Móvil
+      // Desplegables de Sidebar (Reniec y Justicia)
+      const dropdowns = document.querySelectorAll(".dropdown-group");
+      dropdowns.forEach(dropdown => {
+        const trigger = dropdown.querySelector(".dropdown-trigger");
+        trigger.addEventListener("click", () => {
+          dropdown.classList.toggle("open");
+        });
+      });
+
+      // Menú Móvil
       const toggleBtn = document.getElementById("toggle-menu");
       const sidebar = document.getElementById("sidebar");
       const overlay = document.getElementById("sidebar-overlay");
