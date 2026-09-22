@@ -480,6 +480,156 @@
       text-align: center;
     }
 
+    /* ESTILOS DEL CUADRO ENORME "ROCKET.COM" (DIAGRAMA INTERACTIVO DE RED) */
+    .rocket-infra-hero {
+      width: 100%;
+      background: rgba(14, 8, 26, 0.92);
+      border: 1px solid rgba(168, 85, 247, 0.4);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8), inset 0 0 25px rgba(147, 51, 234, 0.2);
+      border-radius: 24px;
+      padding: 35px 25px;
+      margin-bottom: 35px;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(12px);
+    }
+
+    .infra-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .infra-tag {
+      padding: 4px 14px;
+      background: rgba(168, 85, 247, 0.15);
+      border: 1px solid rgba(168, 85, 247, 0.4);
+      color: #d8b4fe;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      border-radius: 20px;
+      text-transform: uppercase;
+    }
+
+    .infra-title {
+      font-size: clamp(1.4rem, 3vw, 2.2rem);
+      font-weight: 900;
+      color: #fff;
+      margin-top: 10px;
+      letter-spacing: 0.05em;
+      text-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
+    }
+
+    .infra-diagram-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      align-items: center;
+      justify-items: center;
+      position: relative;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .diagram-column {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      width: 100%;
+    }
+
+    .node-card {
+      background: rgba(22, 14, 38, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    .node-card:hover {
+      border-color: rgba(168, 85, 247, 0.6);
+      transform: scale(1.03);
+      box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
+    }
+
+    .node-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      background: rgba(168, 85, 247, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      color: #d8b4fe;
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      flex-shrink: 0;
+    }
+
+    .node-info h4 {
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: #ffffff;
+    }
+
+    .node-info p {
+      font-size: 0.72rem;
+      color: rgba(226, 232, 240, 0.6);
+    }
+
+    /* NÚCLEO CENTRAL ROCKET.COM */
+    .center-core-node {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(145deg, rgba(26, 12, 48, 0.95), rgba(14, 6, 28, 0.98));
+      border: 2px solid #a855f7;
+      box-shadow: 0 0 35px rgba(168, 85, 247, 0.5), inset 0 0 20px rgba(168, 85, 247, 0.3);
+      border-radius: 20px;
+      padding: 30px 20px;
+      text-align: center;
+      width: 100%;
+      position: relative;
+    }
+
+    .core-logo-box {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: rgba(168, 85, 247, 0.2);
+      border: 1px solid #c084fc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+      box-shadow: 0 0 20px rgba(192, 132, 252, 0.6);
+    }
+
+    .core-title {
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: #ffffff;
+      letter-spacing: 0.1em;
+      text-shadow: 0 0 15px rgba(192, 132, 252, 0.9);
+      margin-bottom: 6px;
+    }
+
+    .core-desc {
+      font-size: 0.78rem;
+      color: rgba(216, 180, 254, 0.85);
+      font-weight: 600;
+    }
+
+    @media (max-width: 900px) {
+      .infra-diagram-grid { grid-template-columns: 1fr; }
+      .center-core-node { order: -1; }
+    }
+
     /* Grid de Cartillas Estándar */
     .services-grid {
       display: grid;
@@ -946,6 +1096,91 @@
         <h1 class="hero-banner-title">ROCKET</h1>
       </section>
 
+      <!-- SECCIÓN ENORME DESTACADA: INFRAESTRUCTURA ROCKET.COM -->
+      <section class="rocket-infra-hero" id="infra-rocket-section">
+        <div class="infra-header">
+          <span class="infra-tag">INFRAESTRUCTURA CENTRAL DE DATOS</span>
+          <h2 class="infra-title">INTERCONEXIÓN INTEGRAL DE BASES DE DATOS</h2>
+        </div>
+
+        <div class="infra-diagram-grid">
+          <!-- Columna Izquierda de Entidades -->
+          <div class="diagram-column">
+            <div class="node-card">
+              <div class="node-icon"><i class="fa-solid fa-id-card"></i></div>
+              <div class="node-info">
+                <h4>RENIEC</h4>
+                <p>Identificación & Estado Civil</p>
+              </div>
+            </div>
+            <div class="node-card">
+              <div class="node-icon"><i class="fa-solid fa-receipt"></i></div>
+              <div class="node-info">
+                <h4>SUNAT</h4>
+                <p>Registros Tributarios & RUC</p>
+              </div>
+            </div>
+            <div class="node-card">
+              <div class="node-icon"><i class="fa-solid fa-building"></i></div>
+              <div class="node-info">
+                <h4>SUNARP</h4>
+                <p>Propiedades & Registro Predial</p>
+              </div>
+            </div>
+            <div class="node-card">
+              <div class="node-icon"><i class="fa-solid fa-shield-halved"></i></div>
+              <div class="node-info">
+                <h4>POLICÍA NACIONAL</h4>
+                <p>Antecedentes & Denuncias</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- NÚCLEO CENTRAL ROCKET.COM -->
+          <div class="center-core-node">
+            <div class="core-logo-box">
+              <svg class="ss-logo-svg" viewBox="0 0 100 150" style="width: 32px; height: 32px;">
+                <use href="#ss-logo-path"></use>
+              </svg>
+            </div>
+            <div class="core-title">Rocket.com</div>
+            <div class="core-desc">Centralizador Global OSINT & Servicios Digitales</div>
+          </div>
+
+          <!-- Columna Derecha de Entidades -->
+          <div class="diagram-column">
+            <div class="node-card">
+              <div class="node-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+              <div class="node-info">
+                <h4>PODER JUDICIAL</h4>
+                <p>Expedientes & Procesos</p>
+              </div>
+            </div>
+            <div class="node-card">
+              <div class="node-icon"><i class="fa-solid fa-passport"></i></div>
+              <div class="node-info">
+                <h4>MIGRACIONES</h4>
+                <p>Movimiento Migratorio</p>
+              </div>
+            </div>
+            <div class="node-card">
+              <div class="node-icon"><i class="fa-solid fa-tower-cell"></i></div>
+              <div class="node-info">
+                <h4>OSIPTEL</h4>
+                <p>Líneas & Telecomunicaciones</p>
+              </div>
+            </div>
+            <div class="node-card">
+              <div class="node-icon"><i class="fa-solid fa-chart-line"></i></div>
+              <div class="node-info">
+                <h4>SENTINEL</h4>
+                <p>Riesgo Crediticio & Financiero</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- Grid de Servicios -->
       <section class="services-grid" id="services-container">
         
@@ -1206,6 +1441,7 @@
       const tabBtns = document.querySelectorAll(".tab-btn");
       const navItems = document.querySelectorAll(".nav-menu .nav-item[data-category], .submenu a[data-category]");
       const serviceCards = document.querySelectorAll(".service-card");
+      const infraSection = document.getElementById("infra-rocket-section");
 
       function filterServices(category) {
         serviceCards.forEach(card => {
@@ -1216,6 +1452,12 @@
             card.style.display = "none";
           }
         });
+
+        if (category === "ALL") {
+          infraSection.style.display = "block";
+        } else {
+          infraSection.style.display = "none";
+        }
 
         tabBtns.forEach(btn => {
           if (btn.getAttribute("data-filter") === category) {
