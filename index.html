@@ -174,16 +174,16 @@
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.75);
-      backdrop-filter: blur(4px);
-      z-index: 90;
+      background: rgba(0, 0, 0, 0.82);
+      backdrop-filter: blur(6px);
+      z-index: 900;
     }
 
     .sidebar-overlay.active {
       display: block;
     }
 
-    /* SIDEBAR COMPLETO */
+    /* SIDEBAR COMPLETO EN ESCRITORIO (LAPTOP) */
     .sidebar {
       width: 260px;
       background: rgba(10, 7, 18, 0.96);
@@ -194,7 +194,7 @@
       padding: 24px 16px;
       position: fixed;
       height: 100vh;
-      z-index: 100;
+      z-index: 1000;
       transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       will-change: transform;
     }
@@ -489,7 +489,7 @@
       text-align: center;
     }
 
-    /* SECCIÓN INFRAESTRUCTURA DE INSTITUCIONES (AJUSTADA PARA MÓVIL) */
+    /* SECCIÓN INFRAESTRUCTURA DE INSTITUCIONES */
     .rocket-infra-hero {
       width: 100%;
       background-image: linear-gradient(rgba(8, 4, 16, 0.82), rgba(8, 4, 16, 0.90)), url('dineroo.jpg');
@@ -592,7 +592,7 @@
       color: rgba(226, 232, 240, 0.65);
     }
 
-    /* NÚCLEO CENTRAL ROCKET.COM CON ROSTRO ENCUADRADO */
+    /* NÚCLEO CENTRAL ROCKET.COM CON ROSTRO */
     .center-core-node {
       display: flex;
       flex-direction: column;
@@ -748,7 +748,7 @@
       text-decoration: none;
     }
 
-    /* MODAL DE PAGO MEJORADO EN CELULAR */
+    /* MODAL DE PAGO */
     .payment-modal {
       display: none;
       position: fixed;
@@ -881,14 +881,74 @@
       border-radius: 3px;
     }
 
-    /* ADAPTACIÓN MÓVIL EXACTA A LA IMAGEN */
+    /* ========================================================= */
+    /*   AJUSTES MÓVIL EXCLUSIVOS PARA SOLUCIONAR EL MENÚ APIÑADO   */
+    /* ========================================================= */
     @media (max-width: 992px) {
-      .sidebar { transform: translateX(-100%); }
-      .sidebar.open { transform: translateX(0); }
-      .main-content { margin-left: 0; width: 100%; padding: 18px 12px; }
-      .mobile-menu-btn { display: flex; }
-      .nav-tabs { display: none; }
-      
+      .sidebar { 
+        transform: translateX(-100%); 
+        width: min(82vw, 310px); /* Ancho ideal y holgado en pantalla de cel */
+        background: #0d0818; /* Fondo sólido oscuro para máxima legibilidad */
+        border-right: 1.5px solid rgba(168, 85, 247, 0.5);
+        box-shadow: 10px 0 35px rgba(0, 0, 0, 0.95);
+        padding: 20px 14px;
+      }
+
+      .sidebar.open { 
+        transform: translateX(0); 
+      }
+
+      /* Lista del menú móvil bien separada */
+      .nav-menu {
+        gap: 6px;
+        padding-right: 2px;
+      }
+
+      .nav-item a, .dropdown-trigger {
+        padding: 12px 14px;
+        font-size: 0.92rem;
+        font-weight: 600;
+        color: #e2d5f8;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 10px;
+      }
+
+      .nav-item i {
+        font-size: 1.05rem;
+        color: #c084fc;
+      }
+
+      .submenu {
+        margin-left: 12px;
+        padding-left: 18px;
+        gap: 6px;
+        margin-top: 6px;
+        margin-bottom: 6px;
+      }
+
+      .submenu li a {
+        padding: 10px 12px;
+        font-size: 0.85rem;
+        color: #d8b4fe;
+        background: rgba(168, 85, 247, 0.08);
+        border-radius: 8px;
+      }
+
+      .main-content { 
+        margin-left: 0; 
+        width: 100%; 
+        padding: 18px 12px; 
+      }
+
+      .mobile-menu-btn { 
+        display: flex; 
+      }
+
+      .nav-tabs { 
+        display: none; 
+      }
+
       .infra-diagram-grid {
         grid-template-columns: 1fr;
         gap: 12px;
@@ -938,7 +998,7 @@
   <!-- INTERFACE PRINCIPAL -->
   <div id="app-container">
     
-    <!-- SIDEBAR RESTAURADO -->
+    <!-- SIDEBAR -->
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-header">
         <div class="sidebar-logo-icon">
@@ -1080,7 +1140,7 @@
         <h1 class="hero-banner-title">ROCKET</h1>
       </section>
 
-      <!-- SECCIÓN INFRAESTRUCTURA MÓVIL Y DESKTOP -->
+      <!-- SECCIÓN INFRAESTRUCTURA -->
       <section class="rocket-infra-hero" id="infra-rocket-section">
         <div class="infra-header">
           <span class="infra-tag">INFRAESTRUCTURA CENTRAL DE DATOS</span>
@@ -1088,7 +1148,6 @@
         </div>
 
         <div class="infra-diagram-grid">
-          <!-- Columna Izquierda de Entidades -->
           <div class="diagram-column">
             <div class="node-card">
               <div class="node-icon"><i class="fa-solid fa-id-card"></i></div>
@@ -1120,7 +1179,6 @@
             </div>
           </div>
 
-          <!-- NÚCLEO CENTRAL ROCKET.COM CON ROSTRO -->
           <div class="center-core-node">
             <div class="core-logo-box">
               <svg class="ss-logo-svg" viewBox="0 0 100 150" style="width: 32px; height: 32px;">
@@ -1131,7 +1189,6 @@
             <div class="core-desc">Centralizador Global OSINT & Servicios Digitales</div>
           </div>
 
-          <!-- Columna Derecha de Entidades -->
           <div class="diagram-column">
             <div class="node-card">
               <div class="node-icon"><i class="fa-solid fa-scale-balanced"></i></div>
@@ -1309,7 +1366,7 @@
     </main>
   </div>
 
-  <!-- MODAL DE PAGO MEJORADO YAPE NEÓN -->
+  <!-- MODAL DE PAGO -->
   <div class="payment-modal" id="payment-modal">
     <div class="modal-content">
       <button class="modal-close-btn" id="close-modal">&times;</button>
@@ -1340,7 +1397,7 @@
         }
       });
 
-      // PANTALLA DE CARGA FLUIDA
+      // PANTALLA DE CARGA
       const progressFill = document.getElementById("progress-fill");
       const progressText = document.getElementById("progress-text");
       const loadingScreen = document.getElementById("loading-screen");
