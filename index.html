@@ -11,9 +11,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
-    /* =========================================================
-       RESET Y ESTILOS GENERALES
-       ========================================================= */
+    /* RESET Y ESTILOS GENERALES */
     * {
       margin: 0;
       padding: 0;
@@ -33,9 +31,7 @@
       background-attachment: fixed;
     }
 
-    /* =========================================================
-       ESTILOS DEL LOGO "SS" VECTORIAL
-       ========================================================= */
+    /* ESTILOS DEL LOGO "SS" VECTORIAL */
     .ss-logo-svg {
       display: inline-block;
       vertical-align: middle;
@@ -43,9 +39,7 @@
       transition: all 0.3s ease;
     }
 
-    /* =========================================================
-       PANTALLA DE CARGA (SPLASH SCREEN)
-       ========================================================= */
+    /* PANTALLA DE CARGA (SPLASH SCREEN) */
     #loading-screen {
       position: fixed;
       top: 0;
@@ -142,9 +136,7 @@
       color: rgba(226, 232, 240, 0.6);
     }
 
-    /* =========================================================
-       INTERFACE PRINCIPAL (APP CONTAINER)
-       ========================================================= */
+    /* INTERFACE PRINCIPAL (APP CONTAINER) */
     #app-container {
       display: flex;
       min-height: 100vh;
@@ -169,7 +161,7 @@
       display: block;
     }
 
-    /* ---- MENU LATERAL (SIDEBAR) ---- */
+    /* SIDEBAR */
     .sidebar {
       width: 260px;
       background: rgba(10, 7, 18, 0.95);
@@ -251,10 +243,7 @@
       flex-grow: 1;
     }
 
-    .nav-menu::-webkit-scrollbar {
-      width: 4px;
-    }
-
+    .nav-menu::-webkit-scrollbar { width: 4px; }
     .nav-menu::-webkit-scrollbar-thumb {
       background: rgba(255, 255, 255, 0.1);
       border-radius: 4px;
@@ -296,7 +285,6 @@
       font-size: 0.7rem !important;
     }
 
-    /* Submenús */
     .submenu {
       list-style: none;
       padding-left: 36px;
@@ -315,17 +303,9 @@
       color: rgba(226, 232, 240, 0.55);
     }
 
-    .submenu li a:hover {
-      color: #d8b4fe;
-    }
-
-    .dropdown-group.open .submenu {
-      display: flex;
-    }
-
-    .dropdown-group.open .chevron-icon {
-      transform: rotate(180deg);
-    }
+    .submenu li a:hover { color: #d8b4fe; }
+    .dropdown-group.open .submenu { display: flex; }
+    .dropdown-group.open .chevron-icon { transform: rotate(180deg); }
 
     .nav-item.highlight a {
       background: rgba(168, 85, 247, 0.15);
@@ -333,7 +313,7 @@
       border: 1px solid rgba(168, 85, 247, 0.2);
     }
 
-    /* ---- CONTENIDO PRINCIPAL ---- */
+    /* CONTENIDO PRINCIPAL */
     .main-content {
       margin-left: 260px;
       flex-grow: 1;
@@ -407,22 +387,30 @@
       background: rgba(255, 255, 255, 0.08);
     }
 
-    .contact-btn {
+    .social-contacts {
+      display: flex;
+      gap: 10px;
+    }
+
+    .social-btn {
       background: rgba(255, 255, 255, 0.08);
       border: 1px solid rgba(255, 255, 255, 0.15);
       color: #fff;
-      padding: 8px 16px;
-      border-radius: 8px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      cursor: pointer;
-      white-space: nowrap;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 0.95rem;
       transition: all 0.2s;
     }
 
-    .contact-btn:hover {
+    .social-btn:hover {
       background: #a855f7;
       border-color: #a855f7;
+      transform: translateY(-2px);
     }
 
     /* Banner Hero */
@@ -461,7 +449,7 @@
       text-align: center;
     }
 
-    /* Grid de Cartillas */
+    /* Grid de Cartillas Estándar */
     .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -483,16 +471,27 @@
       box-shadow: 0 10px 25px rgba(147, 51, 234, 0.15);
     }
 
+    /* Estilo Especial para Cuadrículas Grandes (OSINT / STREAMING) */
+    .service-card.large-card {
+      grid-column: span 2;
+    }
+
+    @media (max-width: 768px) {
+      .service-card.large-card {
+        grid-column: span 1;
+      }
+    }
+
     .card-header-img {
-      height: 110px;
+      height: 140px;
       width: 100%;
-      background-image: linear-gradient(rgba(16, 10, 24, 0.2), rgba(16, 10, 24, 0.9)), url('imagencartillas.jpg');
       background-size: cover;
       background-position: center;
       padding: 12px;
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
+      position: relative;
     }
 
     .category-tag {
@@ -506,16 +505,14 @@
       letter-spacing: 0.05em;
     }
 
-    .card-icon {
-      width: 28px;
-      height: 28px;
-      border-radius: 6px;
-      background: rgba(0, 0, 0, 0.6);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .card-price-badge {
+      background: rgba(168, 85, 247, 0.85);
       color: #fff;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
     }
 
     .card-body {
@@ -523,18 +520,28 @@
     }
 
     .card-title {
-      font-size: 1rem;
+      font-size: 1.05rem;
       font-weight: 700;
       color: #fff;
       margin-bottom: 6px;
     }
 
     .card-desc {
-      font-size: 0.78rem;
-      color: rgba(226, 232, 240, 0.6);
+      font-size: 0.8rem;
+      color: rgba(226, 232, 240, 0.65);
       line-height: 1.4;
       margin-bottom: 16px;
-      min-height: 36px;
+      min-height: 40px;
+    }
+
+    .github-details {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px dashed rgba(168, 85, 247, 0.3);
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      font-size: 0.75rem;
+      color: #d8b4fe;
     }
 
     .card-footer {
@@ -554,18 +561,27 @@
     }
 
     .card-btn {
-      background: none;
-      border: none;
+      background: rgba(168, 85, 247, 0.2);
+      border: 1px solid rgba(168, 85, 247, 0.4);
       color: #d8b4fe;
+      padding: 6px 14px;
+      border-radius: 6px;
       font-size: 0.78rem;
       font-weight: 700;
       cursor: pointer;
       display: flex;
       align-items: center;
-      gap: 5px;
+      gap: 6px;
+      text-decoration: none;
+      transition: all 0.2s;
     }
 
-    /* ---- SECCIÓN INFERIOR: GUERRA TOTAL Y CITA ---- */
+    .card-btn:hover {
+      background: #a855f7;
+      color: #fff;
+    }
+
+    /* SECCIÓN INFERIOR: GUERRA TOTAL Y CITA */
     .guerra-total-section {
       width: 100%;
       padding: 35px 25px;
@@ -605,29 +621,17 @@
 
     /* Responsive */
     @media (max-width: 992px) {
-      .sidebar {
-        transform: translateX(-100%);
-      }
-      .sidebar.open {
-        transform: translateX(0);
-      }
-      .main-content {
-        margin-left: 0;
-        width: 100%;
-        padding: 20px 15px;
-      }
-      .mobile-menu-btn {
-        display: flex;
-      }
-      .nav-tabs {
-        display: none;
-      }
+      .sidebar { transform: translateX(-100%); }
+      .sidebar.open { transform: translateX(0); }
+      .main-content { margin-left: 0; width: 100%; padding: 20px 15px; }
+      .mobile-menu-btn { display: flex; }
+      .nav-tabs { display: none; }
     }
   </style>
 </head>
 <body>
 
-  <!-- SVG del Logo SS reutilizable mediante defs -->
+  <!-- SVG del Logo SS reutilizable -->
   <svg style="display:none;">
     <g id="ss-logo-path">
       <path d="M 65 10 C 35 10, 15 25, 20 45 C 23 58, 35 65, 52 70 L 68 75 C 80 79, 88 86, 86 98 C 83 112, 60 120, 35 115 C 22 112, 12 104, 10 95 L 2 98 C 5 112, 18 122, 35 125 C 65 129, 94 120, 96 98 C 98 78, 78 72, 62 67 L 46 62 C 32 58, 28 50, 30 42 C 33 30, 52 20, 72 22 C 82 23, 90 28, 92 35 L 100 32 C 96 22, 84 12, 65 10 Z" />
@@ -637,9 +641,7 @@
 
   <div class="sidebar-overlay" id="sidebar-overlay"></div>
 
-  <!-- =========================================================
-       PANTALLA DE CARGA (SPLASH SCREEN)
-       ========================================================= -->
+  <!-- PANTALLA DE CARGA (SPLASH SCREEN) -->
   <div id="loading-screen">
     <div class="rocket-card">
       <svg class="ss-logo-svg eagle-emblem-svg" viewBox="0 0 100 150">
@@ -657,9 +659,7 @@
     </div>
   </div>
 
-  <!-- =========================================================
-       INTERFACE PRINCIPAL
-       ========================================================= -->
+  <!-- INTERFACE PRINCIPAL -->
   <div id="app-container">
     
     <!-- Sidebar -->
@@ -679,14 +679,20 @@
       </div>
 
       <ul class="nav-menu">
-        <li class="nav-item active">
+        <li class="nav-item active" data-category="ALL">
           <a href="#"><span class="nav-item-content"><i class="fa-solid fa-house"></i> Home</span></a>
         </li>
-        <li class="nav-item">
-          <a href="#"><span class="nav-item-content"><i class="fa-solid fa-phone"></i> Teléfonos</span></a>
+        <li class="nav-item" data-category="DIGITAL">
+          <a href="#"><span class="nav-item-content"><i class="fa-solid fa-code"></i> Digitales / GitHub</span></a>
         </li>
-        <li class="nav-item">
-          <a href="#"><span class="nav-item-content"><i class="fa-solid fa-building"></i> Sunarp</span></a>
+        <li class="nav-item" data-category="OSINT">
+          <a href="#"><span class="nav-item-content"><i class="fa-solid fa-magnifying-glass-chart"></i> OSINT / Rastreo</span></a>
+        </li>
+        <li class="nav-item" data-category="STREAMING">
+          <a href="#"><span class="nav-item-content"><i class="fa-solid fa-tv"></i> Streaming</span></a>
+        </li>
+        <li class="nav-item" data-category="ACADEMICO">
+          <a href="#"><span class="nav-item-content"><i class="fa-solid fa-graduation-cap"></i> Académicos & Edición</span></a>
         </li>
 
         <!-- Submenú Reniec -->
@@ -696,58 +702,14 @@
             <i class="fa-solid fa-chevron-down chevron-icon"></i>
           </div>
           <ul class="submenu">
-            <li><a href="#">Ficha Reniec</a></li>
-            <li><a href="#">Búsqueda por nombres</a></li>
-            <li><a href="#">DNI Virtual</a></li>
-            <li><a href="#">Árbol genealógico</a></li>
-            <li><a href="#">Reconocimiento facial</a></li>
+            <li><a href="#" data-category="OSINT">Ficha Reniec</a></li>
+            <li><a href="#" data-category="OSINT">Búsqueda por nombres</a></li>
+            <li><a href="#" data-category="OSINT">DNI Virtual</a></li>
           </ul>
         </li>
 
-        <!-- Submenú Justicia -->
-        <li class="nav-item dropdown-group" id="dropdown-justicia">
-          <div class="dropdown-trigger">
-            <span class="nav-item-content"><i class="fa-solid fa-scale-balanced"></i> Justicia</span>
-            <i class="fa-solid fa-chevron-down chevron-icon"></i>
-          </div>
-          <ul class="submenu">
-            <li><a href="#">Denuncias Policiales</a></li>
-            <li><a href="#">Carpeta Fiscal</a></li>
-            <li><a href="#">Antecedentes</a></li>
-            <li><a href="#">Requisitorias</a></li>
-            <li><a href="#">Policia</a></li>
-          </ul>
-        </li>
-
-        <li class="nav-item">
-          <a href="#"><span class="nav-item-content"><i class="fa-solid fa-shield-halved"></i> Sentinel</span></a>
-        </li>
-        <li class="nav-item">
-          <a href="#"><span class="nav-item-content"><i class="fa-solid fa-car"></i> Vehículo</span></a>
-        </li>
-        <li class="nav-item">
-          <a href="#"><span class="nav-item-content"><i class="fa-solid fa-car-side"></i> Síguelo Plus</span></a>
-        </li>
-        <li class="nav-item">
-          <a href="#"><span class="nav-item-content"><i class="fa-solid fa-file-lines"></i> Actas</span></a>
-        </li>
-        <li class="nav-item">
-          <a href="#"><span class="nav-item-content"><i class="fa-solid fa-chart-simple"></i> Doxing</span></a>
-        </li>
-        <li class="nav-item">
-          <a href="#"><span class="nav-item-content"><i class="fa-solid fa-user-plus"></i> Persona Plus</span></a>
-        </li>
-        <li class="nav-item">
-          <a href="#"><span class="nav-item-content"><i class="fa-solid fa-receipt"></i> Sunat</span></a>
-        </li>
-        <li class="nav-item">
-          <a href="#"><span class="nav-item-content"><i class="fa-solid fa-tv"></i> Streaming</span></a>
-        </li>
-        <li class="nav-item">
-          <a href="#"><span class="nav-item-content"><i class="fa-solid fa-code"></i> APIs</span></a>
-        </li>
         <li class="nav-item highlight">
-          <a href="#"><span class="nav-item-content"><i class="fa-solid fa-comment-dots"></i> Chat Bot</span></a>
+          <a href="https://t.me/Adolf3728" target="_blank"><span class="nav-item-content"><i class="fa-paper-plane fab"></i> Soporte Telegram</span></a>
         </li>
       </ul>
     </aside>
@@ -764,14 +726,22 @@
           </svg>
           ROCKET
         </div>
+
         <div class="nav-tabs">
-          <button class="tab-btn active">TODOS</button>
-          <button class="tab-btn">DIGITALES</button>
-          <button class="tab-btn">OSINT</button>
-          <button class="tab-btn">STREAMING</button>
-          <button class="tab-btn">ACADÉMICOS</button>
+          <button class="tab-btn active" data-filter="ALL">TODOS</button>
+          <button class="tab-btn" data-filter="DIGITAL">DIGITALES</button>
+          <button class="tab-btn" data-filter="OSINT">OSINT</button>
+          <button class="tab-btn" data-filter="STREAMING">STREAMING</button>
+          <button class="tab-btn" data-filter="ACADEMICO">ACADÉMICOS</button>
         </div>
-        <button class="contact-btn">Contacto</button>
+
+        <!-- Redes y Contacto Directos -->
+        <div class="social-contacts">
+          <a href="https://https://t.me/Adolf3728" target="_blank" class="social-btn" title="Telegram"><i class="fa-brands fa-telegram"></i></a>
+          <a href="https://www.instagram.com/rocket.official.pe?stkn=MXIybGJtNXpoN2wxbA%3D%3D&utm_source=qr" target="_blank" class="social-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <!-- Link directo a WhatsApp SIN mensaje automatizado para resguardar número -->
+          <a href="https://wa.me/573135022169" target="_blank" class="social-btn" title="WhatsApp Directo"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
       </header>
 
       <!-- Banner Hero -->
@@ -783,94 +753,104 @@
       </section>
 
       <!-- Grid de Servicios -->
-      <section class="services-grid">
+      <section class="services-grid" id="services-container">
         
-        <div class="service-card">
-          <div class="card-header-img">
+        <!-- DIGITALES -->
+        <div class="service-card" data-cat="DIGITAL">
+          <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('imagencartillas.jpg');">
             <span class="category-tag">DIGITAL</span>
-            <div class="card-icon"><i class="fa-solid fa-code"></i></div>
+            <span class="card-price-badge">$25.00 USD</span>
           </div>
           <div class="card-body">
-            <h3 class="card-title">Desarrollo Web Cyberpunk</h3>
-            <p class="card-desc">Interfaces modernas con diseño responsive y alta velocidad de procesamiento.</p>
-            <div class="card-footer">
-              <span class="card-time"><i class="fa-regular fa-clock"></i> 3-5 días</span>
-              <button class="card-btn">Solicitar <i class="fa-solid fa-arrow-right"></i></button>
+            <h3 class="card-title">Desarrollo Web & Scripting</h3>
+            <p class="card-desc">Desarrollo de páginas completas, bots y automatizaciones personalizadas.</p>
+            <div class="github-details">
+              <strong><i class="fa-brands fa-github"></i> Integración GitHub:</strong> Repositorios privados, código limpio e historial de commits disponible.
             </div>
-          </div>
-        </div>
-
-        <div class="service-card">
-          <div class="card-header-img">
-            <span class="category-tag">OSINT</span>
-            <div class="card-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">Investigación & Rastreo OSINT</h3>
-            <p class="card-desc">Análisis de huella digital y búsqueda en fuentes abiertas especializadas.</p>
-            <div class="card-footer">
-              <span class="card-time"><i class="fa-regular fa-clock"></i> 24-48 hrs</span>
-              <button class="card-btn">Solicitar <i class="fa-solid fa-arrow-right"></i></button>
-            </div>
-          </div>
-        </div>
-
-        <div class="service-card">
-          <div class="card-header-img">
-            <span class="category-tag">STREAMING</span>
-            <div class="card-icon"><i class="fa-solid fa-tv"></i></div>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">Cuentas Streaming Premium</h3>
-            <p class="card-desc">Acceso inmediato a plataformas de entretenimiento digital de alta definición.</p>
-            <div class="card-footer">
-              <span class="card-time"><i class="fa-regular fa-clock"></i> Inmediato</span>
-              <button class="card-btn">Solicitar <i class="fa-solid fa-arrow-right"></i></button>
-            </div>
-          </div>
-        </div>
-
-        <div class="service-card">
-          <div class="card-header-img">
-            <span class="category-tag">DIGITAL</span>
-            <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">Ciberseguridad & Auditoría</h3>
-            <p class="card-desc">Evaluación de seguridad y protección de activos digitales personales y corporativos.</p>
             <div class="card-footer">
               <span class="card-time"><i class="fa-regular fa-clock"></i> 2-4 días</span>
-              <button class="card-btn">Solicitar <i class="fa-solid fa-arrow-right"></i></button>
+              <a href="https://t.me/Adolf3728" target="_blank" class="card-btn">Solicitar <i class="fa-solid fa-arrow-right"></i></a>
             </div>
           </div>
         </div>
 
-        <div class="service-card">
-          <div class="card-header-img">
-            <span class="category-tag">OSINT</span>
-            <div class="card-icon"><i class="fa-solid fa-user-shield"></i></div>
+        <div class="service-card" data-cat="DIGITAL">
+          <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('imagencartillas.jpg');">
+            <span class="category-tag">DIGITAL</span>
+            <span class="card-price-badge">$15.00 USD</span>
           </div>
           <div class="card-body">
-            <h3 class="card-title">Auditoría de Exposición Digital</h3>
-            <p class="card-desc">Monitoreo de filtraciones e información pública expuesta en la red.</p>
+            <h3 class="card-title">Despliegue de APIs & Bots</h3>
+            <p class="card-desc">Creación e integración de APIs personalizadas para Telegram y servicios web.</p>
+            <div class="github-details">
+              <strong><i class="fa-brands fa-github"></i> Source Code:</strong> Incluye entrega de repositorio de GitHub con instrucciones.
+            </div>
             <div class="card-footer">
-              <span class="card-time"><i class="fa-regular fa-clock"></i> 2-3 días</span>
-              <button class="card-btn">Solicitar <i class="fa-solid fa-arrow-right"></i></button>
+              <span class="card-time"><i class="fa-regular fa-clock"></i> 24-48 hrs</span>
+              <a href="https://t.me/Adolf3728" target="_blank" class="card-btn">Solicitar <i class="fa-solid fa-arrow-right"></i></a>
             </div>
           </div>
         </div>
 
-        <div class="service-card">
-          <div class="card-header-img">
+        <!-- OSINT (CUADRÍCULAS GRANDES) -->
+        <div class="service-card large-card" data-cat="OSINT">
+          <div class="card-header-img" style="height: 200px; background-image: linear-gradient(rgba(16,10,24,0.2), rgba(16,10,24,0.9)), url('fondorocket.jpg');">
+            <span class="category-tag">OSINT / RASTREO</span>
+            <span class="card-price-badge">Consultar</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Investigación & Perfilado Digital Completo</h3>
+            <p class="card-desc">Análisis profundo de fuentes abiertas, huella digital, conexiones de números y registros estructurados en informe gráfico detallado.</p>
+            <div class="card-footer">
+              <span class="card-time"><i class="fa-regular fa-clock"></i> Entrega Rápida</span>
+              <a href="https://t.me/Adolf3728" target="_blank" class="card-btn">Solicitar Informe <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- STREAMING (GRANDES CUADROS) -->
+        <div class="service-card large-card" data-cat="STREAMING">
+          <div class="card-header-img" style="height: 180px; background-image: linear-gradient(rgba(16,10,24,0.2), rgba(16,10,24,0.85)), url('https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?q=80&w=1000&auto=format&fit=crop');">
+            <span class="category-tag">STREAMING PREMIUM</span>
+            <span class="card-price-badge">Desde $3.00/mes</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Catálogo Completo Netflix / HBO / Disney / Prime</h3>
+            <p class="card-desc">Cuentas completas y perfiles privados con garantía total de duración y calidad Ultra HD 4K sin interrupciones.</p>
+            <div class="card-footer">
+              <span class="card-time"><i class="fa-regular fa-clock"></i> Activación Inmediata</span>
+              <a href="https://t.me/Adolf3728" target="_blank" class="card-btn">Obtener Cuenta <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ACADÉMICOS & EDICIÓN -->
+        <div class="service-card" data-cat="ACADEMICO">
+          <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('imagencartillas.jpg');">
             <span class="category-tag">ACADÉMICO</span>
-            <div class="card-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+            <span class="card-price-badge">A convenir</span>
           </div>
           <div class="card-body">
             <h3 class="card-title">Asesoría Académica de Tesis</h3>
-            <p class="card-desc">Acompañamiento integral, estructura y formato APA/Vancouver profesional.</p>
+            <p class="card-desc">Redacción, estructuración, revisión antiplagio y aplicación estricta de normas APA/Vancouver.</p>
             <div class="card-footer">
-              <span class="card-time"><i class="fa-regular fa-clock"></i> A convenir</span>
-              <button class="card-btn">Solicitar <i class="fa-solid fa-arrow-right"></i></button>
+              <span class="card-time"><i class="fa-regular fa-clock"></i> Según proyecto</span>
+              <a href="https://t.me/Adolf3728" target="_blank" class="card-btn">Solicitar <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-card" data-cat="ACADEMICO">
+          <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('imagencartillas.jpg');">
+            <span class="category-tag">ACADÉMICO / MULTIMEDIA</span>
+            <span class="card-price-badge">Cotizar</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Edición de Video & Trabajos Universitarios</h3>
+            <p class="card-desc">Edición audiovisual profesional para exposiciones, proyectos académicos y presentaciones de alto impacto.</p>
+            <div class="card-footer">
+              <span class="card-time"><i class="fa-regular fa-clock"></i> 24-48 hrs</span>
+              <a href="https://t.me/Adolf3728" target="_blank" class="card-btn">Solicitar <i class="fa-solid fa-arrow-right"></i></a>
             </div>
           </div>
         </div>
@@ -888,12 +868,13 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
+      // PANTALLA DE CARGA
       const progressFill = document.getElementById("progress-fill");
       const progressText = document.getElementById("progress-text");
       const loadingScreen = document.getElementById("loading-screen");
       const appContainer = document.getElementById("app-container");
 
-      const DURATION = 2000;
+      const DURATION = 1800;
       const INTERVAL = 20;
       const steps = DURATION / INTERVAL;
       let currentStep = 0;
@@ -914,6 +895,7 @@
         }
       }, INTERVAL);
 
+      // DROPDOWNS DEL SIDEBAR
       const dropdowns = document.querySelectorAll(".dropdown-group");
       dropdowns.forEach(dropdown => {
         const trigger = dropdown.querySelector(".dropdown-trigger");
@@ -922,6 +904,7 @@
         });
       });
 
+      // SIDEBAR MOBILE
       const toggleBtn = document.getElementById("toggle-menu");
       const sidebar = document.getElementById("sidebar");
       const overlay = document.getElementById("sidebar-overlay");
@@ -938,6 +921,48 @@
 
       toggleBtn.addEventListener("click", openSidebar);
       overlay.addEventListener("click", closeSidebar);
+
+      // SISTEMA DE FILTRADO NATIVO POR PESTAÑA / MENÚ
+      const tabBtns = document.querySelectorAll(".tab-btn");
+      const navItems = document.querySelectorAll(".nav-menu .nav-item[data-category], .submenu a[data-category]");
+      const serviceCards = document.querySelectorAll(".service-card");
+
+      function filterServices(category) {
+        serviceCards.forEach(card => {
+          const cardCat = card.getAttribute("data-cat");
+          if (category === "ALL" || cardCat === category) {
+            card.style.display = "block";
+          } else {
+            card.style.display = "none";
+          }
+        });
+
+        // Actualizar estado de las pestañas superiores
+        tabBtns.forEach(btn => {
+          if (btn.getAttribute("data-filter") === category) {
+            btn.classList.add("active");
+          } else {
+            btn.classList.remove("active");
+          }
+        });
+      }
+
+      tabBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+          const cat = btn.getAttribute("data-filter");
+          filterServices(cat);
+        });
+      });
+
+      navItems.forEach(item => {
+        item.addEventListener("click", (e) => {
+          const cat = item.getAttribute("data-category");
+          if (cat) {
+            filterServices(cat);
+            closeSidebar();
+          }
+        });
+      });
     });
   </script>
 </body>
