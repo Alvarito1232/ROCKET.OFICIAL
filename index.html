@@ -418,7 +418,6 @@
       background: rgba(255, 255, 255, 0.08);
     }
 
-    /* REDES SOCIALES DESPLAZABLES */
     .social-contacts {
       display: flex;
       gap: 10px;
@@ -491,7 +490,7 @@
       text-align: center;
     }
 
-    /* PANELES PERSONALIZADOS DE CONSULTA DNI / SUNARP / OSIPTEL */
+    /* ESTILOS DE PANELES DE CONSULTA (RENIEC, SUNARP, OSIPTEL) */
     .custom-panel-view {
       display: none;
       width: 100%;
@@ -508,12 +507,6 @@
     .panel-header-custom {
       text-align: center;
       margin-bottom: 25px;
-    }
-
-    .panel-header-custom img.logo-inst {
-      height: 38px;
-      width: auto;
-      margin-bottom: 8px;
     }
 
     .panel-title-custom {
@@ -548,7 +541,7 @@
       flex-direction: column;
       gap: 6px;
       flex: 1;
-      min-width: 200px;
+      min-width: 180px;
     }
 
     .form-group-custom label {
@@ -569,9 +562,7 @@
       outline: none;
     }
 
-    .form-select-custom {
-      background-color: #0f081d;
-    }
+    .form-select-custom { background-color: #0f081d; }
 
     .btn-search-custom {
       padding: 12px 28px;
@@ -591,6 +582,22 @@
     .btn-search-custom:hover {
       background: #a855f7;
       border-color: #a855f7;
+    }
+
+    /* ZONA DE DROP PARA RECONOCIMIENTO FACIAL */
+    .dropzone-facial {
+      border: 2px dashed rgba(168, 85, 247, 0.4);
+      border-radius: 16px;
+      padding: 30px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.02);
+      margin-bottom: 15px;
+    }
+
+    .dropzone-facial i {
+      font-size: 2.2rem;
+      color: #a855f7;
+      margin-bottom: 10px;
     }
 
     /* SECCIÓN INFRAESTRUCTURA */
@@ -628,7 +635,6 @@
       border: 1px solid rgba(192, 132, 252, 0.6);
       border-radius: 30px;
       box-shadow: 0 0 20px rgba(168, 85, 247, 0.35), inset 0 0 10px rgba(168, 85, 247, 0.2);
-      backdrop-filter: blur(10px);
     }
 
     .status-ping {
@@ -705,12 +711,6 @@
       align-items: center;
       gap: 14px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-      transition: transform 0.25s ease, border-color 0.25s ease;
-    }
-
-    .node-card:hover {
-      border-color: rgba(168, 85, 247, 0.7);
-      transform: translateY(-2px);
     }
 
     .node-icon {
@@ -773,7 +773,7 @@
       font-weight: 700;
     }
 
-    /* GRID DE PLANES Y PRECIOS PARA CREACIÓN WEB */
+    /* GRID DE PLANES Y PRECIOS DIVERSIFICADOS PARA CREACIÓN WEB (S/. 5 - S/. 75) */
     .web-plans-section {
       display: none;
       width: 100%;
@@ -784,7 +784,7 @@
 
     .plans-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
       gap: 16px;
       margin-top: 15px;
     }
@@ -832,8 +832,8 @@
     }
 
     .plan-price span {
-      font-size: 0.8rem;
-      color: rgba(255, 255, 255, 0.6);;
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.6);
       font-weight: 500;
     }
 
@@ -846,7 +846,7 @@
     }
 
     .plan-features li {
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       color: rgba(226, 232, 240, 0.85);
       display: flex;
       align-items: center;
@@ -858,7 +858,7 @@
       font-size: 0.75rem;
     }
 
-    /* Grid de Servicios */
+    /* Grid de Servicios General */
     .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -915,16 +915,6 @@
     .card-body { padding: 14px; }
     .card-title { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 6px; }
     .card-desc { font-size: 0.78rem; color: rgba(226, 232, 240, 0.65); line-height: 1.4; margin-bottom: 14px; min-height: 38px; }
-
-    .github-details {
-      background: rgba(0, 0, 0, 0.4);
-      border: 1px dashed rgba(168, 85, 247, 0.3);
-      padding: 8px 10px;
-      border-radius: 8px;
-      margin-bottom: 12px;
-      font-size: 0.72rem;
-      color: #d8b4fe;
-    }
 
     .card-footer {
       display: flex;
@@ -1023,7 +1013,7 @@
       font-size: 0.88rem;
     }
 
-    /* SECCIÓN FINAL CON BANDERAS */
+    /* SECCIÓN FINAL BANDERAS SIN MÉXICO */
     .guerra-total-section {
       width: 100%;
       padding: 32px 20px;
@@ -1189,10 +1179,10 @@
       </div>
 
       <ul class="nav-menu">
-        <li class="nav-item active" data-category="ALL">
+        <li class="nav-item active" id="menu-home">
           <a href="#"><span class="nav-item-content"><i class="fa-solid fa-house"></i> Home</span></a>
         </li>
-        <li class="nav-item" data-category="CREACION_WEB">
+        <li class="nav-item" id="menu-creacion-web">
           <a href="#"><span class="nav-item-content"><i class="fa-solid fa-laptop-code"></i> Creación Web</span></a>
         </li>
         <li class="nav-item" id="menu-telefonos">
@@ -1202,15 +1192,17 @@
           <a href="#"><span class="nav-item-content"><i class="fa-solid fa-building"></i> Sunarp</span></a>
         </li>
 
-        <li class="nav-item dropdown-group" id="dropdown-reniec">
+        <li class="nav-item dropdown-group open" id="dropdown-reniec">
           <div class="dropdown-trigger">
             <span class="nav-item-content"><i class="fa-solid fa-id-card"></i> Reniec</span>
             <i class="fa-solid fa-chevron-down chevron-icon"></i>
           </div>
           <ul class="submenu">
-            <li><a href="#" data-category="OSINT">Ficha Reniec</a></li>
-            <li><a href="#" data-category="OSINT">Búsqueda por nombres</a></li>
-            <li><a href="#" data-category="OSINT">DNI Virtual</a></li>
+            <li><a href="#" id="reniec-ficha">Ficha Reniec</a></li>
+            <li><a href="#" id="reniec-nombres">Búsqueda por nombres</a></li>
+            <li><a href="#" id="reniec-dni-virtual">DNI Virtual</a></li>
+            <li><a href="#" id="reniec-arbol">Árbol genealógico</a></li>
+            <li><a href="#" id="reniec-facial">Reconocimiento facial</a></li>
           </ul>
         </li>
 
@@ -1270,7 +1262,123 @@
         <h1 class="hero-banner-title">ROCKET</h1>
       </section>
 
-      <!-- PANALES INTERACTIVOS PERSONALIZADOS (TELÉFONOS / OSIPTEL) -->
+      <!-- PANELES INTERACTIVOS DE RENIEC -->
+      
+      <!-- 1. FICHA RENIEC -->
+      <section class="custom-panel-view" id="panel-reniec-ficha">
+        <div class="panel-header-custom">
+          <h2 class="panel-title-custom"><i class="fa-solid fa-id-card"></i> Consulta RENIEC (TXT / PDF / C4 / FICHA)</h2>
+          <span class="credits-badge"><i class="fa-solid fa-coins"></i> Costo: 3 créditos</span>
+        </div>
+        <div class="panel-form-row">
+          <div class="form-group-custom">
+            <label>DNI</label>
+            <input type="text" class="form-input-custom" placeholder="Ej: 75178640" maxlength="8">
+          </div>
+          <div class="form-group-custom">
+            <label>Tipo</label>
+            <select class="form-select-custom">
+              <option>RENIEC TXT (JSON)</option>
+              <option>RENIEC BLANCO (PDF)</option>
+              <option>C4 CERTIFICADO (PDF)</option>
+              <option>FICHA RENIEC (PNG)</option>
+              <option>FICHA RENIEC AZUL (PDF)</option>
+            </select>
+          </div>
+          <button class="btn-search-custom"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
+        </div>
+      </section>
+
+      <!-- 2. BÚSQUEDA POR NOMBRES -->
+      <section class="custom-panel-view" id="panel-reniec-nombres">
+        <div class="panel-header-custom">
+          <h2 class="panel-title-custom"><i class="fa-solid fa-users-viewfinder"></i> Búsqueda RENIEC por nombres</h2>
+          <p style="font-size:0.8rem; color:rgba(255,255,255,0.6); margin-top:4px;">Consulta por nombres y apellidos</p>
+          <span class="credits-badge"><i class="fa-solid fa-coins"></i> Costo: 2 créditos</span>
+        </div>
+        <div class="panel-form-row">
+          <div class="form-group-custom">
+            <label>Nombres</label>
+            <input type="text" class="form-input-custom" placeholder="PEDRO">
+          </div>
+          <div class="form-group-custom">
+            <label>Apellido Paterno</label>
+            <input type="text" class="form-input-custom" placeholder="CASTILLO">
+          </div>
+          <div class="form-group-custom">
+            <label>Apellido Materno</label>
+            <input type="text" class="form-input-custom" placeholder="TERRONES">
+          </div>
+          <button class="btn-search-custom"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
+        </div>
+      </section>
+
+      <!-- 3. DNI VIRTUAL -->
+      <section class="custom-panel-view" id="panel-reniec-dni-virtual">
+        <div class="panel-header-custom">
+          <h2 class="panel-title-custom"><i class="fa-solid fa-address-card"></i> DNI Virtual (Imágenes)</h2>
+          <span class="credits-badge"><i class="fa-solid fa-coins"></i> Costo: 7 créditos</span>
+        </div>
+        <div class="panel-form-row">
+          <div class="form-group-custom">
+            <label>DNI</label>
+            <input type="text" class="form-input-custom" placeholder="Ej: 70364031" maxlength="8">
+          </div>
+          <div class="form-group-custom">
+            <label>Tipo</label>
+            <select class="form-select-custom">
+              <option>DNI Amarillo</option>
+              <option>DNI Azul</option>
+              <option>DNI VIRTUAL ELECTRÓNICO</option>
+            </select>
+          </div>
+          <button class="btn-search-custom"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
+        </div>
+      </section>
+
+      <!-- 4. ÁRBOL GENEALÓGICO -->
+      <section class="custom-panel-view" id="panel-reniec-arbol">
+        <div class="panel-header-custom">
+          <h2 class="panel-title-custom"><i class="fa-solid fa-sitemap"></i> Árbol Genealógico (TXT / Visual)</h2>
+          <span class="credits-badge"><i class="fa-solid fa-coins"></i> Costo: 7 créditos</span>
+        </div>
+        <div class="panel-form-row">
+          <div class="form-group-custom">
+            <label>DNI</label>
+            <input type="text" class="form-input-custom" placeholder="Ej: 70364031" maxlength="8">
+          </div>
+          <div class="form-group-custom">
+            <label>Tipo</label>
+            <select class="form-select-custom">
+              <option>ÁRBOL TXT</option>
+              <option>ÁRBOL VISUAL</option>
+            </select>
+          </div>
+          <button class="btn-search-custom"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
+        </div>
+      </section>
+
+      <!-- 5. RECONOCIMIENTO FACIAL -->
+      <section class="custom-panel-view" id="panel-reniec-facial">
+        <div class="panel-header-custom">
+          <h2 class="panel-title-custom"><i class="fa-solid fa-user-astronaut"></i> Facial Server - ID Perú</h2>
+          <p style="font-size:0.8rem; color:rgba(255,255,255,0.6); margin-top:4px;">Reconocimiento facial avanzado · Identificación por foto</p>
+          <span class="credits-badge"><i class="fa-solid fa-coins"></i> Costo: 15 créditos</span>
+        </div>
+        <div class="dropzone-facial">
+          <i class="fa-solid fa-cloud-arrow-up"></i>
+          <p style="font-size:0.9rem; font-weight:700;">Arrastra tu foto aquí o <span style="color:#d8b4fe; text-decoration:underline; cursor:pointer;">selecciona</span></p>
+          <p style="font-size:0.75rem; color:rgba(255,255,255,0.5); margin-top:4px;">JPG · PNG · WEBP — hasta 15 MB</p>
+        </div>
+        <div style="display:flex; justify-content:center; gap:10px; margin-bottom:15px;">
+          <button class="card-btn"><i class="fa-solid fa-camera"></i> Usar cámara</button>
+          <button class="card-btn"><i class="fa-solid fa-trash-can"></i> Limpiar</button>
+        </div>
+        <button class="btn-search-custom" style="width:100%; justify-content:center;"><i class="fa-solid fa-magnifying-glass"></i> Identificar persona</button>
+        <p style="font-size:0.72rem; color:rgba(255,255,255,0.4); text-align:center; margin-top:8px;">Solo se cobra si hay coincidencias detectadas.</p>
+      </section>
+
+      <!-- PANALES INTERACTIVOS OSIPTEL -->
       <section class="custom-panel-view" id="panel-osiptel">
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-phone"></i> Consulta OSIPTEL (SBI / DNI)</h2>
@@ -1292,34 +1400,34 @@
         </div>
       </section>
 
-      <!-- PANALES INTERACTIVOS PERSONALIZADOS (SUNARP) -->
+      <!-- PANALES INTERACTIVOS SUNARP (8 CRÉDITOS Y OPCIÓN PDF ASIENTOS) -->
       <section class="custom-panel-view" id="panel-sunarp">
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-building"></i> Consulta SUNARP por DNI</h2>
           <p style="font-size:0.8rem; color:rgba(255,255,255,0.6); margin-top:4px;">Propiedades · Vehículos · PDFs registrales</p>
-          <span class="credits-badge"><i class="fa-solid fa-coins"></i> Costo: 5 créditos</span>
+          <span class="credits-badge"><i class="fa-solid fa-coins"></i> Costo: 8 créditos</span>
         </div>
         <div class="panel-form-row">
           <div class="form-group-custom">
-            <label>DNI / Titular</label>
+            <label>DNI</label>
             <input type="text" class="form-input-custom" placeholder="Ej: 70364031" maxlength="8">
           </div>
           <div class="form-group-custom">
-            <label>Tipo de Consulta</label>
+            <label>TIPO DE CONSULTA</label>
             <select class="form-select-custom">
+              <option>SUNARP PDF (Asientos)</option>
               <option>Propiedades / Vehículos</option>
-              <option>Copia Literal / PDF</option>
             </select>
           </div>
           <button class="btn-search-custom"><i class="fa-solid fa-magnifying-glass"></i> Buscar en SUNARP</button>
         </div>
       </section>
 
-      <!-- SECCIÓN PLANES Y PRECIOS DE CREACIÓN WEB -->
+      <!-- SECCIÓN PLANES Y PRECIOS DIVERSIFICADOS DE CREACIÓN WEB (S/. 5 A S/. 75) -->
       <section class="web-plans-section" id="web-plans-container">
         <div class="vision-divider" style="max-width:100%; margin-bottom:15px;">
           <div class="line"></div>
-          <span class="badge">PLANES Y DESARROLLO WEB</span>
+          <span class="badge">PLANES Y DESARROLLO WEB DIVERSIFICADOS</span>
           <div class="line"></div>
         </div>
 
@@ -1327,11 +1435,10 @@
           <div class="plan-card">
             <div>
               <h3>Básico Express</h3>
-              <div class="plan-price">S/. 5 <span>/ pago único</span></div>
+              <div class="plan-price">S/. 5 <span>/ único</span></div>
               <ul class="plan-features">
                 <li><i class="fa-solid fa-check"></i> Landing Page de 1 Sección</li>
-                <li><i class="fa-solid fa-check"></i> Diseño Móvil Básico</li>
-                <li><i class="fa-solid fa-check"></i> Botón de WhatsApp Directo</li>
+                <li><i class="fa-solid fa-check"></i> Enlace directo a Redes</li>
               </ul>
             </div>
             <button class="card-btn open-payment-modal" style="width:100%; justify-content:center;">Solicitar Plan</button>
@@ -1339,43 +1446,53 @@
 
           <div class="plan-card">
             <div>
-              <h3>Estándar Pro</h3>
-              <div class="plan-price">S/. 25 <span>/ pago único</span></div>
+              <h3>Estándar Lite</h3>
+              <div class="plan-price">S/. 15 <span>/ único</span></div>
               <ul class="plan-features">
-                <li><i class="fa-solid fa-check"></i> Web Multi-sección (hasta 4)</li>
-                <li><i class="fa-solid fa-check"></i> Formulario de Contacto</li>
-                <li><i class="fa-solid fa-check"></i> Certificado SSL Incluido</li>
-                <li><i class="fa-solid fa-check"></i> Integración Redes Sociales</li>
+                <li><i class="fa-solid fa-check"></i> Web Multi-sección (2 Secciones)</li>
+                <li><i class="fa-solid fa-check"></i> Formulario de contacto básico</li>
+              </ul>
+            </div>
+            <button class="card-btn open-payment-modal" style="width:100%; justify-content:center;">Solicitar Plan</button>
+          </div>
+
+          <div class="plan-card">
+            <div>
+              <h3>Pro Cyber</h3>
+              <div class="plan-price">S/. 35 <span>/ único</span></div>
+              <ul class="plan-features">
+                <li><i class="fa-solid fa-check"></i> Diseño Neón / Dark Avanzado</li>
+                <li><i class="fa-solid fa-check"></i> Repositorio Privado GitHub</li>
+                <li><i class="fa-solid fa-check"></i> Optimización Móvil Completa</li>
               </ul>
             </div>
             <button class="card-btn open-payment-modal" style="width:100%; justify-content:center;">Solicitar Plan</button>
           </div>
 
           <div class="plan-card featured">
-            <span class="plan-badge">MÁS POPULAR</span>
+            <span class="plan-badge">POPULAR</span>
             <div>
-              <h3>Cyberpunk Business</h3>
-              <div class="plan-price">S/. 45 <span>/ pago único</span></div>
+              <h3>Business Pro</h3>
+              <div class="plan-price">S/. 50 <span>/ único</span></div>
               <ul class="plan-features">
-                <li><i class="fa-solid fa-check"></i> Diseño Neón / Dark Avanzado</li>
-                <li><i class="fa-solid fa-check"></i> Repositorio Privado GitHub</li>
-                <li><i class="fa-solid fa-check"></i> Catálogo Interactivo</li>
-                <li><i class="fa-solid fa-check"></i> Optimización SEO Máxima</li>
+                <li><i class="fa-solid fa-check"></i> Catálogo Interactivo de Productos</li>
+                <li><i class="fa-solid fa-check"></i> Dominio y SSL Certificado</li>
+                <li><i class="fa-solid fa-check"></i> Posicionamiento SEO Básico</li>
               </ul>
             </div>
             <button class="card-btn open-payment-modal" style="width:100%; justify-content:center; background:#a855f7; color:#fff;">Solicitar Plan</button>
           </div>
 
           <div class="plan-card">
-            <span class="plan-badge" style="background:#22c55e;">VIP 24/7</span>
+            <span class="plan-badge" style="background:#22c55e;">MÁXIMO VIP</span>
             <div>
-              <h3>Enterprise & Anti-Attack</h3>
-              <div class="plan-price">S/. 75 <span>/ pago único</span></div>
+              <h3>Enterprise & Anti-Attack 24/7</h3>
+              <div class="plan-price">S/. 75 <span>/ único</span></div>
               <ul class="plan-features">
-                <li><i class="fa-solid fa-check"></i> Panel de Administración Completo</li>
+                <li><i class="fa-solid fa-check"></i> Panel Administrativo Integrado</li>
                 <li><i class="fa-solid fa-check"></i> Protección Anti-Ataques DDoS</li>
-                <li><i class="fa-solid fa-check"></i> Servidor Dedicado Ultra Rápido</li>
-                <li><i class="fa-solid fa-check"></i> Soporte Técnico Prioritario 24/7</li>
+                <li><i class="fa-solid fa-check"></i> Servidores Dedicados Ultra Rápido</li>
+                <li><i class="fa-solid fa-check"></i> Soporte VIP Prioritario 24/7</li>
               </ul>
             </div>
             <button class="card-btn open-payment-modal" style="width:100%; justify-content:center;">Solicitar Plan</button>
@@ -1383,7 +1500,7 @@
         </div>
       </section>
 
-      <!-- SECCIÓN INFRAESTRUCTURA -->
+      <!-- SECCIÓN INFRAESTRUCTURA GENERAL -->
       <section class="rocket-infra-hero" id="infra-rocket-section">
         <div class="infra-header">
           <div class="infra-tag-wrapper">
@@ -1434,24 +1551,9 @@
         </div>
       </section>
 
-      <!-- Grid de Servicios General -->
+      <!-- Grid de Servicios General (SIN TARJETA REPETIDA DE DESARROLLO WEB) -->
       <section class="services-grid" id="services-container">
         
-        <div class="service-card large-card" data-cat="CREACION_WEB">
-          <div class="card-header-img" style="height: 160px; background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('imagencartillas.jpg');">
-            <span class="category-tag">CREACIÓN WEB</span>
-            <span class="card-price-badge">Desde S/. 5 hasta S/. 75</span>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">Diseño & Desarrollo de Páginas Web Profesionales</h3>
-            <p class="card-desc">Plataformas personalizadas estilo Cyberpunk/Dark, tiendas virtuales, landing pages optimizadas y protección anti-ataques.</p>
-            <div class="card-footer">
-              <span class="card-time"><i class="fa-regular fa-clock"></i> Entrega Inmediata</span>
-              <button class="card-btn open-payment-modal">Ver Planes <i class="fa-solid fa-arrow-right"></i></button>
-            </div>
-          </div>
-        </div>
-
         <div class="service-card" data-cat="DIGITAL">
           <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('imagencartillas.jpg');">
             <span class="category-tag">DIGITAL</span>
@@ -1484,7 +1586,7 @@
 
       </section>
 
-      <!-- SECCIÓN FINAL BANDERAS SIN MÉXICO -->
+      <!-- SECCIÓN FINAL CON BANDERAS -->
       <section class="guerra-total-section">
         <div class="vision-divider">
           <div class="line"></div>
@@ -1581,9 +1683,15 @@
         paymentModal.classList.remove("active");
       });
 
-      // MANEJO DE NAVEGACIÓN Y VISTAS PERSONALIZADAS
+      // MANEJO DE VISTAS DINÁMICAS
       const panelOsiptel = document.getElementById("panel-osiptel");
       const panelSunarp = document.getElementById("panel-sunarp");
+      const panelReniecFicha = document.getElementById("panel-reniec-ficha");
+      const panelReniecNombres = document.getElementById("panel-reniec-nombres");
+      const panelReniecDniVirtual = document.getElementById("panel-reniec-dni-virtual");
+      const panelReniecArbol = document.getElementById("panel-reniec-arbol");
+      const panelReniecFacial = document.getElementById("panel-reniec-facial");
+      
       const webPlansContainer = document.getElementById("web-plans-container");
       const infraSection = document.getElementById("infra-rocket-section");
       const serviceCards = document.querySelectorAll(".service-card");
@@ -1591,16 +1699,40 @@
       function resetViews() {
         panelOsiptel.classList.remove("active");
         panelSunarp.classList.remove("active");
+        panelReniecFicha.classList.remove("active");
+        panelReniecNombres.classList.remove("active");
+        panelReniecDniVirtual.classList.remove("active");
+        panelReniecArbol.classList.remove("active");
+        panelReniecFacial.classList.remove("active");
         webPlansContainer.classList.remove("active");
+        
         infraSection.style.display = "block";
         serviceCards.forEach(c => c.style.display = "block");
       }
 
+      function hideGeneralGrid() {
+        infraSection.style.display = "none";
+        serviceCards.forEach(c => c.style.display = "none");
+      }
+
+      document.getElementById("menu-home").addEventListener("click", (e) => {
+        e.preventDefault();
+        resetViews();
+        closeSidebar();
+      });
+
+      document.getElementById("menu-creacion-web").addEventListener("click", (e) => {
+        e.preventDefault();
+        resetViews();
+        hideGeneralGrid();
+        webPlansContainer.classList.add("active");
+        closeSidebar();
+      });
+
       document.getElementById("menu-telefonos").addEventListener("click", (e) => {
         e.preventDefault();
         resetViews();
-        infraSection.style.display = "none";
-        serviceCards.forEach(c => c.style.display = "none");
+        hideGeneralGrid();
         panelOsiptel.classList.add("active");
         closeSidebar();
       });
@@ -1608,23 +1740,56 @@
       document.getElementById("menu-sunarp").addEventListener("click", (e) => {
         e.preventDefault();
         resetViews();
-        infraSection.style.display = "none";
-        serviceCards.forEach(c => c.style.display = "none");
+        hideGeneralGrid();
         panelSunarp.classList.add("active");
         closeSidebar();
       });
 
-      document.querySelectorAll('[data-category="CREACION_WEB"], [data-filter="CREACION_WEB"]').forEach(btn => {
-        btn.addEventListener("click", () => {
-          resetViews();
-          infraSection.style.display = "none";
-          webPlansContainer.classList.add("active");
-        });
+      /* RUTAS SUBMENU RENIEC */
+      document.getElementById("reniec-ficha").addEventListener("click", (e) => {
+        e.preventDefault();
+        resetViews();
+        hideGeneralGrid();
+        panelReniecFicha.classList.add("active");
+        closeSidebar();
       });
 
-      document.querySelectorAll('[data-filter="ALL"]').forEach(btn => {
-        btn.addEventListener("click", () => {
-          resetViews();
+      document.getElementById("reniec-nombres").addEventListener("click", (e) => {
+        e.preventDefault();
+        resetViews();
+        hideGeneralGrid();
+        panelReniecNombres.classList.add("active");
+        closeSidebar();
+      });
+
+      document.getElementById("reniec-dni-virtual").addEventListener("click", (e) => {
+        e.preventDefault();
+        resetViews();
+        hideGeneralGrid();
+        panelReniecDniVirtual.classList.add("active");
+        closeSidebar();
+      });
+
+      document.getElementById("reniec-arbol").addEventListener("click", (e) => {
+        e.preventDefault();
+        resetViews();
+        hideGeneralGrid();
+        panelReniecArbol.classList.add("active");
+        closeSidebar();
+      });
+
+      document.getElementById("reniec-facial").addEventListener("click", (e) => {
+        e.preventDefault();
+        resetViews();
+        hideGeneralGrid();
+        panelReniecFacial.classList.add("active");
+        closeSidebar();
+      });
+
+      /* DROPDOWN SUBMENU */
+      document.querySelectorAll(".dropdown-trigger").forEach(trig => {
+        trig.addEventListener("click", () => {
+          trig.parentElement.classList.toggle("open");
         });
       });
     });
