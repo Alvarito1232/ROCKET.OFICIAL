@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
-    /* RESET Y ESTILOS GENERALES OPTIMIZADOS PARA MÓVIL Y DESKTOP */
+    /* RESET Y ESTILOS GENERALES OPTIMIZADOS */
     * {
       margin: 0;
       padding: 0;
@@ -73,10 +73,9 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      z-index: 9999;
+      z-index: 999999;
       padding: 20px;
       transition: opacity 0.6s ease, visibility 0.6s ease;
-      will-change: opacity, visibility;
     }
 
     #loading-screen.fade-out {
@@ -163,7 +162,6 @@
       min-height: 100vh;
       opacity: 0;
       transition: opacity 0.6s ease;
-      will-change: opacity;
     }
 
     #app-container.visible {
@@ -174,9 +172,8 @@
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.85);
-      backdrop-filter: blur(8px);
-      z-index: 900;
+      background: rgba(0, 0, 0, 0.75);
+      z-index: 8000;
     }
 
     .sidebar-overlay.active {
@@ -187,16 +184,14 @@
     .sidebar {
       width: 260px;
       background: #0a0614;
-      backdrop-filter: blur(16px);
-      border-right: 1px solid rgba(168, 85, 247, 0.2);
+      border-right: 1px solid rgba(168, 85, 247, 0.25);
       display: flex;
       flex-direction: column;
       padding: 24px 16px;
       position: fixed;
       height: 100vh;
-      z-index: 1000;
-      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      will-change: transform;
+      z-index: 9000;
+      transition: transform 0.3s ease;
     }
 
     .sidebar-header {
@@ -508,28 +503,38 @@
     .infra-header {
       text-align: center;
       margin-bottom: 25px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .infra-tag-wrapper {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 6px 18px;
+      background: rgba(168, 85, 247, 0.18);
+      border: 1.5px solid rgba(168, 85, 247, 0.5);
+      border-radius: 30px;
+      box-shadow: 0 0 15px rgba(168, 85, 247, 0.25);
+    }
+
+    .infra-peru-flag {
+      width: 24px;
+      height: 16px;
+      object-fit: cover;
+      border-radius: 3px;
+      box-shadow: 0 0 6px rgba(0,0,0,0.5);
     }
 
     .infra-tag {
-      padding: 4px 12px;
-      background: rgba(168, 85, 247, 0.15);
-      border: 1px solid rgba(168, 85, 247, 0.4);
       color: #d8b4fe;
-      font-size: 0.68rem;
+      font-size: 0.75rem;
       font-weight: 800;
       letter-spacing: 0.18em;
-      border-radius: 20px;
       text-transform: uppercase;
-    }
-
-    .infra-title {
-      font-size: clamp(1.2rem, 3vw, 2.2rem);
-      font-weight: 900;
-      color: #fff;
-      margin-top: 10px;
-      letter-spacing: 0.05em;
-      text-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
-      line-height: 1.3;
     }
 
     .infra-diagram-grid {
@@ -882,57 +887,62 @@
     }
 
     /* ========================================================= */
-    /*   AJUSTES MÓVIL EXCLUSIVOS PARA SOLUCIONAR EL MENÚ APIÑADO   */
+    /*   AJUSTE DE NÍTIDEZ ABSOLUTA EN MÓVIL (SIN BORRONES)      */
     /* ========================================================= */
     @media (max-width: 992px) {
       .sidebar { 
-        transform: translateX(-100%); 
-        width: 85vw !important;
-        max-width: 320px !important;
+        transform: translateX(-100%) !important; 
+        width: 82vw !important;
+        max-width: 310px !important;
         background: #0d071a !important; /* Fondo violeta-oscuro totalmente opaco */
         border-right: 2px solid #a855f7 !important;
-        box-shadow: 15px 0 40px rgba(0, 0, 0, 0.98) !important;
-        padding: 22px 16px !important;
+        box-shadow: 10px 0 35px rgba(0, 0, 0, 0.95) !important;
+        padding: 22px 14px !important;
+        backdrop-filter: none !important; /* Elimina borrones */
       }
 
       .sidebar.open { 
         transform: translateX(0) !important; 
       }
 
-      /* Lista del menú móvil con el mejor espacio y nitidez */
+      .sidebar-overlay {
+        backdrop-filter: none !important; /* Elimina la vista borrosa de fondo */
+        background: rgba(0, 0, 0, 0.85) !important;
+      }
+
       .nav-menu {
         gap: 8px !important;
-        padding-right: 4px;
+        padding-right: 2px;
       }
 
       .nav-item a, .dropdown-trigger {
-        padding: 13px 16px !important;
-        font-size: 0.95rem !important;
+        padding: 12px 14px !important;
+        font-size: 0.92rem !important;
         font-weight: 700 !important;
         color: #f3e8ff !important;
-        background: rgba(168, 85, 247, 0.1) !important;
-        border: 1px solid rgba(168, 85, 247, 0.25) !important;
+        background: rgba(168, 85, 247, 0.12) !important;
+        border: 1px solid rgba(168, 85, 247, 0.3) !important;
         border-radius: 12px !important;
       }
 
       .nav-item i {
-        font-size: 1.1rem !important;
+        font-size: 1.05rem !important;
         color: #c084fc !important;
       }
 
       .submenu {
         margin-left: 10px !important;
-        padding-left: 14px !important;
+        padding-left: 12px !important;
         gap: 6px !important;
-        margin-top: 8px !important;
-        margin-bottom: 8px !important;
+        margin-top: 6px !important;
+        margin-bottom: 6px !important;
       }
 
       .submenu li a {
-        padding: 10px 14px !important;
-        font-size: 0.88rem !important;
+        padding: 10px 12px !important;
+        font-size: 0.85rem !important;
         color: #e9d5ff !important;
-        background: rgba(168, 85, 247, 0.15) !important;
+        background: rgba(168, 85, 247, 0.18) !important;
         border-radius: 8px !important;
       }
 
@@ -1141,11 +1151,13 @@
         <h1 class="hero-banner-title">ROCKET</h1>
       </section>
 
-      <!-- SECCIÓN INFRAESTRUCTURA -->
+      <!-- SECCIÓN INFRAESTRUCTURA DE INSTITUCIONES -->
       <section class="rocket-infra-hero" id="infra-rocket-section">
         <div class="infra-header">
-          <span class="infra-tag">INFRAESTRUCTURA CENTRAL DE DATOS</span>
-          <h2 class="infra-title">INTERCONEXIÓN INTEGRAL DE BASES DE DATOS</h2>
+          <div class="infra-tag-wrapper">
+            <img src="peru.jpg" class="infra-peru-flag" alt="Perú" title="Perú">
+            <span class="infra-tag">INFRAESTRUCTURA CENTRAL DE DATOS</span>
+          </div>
         </div>
 
         <div class="infra-diagram-grid">
