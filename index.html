@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   
   <!-- POLÍTICAS Y CABECERAS DE SEGURIDAD META -->
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -11,7 +11,7 @@
   
   <title>ROCKET - Plataforma de Servicios</title>
 
-  <!-- FAVICON / LOGO EN LA PESTAÑA DEL NAVEGADOR -->
+  <!-- FAVICON / LOGO "SS" EN LA PESTAÑA DEL NAVEGADOR -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 150'><path fill='%23a855f7' d='M 65 10 C 35 10, 15 25, 20 45 C 23 58, 35 65, 52 70 L 68 75 C 80 79, 88 86, 86 98 C 83 112, 60 120, 35 115 C 22 112, 12 104, 10 95 L 2 98 C 5 112, 18 122, 35 125 C 65 129, 94 120, 96 98 C 98 78, 78 72, 62 67 L 46 62 C 32 58, 28 50, 30 42 C 33 30, 52 20, 72 22 C 82 23, 90 28, 92 35 L 100 32 C 96 22, 84 12, 65 10 Z'/><path fill='%23c084fc' d='M 35 30 C 65 30, 85 45, 80 65 C 77 78, 65 85, 48 90 L 32 95 C 20 99, 12 106, 14 118 C 17 132, 40 140, 65 135 C 78 132, 88 124, 90 115 L 98 118 C 95 132, 82 142, 65 145 C 35 149, 6 140, 4 118 C 2 98, 22 92, 38 87 L 54 82 C 68 78, 72 70, 70 62 C 67 50, 48 40, 28 42 C 18 43, 10 48, 8 55 L 0 52 C 4 42, 16 32, 35 30 Z'/></svg>">
 
   <!-- Google Fonts & FontAwesome Icons -->
@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
-    /* RESET Y ESTILOS GENERALES OPTIMIZADOS */
+    /* RESET Y PREVENCIÓN DE ZOOM Y DESPLAZAMIENTO NO DESEADO EN MÓVIL */
     * {
       margin: 0;
       padding: 0;
@@ -31,26 +31,25 @@
       -webkit-user-select: none;
       -webkit-touch-callout: none;
       -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
     }
 
-    html {
+    html, body {
       width: 100%;
-      height: 100%;
-      overflow-x: hidden;
-      overflow-y: auto;
+      max-width: 100vw;
+      overflow-x: hidden !important;
+      position: relative;
     }
 
     body {
       background-color: #08060a;
       color: #e2e8f0;
       min-height: 100vh;
-      width: 100%;
       background-image: linear-gradient(rgba(8, 6, 10, 0.90), rgba(8, 6, 10, 0.96)), url('Fondoprincipal.jpg');
       background-size: cover;
       background-position: center 30%;
       background-attachment: fixed;
       -webkit-overflow-scrolling: touch;
-      overflow-x: hidden;
       overflow-y: auto;
     }
 
@@ -359,6 +358,7 @@
       padding: 20px 30px;
       width: calc(100% - 260px);
       min-height: 100vh;
+      overflow-x: hidden;
     }
 
     .top-header {
@@ -430,28 +430,35 @@
       background: rgba(255, 255, 255, 0.08);
     }
 
+    /* CONTENEDOR DE REDES CON DESPLAZAMIENTO FLUIDO DE IZQUIERDA A DERECHA */
     .social-contacts {
       display: flex;
-      gap: 8px;
+      gap: 10px;
       align-items: center;
       overflow-x: auto;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      padding: 4px 2px;
       max-width: 100%;
-      padding-bottom: 2px;
       flex-shrink: 0;
+    }
+
+    .social-contacts::-webkit-scrollbar {
+      display: none;
     }
 
     .social-btn {
       background: rgba(255, 255, 255, 0.08);
       border: 1px solid rgba(255, 255, 255, 0.15);
       color: #fff;
-      width: 36px;
-      height: 36px;
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       text-decoration: none;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       transition: all 0.2s;
       flex-shrink: 0;
     }
@@ -523,7 +530,6 @@
       gap: 12px;
     }
 
-    /* DISEÑO NOVEDOSO DE INFRAESTRUCTURA CIBERNÉTICA */
     .infra-tag-wrapper {
       display: inline-flex;
       align-items: center;
@@ -612,7 +618,6 @@
       width: 100%;
     }
 
-    /* TARJETAS CON LA IMAGEN NOVA.JPG DE FONDO COMPLETO */
     .node-card {
       background-image: linear-gradient(rgba(14, 8, 26, 0.80), rgba(14, 8, 26, 0.88)), url('nova.jpg');
       background-size: cover;
@@ -667,7 +672,7 @@
       text-shadow: 0 1px 3px rgba(0,0,0,0.8);
     }
 
-    /* NÚCLEO CENTRAL ROCKET.COM CON ENCUADRE DE MUJER PERFECTO EN LAPTOP Y MÓVIL */
+    /* NÚCLEO CENTRAL ROCKET.COM CON ENCUADRE PERFECTO */
     .center-core-node {
       display: flex;
       flex-direction: column;
@@ -913,7 +918,7 @@
       box-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
     }
 
-    /* SECCIÓN FINAL CON DIVISOR DECORATIVO */
+    /* SECCIÓN FINAL CON BANDERAS CORREGIDAS */
     .guerra-total-section {
       width: 100%;
       padding: 32px 20px;
@@ -1002,6 +1007,7 @@
       transform: translateX(-50%) translateY(0);
     }
 
+    /* BANDERA DE MÉXICO Y DEMÁS BANDERAS CON PROPORCIÓN Y ORIENTACIÓN NORMAL */
     .flag-img {
       width: 30px;
       height: 18px;
@@ -1009,6 +1015,7 @@
       border-radius: 3px;
       cursor: pointer;
       display: block;
+      transform: none;
       animation: waveFloat 3s ease-in-out infinite alternate;
       transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.3s ease, box-shadow 0.3s ease;
       box-shadow: 0 1px 4px rgba(0,0,0,0.5);
@@ -1155,7 +1162,7 @@
   <!-- INTERFACE PRINCIPAL -->
   <div id="app-container">
     
-    <!-- SIDEBAR -->
+    <!-- SIDEBAR MENU -->
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-header">
         <div class="sidebar-logo-icon">
@@ -1237,7 +1244,6 @@
         <li class="nav-item" data-category="STREAMING">
           <a href="#"><span class="nav-item-content"><i class="fa-solid fa-tv"></i> Streaming</span></a>
         </li>
-        <!-- REEMPLAZO DE APIS POR NÚMEROS VIRTUALES -->
         <li class="nav-item" data-category="DIGITAL">
           <a href="#"><span class="nav-item-content"><i class="fa-solid fa-sim-card"></i> Números virtuales</span></a>
         </li>
@@ -1281,6 +1287,7 @@
           <button class="tab-btn" data-filter="ACADEMICO">ACADÉMICOS</button>
         </div>
 
+        <!-- BARRA DE REDES Y MÉTODOS DE CONTACTO (DESPLAZAMIENTO IZQ -> DER) -->
         <div class="social-contacts">
           <a href="javascript:void(0)" class="social-btn open-payment-modal" title="Métodos de Pago / Yape"><i class="fa-solid fa-qrcode"></i></a>
           <a href="https://t.me/Adolf3728" target="_blank" rel="noopener noreferrer" class="social-btn" title="Telegram"><i class="fa-brands fa-telegram"></i></a>
@@ -1301,7 +1308,6 @@
       <!-- SECCIÓN INFRAESTRUCTURA -->
       <section class="rocket-infra-hero" id="infra-rocket-section">
         <div class="infra-header">
-          <!-- BADGE NOVEDOSO Y CIBERNÉTICO DE INFRAESTRUCTURA -->
           <div class="infra-tag-wrapper">
             <span class="status-ping">
               <span class="ping-wave"></span>
@@ -1344,7 +1350,6 @@
             </div>
           </div>
 
-          <!-- NÚCLEO CENTRAL CON IMAGEN ENCAJADA CON PRECISIÓN -->
           <div class="center-core-node">
             <div class="core-logo-box">
               <svg class="ss-logo-svg" viewBox="0 0 100 150" style="width: 32px; height: 32px;">
@@ -1507,7 +1512,7 @@
 
       </section>
 
-      <!-- SECCIÓN FINAL CON DIVISOR DECORATIVO -->
+      <!-- SECCIÓN FINAL -->
       <section class="guerra-total-section">
         <div class="vision-divider">
           <div class="line"></div>
