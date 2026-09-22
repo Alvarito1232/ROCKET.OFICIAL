@@ -11,6 +11,9 @@
   
   <title>ROCKET - Plataforma de Servicios</title>
 
+  <!-- FAVICON / LOGO EN LA PESTAÑA DEL NAVEGADOR -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 150'><path fill='%23a855f7' d='M 65 10 C 35 10, 15 25, 20 45 C 23 58, 35 65, 52 70 L 68 75 C 80 79, 88 86, 86 98 C 83 112, 60 120, 35 115 C 22 112, 12 104, 10 95 L 2 98 C 5 112, 18 122, 35 125 C 65 129, 94 120, 96 98 C 98 78, 78 72, 62 67 L 46 62 C 32 58, 28 50, 30 42 C 33 30, 52 20, 72 22 C 82 23, 90 28, 92 35 L 100 32 C 96 22, 84 12, 65 10 Z'/><path fill='%23c084fc' d='M 35 30 C 65 30, 85 45, 80 65 C 77 78, 65 85, 48 90 L 32 95 C 20 99, 12 106, 14 118 C 17 132, 40 140, 65 135 C 78 132, 88 124, 90 115 L 98 118 C 95 132, 82 142, 65 145 C 35 149, 6 140, 4 118 C 2 98, 22 92, 38 87 L 54 82 C 68 78, 72 70, 70 62 C 67 50, 48 40, 28 42 C 18 43, 10 48, 8 55 L 0 52 C 4 42, 16 32, 35 30 Z'/></svg>">
+
   <!-- Google Fonts & FontAwesome Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -520,32 +523,75 @@
       gap: 12px;
     }
 
+    /* DISEÑO NOVEDOSO DE INFRAESTRUCTURA CIBERNÉTICA */
     .infra-tag-wrapper {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
-      padding: 6px 18px;
-      background: rgba(168, 85, 247, 0.18);
-      border: 1.5px solid rgba(168, 85, 247, 0.5);
+      padding: 8px 22px;
+      background: linear-gradient(135deg, rgba(168, 85, 247, 0.25), rgba(15, 8, 29, 0.85));
+      border: 1px solid rgba(192, 132, 252, 0.6);
       border-radius: 30px;
-      box-shadow: 0 0 15px rgba(168, 85, 247, 0.25);
+      box-shadow: 0 0 20px rgba(168, 85, 247, 0.35), inset 0 0 10px rgba(168, 85, 247, 0.2);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+
+    .infra-tag-wrapper:hover {
+      box-shadow: 0 0 28px rgba(192, 132, 252, 0.6);
+      border-color: rgba(216, 180, 254, 0.9);
+    }
+
+    .status-ping {
+      position: relative;
+      display: flex;
+      height: 8px;
+      width: 8px;
+    }
+
+    .status-ping .ping-wave {
+      animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+      position: absolute;
+      display: inline-flex;
+      height: 100%;
+      width: 100%;
+      border-radius: 50%;
+      background-color: #a855f7;
+      opacity: 0.75;
+    }
+
+    .status-ping .ping-dot {
+      position: relative;
+      display: inline-flex;
+      border-radius: 50%;
+      height: 8px;
+      width: 8px;
+      background-color: #c084fc;
+    }
+
+    @keyframes ping {
+      75%, 100% {
+        transform: scale(2.2);
+        opacity: 0;
+      }
     }
 
     .infra-peru-flag {
-      width: 24px;
-      height: 16px;
+      width: 22px;
+      height: 15px;
       object-fit: cover;
       border-radius: 3px;
-      box-shadow: 0 0 6px rgba(0,0,0,0.5);
+      box-shadow: 0 0 6px rgba(0,0,0,0.6);
     }
 
     .infra-tag {
-      color: #d8b4fe;
-      font-size: 0.75rem;
+      color: #f3e8ff;
+      font-size: 0.78rem;
       font-weight: 800;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
+      text-shadow: 0 0 8px rgba(192, 132, 252, 0.6);
     }
 
     .infra-diagram-grid {
@@ -621,22 +667,22 @@
       text-shadow: 0 1px 3px rgba(0,0,0,0.8);
     }
 
-    /* NÚCLEO CENTRAL ROCKET.COM */
+    /* NÚCLEO CENTRAL ROCKET.COM CON ENCUADRE DE MUJER PERFECTO EN LAPTOP Y MÓVIL */
     .center-core-node {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      background-image: linear-gradient(rgba(14, 6, 28, 0.68), rgba(14, 6, 28, 0.88)), url('chicaa.jpg');
+      background-image: linear-gradient(rgba(14, 6, 28, 0.65), rgba(14, 6, 28, 0.85)), url('chicaa.jpg');
       background-size: cover;
-      background-position: center top 20%;
+      background-position: center 25%;
       border: 2px solid #a855f7;
       box-shadow: 0 0 30px rgba(168, 85, 247, 0.6);
       border-radius: 20px;
       padding: 35px 16px;
       text-align: center;
       width: 100%;
-      min-height: 220px;
+      min-height: 260px;
       position: relative;
     }
 
@@ -867,7 +913,7 @@
       box-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
     }
 
-    /* SECCIÓN FINAL REVISADA SIN LA ETIQUETA ROCKET REPETIDA */
+    /* SECCIÓN FINAL CON DIVISOR DECORATIVO */
     .guerra-total-section {
       width: 100%;
       padding: 32px 20px;
@@ -881,7 +927,6 @@
       gap: 14px;
     }
 
-    /* DIVISOR DECORATIVO ELEGANTE EN LUGAR DE LA CAPSULA DE TEXTO */
     .vision-divider {
       display: flex;
       align-items: center;
@@ -924,7 +969,6 @@
       margin-top: 10px;
     }
 
-    /* WRAPPER DE BANDERAS CON TOOLTIP */
     .flag-wrapper {
       position: relative;
       display: inline-block;
@@ -958,7 +1002,6 @@
       transform: translateX(-50%) translateY(0);
     }
 
-    /* ESTILO Y PROPORCIÓN PERFECTA PARA TODAS LAS BANDERAS (INCLUYENDO MÉXICO) */
     .flag-img {
       width: 30px;
       height: 18px;
@@ -979,7 +1022,6 @@
       z-index: 15;
     }
 
-    /* ANIMACIÓN ONDEANTE CON DESFASE EN BANDERAS */
     .flag-wrapper:nth-child(2n) .flag-img { animation-delay: 0.2s; }
     .flag-wrapper:nth-child(3n) .flag-img { animation-delay: 0.4s; }
     .flag-wrapper:nth-child(4n) .flag-img { animation-delay: 0.6s; }
@@ -1071,6 +1113,7 @@
       .center-core-node {
         order: -1 !important;
         margin-bottom: 8px !important;
+        background-position: center 20% !important;
       }
 
       .service-card.large-card {
@@ -1194,6 +1237,7 @@
         <li class="nav-item" data-category="STREAMING">
           <a href="#"><span class="nav-item-content"><i class="fa-solid fa-tv"></i> Streaming</span></a>
         </li>
+        <!-- REEMPLAZO DE APIS POR NÚMEROS VIRTUALES -->
         <li class="nav-item" data-category="DIGITAL">
           <a href="#"><span class="nav-item-content"><i class="fa-solid fa-sim-card"></i> Números virtuales</span></a>
         </li>
@@ -1254,10 +1298,15 @@
         <h1 class="hero-banner-title">ROCKET</h1>
       </section>
 
-      <!-- SECCIÓN INFRAESTRUCTURA CON TARJETAS Y FONDO NOVA.JPG -->
+      <!-- SECCIÓN INFRAESTRUCTURA -->
       <section class="rocket-infra-hero" id="infra-rocket-section">
         <div class="infra-header">
+          <!-- BADGE NOVEDOSO Y CIBERNÉTICO DE INFRAESTRUCTURA -->
           <div class="infra-tag-wrapper">
+            <span class="status-ping">
+              <span class="ping-wave"></span>
+              <span class="ping-dot"></span>
+            </span>
             <img src="peru.jpg" class="infra-peru-flag" alt="Perú" title="Perú">
             <span class="infra-tag">INFRAESTRUCTURA CENTRAL DE DATOS</span>
           </div>
@@ -1295,6 +1344,7 @@
             </div>
           </div>
 
+          <!-- NÚCLEO CENTRAL CON IMAGEN ENCAJADA CON PRECISIÓN -->
           <div class="center-core-node">
             <div class="core-logo-box">
               <svg class="ss-logo-svg" viewBox="0 0 100 150" style="width: 32px; height: 32px;">
