@@ -557,7 +557,7 @@
       background: rgba(15, 8, 26, 0.9);
       border: 1px solid rgba(168, 85, 247, 0.3);
       border-radius: 18px;
-      padding: 20px 16px;
+      padding: 22px 18px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -590,7 +590,7 @@
     }
 
     .km-title {
-      font-size: 1.3rem;
+      font-size: 1.25rem;
       font-weight: 900;
       color: #fff;
     }
@@ -617,7 +617,7 @@
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 8px;
       margin-bottom: 20px;
     }
 
@@ -626,23 +626,23 @@
       color: rgba(226, 232, 240, 0.8);
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
     }
 
     .km-features li i {
       color: #a855f7;
-      font-size: 0.7rem;
+      font-size: 0.75rem;
     }
 
     .btn-select-km-plan {
       width: 100%;
-      padding: 10px;
+      padding: 12px;
       background: rgba(168, 85, 247, 0.2);
       border: 1px solid rgba(168, 85, 247, 0.5);
       color: #d8b4fe;
       border-radius: 10px;
       font-weight: 800;
-      font-size: 0.82rem;
+      font-size: 0.85rem;
       cursor: pointer;
       transition: all 0.2s;
     }
@@ -818,7 +818,7 @@
       background: rgba(168, 85, 247, 0.1);
     }
 
-    /* MODAL DE CRÉDITOS */
+    /* MODAL YAPE Y CONFIRMACIÓN */
     .modal-overlay {
       display: none;
       position: fixed;
@@ -837,10 +837,11 @@
       background: #0f081d;
       border: 1.5px solid #a855f7;
       border-radius: 20px;
-      width: min(95%, 520px);
+      width: min(95%, 450px);
       padding: 25px;
       box-shadow: 0 0 40px rgba(168, 85, 247, 0.5);
       position: relative;
+      text-align: center;
     }
 
     .close-modal-btn {
@@ -856,41 +857,72 @@
 
     .close-modal-btn:hover { color: #fff; }
 
-    .action-btn-group {
+    .yape-qr-container {
+      background: #fff;
+      border-radius: 16px;
+      padding: 12px;
+      display: inline-block;
+      margin: 15px 0;
+    }
+
+    .yape-qr-img {
+      width: 210px;
+      height: 210px;
+      object-fit: contain;
+      display: block;
+      border-radius: 8px;
+    }
+
+    .payment-summary-box {
       display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
+      gap: 10px;
       justify-content: center;
+      margin-bottom: 15px;
+    }
+
+    .pay-info-card {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    .pay-info-card.green { border-color: rgba(34, 197, 94, 0.4); }
+    .pay-info-card.yellow { border-color: rgba(234, 179, 8, 0.4); }
+
+    .pay-card-lbl { font-size: 0.65rem; font-weight: 800; color: rgba(255, 255, 255, 0.6); text-transform: uppercase; }
+    .pay-card-val { font-size: 1.2rem; font-weight: 900; color: #fff; margin-top: 2px; }
+
+    .btn-yape-submit {
+      width: 100%;
+      padding: 14px;
+      background: #0f172a;
+      border: 1px solid rgba(168, 85, 247, 0.6);
+      color: #fff;
+      border-radius: 12px;
+      font-weight: 900;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.2s;
       margin-top: 10px;
     }
 
-    .btn-whatsapp-action {
-      background: #22c55e;
-      color: #fff;
-      font-weight: 800;
-      padding: 12px 20px;
-      border-radius: 10px;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: transform 0.2s;
+    .btn-yape-submit:hover {
+      background: #a855f7;
+      border-color: #a855f7;
     }
 
-    .btn-telegram-action {
-      background: #0088cc;
-      color: #fff;
-      font-weight: 800;
-      padding: 12px 20px;
-      border-radius: 10px;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: transform 0.2s;
+    .yape-owner-badge {
+      font-size: 0.8rem;
+      color: #d8b4fe;
+      font-weight: 700;
+      background: rgba(168, 85, 247, 0.15);
+      padding: 6px 12px;
+      border-radius: 8px;
+      margin-bottom: 12px;
+      display: inline-block;
     }
-
-    .btn-whatsapp-action:hover, .btn-telegram-action:hover { transform: translateY(-2px); }
 
     /* ESTILO SECCIÓN STREAMING */
     .streaming-panel-wrapper {
@@ -1024,6 +1056,42 @@
     }
 
     .info-hero-title span { color: #a855f7; }
+
+    .action-btn-group {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    .btn-whatsapp-action {
+      background: #22c55e;
+      color: #fff;
+      font-weight: 800;
+      padding: 12px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.2s;
+    }
+
+    .btn-telegram-action {
+      background: #0088cc;
+      color: #fff;
+      font-weight: 800;
+      padding: 12px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.2s;
+    }
+
+    .btn-whatsapp-action:hover, .btn-telegram-action:hover { transform: translateY(-2px); }
 
     /* FACIAL DROPZONE */
     .dropzone-facial {
@@ -1641,28 +1709,50 @@
     </g>
   </svg>
 
-  <!-- MODAL DE CRÉDITOS SELECCIONADOS -->
+  <!-- MODAL DE YAPE Y VERIFICACIÓN AUTOMÁTICA -->
   <div class="modal-overlay" id="modal-credits">
     <div class="modal-credits-box">
       <button class="close-modal-btn" id="btn-close-modal"><i class="fa-solid fa-xmark"></i></button>
-      <div style="text-align:center;">
-        <i class="fa-solid fa-coins" style="font-size:2.5rem; color:#a855f7; margin-bottom:10px;"></i>
-        <h3 style="font-size:1.3rem; font-weight:800; color:#fff;" id="modal-pkg-title">Confirmar Recarga</h3>
-        <p style="font-size:0.85rem; color:#86efac; font-weight:800; margin-top:4px;" id="modal-pkg-price">Monto a Pagar: S/. 10.00</p>
+
+      <!-- PASO 1: YAPE QR -->
+      <div id="modal-step-yape">
+        <h3 style="font-size:1.3rem; font-weight:800; color:#fff;">Realiza tu pago con Yape</h3>
+        <p style="font-size:0.78rem; color:rgba(226,232,240,0.7); margin-top:4px;">Escanea el QR, paga el monto exacto y presiona "Ya pagué"</p>
+
+        <div class="yape-qr-container">
+          <img src="yape.jpeg" alt="QR Yape" class="yape-qr-img">
+        </div>
+
+        <div>
+          <span class="yape-owner-badge"><i class="fa-solid fa-user-check"></i> Titular Yape: ROCKET PERU</span>
+        </div>
+
+        <div class="payment-summary-box">
+          <div class="pay-info-card green">
+            <div class="pay-card-lbl">MONTO A PAGAR</div>
+            <div class="pay-card-val" id="modal-pay-amount">S/ 12.00</div>
+          </div>
+          <div class="pay-info-card yellow">
+            <div class="pay-card-lbl">CRÉDITOS A RECIBIR</div>
+            <div class="pay-card-val" id="modal-pay-credits" style="color:#facc15;">100</div>
+          </div>
+        </div>
+
+        <button class="btn-yape-submit" id="btn-ya-pague">Ya pagué</button>
       </div>
 
-      <div style="margin:20px 0; text-align:center; background:rgba(255,255,255,0.03); padding:15px; border-radius:12px; border:1px solid rgba(168,85,247,0.2);">
-        <p style="font-size:0.8rem; color:rgba(226,232,240,0.8);">Recarga automática procesada con Culqi / Yape.</p>
-        <p style="font-size:0.75rem; color:rgba(226,232,240,0.5); margin-top:4px;">Los créditos se asignarán instantáneamente a tu usuario.</p>
-      </div>
+      <!-- PASO 2: CONFIRMACIÓN Y BOT -->
+      <div id="modal-step-confirm" style="display: none;">
+        <i class="fa-solid fa-robot" style="font-size: 3rem; color: #a855f7; margin-bottom: 12px;"></i>
+        <h3 style="font-size:1.3rem; font-weight:800; color:#fff;">Confirmar Recarga</h3>
+        <p style="font-size:0.8rem; color:rgba(226,232,240,0.7); margin-top:4px;">El bot automático verificará el pago en segundos.</p>
 
-      <div class="action-btn-group">
-        <a href="https://wa.me/573135022169?text=Hola%2C%20deseo%20recargar%20creditos" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-action" id="pkg-link-ws">
-          <i class="fa-brands fa-whatsapp"></i> Validar por WhatsApp
-        </a>
-        <a href="https://t.me/Adolf3728?text=Hola%2C%20deseo%20recargar%20creditos" target="_blank" rel="noopener noreferrer" class="btn-telegram-action" id="pkg-link-tg">
-          <i class="fa-brands fa-telegram"></i> Validar por Telegram
-        </a>
+        <div style="text-align: left; margin: 20px 0; background: rgba(255,255,255,0.03); padding: 15px; border-radius: 12px; border: 1px solid rgba(168,85,247,0.2);">
+          <label style="font-size: 0.72rem; font-weight: 800; color: #d8b4fe; text-transform: uppercase;">A nombre de quién sale el Yape:</label>
+          <input type="text" id="yape-payer-name" placeholder="Ej: Juan Perez" style="width: 100%; padding: 10px; margin-top: 6px; background: rgba(0,0,0,0.5); border: 1px solid rgba(168,85,247,0.4); border-radius: 8px; color: #fff; font-size: 0.88rem; outline: none;">
+        </div>
+
+        <button class="btn-yape-submit" style="background: #22c55e; border-color: #22c55e;" onclick="confirmYapeBot()"><i class="fa-solid fa-circle-check"></i> Confirmar Pago</button>
       </div>
     </div>
   </div>
@@ -1704,11 +1794,12 @@
       </div>
 
       <ul class="nav-menu">
-        <li class="nav-item active" id="menu-home">
+        <li class="nav-item" id="menu-home">
           <a href="#"><span class="nav-item-content"><i class="fa-solid fa-house"></i> Home</span></a>
         </li>
-        <li class="nav-item" id="menu-recarga">
-          <a href="#"><span class="nav-item-content" style="color:#a855f7;"><i class="fa-solid fa-wallet"></i> Recarga</span></a>
+        <!-- OPCIÓN RECARGAR EN SIDEBAR -->
+        <li class="nav-item active" id="menu-recarga">
+          <a href="#"><span class="nav-item-content" style="color:#a855f7;"><i class="fa-solid fa-wallet"></i> Recargar</span></a>
         </li>
         <li class="nav-item" id="menu-creacion-web">
           <a href="#"><span class="nav-item-content"><i class="fa-solid fa-laptop-code"></i> Creación Web</span></a>
@@ -1827,13 +1918,13 @@
       </section>
 
       <!-- VISTA MÓDULO RECARGA KMENTE -->
-      <section class="custom-panel-view" id="panel-recarga">
+      <section class="custom-panel-view active" id="panel-recarga">
         <div class="kmente-recharge-wrapper">
           
           <div class="recharge-top-card">
             <div class="recharge-info-header">
               <h2>Recarga tus créditos en segundos</h2>
-              <p>Selecciona un paquete, paga por Yape o tarjeta y la recarga se aplicará automáticamente a tu cuenta.</p>
+              <p>Selecciona un paquete, paga por Yape y la recarga se aplicará automáticamente a tu cuenta.</p>
             </div>
             <div class="user-credits-badge-box">
               <div class="uc-label">CRÉDITOS ACTUALES</div>
@@ -1843,71 +1934,117 @@
           </div>
 
           <div style="margin-top: 10px;">
-            <h3 style="font-size:1.1rem; font-weight:800; color:#fff; margin-bottom:12px;">Paquetes Disponibles</h3>
+            <h3 style="font-size:1.1rem; font-weight:800; color:#fff; margin-bottom:16px;">Paquetes Disponibles</h3>
             
             <div class="kmente-packages-grid">
-              <!-- PAQUETE 1 -->
+              
+              <!-- PLAN PRUEBAS -->
               <div class="km-pkg-card">
                 <div>
-                  <div class="km-title">100 Créditos</div>
-                  <div class="km-subtitle">Plan de inicio</div>
-                  <div class="km-price">S/. 10 <span>/ paquete</span></div>
+                  <div class="km-title">Plan Pruebas</div>
+                  <div class="km-subtitle">100 Créditos</div>
+                  <div class="km-price">S/ 12.00 <span>/ paquete</span></div>
                   <ul class="km-features">
-                    <li><i class="fa-solid fa-bolt"></i> Recarga automática e inmediata</li>
+                    <li><i class="fa-solid fa-bolt"></i> Recarga automática al validar el pago</li>
                     <li><i class="fa-solid fa-check"></i> Créditos sin vencimiento</li>
                     <li><i class="fa-solid fa-check"></i> Ideal para uso ocasional</li>
                   </ul>
                 </div>
-                <button class="btn-select-km-plan" onclick="openCreditModal('100 Créditos', '10')">Seleccionar plan</button>
+                <button class="btn-select-km-plan" onclick="openCreditModal('Plan Pruebas', '12.00', '100')">Seleccionar plan</button>
               </div>
 
-              <!-- PAQUETE 2 -->
+              <!-- PLAN BÁSICO -->
               <div class="km-pkg-card">
-                <span class="km-tag">Más equilibrado</span>
                 <div>
-                  <div class="km-title">250 Créditos</div>
-                  <div class="km-subtitle">Plan equilibrado</div>
-                  <div class="km-price">S/. 20 <span>/ paquete</span></div>
+                  <div class="km-title">Plan Básico</div>
+                  <div class="km-subtitle">200 Créditos</div>
+                  <div class="km-price">S/ 21.00 <span>/ paquete</span></div>
                   <ul class="km-features">
-                    <li><i class="fa-solid fa-bolt"></i> Aplicación inmediata al validar el pago</li>
+                    <li><i class="fa-solid fa-bolt"></i> Aplicación inmediata al detectar el pago</li>
                     <li><i class="fa-solid fa-check"></i> Saldo cómodo para trabajar</li>
-                    <li><i class="fa-solid fa-check"></i> Recomendado para uso frecuente</li>
+                    <li><i class="fa-solid fa-check"></i> Recomendado para clientes frecuentes</li>
                   </ul>
                 </div>
-                <button class="btn-select-km-plan" onclick="openCreditModal('250 Créditos', '20')">Seleccionar plan</button>
+                <button class="btn-select-km-plan" onclick="openCreditModal('Plan Básico', '21.00', '200')">Seleccionar plan</button>
               </div>
 
-              <!-- PAQUETE 3 -->
-              <div class="km-pkg-card popular">
-                <span class="km-tag" style="background:#a855f7; color:#fff;">Más popular</span>
+              <!-- PLAN ESTÁNDAR -->
+              <div class="km-pkg-card">
                 <div>
-                  <div class="km-title">700 Créditos</div>
-                  <div class="km-subtitle">Mayor rendimiento</div>
-                  <div class="km-price">S/. 50 <span>/ paquete</span></div>
+                  <div class="km-title">Plan Estándar</div>
+                  <div class="km-subtitle">350 Créditos</div>
+                  <div class="km-price">S/ 33.00 <span>/ paquete</span></div>
                   <ul class="km-features">
-                    <li><i class="fa-solid fa-bolt"></i> Mayor capacidad de consultas</li>
+                    <li><i class="fa-solid fa-bolt"></i> Aplicación inmediata al detectar el pago</li>
+                    <li><i class="fa-solid fa-check"></i> Saldo extendido para múltiples consultas</li>
+                    <li><i class="fa-solid fa-check"></i> Recomendado para trabajo diario</li>
+                  </ul>
+                </div>
+                <button class="btn-select-km-plan" onclick="openCreditModal('Plan Estándar', '33.00', '350')">Seleccionar plan</button>
+              </div>
+
+              <!-- PLAN MEDIO -->
+              <div class="km-pkg-card popular">
+                <span class="km-tag" style="background:#a855f7; color:#fff;">Recomendado</span>
+                <div>
+                  <div class="km-title">Plan Medio</div>
+                  <div class="km-subtitle">500 Créditos</div>
+                  <div class="km-price">S/ 45.00 <span>/ paquete</span></div>
+                  <ul class="km-features">
+                    <li><i class="fa-solid fa-bolt"></i> Más capacidad para múltiples consultas</li>
                     <li><i class="fa-solid fa-check"></i> Mejor balance precio/volumen</li>
                     <li><i class="fa-solid fa-check"></i> Ideal para usuarios activos</li>
                   </ul>
                 </div>
-                <button class="btn-select-km-plan" style="background:#a855f7; color:#fff;" onclick="openCreditModal('700 Créditos', '50')">Seleccionar plan</button>
+                <button class="btn-select-km-plan" style="background:#a855f7; color:#fff;" onclick="openCreditModal('Plan Medio', '45.00', '500')">Seleccionar plan</button>
               </div>
 
-              <!-- PAQUETE 4 -->
+              <!-- PLAN FRECUENTE -->
               <div class="km-pkg-card">
-                <span class="km-tag">Pro</span>
                 <div>
-                  <div class="km-title">1500 Créditos</div>
-                  <div class="km-subtitle">Trabajo continuo</div>
-                  <div class="km-price">S/. 100 <span>/ paquete</span></div>
+                  <div class="km-title">Plan Frecuente</div>
+                  <div class="km-subtitle">800 Créditos</div>
+                  <div class="km-price">S/ 68.00 <span>/ paquete</span></div>
                   <ul class="km-features">
-                    <li><i class="fa-solid fa-bolt"></i> Gran saldo para operacion intensiva</li>
+                    <li><i class="fa-solid fa-bolt"></i> Gran saldo para operar sin recargar seguido</li>
                     <li><i class="fa-solid fa-check"></i> Créditos permanentes en tu cuenta</li>
-                    <li><i class="fa-solid fa-check"></i> Excelente para revendedores</li>
+                    <li><i class="fa-solid fa-check"></i> Excelente para negocio medio/alto</li>
                   </ul>
                 </div>
-                <button class="btn-select-km-plan" onclick="openCreditModal('1500 Créditos', '100')">Seleccionar plan</button>
+                <button class="btn-select-km-plan" onclick="openCreditModal('Plan Frecuente', '68.00', '800')">Seleccionar plan</button>
               </div>
+
+              <!-- PLAN PRO -->
+              <div class="km-pkg-card">
+                <div>
+                  <div class="km-title">Plan Pro</div>
+                  <div class="km-subtitle">1,000 Créditos</div>
+                  <div class="km-price">S/ 85.00 <span>/ paquete</span></div>
+                  <ul class="km-features">
+                    <li><i class="fa-solid fa-bolt"></i> Ideal para uso profesional o alto volumen</li>
+                    <li><i class="fa-solid fa-check"></i> Menos recargas, mejor rendimiento</li>
+                    <li><i class="fa-solid fa-check"></i> Opción potente a largo plazo</li>
+                  </ul>
+                </div>
+                <button class="btn-select-km-plan" onclick="openCreditModal('Plan Pro', '85.00', '1000')">Seleccionar plan</button>
+              </div>
+
+              <!-- PLAN VIP / NEGOCIOS -->
+              <div class="km-pkg-card">
+                <span class="km-tag">Máximo Valor</span>
+                <div>
+                  <div class="km-title">Plan VIP / Negocios</div>
+                  <div class="km-subtitle">1,500 Créditos</div>
+                  <div class="km-price">S/ 115.00 <span>/ paquete</span></div>
+                  <ul class="km-features">
+                    <li><i class="fa-solid fa-bolt"></i> Máxima prioridad y rendimiento masivo</li>
+                    <li><i class="fa-solid fa-check"></i> Créditos acumulables e ilimitados</li>
+                    <li><i class="fa-solid fa-check"></i> La mejor tarifa por crédito</li>
+                  </ul>
+                </div>
+                <button class="btn-select-km-plan" onclick="openCreditModal('Plan VIP / Negocios', '115.00', '1500')">Seleccionar plan</button>
+              </div>
+
             </div>
           </div>
 
@@ -2832,6 +2969,8 @@
   </div>
 
   <script>
+    let activePlanData = {};
+
     document.addEventListener("DOMContentLoaded", () => {
       document.addEventListener("contextmenu", e => e.preventDefault());
 
@@ -2871,18 +3010,27 @@
       });
       overlay.addEventListener("click", closeSidebar);
 
-      // MODAL CRÉDITOS
+      // MODAL YAPE CONTROLES
       const modalCredits = document.getElementById("modal-credits");
       const btnOpenCredits = document.getElementById("btn-open-credits");
       const btnCloseModal = document.getElementById("btn-close-modal");
+      const btnYaPague = document.getElementById("btn-ya-pague");
 
       if (btnOpenCredits) {
         btnOpenCredits.addEventListener("click", () => {
           openPanel("panel-recarga");
         });
       }
+
       if (btnCloseModal) {
         btnCloseModal.addEventListener("click", () => modalCredits.classList.remove("active"));
+      }
+
+      if (btnYaPague) {
+        btnYaPague.addEventListener("click", () => {
+          document.getElementById("modal-step-yape").style.display = "none";
+          document.getElementById("modal-step-confirm").style.display = "block";
+        });
       }
 
       // VISTA PREVIA FACIAL
@@ -3014,21 +3162,30 @@
       });
     });
 
-    // ABRIR MODAL DE CRÉDITOS SELECCIONADO
-    function openCreditModal(pkgName, price) {
-      const modal = document.getElementById("modal-credits");
-      const title = document.getElementById("modal-pkg-title");
-      const priceEl = document.getElementById("modal-pkg-price");
-      const linkWs = document.getElementById("pkg-link-ws");
-      const linkTg = document.getElementById("pkg-link-tg");
+    // ABRIR MODAL CON YAPE PARA PLAN SELECCIONADO
+    function openCreditModal(planName, price, credits) {
+      activePlanData = { planName, price, credits };
 
-      title.innerText = `Recargar ${pkgName}`;
-      priceEl.innerText = `Monto a Pagar: S/. ${price}.00`;
-      
-      linkWs.href = `https://wa.me/573135022169?text=Hola%2C%20deseo%20recargar%20el%20paquete%20de%20${encodeURIComponent(pkgName)}%20por%20S/.%20${price}`;
-      linkTg.href = `https://t.me/Adolf3728?text=Hola%2C%20deseo%20recargar%20el%20paquete%20de%20${encodeURIComponent(pkgName)}%20por%20S/.%20${price}`;
+      document.getElementById("modal-pay-amount").innerText = `S/ ${price}`;
+      document.getElementById("modal-pay-credits").innerText = credits;
 
-      modal.classList.add("active");
+      document.getElementById("modal-step-yape").style.display = "block";
+      document.getElementById("modal-step-confirm").style.display = "none";
+      document.getElementById("yape-payer-name").value = "";
+
+      document.getElementById("modal-credits").classList.add("active");
+    }
+
+    // CONFIRMACIÓN Y LECTURA CON EL BOT
+    function confirmYapeBot() {
+      const payerName = document.getElementById("yape-payer-name").value.trim();
+      if (!payerName) {
+        alert("Por favor ingresa el nombre de la persona que realiza el Yape.");
+        return;
+      }
+
+      alert(`[BOT LEYENDO YAPE...]\nRegistrando pago de S/ ${activePlanData.price} a nombre de: ${payerName}\n\nLos créditos (${activePlanData.credits}) serán cargados en breve.`);
+      document.getElementById("modal-credits").classList.remove("active");
     }
 
     // EJECUCIÓN SIMULADA Y REGISTRO DE HISTORIAL
