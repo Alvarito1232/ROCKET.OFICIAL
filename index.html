@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
-    /* RESET Y ESTILOS GENERALES OPTIMIZADOS PARA MÓVIL */
+    /* RESET Y ESTILOS GENERALES OPTIMIZADOS PARA MÓVIL Y DESKTOP */
     * {
       margin: 0;
       padding: 0;
@@ -174,8 +174,8 @@
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.82);
-      backdrop-filter: blur(6px);
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
       z-index: 900;
     }
 
@@ -183,12 +183,12 @@
       display: block;
     }
 
-    /* SIDEBAR COMPLETO EN ESCRITORIO (LAPTOP) */
+    /* SIDEBAR PARA ESCRITORIO / LAPTOP */
     .sidebar {
       width: 260px;
-      background: rgba(10, 7, 18, 0.96);
+      background: #0a0614;
       backdrop-filter: blur(16px);
-      border-right: 1px solid rgba(255, 255, 255, 0.08);
+      border-right: 1px solid rgba(168, 85, 247, 0.2);
       display: flex;
       flex-direction: column;
       padding: 24px 16px;
@@ -269,7 +269,7 @@
 
     .nav-menu::-webkit-scrollbar { width: 4px; }
     .nav-menu::-webkit-scrollbar-thumb {
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(168, 85, 247, 0.3);
       border-radius: 4px;
     }
 
@@ -887,80 +887,81 @@
     @media (max-width: 992px) {
       .sidebar { 
         transform: translateX(-100%); 
-        width: min(82vw, 310px); /* Ancho ideal y holgado en pantalla de cel */
-        background: #0d0818; /* Fondo sólido oscuro para máxima legibilidad */
-        border-right: 1.5px solid rgba(168, 85, 247, 0.5);
-        box-shadow: 10px 0 35px rgba(0, 0, 0, 0.95);
-        padding: 20px 14px;
+        width: 85vw !important;
+        max-width: 320px !important;
+        background: #0d071a !important; /* Fondo violeta-oscuro totalmente opaco */
+        border-right: 2px solid #a855f7 !important;
+        box-shadow: 15px 0 40px rgba(0, 0, 0, 0.98) !important;
+        padding: 22px 16px !important;
       }
 
       .sidebar.open { 
-        transform: translateX(0); 
+        transform: translateX(0) !important; 
       }
 
-      /* Lista del menú móvil bien separada */
+      /* Lista del menú móvil con el mejor espacio y nitidez */
       .nav-menu {
-        gap: 6px;
-        padding-right: 2px;
+        gap: 8px !important;
+        padding-right: 4px;
       }
 
       .nav-item a, .dropdown-trigger {
-        padding: 12px 14px;
-        font-size: 0.92rem;
-        font-weight: 600;
-        color: #e2d5f8;
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        border-radius: 10px;
+        padding: 13px 16px !important;
+        font-size: 0.95rem !important;
+        font-weight: 700 !important;
+        color: #f3e8ff !important;
+        background: rgba(168, 85, 247, 0.1) !important;
+        border: 1px solid rgba(168, 85, 247, 0.25) !important;
+        border-radius: 12px !important;
       }
 
       .nav-item i {
-        font-size: 1.05rem;
-        color: #c084fc;
+        font-size: 1.1rem !important;
+        color: #c084fc !important;
       }
 
       .submenu {
-        margin-left: 12px;
-        padding-left: 18px;
-        gap: 6px;
-        margin-top: 6px;
-        margin-bottom: 6px;
+        margin-left: 10px !important;
+        padding-left: 14px !important;
+        gap: 6px !important;
+        margin-top: 8px !important;
+        margin-bottom: 8px !important;
       }
 
       .submenu li a {
-        padding: 10px 12px;
-        font-size: 0.85rem;
-        color: #d8b4fe;
-        background: rgba(168, 85, 247, 0.08);
-        border-radius: 8px;
+        padding: 10px 14px !important;
+        font-size: 0.88rem !important;
+        color: #e9d5ff !important;
+        background: rgba(168, 85, 247, 0.15) !important;
+        border-radius: 8px !important;
       }
 
       .main-content { 
-        margin-left: 0; 
-        width: 100%; 
-        padding: 18px 12px; 
+        margin-left: 0 !important; 
+        width: 100% !important; 
+        padding: 16px 10px !important; 
       }
 
       .mobile-menu-btn { 
-        display: flex; 
+        display: flex !important; 
       }
 
       .nav-tabs { 
-        display: none; 
+        display: none !important; 
       }
 
       .infra-diagram-grid {
-        grid-template-columns: 1fr;
-        gap: 12px;
+        grid-template-columns: 1fr !important;
+        gap: 14px !important;
       }
 
       .center-core-node {
-        order: -1;
-        margin-bottom: 8px;
+        order: -1 !important;
+        margin-bottom: 8px !important;
       }
 
       .service-card.large-card {
-        grid-column: span 1;
+        grid-column: span 1 !important;
       }
     }
   </style>
