@@ -349,7 +349,7 @@
       border-radius: 10px;
     }
 
-    /* CONTENIDO PRINCIPAL - EXPANDIDO AL LÍMITE (CERO MAX-WIDTH) */
+    /* CONTENIDO PRINCIPAL */
     .main-content {
       margin-left: 260px;
       flex-grow: 1;
@@ -565,22 +565,26 @@
       width: 100%;
     }
 
+    /* TARJETAS CON LA IMAGEN NOVA.JPG DE FONDO COMPLETO */
     .node-card {
-      background: rgba(18, 10, 32, 0.88);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 12px;
-      padding: 12px 14px;
+      background-image: linear-gradient(rgba(14, 8, 26, 0.80), rgba(14, 8, 26, 0.88)), url('nova.jpg');
+      background-size: cover;
+      background-position: center;
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      border-radius: 14px;
+      padding: 14px 16px;
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-      backdrop-filter: blur(6px);
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+      position: relative;
+      overflow: hidden;
     }
 
     .node-card:hover {
-      border-color: rgba(168, 85, 247, 0.5);
-      box-shadow: 0 0 15px rgba(168, 85, 247, 0.3);
+      border-color: rgba(168, 85, 247, 0.7);
+      box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
       transform: translateY(-2px);
     }
 
@@ -588,36 +592,33 @@
       transform: scale(0.98);
     }
 
-    /* ÍCONO CON LA IMAGEN NOVA.JPG ADAPTADA */
+    /* ÍCONO CONSERVADO INTEGRALMENTE SOBRE EL FONDO NOVA.JPG */
     .node-icon {
-      width: 38px;
-      height: 38px;
-      border-radius: 8px;
-      overflow: hidden;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: rgba(168, 85, 247, 0.2);
       border: 1px solid rgba(168, 85, 247, 0.4);
-      flex-shrink: 0;
-      background: rgba(168, 85, 247, 0.15);
       display: flex;
       align-items: center;
       justify-content: center;
-    }
-
-    .node-icon img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
+      font-size: 1.1rem;
+      color: #d8b4fe;
+      flex-shrink: 0;
+      box-shadow: 0 0 10px rgba(168, 85, 247, 0.2);
     }
 
     .node-info h4 {
-      font-size: 0.85rem;
+      font-size: 0.88rem;
       font-weight: 800;
       color: #ffffff;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.8);
     }
 
     .node-info p {
-      font-size: 0.7rem;
-      color: rgba(226, 232, 240, 0.65);
+      font-size: 0.72rem;
+      color: rgba(226, 232, 240, 0.8);
+      text-shadow: 0 1px 3px rgba(0,0,0,0.8);
     }
 
     /* NÚCLEO CENTRAL ROCKET.COM */
@@ -860,7 +861,7 @@
       box-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
     }
 
-    /* BANDERAS GUERRA TOTAL CON INTERACCIÓN HOVER ABUNDANTE */
+    /* SECCIÓN ROCKET & BANDERAS CON ANIMACIÓN DINÁMICA DE MOVIMIENTO */
     .guerra-total-section {
       width: 100%;
       padding: 28px 18px;
@@ -875,11 +876,11 @@
     }
 
     .guerra-tag {
-      padding: 4px 12px;
+      padding: 4px 14px;
       background: rgba(168, 85, 247, 0.15);
       border: 1px solid rgba(168, 85, 247, 0.4);
       color: #d8b4fe;
-      font-size: 0.68rem;
+      font-size: 0.7rem;
       font-weight: 800;
       letter-spacing: 0.2em;
       border-radius: 20px;
@@ -890,7 +891,7 @@
       font-weight: 700;
       font-style: italic;
       color: #f1f5f9;
-      max-width: 800px;
+      max-width: 850px;
       line-height: 1.4;
     }
 
@@ -903,20 +904,20 @@
       margin-top: 8px;
     }
 
-    /* EFECTO AL PASAR EL MOUSE POR LAS BANDERAS */
+    /* EFECTO Y MOVIMIENTO AL PASAR EL MOUSE POR LAS BANDERAS */
     .flag-img {
       width: 28px;
       height: 18px;
       object-fit: cover;
       border-radius: 3px;
       cursor: pointer;
-      transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.25s ease, box-shadow 0.25s ease;
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.3s ease, box-shadow 0.3s ease;
     }
 
     .flag-img:hover {
-      transform: scale(1.35) translateY(-4px);
-      filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.9));
-      box-shadow: 0 4px 12px rgba(168, 85, 247, 0.5);
+      transform: scale(1.4) translateY(-6px) rotate(-3deg);
+      filter: drop-shadow(0 0 10px rgba(168, 85, 247, 1));
+      box-shadow: 0 6px 15px rgba(168, 85, 247, 0.6);
       z-index: 10;
     }
 
@@ -1185,7 +1186,7 @@
         <h1 class="hero-banner-title">ROCKET</h1>
       </section>
 
-      <!-- SECCIÓN INFRAESTRUCTURA DE INSTITUCIONES -->
+      <!-- SECCIÓN INFRAESTRUCTURA CON TARJETAS Y FONDO NOVA.JPG -->
       <section class="rocket-infra-hero" id="infra-rocket-section">
         <div class="infra-header">
           <div class="infra-tag-wrapper">
@@ -1197,28 +1198,28 @@
         <div class="infra-diagram-grid">
           <div class="diagram-column">
             <div class="node-card">
-              <div class="node-icon"><img src="nova.jpg" alt="RENIEC"></div>
+              <div class="node-icon"><i class="fa-solid fa-id-card"></i></div>
               <div class="node-info">
                 <h4>RENIEC</h4>
                 <p>Identificación & Estado Civil</p>
               </div>
             </div>
             <div class="node-card">
-              <div class="node-icon"><img src="nova.jpg" alt="SUNAT"></div>
+              <div class="node-icon"><i class="fa-solid fa-receipt"></i></div>
               <div class="node-info">
                 <h4>SUNAT</h4>
                 <p>Registros Tributarios & RUC</p>
               </div>
             </div>
             <div class="node-card">
-              <div class="node-icon"><img src="nova.jpg" alt="SUNARP"></div>
+              <div class="node-icon"><i class="fa-solid fa-building"></i></div>
               <div class="node-info">
                 <h4>SUNARP</h4>
                 <p>Propiedades & Registro Predial</p>
               </div>
             </div>
             <div class="node-card">
-              <div class="node-icon"><img src="nova.jpg" alt="POLICÍA NACIONAL"></div>
+              <div class="node-icon"><i class="fa-solid fa-shield-halved"></i></div>
               <div class="node-info">
                 <h4>POLICÍA NACIONAL</h4>
                 <p>Antecedentes & Denuncias</p>
@@ -1238,28 +1239,28 @@
 
           <div class="diagram-column">
             <div class="node-card">
-              <div class="node-icon"><img src="nova.jpg" alt="PODER JUDICIAL"></div>
+              <div class="node-icon"><i class="fa-solid fa-scale-balanced"></i></div>
               <div class="node-info">
                 <h4>PODER JUDICIAL</h4>
                 <p>Expedientes & Procesos</p>
               </div>
             </div>
             <div class="node-card">
-              <div class="node-icon"><img src="nova.jpg" alt="MIGRACIONES"></div>
+              <div class="node-icon"><i class="fa-solid fa-passport"></i></div>
               <div class="node-info">
                 <h4>MIGRACIONES</h4>
                 <p>Movimiento Migratorio</p>
               </div>
             </div>
             <div class="node-card">
-              <div class="node-icon"><img src="nova.jpg" alt="OSIPTEL"></div>
+              <div class="node-icon"><i class="fa-solid fa-tower-cell"></i></div>
               <div class="node-info">
                 <h4>OSIPTEL</h4>
                 <p>Líneas & Telecomunicaciones</p>
               </div>
             </div>
             <div class="node-card">
-              <div class="node-icon"><img src="nova.jpg" alt="SENTINEL"></div>
+              <div class="node-icon"><i class="fa-solid fa-chart-line"></i></div>
               <div class="node-info">
                 <h4>SENTINEL</h4>
                 <p>Riesgo Crediticio & Financiero</p>
@@ -1388,10 +1389,10 @@
 
       </section>
 
-      <!-- SECCIÓN GUERRA TOTAL Y BANDERAS -->
+      <!-- SECCIÓN ROCKET CON FRASE ACTUALIZADA Y BANDERAS ANIMADAS -->
       <section class="guerra-total-section">
-        <span class="guerra-tag">GUERRA TOTAL</span>
-        <p class="quote-text">"Si el destino no nos abre la puerta, la derribamos. Dominio total en cada byte."</p>
+        <span class="guerra-tag">ROCKET</span>
+        <p class="quote-text">"Somos ROCKET. Nacimos en silencio, avanzamos sin aviso y cuando nos conozcas, ya estaremos en todas partes."</p>
 
         <div class="flags-container">
           <img src="mexico.jpg" class="flag-img" alt="México" title="México">
