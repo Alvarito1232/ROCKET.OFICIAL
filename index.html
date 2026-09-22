@@ -34,7 +34,7 @@
       width: 100%;
       height: 100%;
       overflow-x: hidden;
-      overflow-y: auto; /* Permite scroll vertical */
+      overflow-y: auto;
     }
 
     body {
@@ -48,7 +48,7 @@
       background-attachment: fixed;
       -webkit-overflow-scrolling: touch;
       overflow-x: hidden;
-      overflow-y: auto; /* Permite scroll vertical con rueda de mouse */
+      overflow-y: auto;
     }
 
     img {
@@ -164,6 +164,7 @@
     #app-container {
       display: flex;
       min-height: 100vh;
+      width: 100%;
       opacity: 0;
       transition: opacity 0.6s ease;
     }
@@ -348,12 +349,11 @@
       border-radius: 10px;
     }
 
-    /* CONTENIDO PRINCIPAL */
+    /* CONTENIDO PRINCIPAL - EXPANDIDO AL LÍMITE (CERO MAX-WIDTH) */
     .main-content {
       margin-left: 260px;
       flex-grow: 1;
-      padding: 30px;
-      max-width: 1400px;
+      padding: 20px 30px;
       width: calc(100% - 260px);
       min-height: 100vh;
     }
@@ -363,7 +363,8 @@
       justify-content: space-between;
       align-items: center;
       margin-bottom: 25px;
-      gap: 12px;
+      gap: 15px;
+      width: 100%;
     }
 
     .mobile-menu-btn {
@@ -388,6 +389,7 @@
       font-weight: 800;
       font-size: 1.1rem;
       letter-spacing: 0.15em;
+      flex-shrink: 0;
     }
 
     .top-logo-svg {
@@ -400,7 +402,7 @@
       display: flex;
       gap: 8px;
       background: rgba(255, 255, 255, 0.03);
-      padding: 6px 12px;
+      padding: 6px 14px;
       border-radius: 20px;
       border: 1px solid rgba(255, 255, 255, 0.05);
       overflow-x: auto;
@@ -414,7 +416,7 @@
       font-weight: 700;
       letter-spacing: 0.1em;
       cursor: pointer;
-      padding: 6px 12px;
+      padding: 6px 14px;
       border-radius: 12px;
       white-space: nowrap;
       transition: all 0.2s;
@@ -432,6 +434,7 @@
       overflow-x: auto;
       max-width: 100%;
       padding-bottom: 2px;
+      flex-shrink: 0;
     }
 
     .social-btn {
@@ -551,7 +554,7 @@
       align-items: center;
       justify-items: center;
       position: relative;
-      max-width: 1100px;
+      width: 100%;
       margin: 0 auto;
     }
 
@@ -571,26 +574,39 @@
       align-items: center;
       gap: 12px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-      transition: transform 0.2s ease, border-color 0.2s ease;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
       backdrop-filter: blur(6px);
+    }
+
+    .node-card:hover {
+      border-color: rgba(168, 85, 247, 0.5);
+      box-shadow: 0 0 15px rgba(168, 85, 247, 0.3);
+      transform: translateY(-2px);
     }
 
     .node-card:active {
       transform: scale(0.98);
     }
 
+    /* ÍCONO CON LA IMAGEN NOVA.JPG ADAPTADA */
     .node-icon {
-      width: 36px;
-      height: 36px;
+      width: 38px;
+      height: 38px;
       border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(168, 85, 247, 0.4);
+      flex-shrink: 0;
       background: rgba(168, 85, 247, 0.15);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1rem;
-      color: #d8b4fe;
-      border: 1px solid rgba(168, 85, 247, 0.3);
-      flex-shrink: 0;
+    }
+
+    .node-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     .node-info h4 {
@@ -658,6 +674,7 @@
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 16px;
       margin-bottom: 35px;
+      width: 100%;
     }
 
     .service-card {
@@ -843,7 +860,7 @@
       box-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
     }
 
-    /* BANDERAS GUERRA TOTAL */
+    /* BANDERAS GUERRA TOTAL CON INTERACCIÓN HOVER ABUNDANTE */
     .guerra-total-section {
       width: 100%;
       padding: 28px 18px;
@@ -882,19 +899,29 @@
       flex-wrap: wrap;
       justify-content: center;
       align-items: center;
-      gap: 10px;
-      margin-top: 6px;
+      gap: 12px;
+      margin-top: 8px;
     }
 
+    /* EFECTO AL PASAR EL MOUSE POR LAS BANDERAS */
     .flag-img {
-      width: 26px;
-      height: 16px;
+      width: 28px;
+      height: 18px;
       object-fit: cover;
       border-radius: 3px;
+      cursor: pointer;
+      transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .flag-img:hover {
+      transform: scale(1.35) translateY(-4px);
+      filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.9));
+      box-shadow: 0 4px 12px rgba(168, 85, 247, 0.5);
+      z-index: 10;
     }
 
     /* ========================================================= */
-    /*   AJUSTE DE NÍTIDEZ ABSOLUTA EN MÓVIL (SIN BORRONES)      */
+    /*   RESPONSIVE DESIGN PARA MÓVIL Y TABLET                  */
     /* ========================================================= */
     @media (max-width: 992px) {
       .sidebar { 
@@ -1170,28 +1197,28 @@
         <div class="infra-diagram-grid">
           <div class="diagram-column">
             <div class="node-card">
-              <div class="node-icon"><i class="fa-solid fa-id-card"></i></div>
+              <div class="node-icon"><img src="nova.jpg" alt="RENIEC"></div>
               <div class="node-info">
                 <h4>RENIEC</h4>
                 <p>Identificación & Estado Civil</p>
               </div>
             </div>
             <div class="node-card">
-              <div class="node-icon"><i class="fa-solid fa-receipt"></i></div>
+              <div class="node-icon"><img src="nova.jpg" alt="SUNAT"></div>
               <div class="node-info">
                 <h4>SUNAT</h4>
                 <p>Registros Tributarios & RUC</p>
               </div>
             </div>
             <div class="node-card">
-              <div class="node-icon"><i class="fa-solid fa-building"></i></div>
+              <div class="node-icon"><img src="nova.jpg" alt="SUNARP"></div>
               <div class="node-info">
                 <h4>SUNARP</h4>
                 <p>Propiedades & Registro Predial</p>
               </div>
             </div>
             <div class="node-card">
-              <div class="node-icon"><i class="fa-solid fa-shield-halved"></i></div>
+              <div class="node-icon"><img src="nova.jpg" alt="POLICÍA NACIONAL"></div>
               <div class="node-info">
                 <h4>POLICÍA NACIONAL</h4>
                 <p>Antecedentes & Denuncias</p>
@@ -1211,28 +1238,28 @@
 
           <div class="diagram-column">
             <div class="node-card">
-              <div class="node-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+              <div class="node-icon"><img src="nova.jpg" alt="PODER JUDICIAL"></div>
               <div class="node-info">
                 <h4>PODER JUDICIAL</h4>
                 <p>Expedientes & Procesos</p>
               </div>
             </div>
             <div class="node-card">
-              <div class="node-icon"><i class="fa-solid fa-passport"></i></div>
+              <div class="node-icon"><img src="nova.jpg" alt="MIGRACIONES"></div>
               <div class="node-info">
                 <h4>MIGRACIONES</h4>
                 <p>Movimiento Migratorio</p>
               </div>
             </div>
             <div class="node-card">
-              <div class="node-icon"><i class="fa-solid fa-tower-cell"></i></div>
+              <div class="node-icon"><img src="nova.jpg" alt="OSIPTEL"></div>
               <div class="node-info">
                 <h4>OSIPTEL</h4>
                 <p>Líneas & Telecomunicaciones</p>
               </div>
             </div>
             <div class="node-card">
-              <div class="node-icon"><i class="fa-solid fa-chart-line"></i></div>
+              <div class="node-icon"><img src="nova.jpg" alt="SENTINEL"></div>
               <div class="node-info">
                 <h4>SENTINEL</h4>
                 <p>Riesgo Crediticio & Financiero</p>
