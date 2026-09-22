@@ -389,6 +389,27 @@
       filter: drop-shadow(0 0 6px rgba(216, 180, 254, 0.8));
     }
 
+    .btn-credit-modal-trigger {
+      background: linear-gradient(135deg, #a855f7, #7e22ce);
+      color: #fff;
+      border: 1px solid rgba(192, 132, 252, 0.5);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
+      transition: all 0.2s;
+    }
+
+    .btn-credit-modal-trigger:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 22px rgba(168, 85, 247, 0.7);
+    }
+
     .nav-tabs {
       display: flex;
       gap: 8px;
@@ -571,6 +592,154 @@
       background: #a855f7;
       border-color: #a855f7;
     }
+
+    /* CONTENEDOR DE RESULTADOS Y ACCIONES RÁPIDAS (PUNTO 5) */
+    .result-box-container {
+      margin-top: 20px;
+      background: rgba(8, 4, 16, 0.95);
+      border: 1px solid rgba(168, 85, 247, 0.35);
+      border-radius: 14px;
+      padding: 18px;
+      display: none;
+    }
+
+    .result-box-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 8px;
+    }
+
+    .result-box-title {
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: #d8b4fe;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .result-action-btns {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn-action-copy, .btn-action-pdf {
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      border: none;
+      transition: all 0.2s;
+    }
+
+    .btn-action-copy { background: rgba(34, 197, 94, 0.2); color: #86efac; border: 1px solid rgba(34, 197, 94, 0.4); }
+    .btn-action-copy:hover { background: #22c55e; color: #fff; }
+
+    .btn-action-pdf { background: rgba(239, 68, 68, 0.2); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.4); }
+    .btn-action-pdf:hover { background: #ef4444; color: #fff; }
+
+    .result-data-content {
+      font-family: monospace;
+      font-size: 0.82rem;
+      color: #cbd5e1;
+      white-space: pre-wrap;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 12px;
+      border-radius: 8px;
+      max-height: 250px;
+      overflow-y: auto;
+    }
+
+    /* VISTA DE HISTORIAL (PUNTO 4) */
+    .history-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+
+    .history-table th, .history-table td {
+      padding: 10px 14px;
+      text-align: left;
+      font-size: 0.8rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .history-table th {
+      color: #d8b4fe;
+      font-weight: 800;
+      background: rgba(168, 85, 247, 0.1);
+    }
+
+    /* MODAL DE CRÉDITOS (PUNTO 3) */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 99999;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-overlay.active { display: flex; }
+
+    .modal-credits-box {
+      background: #0f081d;
+      border: 1.5px solid #a855f7;
+      border-radius: 20px;
+      width: min(95%, 520px);
+      padding: 25px;
+      box-shadow: 0 0 40px rgba(168, 85, 247, 0.5);
+      position: relative;
+    }
+
+    .close-modal-btn {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: none;
+      border: none;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    .close-modal-btn:hover { color: #fff; }
+
+    .credits-packages-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin: 20px 0;
+    }
+
+    .credit-pkg-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      border-radius: 12px;
+      padding: 14px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .credit-pkg-card:hover, .credit-pkg-card.selected {
+      border-color: #a855f7;
+      background: rgba(168, 85, 247, 0.15);
+      box-shadow: 0 0 15px rgba(168, 85, 247, 0.3);
+    }
+
+    .pkg-amount { font-size: 1.4rem; font-weight: 900; color: #d8b4fe; }
+    .pkg-price { font-size: 0.85rem; color: #86efac; font-weight: 800; margin-top: 4px; }
 
     /* ESTILO SECCIÓN STREAMING */
     .streaming-panel-wrapper {
@@ -1358,6 +1527,46 @@
     </g>
   </svg>
 
+  <!-- MODAL DE CRÉDITOS (PUNTO 3) -->
+  <div class="modal-overlay" id="modal-credits">
+    <div class="modal-credits-box">
+      <button class="close-modal-btn" id="btn-close-modal"><i class="fa-solid fa-xmark"></i></button>
+      <div style="text-align:center;">
+        <i class="fa-solid fa-coins" style="font-size:2.5rem; color:#a855f7; margin-bottom:10px;"></i>
+        <h3 style="font-size:1.3rem; font-weight:800; color:#fff;">Recarga de Créditos</h3>
+        <p style="font-size:0.8rem; color:rgba(255,255,255,0.6); margin-top:4px;">Selecciona tu paquete para habilitar consultas instantáneas</p>
+      </div>
+
+      <div class="credits-packages-grid">
+        <div class="credit-pkg-card selected" data-amount="20" data-price="10">
+          <div class="pkg-amount">20 Créditos</div>
+          <div class="pkg-price">S/. 10.00</div>
+        </div>
+        <div class="credit-pkg-card" data-amount="60" data-price="25">
+          <div class="pkg-amount">60 Créditos</div>
+          <div class="pkg-price">S/. 25.00</div>
+        </div>
+        <div class="credit-pkg-card" data-amount="150" data-price="50">
+          <div class="pkg-amount">150 Créditos</div>
+          <div class="pkg-price">S/. 50.00</div>
+        </div>
+        <div class="credit-pkg-card" data-amount="350" data-price="100">
+          <div class="pkg-amount">350 Créditos</div>
+          <div class="pkg-price">S/. 100.00</div>
+        </div>
+      </div>
+
+      <div class="action-btn-group">
+        <a href="https://wa.me/573135022169?text=Hola%2C%20deseo%20recargar%20el%20paquete%20de%2020%20creditos" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-action" id="pkg-link-ws">
+          <i class="fa-brands fa-whatsapp"></i> Pagar por WhatsApp
+        </a>
+        <a href="https://t.me/Adolf3728?text=Hola%2C%20deseo%20recargar%20el%20paquete%20de%2020%20creditos" target="_blank" rel="noopener noreferrer" class="btn-telegram-action" id="pkg-link-tg">
+          <i class="fa-brands fa-telegram"></i> Pagar por Telegram
+        </a>
+      </div>
+    </div>
+  </div>
+
   <div class="sidebar-overlay" id="sidebar-overlay"></div>
 
   <!-- PANTALLA DE CARGA -->
@@ -1380,7 +1589,7 @@
 
   <div id="app-container">
     
-    <!-- SIDEBAR DE NAVEGACIÓN COMPLETO -->
+    <!-- SIDEBAR DE NAVEGACIÓN COMPLETO CON HISTORIAL -->
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-header">
         <div class="sidebar-logo-icon">
@@ -1460,6 +1669,11 @@
           <a href="#"><span class="nav-item-content"><i class="fa-solid fa-chart-simple"></i> Doxing</span></a>
         </li>
 
+        <!-- HISTORIAL LOCAL (PUNTO 4) -->
+        <li class="nav-item" id="menu-historial">
+          <a href="#"><span class="nav-item-content" style="color:#d8b4fe;"><i class="fa-solid fa-clock-rotate-left"></i> Mi Historial</span></a>
+        </li>
+
         <li class="nav-item" id="menu-streaming">
           <a href="#"><span class="nav-item-content" style="color: #ffaa00;"><i class="fa-solid fa-tv" style="color:#ff6b00;"></i> Streaming & Software</span></a>
         </li>
@@ -1493,13 +1707,7 @@
           ROCKET
         </div>
 
-        <div class="nav-tabs">
-          <button class="tab-btn active" data-filter="ALL">TODOS</button>
-          <button class="tab-btn" data-filter="CREACION_WEB">CREACIÓN WEB</button>
-          <button class="tab-btn" data-filter="DIGITAL">DIGITALES</button>
-          <button class="tab-btn" data-filter="OSINT">OSINT</button>
-          <button class="tab-btn" data-filter="STREAMING">STREAMING</button>
-        </div>
+        <button class="btn-credit-modal-trigger" id="btn-open-credits"><i class="fa-solid fa-coins"></i> Recargar Créditos</button>
 
         <div class="social-contacts">
           <a href="https://t.me/Adolf3728" target="_blank" rel="noopener noreferrer" class="social-btn"><i class="fa-brands fa-telegram"></i></a>
@@ -1515,7 +1723,7 @@
         <h1 class="hero-banner-title">ROCKET</h1>
       </section>
 
-      <!-- RENIEC PANELES -->
+      <!-- RENIEC PANELES CON RESULTADO (PUNTO 5) -->
       <section class="custom-panel-view" id="panel-reniec-ficha">
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-id-card"></i> Consulta RENIEC (TXT / PDF / C4 / FICHA)</h2>
@@ -1523,7 +1731,7 @@
         <div class="panel-form-row">
           <div class="form-group-custom">
             <label>DNI</label>
-            <input type="text" class="form-input-custom" placeholder="Ej: 75178640" maxlength="8">
+            <input type="text" id="input-reniec-dni" class="form-input-custom" placeholder="Ej: 75178640" maxlength="8">
           </div>
           <div class="form-group-custom">
             <label>Tipo</label>
@@ -1535,7 +1743,18 @@
               <option>FICHA RENIEC AZUL (PDF)</option>
             </select>
           </div>
-          <button class="btn-search-custom"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
+          <button class="btn-search-custom" onclick="executeSearch('RENIEC Ficha', 'input-reniec-dni', 'res-reniec-ficha')"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
+        </div>
+
+        <div class="result-box-container" id="res-reniec-ficha">
+          <div class="result-box-header">
+            <span class="result-box-title"><i class="fa-solid fa-square-check"></i> Resultado de Consulta</span>
+            <div class="result-action-btns">
+              <button class="btn-action-copy" onclick="copyResult('data-reniec-ficha')"><i class="fa-regular fa-copy"></i> Copiar 1-Clic</button>
+              <button class="btn-action-pdf" onclick="exportPDF('data-reniec-ficha', 'RENIEC_Ficha')"><i class="fa-solid fa-file-pdf"></i> Exportar PDF</button>
+            </div>
+          </div>
+          <div class="result-data-content" id="data-reniec-ficha">Esperando ejecución...</div>
         </div>
       </section>
 
@@ -1546,18 +1765,21 @@
         </div>
         <div class="panel-form-row">
           <div class="form-group-custom">
-            <label>Nombres</label>
-            <input type="text" class="form-input-custom" placeholder="PEDRO">
+            <label>Nombres / Apellidos</label>
+            <input type="text" id="input-reniec-nom" class="form-input-custom" placeholder="PEDRO CASTILLO TERRONES">
           </div>
-          <div class="form-group-custom">
-            <label>Apellido Paterno</label>
-            <input type="text" class="form-input-custom" placeholder="CASTILLO">
+          <button class="btn-search-custom" onclick="executeSearch('RENIEC Nombres', 'input-reniec-nom', 'res-reniec-nom')"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
+        </div>
+
+        <div class="result-box-container" id="res-reniec-nom">
+          <div class="result-box-header">
+            <span class="result-box-title"><i class="fa-solid fa-square-check"></i> Resultado de Consulta</span>
+            <div class="result-action-btns">
+              <button class="btn-action-copy" onclick="copyResult('data-reniec-nom')"><i class="fa-regular fa-copy"></i> Copiar 1-Clic</button>
+              <button class="btn-action-pdf" onclick="exportPDF('data-reniec-nom', 'RENIEC_Nombres')"><i class="fa-solid fa-file-pdf"></i> Exportar PDF</button>
+            </div>
           </div>
-          <div class="form-group-custom">
-            <label>Apellido Materno</label>
-            <input type="text" class="form-input-custom" placeholder="TERRONES">
-          </div>
-          <button class="btn-search-custom"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
+          <div class="result-data-content" id="data-reniec-nom">Esperando ejecución...</div>
         </div>
       </section>
 
@@ -1568,7 +1790,7 @@
         <div class="panel-form-row">
           <div class="form-group-custom">
             <label>DNI</label>
-            <input type="text" class="form-input-custom" placeholder="Ej: 70364031" maxlength="8">
+            <input type="text" id="input-reniec-dnivirt" class="form-input-custom" placeholder="Ej: 70364031" maxlength="8">
           </div>
           <div class="form-group-custom">
             <label>Tipo</label>
@@ -1578,7 +1800,18 @@
               <option>DNI VIRTUAL ELECTRÓNICO</option>
             </select>
           </div>
-          <button class="btn-search-custom"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
+          <button class="btn-search-custom" onclick="executeSearch('DNI Virtual', 'input-reniec-dnivirt', 'res-reniec-dnivirt')"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
+        </div>
+
+        <div class="result-box-container" id="res-reniec-dnivirt">
+          <div class="result-box-header">
+            <span class="result-box-title"><i class="fa-solid fa-square-check"></i> Resultado DNI Virtual</span>
+            <div class="result-action-btns">
+              <button class="btn-action-copy" onclick="copyResult('data-reniec-dnivirt')"><i class="fa-regular fa-copy"></i> Copiar 1-Clic</button>
+              <button class="btn-action-pdf" onclick="exportPDF('data-reniec-dnivirt', 'DNIVirtual_Reporte')"><i class="fa-solid fa-file-pdf"></i> Exportar PDF</button>
+            </div>
+          </div>
+          <div class="result-data-content" id="data-reniec-dnivirt">Esperando ejecución...</div>
         </div>
       </section>
 
@@ -1589,7 +1822,7 @@
         <div class="panel-form-row">
           <div class="form-group-custom">
             <label>DNI</label>
-            <input type="text" class="form-input-custom" placeholder="Ej: 70364031" maxlength="8">
+            <input type="text" id="input-reniec-arbol" class="form-input-custom" placeholder="Ej: 70364031" maxlength="8">
           </div>
           <div class="form-group-custom">
             <label>Tipo</label>
@@ -1598,7 +1831,18 @@
               <option>ÁRBOL VISUAL</option>
             </select>
           </div>
-          <button class="btn-search-custom"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
+          <button class="btn-search-custom" onclick="executeSearch('Árbol Genealógico', 'input-reniec-arbol', 'res-reniec-arbol')"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
+        </div>
+
+        <div class="result-box-container" id="res-reniec-arbol">
+          <div class="result-box-header">
+            <span class="result-box-title"><i class="fa-solid fa-square-check"></i> Resultado Árbol Genealógico</span>
+            <div class="result-action-btns">
+              <button class="btn-action-copy" onclick="copyResult('data-reniec-arbol')"><i class="fa-regular fa-copy"></i> Copiar 1-Clic</button>
+              <button class="btn-action-pdf" onclick="exportPDF('data-reniec-arbol', 'Arbol_Genealogico')"><i class="fa-solid fa-file-pdf"></i> Exportar PDF</button>
+            </div>
+          </div>
+          <div class="result-data-content" id="data-reniec-arbol">Esperando ejecución...</div>
         </div>
       </section>
 
@@ -1620,10 +1864,21 @@
           <button class="card-btn" id="btn-camera-facial"><i class="fa-solid fa-camera"></i> Usar cámara</button>
           <button class="card-btn" id="btn-clear-facial"><i class="fa-solid fa-trash-can"></i> Limpiar</button>
         </div>
-        <button class="btn-search-custom" style="width:100%; justify-content:center;"><i class="fa-solid fa-magnifying-glass"></i> Identificar persona</button>
+        <button class="btn-search-custom" style="width:100%; justify-content:center;" onclick="executeFacialSearch()"><i class="fa-solid fa-magnifying-glass"></i> Identificar persona</button>
+
+        <div class="result-box-container" id="res-reniec-facial">
+          <div class="result-box-header">
+            <span class="result-box-title"><i class="fa-solid fa-square-check"></i> Coincidencia Facial Identificada</span>
+            <div class="result-action-btns">
+              <button class="btn-action-copy" onclick="copyResult('data-reniec-facial')"><i class="fa-regular fa-copy"></i> Copiar 1-Clic</button>
+              <button class="btn-action-pdf" onclick="exportPDF('data-reniec-facial', 'Facial_Reporte')"><i class="fa-solid fa-file-pdf"></i> Exportar PDF</button>
+            </div>
+          </div>
+          <div class="result-data-content" id="data-reniec-facial">Esperando escaneo facial...</div>
+        </div>
       </section>
 
-      <!-- JUSTICIA PANELES -->
+      <!-- JUSTICIA PANELES CON RESULTADO (PUNTO 5) -->
       <section class="custom-panel-view" id="panel-justicia-denuncias">
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-shield-halved"></i> Denuncias Policiales (SIDPOL)</h2>
@@ -1631,15 +1886,20 @@
         <div class="panel-form-row">
           <div class="form-group-custom">
             <label>DNI del consultado</label>
-            <input type="text" class="form-input-custom" placeholder="Ej: 78657674" maxlength="8">
+            <input type="text" id="input-justicia-denuncias" class="form-input-custom" placeholder="Ej: 78657674" maxlength="8">
           </div>
-          <div class="form-group-custom">
-            <label>Tipo</label>
-            <select class="form-select-custom">
-              <option>Denuncias policiales</option>
-            </select>
+          <button class="btn-search-custom" onclick="executeSearch('Denuncias SIDPOL', 'input-justicia-denuncias', 'res-justicia-denuncias')"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
+        </div>
+
+        <div class="result-box-container" id="res-justicia-denuncias">
+          <div class="result-box-header">
+            <span class="result-box-title"><i class="fa-solid fa-square-check"></i> Reporte de Denuncias</span>
+            <div class="result-action-btns">
+              <button class="btn-action-copy" onclick="copyResult('data-justicia-denuncias')"><i class="fa-regular fa-copy"></i> Copiar 1-Clic</button>
+              <button class="btn-action-pdf" onclick="exportPDF('data-justicia-denuncias', 'Denuncias_Reporte')"><i class="fa-solid fa-file-pdf"></i> Exportar PDF</button>
+            </div>
           </div>
-          <button class="btn-search-custom"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
+          <div class="result-data-content" id="data-justicia-denuncias">Esperando ejecución...</div>
         </div>
       </section>
 
@@ -1650,17 +1910,20 @@
         <div class="panel-form-row">
           <div class="form-group-custom">
             <label>DNI</label>
-            <input type="text" class="form-input-custom" placeholder="Ej: 70364031" maxlength="8">
+            <input type="text" id="input-justicia-antecedentes" class="form-input-custom" placeholder="Ej: 70364031" maxlength="8">
           </div>
-          <div class="form-group-custom">
-            <label>Tipo</label>
-            <select class="form-select-custom">
-              <option>Antecedentes penales</option>
-              <option>Antecedentes policiales</option>
-              <option>Antecedentes judiciales</option>
-            </select>
+          <button class="btn-search-custom" onclick="executeSearch('Antecedentes', 'input-justicia-antecedentes', 'res-justicia-antecedentes')"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
+        </div>
+
+        <div class="result-box-container" id="res-justicia-antecedentes">
+          <div class="result-box-header">
+            <span class="result-box-title"><i class="fa-solid fa-square-check"></i> Reporte Antecedentes</span>
+            <div class="result-action-btns">
+              <button class="btn-action-copy" onclick="copyResult('data-justicia-antecedentes')"><i class="fa-regular fa-copy"></i> Copiar 1-Clic</button>
+              <button class="btn-action-pdf" onclick="exportPDF('data-justicia-antecedentes', 'Antecedentes_Reporte')"><i class="fa-solid fa-file-pdf"></i> Exportar PDF</button>
+            </div>
           </div>
-          <button class="btn-search-custom"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
+          <div class="result-data-content" id="data-justicia-antecedentes">Esperando ejecución...</div>
         </div>
       </section>
 
@@ -1671,16 +1934,20 @@
         <div class="panel-form-row">
           <div class="form-group-custom">
             <label>DNI</label>
-            <input type="text" class="form-input-custom" placeholder="Ej: 09659948" maxlength="8">
+            <input type="text" id="input-justicia-req" class="form-input-custom" placeholder="Ej: 09659948" maxlength="8">
           </div>
-          <div class="form-group-custom">
-            <label>Tipo</label>
-            <select class="form-select-custom">
-              <option>RQ Persona</option>
-              <option>RQ Vehículos</option>
-            </select>
+          <button class="btn-search-custom" onclick="executeSearch('Requisitorias e-SINPOL', 'input-justicia-req', 'res-justicia-req')"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
+        </div>
+
+        <div class="result-box-container" id="res-justicia-req">
+          <div class="result-box-header">
+            <span class="result-box-title"><i class="fa-solid fa-square-check"></i> Reporte Requisitorias</span>
+            <div class="result-action-btns">
+              <button class="btn-action-copy" onclick="copyResult('data-justicia-req')"><i class="fa-regular fa-copy"></i> Copiar 1-Clic</button>
+              <button class="btn-action-pdf" onclick="exportPDF('data-justicia-req', 'Requisitorias_Reporte')"><i class="fa-solid fa-file-pdf"></i> Exportar PDF</button>
+            </div>
           </div>
-          <button class="btn-search-custom"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
+          <div class="result-data-content" id="data-justicia-req">Esperando ejecución...</div>
         </div>
       </section>
 
@@ -1690,17 +1957,21 @@
         </div>
         <div class="panel-form-row">
           <div class="form-group-custom">
-            <label>Valor</label>
-            <input type="text" class="form-input-custom" placeholder="Ej: 78678760">
+            <label>Valor (DNI / CIP)</label>
+            <input type="text" id="input-justicia-pnp" class="form-input-custom" placeholder="Ej: 78678760">
           </div>
-          <div class="form-group-custom">
-            <label>Tipo</label>
-            <select class="form-select-custom">
-              <option>Consulta por DNI</option>
-              <option>Consulta por CIP</option>
-            </select>
+          <button class="btn-search-custom" onclick="executeSearch('Consulta PNP', 'input-justicia-pnp', 'res-justicia-pnp')"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
+        </div>
+
+        <div class="result-box-container" id="res-justicia-pnp">
+          <div class="result-box-header">
+            <span class="result-box-title"><i class="fa-solid fa-square-check"></i> Registro Policial PNP</span>
+            <div class="result-action-btns">
+              <button class="btn-action-copy" onclick="copyResult('data-justicia-pnp')"><i class="fa-regular fa-copy"></i> Copiar 1-Clic</button>
+              <button class="btn-action-pdf" onclick="exportPDF('data-justicia-pnp', 'PNP_Reporte')"><i class="fa-solid fa-file-pdf"></i> Exportar PDF</button>
+            </div>
           </div>
-          <button class="btn-search-custom"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
+          <div class="result-data-content" id="data-justicia-pnp">Esperando ejecución...</div>
         </div>
       </section>
 
@@ -1713,15 +1984,20 @@
         <div class="panel-form-row">
           <div class="form-group-custom">
             <label>VALOR A CONSULTAR</label>
-            <input type="text" class="form-input-custom" placeholder="Ej: 12345678" maxlength="8">
+            <input type="text" id="input-persona-plus" class="form-input-custom" placeholder="Ej: 12345678" maxlength="8">
           </div>
-          <div class="form-group-custom">
-            <label>TIPO DE CONSULTA</label>
-            <select class="form-select-custom">
-              <option>Persona Avanzada</option>
-            </select>
+          <button class="btn-search-custom" onclick="executeSearch('Persona Plus', 'input-persona-plus', 'res-persona-plus')"><i class="fa-solid fa-magnifying-glass"></i> Consultar</button>
+        </div>
+
+        <div class="result-box-container" id="res-persona-plus">
+          <div class="result-box-header">
+            <span class="result-box-title"><i class="fa-solid fa-square-check"></i> Consolidado Persona Plus</span>
+            <div class="result-action-btns">
+              <button class="btn-action-copy" onclick="copyResult('data-persona-plus')"><i class="fa-regular fa-copy"></i> Copiar 1-Clic</button>
+              <button class="btn-action-pdf" onclick="exportPDF('data-persona-plus', 'PersonaPlus_Reporte')"><i class="fa-solid fa-file-pdf"></i> Exportar PDF</button>
+            </div>
           </div>
-          <button class="btn-search-custom"><i class="fa-solid fa-magnifying-glass"></i> Consultar</button>
+          <div class="result-data-content" id="data-persona-plus">Esperando ejecución...</div>
         </div>
       </section>
 
@@ -1733,15 +2009,20 @@
         <div class="panel-form-row">
           <div class="form-group-custom">
             <label>Valor a consultar</label>
-            <input type="text" class="form-input-custom" placeholder="Ej: 10001088">
+            <input type="text" id="input-sunat" class="form-input-custom" placeholder="Ej: 10001088">
           </div>
-          <div class="form-group-custom">
-            <label>Tipo de consulta</label>
-            <select class="form-select-custom">
-              <option>Consumos</option>
-            </select>
+          <button class="btn-search-custom" onclick="executeSearch('SUNAT Consumos', 'input-sunat', 'res-sunat')"><i class="fa-solid fa-magnifying-glass"></i> Consultar</button>
+        </div>
+
+        <div class="result-box-container" id="res-sunat">
+          <div class="result-box-header">
+            <span class="result-box-title"><i class="fa-solid fa-square-check"></i> Reporte SUNAT</span>
+            <div class="result-action-btns">
+              <button class="btn-action-copy" onclick="copyResult('data-sunat')"><i class="fa-regular fa-copy"></i> Copiar 1-Clic</button>
+              <button class="btn-action-pdf" onclick="exportPDF('data-sunat', 'SUNAT_Reporte')"><i class="fa-solid fa-file-pdf"></i> Exportar PDF</button>
+            </div>
           </div>
-          <button class="btn-search-custom"><i class="fa-solid fa-magnifying-glass"></i> Consultar</button>
+          <div class="result-data-content" id="data-sunat">Esperando ejecución...</div>
         </div>
       </section>
 
@@ -1753,16 +2034,20 @@
         <div class="panel-form-row">
           <div class="form-group-custom">
             <label>DNI / RUC</label>
-            <input type="text" class="form-input-custom" placeholder="Ej: 70318551 o 20123456789">
+            <input type="text" id="input-sentinel" class="form-input-custom" placeholder="Ej: 70318551 o 20123456789">
           </div>
-          <div class="form-group-custom">
-            <label>Proveedor</label>
-            <select class="form-select-custom">
-              <option>Sentinel V2</option>
-              <option>SBS - Reporte de Deudas</option>
-            </select>
+          <button class="btn-search-custom" onclick="executeSearch('Sentinel RIESGO', 'input-sentinel', 'res-sentinel')"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
+        </div>
+
+        <div class="result-box-container" id="res-sentinel">
+          <div class="result-box-header">
+            <span class="result-box-title"><i class="fa-solid fa-square-check"></i> Reporte Crediticio Sentinel</span>
+            <div class="result-action-btns">
+              <button class="btn-action-copy" onclick="copyResult('data-sentinel')"><i class="fa-regular fa-copy"></i> Copiar 1-Clic</button>
+              <button class="btn-action-pdf" onclick="exportPDF('data-sentinel', 'Sentinel_Reporte')"><i class="fa-solid fa-file-pdf"></i> Exportar PDF</button>
+            </div>
           </div>
-          <button class="btn-search-custom"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
+          <div class="result-data-content" id="data-sentinel">Esperando ejecución...</div>
         </div>
       </section>
 
@@ -1774,22 +2059,20 @@
         <div class="panel-form-row">
           <div class="form-group-custom">
             <label>Placa</label>
-            <input type="text" class="form-input-custom" placeholder="Ej: Z1270Q">
+            <input type="text" id="input-vehiculo" class="form-input-custom" placeholder="Ej: Z1270Q">
           </div>
-          <div class="form-group-custom">
-            <label>Tipo de consulta</label>
-            <select class="form-select-custom">
-              <option>Datos vehiculares SUNARP</option>
-              <option>TIVE</option>
-              <option>TIVE Respaldo</option>
-              <option>TIVE Plantilla</option>
-              <option>Boletín</option>
-              <option>SOAT</option>
-              <option>Asientos</option>
-              <option>Rev. Técnica</option>
-            </select>
+          <button class="btn-search-custom" onclick="executeSearch('Vehicular TIVE', 'input-vehiculo', 'res-vehiculo')"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
+        </div>
+
+        <div class="result-box-container" id="res-vehiculo">
+          <div class="result-box-header">
+            <span class="result-box-title"><i class="fa-solid fa-square-check"></i> Datos Vehiculares TIVE</span>
+            <div class="result-action-btns">
+              <button class="btn-action-copy" onclick="copyResult('data-vehiculo')"><i class="fa-regular fa-copy"></i> Copiar 1-Clic</button>
+              <button class="btn-action-pdf" onclick="exportPDF('data-vehiculo', 'TIVE_Reporte')"><i class="fa-solid fa-file-pdf"></i> Exportar PDF</button>
+            </div>
           </div>
-          <button class="btn-search-custom"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
+          <div class="result-data-content" id="data-vehiculo">Esperando ejecución...</div>
         </div>
       </section>
 
@@ -1807,9 +2090,20 @@
         <div class="panel-form-row">
           <div class="form-group-custom" id="group-siguelo-input">
             <label id="label-siguelo-input">PLACA VEHICULAR</label>
-            <input type="text" class="form-input-custom" placeholder="Ej: ABC123">
+            <input type="text" id="input-siguelo" class="form-input-custom" placeholder="Ej: ABC123">
           </div>
-          <button class="btn-search-custom"><i class="fa-solid fa-magnifying-glass"></i> Consultar placa</button>
+          <button class="btn-search-custom" onclick="executeSearch('Síguelo Plus Placa', 'input-siguelo', 'res-siguelo')"><i class="fa-solid fa-magnifying-glass"></i> Consultar placa</button>
+        </div>
+
+        <div class="result-box-container" id="res-siguelo">
+          <div class="result-box-header">
+            <span class="result-box-title"><i class="fa-solid fa-square-check"></i> Reporte Síguelo Plus</span>
+            <div class="result-action-btns">
+              <button class="btn-action-copy" onclick="copyResult('data-siguelo')"><i class="fa-regular fa-copy"></i> Copiar 1-Clic</button>
+              <button class="btn-action-pdf" onclick="exportPDF('data-siguelo', 'SigueloPlus_Reporte')"><i class="fa-solid fa-file-pdf"></i> Exportar PDF</button>
+            </div>
+          </div>
+          <div class="result-data-content" id="data-siguelo">Esperando ejecución...</div>
         </div>
       </section>
 
@@ -1821,20 +2115,20 @@
         <div class="panel-form-row">
           <div class="form-group-custom">
             <label>DNI</label>
-            <input type="text" class="form-input-custom" placeholder="Ej: 27835459" maxlength="8">
+            <input type="text" id="input-actas" class="form-input-custom" placeholder="Ej: 27835459" maxlength="8">
           </div>
-          <div class="form-group-custom">
-            <label>Tipo de consulta</label>
-            <select class="form-select-custom">
-              <option>Brevete</option>
-              <option>Acta de nacimiento</option>
-              <option>Movimientos migratorios</option>
-              <option>Certificado de estudios</option>
-              <option>Acta de matrimonio</option>
-              <option>Acta de defunción</option>
-            </select>
+          <button class="btn-search-custom" onclick="executeSearch('Consulta Actas', 'input-actas', 'res-actas')"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
+        </div>
+
+        <div class="result-box-container" id="res-actas">
+          <div class="result-box-header">
+            <span class="result-box-title"><i class="fa-solid fa-square-check"></i> Documento Registrado</span>
+            <div class="result-action-btns">
+              <button class="btn-action-copy" onclick="copyResult('data-actas')"><i class="fa-regular fa-copy"></i> Copiar 1-Clic</button>
+              <button class="btn-action-pdf" onclick="exportPDF('data-actas', 'Actas_Reporte')"><i class="fa-solid fa-file-pdf"></i> Exportar PDF</button>
+            </div>
           </div>
-          <button class="btn-search-custom"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
+          <div class="result-data-content" id="data-actas">Esperando ejecución...</div>
         </div>
       </section>
 
@@ -1846,15 +2140,20 @@
         <div class="panel-form-row">
           <div class="form-group-custom">
             <label>DNI</label>
-            <input type="text" class="form-input-custom" placeholder="Ej: 70364031" maxlength="8">
+            <input type="text" id="input-doxing" class="form-input-custom" placeholder="Ej: 70364031" maxlength="8">
           </div>
-          <div class="form-group-custom">
-            <label>Proveedor</label>
-            <select class="form-select-custom">
-              <option>Infoburo</option>
-            </select>
+          <button class="btn-search-custom" onclick="executeSearch('Doxing InfoBuro', 'input-doxing', 'res-doxing')"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
+        </div>
+
+        <div class="result-box-container" id="res-doxing">
+          <div class="result-box-header">
+            <span class="result-box-title"><i class="fa-solid fa-square-check"></i> Reporte InfoBuro</span>
+            <div class="result-action-btns">
+              <button class="btn-action-copy" onclick="copyResult('data-doxing')"><i class="fa-regular fa-copy"></i> Copiar 1-Clic</button>
+              <button class="btn-action-pdf" onclick="exportPDF('data-doxing', 'Doxing_Reporte')"><i class="fa-solid fa-file-pdf"></i> Exportar PDF</button>
+            </div>
           </div>
-          <button class="btn-search-custom"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
+          <div class="result-data-content" id="data-doxing">Esperando ejecución...</div>
         </div>
       </section>
 
@@ -1866,16 +2165,20 @@
         <div class="panel-form-row">
           <div class="form-group-custom">
             <label>DNI / Documento</label>
-            <input type="text" class="form-input-custom" placeholder="Ej: 70364031" maxlength="8">
+            <input type="text" id="input-osiptel" class="form-input-custom" placeholder="Ej: 70364031" maxlength="8">
           </div>
-          <div class="form-group-custom">
-            <label>Tipo de Búsqueda</label>
-            <select class="form-select-custom">
-              <option>Consultar por DNI</option>
-              <option>Consultar por Teléfono (SBI)</option>
-            </select>
+          <button class="btn-search-custom" onclick="executeSearch('OSIPTEL Teléfonos', 'input-osiptel', 'res-osiptel')"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
+        </div>
+
+        <div class="result-box-container" id="res-osiptel">
+          <div class="result-box-header">
+            <span class="result-box-title"><i class="fa-solid fa-square-check"></i> Resultado OSIPTEL</span>
+            <div class="result-action-btns">
+              <button class="btn-action-copy" onclick="copyResult('data-osiptel')"><i class="fa-regular fa-copy"></i> Copiar 1-Clic</button>
+              <button class="btn-action-pdf" onclick="exportPDF('data-osiptel', 'OSIPTEL_Reporte')"><i class="fa-solid fa-file-pdf"></i> Exportar PDF</button>
+            </div>
           </div>
-          <button class="btn-search-custom"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
+          <div class="result-data-content" id="data-osiptel">Esperando ejecución...</div>
         </div>
       </section>
 
@@ -1886,16 +2189,50 @@
         <div class="panel-form-row">
           <div class="form-group-custom">
             <label>DNI</label>
-            <input type="text" class="form-input-custom" placeholder="Ej: 70364031" maxlength="8">
+            <input type="text" id="input-sunarp" class="form-input-custom" placeholder="Ej: 70364031" maxlength="8">
           </div>
-          <div class="form-group-custom">
-            <label>TIPO DE CONSULTA</label>
-            <select class="form-select-custom">
-              <option>SUNARP PDF (Asientos)</option>
-              <option>Propiedades / Vehículos</option>
-            </select>
+          <button class="btn-search-custom" onclick="executeSearch('SUNARP', 'input-sunarp', 'res-sunarp')"><i class="fa-solid fa-magnifying-glass"></i> Buscar en SUNARP</button>
+        </div>
+
+        <div class="result-box-container" id="res-sunarp">
+          <div class="result-box-header">
+            <span class="result-box-title"><i class="fa-solid fa-square-check"></i> Resultado SUNARP</span>
+            <div class="result-action-btns">
+              <button class="btn-action-copy" onclick="copyResult('data-sunarp')"><i class="fa-regular fa-copy"></i> Copiar 1-Clic</button>
+              <button class="btn-action-pdf" onclick="exportPDF('data-sunarp', 'SUNARP_Reporte')"><i class="fa-solid fa-file-pdf"></i> Exportar PDF</button>
+            </div>
           </div>
-          <button class="btn-search-custom"><i class="fa-solid fa-magnifying-glass"></i> Buscar en SUNARP</button>
+          <div class="result-data-content" id="data-sunarp">Esperando ejecución...</div>
+        </div>
+      </section>
+
+      <!-- PANEL DE HISTORIAL LOCAL (PUNTO 4) -->
+      <section class="custom-panel-view" id="panel-historial">
+        <div class="panel-header-custom">
+          <h2 class="panel-title-custom"><i class="fa-solid fa-clock-rotate-left"></i> Historial de Consultas Realizadas</h2>
+          <p style="font-size:0.8rem; color:rgba(255,255,255,0.6); margin-top:4px;">Registro guardado localmente en tu navegador</p>
+        </div>
+
+        <div style="display:flex; justify-content:flex-end; margin-bottom:10px;">
+          <button class="card-btn" onclick="clearHistory()"><i class="fa-solid fa-trash-can"></i> Limpiar Historial</button>
+        </div>
+
+        <div style="overflow-x:auto;">
+          <table class="history-table">
+            <thead>
+              <tr>
+                <th>Servicio</th>
+                <th>Valor Consultado</th>
+                <th>Fecha y Hora</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tbody id="history-table-body">
+              <tr>
+                <td colspan="4" style="text-align:center; color:rgba(255,255,255,0.4);">No hay consultas recientes</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </section>
 
@@ -2343,6 +2680,31 @@
       });
       overlay.addEventListener("click", closeSidebar);
 
+      // MODAL CRÉDITOS (PUNTO 3)
+      const modalCredits = document.getElementById("modal-credits");
+      const btnOpenCredits = document.getElementById("btn-open-credits");
+      const btnCloseModal = document.getElementById("btn-close-modal");
+      const pkgCards = document.querySelectorAll(".credit-pkg-card");
+      const pkgLinkWs = document.getElementById("pkg-link-ws");
+      const pkgLinkTg = document.getElementById("pkg-link-tg");
+
+      if (btnOpenCredits) {
+        btnOpenCredits.addEventListener("click", () => modalCredits.classList.add("active"));
+      }
+      if (btnCloseModal) {
+        btnCloseModal.addEventListener("click", () => modalCredits.classList.remove("active"));
+      }
+
+      pkgCards.forEach(card => {
+        card.addEventListener("click", () => {
+          pkgCards.forEach(c => c.classList.remove("selected"));
+          card.classList.add("selected");
+          const amount = card.getAttribute("data-amount");
+          pkgLinkWs.href = `https://wa.me/573135022169?text=Hola%2C%20deseo%20recargar%20el%20paquete%20de%20${amount}%20creditos`;
+          pkgLinkTg.href = `https://t.me/Adolf3728?text=Hola%2C%20deseo%20recargar%20el%20paquete%20de%20${amount}%20creditos`;
+        });
+      });
+
       // VISTA PREVIA FACIAL
       const fileInput = document.getElementById("facial-file-input");
       const previewImg = document.getElementById("facial-preview");
@@ -2365,16 +2727,13 @@
 
       if(clearBtn) {
         clearBtn.addEventListener("click", () => {
-          fileInput.value = "";
-          previewImg.src = "";
-          previewImg.style.display = "none";
+          if(fileInput) fileInput.value = "";
+          if(previewImg) { previewImg.src = ""; previewImg.style.display = "none"; }
         });
       }
 
-      if(cameraBtn) {
-        cameraBtn.addEventListener("click", () => {
-          fileInput.click();
-        });
+      if(cameraBtn && fileInput) {
+        cameraBtn.addEventListener("click", () => { fileInput.click(); });
       }
 
       // SUBTABS SÍGUELO PLUS
@@ -2386,13 +2745,13 @@
         subtabPlaca.addEventListener("click", () => {
           subtabPlaca.classList.add("active");
           subtabVin.classList.remove("active");
-          labelSigueloInput.innerText = "PLACA VEHICULAR";
+          if(labelSigueloInput) labelSigueloInput.innerText = "PLACA VEHICULAR";
         });
 
         subtabVin.addEventListener("click", () => {
           subtabVin.classList.add("active");
           subtabPlaca.classList.remove("active");
-          labelSigueloInput.innerText = "NÚMERO DE VIN / SERIE";
+          if(labelSigueloInput) labelSigueloInput.innerText = "NÚMERO DE VIN / SERIE";
         });
       }
 
@@ -2404,15 +2763,15 @@
 
       function hideAllPanels() {
         panels.forEach(p => p.classList.remove("active"));
-        webPlansContainer.classList.remove("active");
-        infraSection.style.display = "none";
+        if (webPlansContainer) webPlansContainer.classList.remove("active");
+        if (infraSection) infraSection.style.display = "none";
         serviceCards.forEach(c => c.style.display = "none");
       }
 
       function showHome() {
         panels.forEach(p => p.classList.remove("active"));
-        webPlansContainer.classList.remove("active");
-        infraSection.style.display = "block";
+        if (webPlansContainer) webPlansContainer.classList.remove("active");
+        if (infraSection) infraSection.style.display = "block";
         serviceCards.forEach(c => c.style.display = "flex");
       }
 
@@ -2424,8 +2783,8 @@
       }
 
       document.getElementById("menu-home").addEventListener("click", (e) => { e.preventDefault(); showHome(); closeSidebar(); });
-      document.getElementById("menu-creacion-web").addEventListener("click", (e) => { e.preventDefault(); hideAllPanels(); webPlansContainer.classList.add("active"); closeSidebar(); });
-      document.getElementById("card-web-btn").addEventListener("click", (e) => { e.preventDefault(); hideAllPanels(); webPlansContainer.classList.add("active"); closeSidebar(); });
+      document.getElementById("menu-creacion-web").addEventListener("click", (e) => { e.preventDefault(); hideAllPanels(); if(webPlansContainer) webPlansContainer.classList.add("active"); closeSidebar(); });
+      document.getElementById("card-web-btn").addEventListener("click", (e) => { e.preventDefault(); hideAllPanels(); if(webPlansContainer) webPlansContainer.classList.add("active"); closeSidebar(); });
 
       document.getElementById("menu-telefonos").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-osiptel"); });
       document.getElementById("menu-sunarp").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-sunarp"); });
@@ -2443,12 +2802,19 @@
       document.getElementById("justicia-requisitorias").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-justicia-requisitorias"); });
       document.getElementById("justicia-policia").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-justicia-policia"); });
 
-      // OPCIONES
+      // OTROS MÓDULOS
       document.getElementById("menu-persona-plus").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-persona-plus"); });
       document.getElementById("card-osint-full-btn").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-persona-plus"); });
 
       document.getElementById("menu-sunat").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-sunat"); });
-      
+      document.getElementById("menu-sentinel").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-sentinel"); });
+      document.getElementById("menu-vehiculo").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-vehiculo"); });
+      document.getElementById("menu-siguelo-plus").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-siguelo-plus"); });
+      document.getElementById("menu-actas").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-actas"); });
+      document.getElementById("menu-doxing").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-doxing"); });
+
+      // HISTORIAL Y DIGITALES
+      document.getElementById("menu-historial").addEventListener("click", (e) => { e.preventDefault(); renderHistory(); openPanel("panel-historial"); });
       document.getElementById("menu-chatbot").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-chatbot"); });
       document.getElementById("card-chatbot-btn").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-chatbot"); });
 
@@ -2458,12 +2824,6 @@
       document.getElementById("menu-streaming").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-streaming"); });
       document.getElementById("card-streaming-btn").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-streaming"); });
 
-      document.getElementById("menu-sentinel").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-sentinel"); });
-      document.getElementById("menu-vehiculo").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-vehiculo"); });
-      document.getElementById("menu-siguelo-plus").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-siguelo-plus"); });
-      document.getElementById("menu-actas").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-actas"); });
-      document.getElementById("menu-doxing").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-doxing"); });
-
       // DROPDOWNS
       document.querySelectorAll(".dropdown-trigger").forEach(trig => {
         trig.addEventListener("click", () => {
@@ -2471,6 +2831,110 @@
         });
       });
     });
+
+    // EJECUCIÓN SIMULADA Y REGISTRO DE HISTORIAL (PUNTOS 4 Y 5)
+    function executeSearch(serviceName, inputId, resultBoxId) {
+      const inputEl = document.getElementById(inputId);
+      const inputVal = inputEl ? inputEl.value.trim() : "";
+      if (!inputVal) {
+        alert("Por favor ingresa un valor válido para consultar.");
+        return;
+      }
+
+      const resBox = document.getElementById(resultBoxId);
+      if (!resBox) return;
+
+      const dataBox = resBox.querySelector(".result-data-content");
+      resBox.style.display = "block";
+      dataBox.innerHTML = `[PROCESANDO CONSULTA CON INDEX.JS BOT...]\nConsultando servicio: ${serviceName}\nValor: ${inputVal}\nEspere un momento...`;
+
+      setTimeout(() => {
+        const mockResult = `=== RESULTADO DE CONSULTA ROCKET ===\nServicio: ${serviceName}\nConsulta: ${inputVal}\nFecha: ${new Date().toLocaleString()}\nEstado: COMPLETADO\n-----------------------------------\n[DATOS OBTENIDOS REGISTRADOS EXITOSAMENTE]`;
+        dataBox.innerText = mockResult;
+
+        // Guardar en Historial Local
+        let history = JSON.parse(localStorage.getItem("rocket_history") || "[]");
+        history.unshift({
+          service: serviceName,
+          value: inputVal,
+          date: new Date().toLocaleString(),
+          status: "Exitoso"
+        });
+        localStorage.setItem("rocket_history", JSON.stringify(history));
+      }, 1000);
+    }
+
+    function executeFacialSearch() {
+      const resBox = document.getElementById("res-reniec-facial");
+      const dataBox = document.getElementById("data-reniec-facial");
+      if (!resBox || !dataBox) return;
+
+      resBox.style.display = "block";
+      dataBox.innerText = "[ESCANEANDO ROSTRO EN SERVER ID PERÚ...]\nComprobando con base de datos biometrica...\nEspere un momento...";
+
+      setTimeout(() => {
+        const mockResult = `=== RECONOCIMIENTO FACIAL COMPLETO ===\nEstado: Coincidencia Biometrica Encontrada (98.4%)\nFecha: ${new Date().toLocaleString()}\n-----------------------------------\n[ROSTRO IDENTIFICADO CON ÉXITO]`;
+        dataBox.innerText = mockResult;
+
+        let history = JSON.parse(localStorage.getItem("rocket_history") || "[]");
+        history.unshift({
+          service: "Facial Server ID Perú",
+          value: "Foto_Biometrica.png",
+          date: new Date().toLocaleString(),
+          status: "Exitoso"
+        });
+        localStorage.setItem("rocket_history", JSON.stringify(history));
+      }, 1200);
+    }
+
+    // COPIAR EN 1-CLIC
+    function copyResult(dataBoxId) {
+      const el = document.getElementById(dataBoxId);
+      if (!el) return;
+      navigator.clipboard.writeText(el.innerText).then(() => {
+        alert("¡Resultado copiado al portapapeles!");
+      });
+    }
+
+    // EXPORTAR A PDF (IMPRESIÓN)
+    function exportPDF(dataBoxId, fileName) {
+      const el = document.getElementById(dataBoxId);
+      if (!el) return;
+      const printWindow = window.open("", "", "width=800,height=600");
+      printWindow.document.write(`<pre style="font-family:monospace; padding:20px; font-size:14px; background:#000; color:#fff;">${el.innerText}</pre>`);
+      printWindow.document.close();
+      printWindow.focus();
+      printWindow.print();
+    }
+
+    // RENDERIZAR HISTORIAL
+    function renderHistory() {
+      const tbody = document.getElementById("history-table-body");
+      if (!tbody) return;
+
+      let history = JSON.parse(localStorage.getItem("rocket_history") || "[]");
+      if (history.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="4" style="text-align:center; color:rgba(255,255,255,0.4);">No hay consultas recientes</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = history.map(item => `
+        <tr>
+          <td><strong style="color:#d8b4fe;">${item.service}</strong></td>
+          <td>${item.value}</td>
+          <td style="color:rgba(255,255,255,0.6);">${item.date}</td>
+          <td><span style="color:#86efac; font-weight:800;">● ${item.status}</span></td>
+        </tr>
+      `).join("");
+    }
+
+    // LIMPIAR HISTORIAL
+    function clearHistory() {
+      if (confirm("¿Deseas borrar todo el historial local?")) {
+        localStorage.removeItem("rocket_history");
+        renderHistory();
+      }
+    }
   </script>
 </body>
 </html>
