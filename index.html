@@ -584,6 +584,43 @@
       border-color: #a855f7;
     }
 
+    /* ESTILO INTEGRADO CHATBOT */
+    .chatbot-card-wrapper {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      border-radius: 16px;
+      padding: 30px 20px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .chatbot-hero-title {
+      font-size: clamp(1.4rem, 4vw, 2.2rem);
+      font-weight: 900;
+      color: #fff;
+    }
+
+    .chatbot-hero-title span { color: #22c55e; }
+
+    .btn-whatsapp-action {
+      background: #22c55e;
+      color: #fff;
+      font-weight: 800;
+      padding: 12px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 0 20px rgba(34, 197, 94, 0.4);
+      transition: transform 0.2s;
+    }
+
+    .btn-whatsapp-action:hover { transform: scale(1.05); }
+
     /* FACIAL DROPZONE */
     .dropzone-facial {
       position: relative;
@@ -626,7 +663,7 @@
       display: none;
     }
 
-    /* PABS SUB-TAB PARA SÍGUELO PLUS */
+    /* SUB-TABS SÍGUELO PLUS */
     .sub-tabs-container {
       display: flex;
       justify-content: center;
@@ -1271,7 +1308,13 @@
           </ul>
         </li>
 
-        <!-- NUEVOS ELEMENTOS DE MENÚ -->
+        <!-- MÓDULOS AGREGADOS -->
+        <li class="nav-item" id="menu-persona-plus">
+          <a href="#"><span class="nav-item-content"><i class="fa-solid fa-user-gear"></i> Persona Plus</span></a>
+        </li>
+        <li class="nav-item" id="menu-sunat">
+          <a href="#"><span class="nav-item-content"><i class="fa-solid fa-file-invoice-dollar"></i> Sunat</span></a>
+        </li>
         <li class="nav-item" id="menu-sentinel">
           <a href="#"><span class="nav-item-content"><i class="fa-solid fa-shield-halved"></i> Sentinel</span></a>
         </li>
@@ -1294,8 +1337,8 @@
         <li class="nav-item" data-category="DIGITAL">
           <a href="#"><span class="nav-item-content"><i class="fa-solid fa-sim-card"></i> Números virtuales</span></a>
         </li>
-        <li class="nav-item" data-category="DIGITAL">
-          <a href="#"><span class="nav-item-content"><i class="fa-solid fa-comment-dots"></i> Chat Bot</span></a>
+        <li class="nav-item" id="menu-chatbot">
+          <a href="#"><span class="nav-item-content"><i class="fa-brands fa-whatsapp"></i> Chat Bot</span></a>
         </li>
 
         <li class="nav-item highlight-telegram">
@@ -1545,7 +1588,71 @@
         </div>
       </section>
 
-      <!-- 1. SENTINEL PANEL -->
+      <!-- PERSONA PLUS PANEL -->
+      <section class="custom-panel-view" id="panel-persona-plus">
+        <div class="panel-header-custom">
+          <h2 class="panel-title-custom"><i class="fa-solid fa-fingerprint"></i> Persona Avanzada</h2>
+          <p style="font-size:0.8rem; color:rgba(255,255,255,0.6); margin-top:4px;">RENIEC · MTC · ÁRBOL · PNP · SUNEDU · DENUNCIAS · FISCALÍA · REQUISITORIAS · SUNAT · SUNARP · OSIPTEL</p>
+          <span class="credits-badge"><i class="fa-solid fa-coins"></i> Costo: 15 créditos</span>
+        </div>
+        <div class="panel-form-row">
+          <div class="form-group-custom">
+            <label>VALOR A CONSULTAR</label>
+            <input type="text" class="form-input-custom" placeholder="Ej: 12345678" maxlength="8">
+          </div>
+          <div class="form-group-custom">
+            <label>TIPO DE CONSULTA</label>
+            <select class="form-select-custom">
+              <option>Persona Avanzada</option>
+            </select>
+          </div>
+          <button class="btn-search-custom"><i class="fa-solid fa-magnifying-glass"></i> Consultar</button>
+        </div>
+        <p style="font-size:0.72rem; color:rgba(255,255,255,0.4); text-align:center; margin-top:8px;">Podrás agregar más opciones pronto. Se cobra solo si hay resultado.</p>
+      </section>
+
+      <!-- SUNAT PANEL -->
+      <section class="custom-panel-view" id="panel-sunat">
+        <div class="panel-header-custom">
+          <h2 class="panel-title-custom"><i class="fa-solid fa-file-invoice-dollar"></i> SUNAT - Consulta de Consumos</h2>
+          <p style="font-size:0.8rem; color:rgba(255,255,255,0.6); margin-top:4px;">Consulta de consumos por documento o valor.</p>
+          <span class="credits-badge"><i class="fa-solid fa-coins"></i> Costo: 5 créditos</span>
+        </div>
+        <div class="panel-form-row">
+          <div class="form-group-custom">
+            <label>Valor a consultar</label>
+            <input type="text" class="form-input-custom" placeholder="Ej: 10001088">
+          </div>
+          <div class="form-group-custom">
+            <label>Tipo de consulta</label>
+            <select class="form-select-custom">
+              <option>Consumos</option>
+            </select>
+          </div>
+          <button class="btn-search-custom"><i class="fa-solid fa-magnifying-glass"></i> Consultar</button>
+        </div>
+        <p style="font-size:0.72rem; color:rgba(255,255,255,0.4); text-align:center; margin-top:8px;">Ingresa solo números. luego podrás agregar más opciones. Se cobra solo si hay PDF válido.</p>
+      </section>
+
+      <!-- CHAT BOT PANEL -->
+      <section class="custom-panel-view" id="panel-chatbot">
+        <div class="chatbot-card-wrapper">
+          <h2 class="chatbot-hero-title">Consulta todo desde tu <span>WhatsApp</span></h2>
+          <p style="font-size:0.88rem; color:rgba(226,232,240,0.8); max-width:600px; line-height:1.5;">Vincula tu cuenta de Kmente y accede a más de 30 comandos desde el chat. RENIEC, SUNARP, MTC, antecedentes, requisitorias, vehículos y mucho más — sin abrir la web.</p>
+          
+          <a href="https://wa.me/573135022169" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-action">
+            <i class="fa-brands fa-whatsapp" style="font-size:1.2rem;"></i> Empezar en WhatsApp
+          </a>
+
+          <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin-top:10px;">
+            <span class="credits-badge"><i class="fa-solid fa-check"></i> 30+ comandos</span>
+            <span class="credits-badge"><i class="fa-solid fa-clock"></i> Disponible 24/7</span>
+            <span class="credits-badge"><i class="fa-solid fa-mobile-screen"></i> Sin app extra</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- SENTINEL PANEL -->
       <section class="custom-panel-view" id="panel-sentinel">
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-shield-halved"></i> Sentinel</h2>
@@ -1569,7 +1676,7 @@
         <p style="font-size:0.72rem; color:rgba(255,255,255,0.4); text-align:center; margin-top:8px;">Sentinel V2: DNI de 8 dígitos.</p>
       </section>
 
-      <!-- 2. VEHÍCULO / TIVE PANEL -->
+      <!-- VEHÍCULO / TIVE PANEL -->
       <section class="custom-panel-view" id="panel-vehiculo">
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-car"></i> Vehículo (TIVE)</h2>
@@ -1599,7 +1706,7 @@
         <p style="font-size:0.72rem; color:rgba(255,255,255,0.4); text-align:center; margin-top:8px;">Solo letras y números, sin espacios.</p>
       </section>
 
-      <!-- 3. SÍGUELO PLUS PANEL -->
+      <!-- SÍGUELO PLUS PANEL -->
       <section class="custom-panel-view" id="panel-siguelo-plus">
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-car-side"></i> Síguelo Plus - Vehicular Avanzado</h2>
@@ -1621,7 +1728,7 @@
         </div>
       </section>
 
-      <!-- 4. ACTAS PANEL -->
+      <!-- ACTAS PANEL -->
       <section class="custom-panel-view" id="panel-actas">
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-file-lines"></i> ACTAS</h2>
@@ -1648,7 +1755,7 @@
         </div>
       </section>
 
-      <!-- 5. DOXING / INFO BURO PANEL -->
+      <!-- DOXING / INFO BURO PANEL -->
       <section class="custom-panel-view" id="panel-doxing">
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-chart-simple"></i> INFO BURO (Doxing)</h2>
@@ -2073,7 +2180,10 @@
       document.getElementById("justicia-requisitorias").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-justicia-requisitorias"); });
       document.getElementById("justicia-policia").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-justicia-policia"); });
 
-      // NUEVAS OPCIONES
+      // OPCIONES
+      document.getElementById("menu-persona-plus").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-persona-plus"); });
+      document.getElementById("menu-sunat").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-sunat"); });
+      document.getElementById("menu-chatbot").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-chatbot"); });
       document.getElementById("menu-sentinel").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-sentinel"); });
       document.getElementById("menu-vehiculo").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-vehiculo"); });
       document.getElementById("menu-siguelo-plus").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-siguelo-plus"); });
