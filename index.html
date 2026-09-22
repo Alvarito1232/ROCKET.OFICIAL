@@ -391,11 +391,12 @@
 
     .nav-tabs {
       display: flex;
-      gap: 10px;
+      gap: 8px;
       background: rgba(255, 255, 255, 0.03);
       padding: 6px 12px;
       border-radius: 20px;
       border: 1px solid rgba(255, 255, 255, 0.05);
+      overflow-x: auto;
     }
 
     .tab-btn {
@@ -606,6 +607,94 @@
       color: #fff;
     }
 
+    /* ESTILOS DEL MODAL DE PAGO (YAPE QR) */
+    .payment-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 99999;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .payment-modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      background: rgba(16, 10, 26, 0.95);
+      border: 1px solid rgba(168, 85, 247, 0.5);
+      box-shadow: 0 0 35px rgba(168, 85, 247, 0.3);
+      border-radius: 20px;
+      padding: 24px;
+      max-width: 380px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    .modal-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .modal-subtitle {
+      font-size: 0.8rem;
+      color: #d8b4fe;
+      margin-bottom: 16px;
+    }
+
+    .qr-image-container {
+      width: 100%;
+      max-width: 260px;
+      margin: 0 auto 16px auto;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 2px solid rgba(168, 85, 247, 0.3);
+    }
+
+    .qr-image-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .modal-telegram-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #a855f7, #7e22ce);
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
+      transition: all 0.2s;
+    }
+
+    .modal-telegram-btn:hover {
+      transform: scale(1.03);
+    }
+
     /* SECCIÓN DE CIERRE CON BANDERAS EN IMAGEN ENLAZADA */
     .guerra-total-section {
       width: 100%;
@@ -730,6 +819,9 @@
         <li class="nav-item active" data-category="ALL">
           <a href="#"><span class="nav-item-content"><i class="fa-solid fa-house"></i> Home</span></a>
         </li>
+        <li class="nav-item" data-category="CREACION_WEB">
+          <a href="#"><span class="nav-item-content"><i class="fa-solid fa-laptop-code"></i> Creación Web</span></a>
+        </li>
         <li class="nav-item" data-category="ALL">
           <a href="#"><span class="nav-item-content"><i class="fa-solid fa-phone"></i> Teléfonos</span></a>
         </li>
@@ -829,14 +921,16 @@
 
         <div class="nav-tabs">
           <button class="tab-btn active" data-filter="ALL">TODOS</button>
+          <button class="tab-btn" data-filter="CREACION_WEB">CREACIÓN WEB</button>
           <button class="tab-btn" data-filter="DIGITAL">DIGITALES</button>
           <button class="tab-btn" data-filter="OSINT">OSINT</button>
           <button class="tab-btn" data-filter="STREAMING">STREAMING</button>
           <button class="tab-btn" data-filter="ACADEMICO">ACADÉMICOS</button>
         </div>
 
-        <!-- Redes Sociales, Grupo de Clientes y WhatsApp Directo -->
+        <!-- Redes Sociales, Grupo de Clientes y Método de Pago -->
         <div class="social-contacts">
+          <a href="javascript:void(0)" class="social-btn open-payment-modal" title="Métodos de Pago / Yape"><i class="fa-solid fa-qrcode"></i></a>
           <a href="https://t.me/Adolf3728" target="_blank" rel="noopener noreferrer" class="social-btn" title="Telegram"><i class="fa-brands fa-telegram"></i></a>
           <a href="https://www.instagram.com/rocket.official.pe?stkn=MXIybGJtNXpoN2wxbA%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" class="social-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
           <a href="https://chat.whatsapp.com/COvbjXfEXVT6caiGYmBkKI?s=cl&p=i&mlu=0&ilr=4" target="_blank" rel="noopener noreferrer" class="social-btn" title="Grupo Clientes WhatsApp"><i class="fa-solid fa-users"></i></a>
@@ -855,6 +949,25 @@
       <!-- Grid de Servicios -->
       <section class="services-grid" id="services-container">
         
+        <!-- CREACIÓN WEB -->
+        <div class="service-card large-card" data-cat="CREACION_WEB">
+          <div class="card-header-img" style="height: 180px; background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('imagencartillas.jpg');">
+            <span class="category-tag">CREACIÓN WEB</span>
+            <span class="card-price-badge">Desde $30.00 USD</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Diseño & Desarrollo de Páginas Web Profesionales</h3>
+            <p class="card-desc">Plataformas personalizadas estilo Cyberpunk/Dark, tiendas virtuales, landing pages optimizadas y paneles interactivos de alta velocidad.</p>
+            <div class="github-details">
+              <strong><i class="fa-brands fa-github"></i> Entrega Total:</strong> Código fuente estructurado, optimización SEO y repositorio privado en GitHub.
+            </div>
+            <div class="card-footer">
+              <span class="card-time"><i class="fa-regular fa-clock"></i> 3-5 días</span>
+              <button class="card-btn open-payment-modal">Pagar / Solicitar <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+          </div>
+        </div>
+
         <!-- DIGITALES -->
         <div class="service-card" data-cat="DIGITAL">
           <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('imagencartillas.jpg');">
@@ -869,7 +982,7 @@
             </div>
             <div class="card-footer">
               <span class="card-time"><i class="fa-regular fa-clock"></i> 2-4 días</span>
-              <a href="https://t.me/Adolf3728" target="_blank" rel="noopener noreferrer" class="card-btn">Solicitar <i class="fa-solid fa-arrow-right"></i></a>
+              <button class="card-btn open-payment-modal">Pagar / Solicitar <i class="fa-solid fa-arrow-right"></i></button>
             </div>
           </div>
         </div>
@@ -887,7 +1000,7 @@
             </div>
             <div class="card-footer">
               <span class="card-time"><i class="fa-regular fa-clock"></i> 24-48 hrs</span>
-              <a href="https://t.me/Adolf3728" target="_blank" rel="noopener noreferrer" class="card-btn">Solicitar <i class="fa-solid fa-arrow-right"></i></a>
+              <button class="card-btn open-payment-modal">Pagar / Solicitar <i class="fa-solid fa-arrow-right"></i></button>
             </div>
           </div>
         </div>
@@ -903,7 +1016,7 @@
             <p class="card-desc">Análisis profundo de fuentes abiertas, huella digital, conexiones de números y registros estructurados en informe gráfico detallado.</p>
             <div class="card-footer">
               <span class="card-time"><i class="fa-regular fa-clock"></i> Entrega Rápida</span>
-              <a href="https://t.me/Adolf3728" target="_blank" rel="noopener noreferrer" class="card-btn">Solicitar Informe <i class="fa-solid fa-arrow-right"></i></a>
+              <button class="card-btn open-payment-modal">Pagar / Solicitar <i class="fa-solid fa-arrow-right"></i></button>
             </div>
           </div>
         </div>
@@ -919,7 +1032,7 @@
             <p class="card-desc">Cuentas completas y perfiles privados con garantía total de duración y calidad Ultra HD 4K sin interrupciones.</p>
             <div class="card-footer">
               <span class="card-time"><i class="fa-regular fa-clock"></i> Activación Inmediata</span>
-              <a href="https://t.me/Adolf3728" target="_blank" rel="noopener noreferrer" class="card-btn">Obtener Cuenta <i class="fa-solid fa-arrow-right"></i></a>
+              <button class="card-btn open-payment-modal">Pagar / Solicitar <i class="fa-solid fa-arrow-right"></i></button>
             </div>
           </div>
         </div>
@@ -935,7 +1048,7 @@
             <p class="card-desc">Redacción, estructuración, revisión antiplagio y aplicación estricta de normas APA/Vancouver.</p>
             <div class="card-footer">
               <span class="card-time"><i class="fa-regular fa-clock"></i> Según proyecto</span>
-              <a href="https://t.me/Adolf3728" target="_blank" rel="noopener noreferrer" class="card-btn">Solicitar <i class="fa-solid fa-arrow-right"></i></a>
+              <button class="card-btn open-payment-modal">Pagar / Solicitar <i class="fa-solid fa-arrow-right"></i></button>
             </div>
           </div>
         </div>
@@ -950,7 +1063,7 @@
             <p class="card-desc">Edición audiovisual profesional para exposiciones, proyectos académicos y presentaciones de alto impacto.</p>
             <div class="card-footer">
               <span class="card-time"><i class="fa-regular fa-clock"></i> 24-48 hrs</span>
-              <a href="https://t.me/Adolf3728" target="_blank" rel="noopener noreferrer" class="card-btn">Solicitar <i class="fa-solid fa-arrow-right"></i></a>
+              <button class="card-btn open-payment-modal">Pagar / Solicitar <i class="fa-solid fa-arrow-right"></i></button>
             </div>
           </div>
         </div>
@@ -980,6 +1093,23 @@
       </section>
 
     </main>
+  </div>
+
+  <!-- MODAL DE PAGO (YAPE QR) -->
+  <div class="payment-modal" id="payment-modal">
+    <div class="modal-content">
+      <button class="modal-close-btn" id="close-modal">&times;</button>
+      <h2 class="modal-title">Método de Pago</h2>
+      <p class="modal-subtitle">Escanea el código QR de Yape para realizar tu pago</p>
+      
+      <div class="qr-image-container">
+        <img src="yape.jpeg" alt="QR Yape" id="qr-yape-img">
+      </div>
+
+      <a href="https://t.me/Adolf3728" target="_blank" rel="noopener noreferrer" class="modal-telegram-btn">
+        <i class="fa-brands fa-telegram"></i> Confirmar Pago en Telegram
+      </a>
+    </div>
   </div>
 
   <script>
@@ -1049,6 +1179,28 @@
 
       toggleBtn.addEventListener("click", openSidebar);
       overlay.addEventListener("click", closeSidebar);
+
+      // MODAL DE PAGO YAPE
+      const paymentModal = document.getElementById("payment-modal");
+      const closeModalBtn = document.getElementById("close-modal");
+      const openModalBtns = document.querySelectorAll(".open-payment-modal");
+
+      openModalBtns.forEach(btn => {
+        btn.addEventListener("click", (e) => {
+          e.preventDefault();
+          paymentModal.classList.add("active");
+        });
+      });
+
+      closeModalBtn.addEventListener("click", () => {
+        paymentModal.classList.remove("active");
+      });
+
+      paymentModal.addEventListener("click", (e) => {
+        if (e.target === paymentModal) {
+          paymentModal.classList.remove("active");
+        }
+      });
 
       // FILTRADO DE SERVICIOS
       const tabBtns = document.querySelectorAll(".tab-btn");
