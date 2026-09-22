@@ -10,7 +10,7 @@
   
   <title>ROCKET - Plataforma de Servicios</title>
 
-  <!-- FAVICON / LOGO "SS" EN PESTAÑA -->
+  <!-- FAVICON / LOGO "SS" -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 150'><path fill='%23a855f7' d='M 65 10 C 35 10, 15 25, 20 45 C 23 58, 35 65, 52 70 L 68 75 C 80 79, 88 86, 86 98 C 83 112, 60 120, 35 115 C 22 112, 12 104, 10 95 L 2 98 C 5 112, 18 122, 35 125 C 65 129, 94 120, 96 98 C 98 78, 78 72, 62 67 L 46 62 C 32 58, 28 50, 30 42 C 33 30, 52 20, 72 22 C 82 23, 90 28, 92 35 L 100 32 C 96 22, 84 12, 65 10 Z'/><path fill='%23c084fc' d='M 35 30 C 65 30, 85 45, 80 65 C 77 78, 65 85, 48 90 L 32 95 C 20 99, 12 106, 14 118 C 17 132, 40 140, 65 135 C 78 132, 88 124, 90 115 L 98 118 C 95 132, 82 142, 65 145 C 35 149, 6 140, 4 118 C 2 98, 22 92, 38 87 L 54 82 C 68 78, 72 70, 70 62 C 67 50, 48 40, 28 42 C 18 43, 10 48, 8 55 L 0 52 C 4 42, 16 32, 35 30 Z'/></svg>">
 
   <!-- Google Fonts & Icons -->
@@ -157,7 +157,7 @@
       color: rgba(226, 232, 240, 0.6);
     }
 
-    /* INTERFACE PRINCIPAL */
+    /* APP LAYOUT */
     #app-container {
       display: flex;
       min-height: 100vh;
@@ -339,7 +339,7 @@
       border-radius: 10px;
     }
 
-    /* CONTENIDO PRINCIPAL */
+    /* MAIN CONTENT */
     .main-content {
       margin-left: 260px;
       flex-grow: 1;
@@ -490,7 +490,7 @@
       text-align: center;
     }
 
-    /* ESTILOS DE PANELES DE CONSULTA (RENIEC, SUNARP, OSIPTEL) */
+    /* PANELES DE CONSULTA */
     .custom-panel-view {
       display: none;
       width: 100%;
@@ -584,20 +584,46 @@
       border-color: #a855f7;
     }
 
-    /* ZONA DE DROP PARA RECONOCIMIENTO FACIAL */
+    /* DROPZONE PARA SUBIR IMÁGENES / GALERÍA EN RECONOCIMIENTO FACIAL */
     .dropzone-facial {
+      position: relative;
       border: 2px dashed rgba(168, 85, 247, 0.4);
       border-radius: 16px;
       padding: 30px;
       text-align: center;
       background: rgba(255, 255, 255, 0.02);
       margin-bottom: 15px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .dropzone-facial:hover {
+      border-color: #a855f7;
+      background: rgba(168, 85, 247, 0.05);
+    }
+
+    .dropzone-facial input[type="file"] {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: pointer;
     }
 
     .dropzone-facial i {
       font-size: 2.2rem;
       color: #a855f7;
       margin-bottom: 10px;
+    }
+
+    .preview-img-facial {
+      max-width: 160px;
+      max-height: 160px;
+      border-radius: 12px;
+      border: 2px solid #a855f7;
+      margin-top: 10px;
+      display: none;
     }
 
     /* SECCIÓN INFRAESTRUCTURA */
@@ -773,7 +799,7 @@
       font-weight: 700;
     }
 
-    /* GRID DE PLANES Y PRECIOS DIVERSIFICADOS PARA CREACIÓN WEB (S/. 5 - S/. 75) */
+    /* PLANES DE CREACIÓN WEB */
     .web-plans-section {
       display: none;
       width: 100%;
@@ -858,7 +884,7 @@
       font-size: 0.75rem;
     }
 
-    /* Grid de Servicios General */
+    /* GRID DE SERVICIOS GENERAL */
     .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -1013,7 +1039,7 @@
       font-size: 0.88rem;
     }
 
-    /* SECCIÓN FINAL BANDERAS SIN MÉXICO */
+    /* SECCIÓN FINAL BANDERAS */
     .guerra-total-section {
       width: 100%;
       padding: 32px 20px;
@@ -1192,6 +1218,7 @@
           <a href="#"><span class="nav-item-content"><i class="fa-solid fa-building"></i> Sunarp</span></a>
         </li>
 
+        <!-- RENIEC DROPDOWN -->
         <li class="nav-item dropdown-group open" id="dropdown-reniec">
           <div class="dropdown-trigger">
             <span class="nav-item-content"><i class="fa-solid fa-id-card"></i> Reniec</span>
@@ -1203,6 +1230,20 @@
             <li><a href="#" id="reniec-dni-virtual">DNI Virtual</a></li>
             <li><a href="#" id="reniec-arbol">Árbol genealógico</a></li>
             <li><a href="#" id="reniec-facial">Reconocimiento facial</a></li>
+          </ul>
+        </li>
+
+        <!-- JUSTICIA DROPDOWN (AÑADIDO JUSTO DEBAJO DE RENIEC) -->
+        <li class="nav-item dropdown-group open" id="dropdown-justicia">
+          <div class="dropdown-trigger">
+            <span class="nav-item-content"><i class="fa-solid fa-folder"></i> Justicia</span>
+            <i class="fa-solid fa-chevron-down chevron-icon"></i>
+          </div>
+          <ul class="submenu">
+            <li><a href="#" id="justicia-denuncias">Denuncias Policiales</a></li>
+            <li><a href="#" id="justicia-antecedentes">Antecedentes</a></li>
+            <li><a href="#" id="justicia-requisitorias">Requisitorias</a></li>
+            <li><a href="#" id="justicia-policia">Policia</a></li>
           </ul>
         </li>
 
@@ -1262,9 +1303,7 @@
         <h1 class="hero-banner-title">ROCKET</h1>
       </section>
 
-      <!-- PANELES INTERACTIVOS DE RENIEC -->
-      
-      <!-- 1. FICHA RENIEC -->
+      <!-- RENIEC PANELES -->
       <section class="custom-panel-view" id="panel-reniec-ficha">
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-id-card"></i> Consulta RENIEC (TXT / PDF / C4 / FICHA)</h2>
@@ -1289,7 +1328,6 @@
         </div>
       </section>
 
-      <!-- 2. BÚSQUEDA POR NOMBRES -->
       <section class="custom-panel-view" id="panel-reniec-nombres">
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-users-viewfinder"></i> Búsqueda RENIEC por nombres</h2>
@@ -1313,7 +1351,6 @@
         </div>
       </section>
 
-      <!-- 3. DNI VIRTUAL -->
       <section class="custom-panel-view" id="panel-reniec-dni-virtual">
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-address-card"></i> DNI Virtual (Imágenes)</h2>
@@ -1336,7 +1373,6 @@
         </div>
       </section>
 
-      <!-- 4. ÁRBOL GENEALÓGICO -->
       <section class="custom-panel-view" id="panel-reniec-arbol">
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-sitemap"></i> Árbol Genealógico (TXT / Visual)</h2>
@@ -1358,27 +1394,123 @@
         </div>
       </section>
 
-      <!-- 5. RECONOCIMIENTO FACIAL -->
+      <!-- RECONOCIMIENTO FACIAL CON CARGA DE GALERÍA Y ARCHIVOS INTERACTIVA -->
       <section class="custom-panel-view" id="panel-reniec-facial">
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-user-astronaut"></i> Facial Server - ID Perú</h2>
           <p style="font-size:0.8rem; color:rgba(255,255,255,0.6); margin-top:4px;">Reconocimiento facial avanzado · Identificación por foto</p>
           <span class="credits-badge"><i class="fa-solid fa-coins"></i> Costo: 15 créditos</span>
         </div>
-        <div class="dropzone-facial">
+        
+        <div class="dropzone-facial" id="dropzone-facial-container">
+          <input type="file" id="facial-file-input" accept="image/*">
           <i class="fa-solid fa-cloud-arrow-up"></i>
-          <p style="font-size:0.9rem; font-weight:700;">Arrastra tu foto aquí o <span style="color:#d8b4fe; text-decoration:underline; cursor:pointer;">selecciona</span></p>
+          <p style="font-size:0.9rem; font-weight:700;">Arrastra tu foto aquí o <span style="color:#d8b4fe; text-decoration:underline;">selecciona</span></p>
           <p style="font-size:0.75rem; color:rgba(255,255,255,0.5); margin-top:4px;">JPG · PNG · WEBP — hasta 15 MB</p>
+          <img src="" id="facial-preview" class="preview-img-facial" alt="Vista previa">
         </div>
+
         <div style="display:flex; justify-content:center; gap:10px; margin-bottom:15px;">
-          <button class="card-btn"><i class="fa-solid fa-camera"></i> Usar cámara</button>
-          <button class="card-btn"><i class="fa-solid fa-trash-can"></i> Limpiar</button>
+          <button class="card-btn" id="btn-camera-facial"><i class="fa-solid fa-camera"></i> Usar cámara</button>
+          <button class="card-btn" id="btn-clear-facial"><i class="fa-solid fa-trash-can"></i> Limpiar</button>
         </div>
         <button class="btn-search-custom" style="width:100%; justify-content:center;"><i class="fa-solid fa-magnifying-glass"></i> Identificar persona</button>
         <p style="font-size:0.72rem; color:rgba(255,255,255,0.4); text-align:center; margin-top:8px;">Solo se cobra si hay coincidencias detectadas.</p>
       </section>
 
-      <!-- PANALES INTERACTIVOS OSIPTEL -->
+      <!-- JUSTICIA PANELES -->
+      
+      <!-- 1. DENUNCIAS POLICIALES (SIDPOL - 8 CRÉDITOS) -->
+      <section class="custom-panel-view" id="panel-justicia-denuncias">
+        <div class="panel-header-custom">
+          <h2 class="panel-title-custom"><i class="fa-solid fa-shield-halved"></i> Denuncias Policiales (SIDPOL)</h2>
+          <span class="credits-badge"><i class="fa-solid fa-coins"></i> Costo: 8 créditos</span>
+        </div>
+        <div class="panel-form-row">
+          <div class="form-group-custom">
+            <label>DNI del consultado</label>
+            <input type="text" class="form-input-custom" placeholder="Ej: 78657674" maxlength="8">
+          </div>
+          <div class="form-group-custom">
+            <label>Tipo</label>
+            <select class="form-select-custom">
+              <option>Denuncias policiales</option>
+            </select>
+          </div>
+          <button class="btn-search-custom"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
+        </div>
+        <p style="font-size:0.75rem; color:rgba(255,255,255,0.5); text-align:center; margin-top:10px;">Por ahora solo está habilitado: Denuncias policiales.</p>
+      </section>
+
+      <!-- 2. ANTECEDENTES (8 CRÉDITOS) -->
+      <section class="custom-panel-view" id="panel-justicia-antecedentes">
+        <div class="panel-header-custom">
+          <h2 class="panel-title-custom"><i class="fa-solid fa-file-contract"></i> Consulta Antecedentes</h2>
+          <span class="credits-badge"><i class="fa-solid fa-coins"></i> Costo: 8 créditos</span>
+        </div>
+        <div class="panel-form-row">
+          <div class="form-group-custom">
+            <label>DNI</label>
+            <input type="text" class="form-input-custom" placeholder="Ej: 70364031" maxlength="8">
+          </div>
+          <div class="form-group-custom">
+            <label>Tipo</label>
+            <select class="form-select-custom">
+              <option>Antecedentes penales</option>
+              <option>Antecedentes policiales</option>
+              <option>Antecedentes judiciales</option>
+            </select>
+          </div>
+          <button class="btn-search-custom"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
+        </div>
+      </section>
+
+      <!-- 3. REQUISITORIAS (e-SINPOL - 10 CRÉDITOS) -->
+      <section class="custom-panel-view" id="panel-justicia-requisitorias">
+        <div class="panel-header-custom">
+          <h2 class="panel-title-custom"><i class="fa-solid fa-handcuffs"></i> Consulta Requisitorias (e-SINPOL)</h2>
+          <span class="credits-badge"><i class="fa-solid fa-coins"></i> Costo: 10 créditos</span>
+        </div>
+        <div class="panel-form-row">
+          <div class="form-group-custom">
+            <label>DNI</label>
+            <input type="text" class="form-input-custom" placeholder="Ej: 09659948" maxlength="8">
+          </div>
+          <div class="form-group-custom">
+            <label>Tipo</label>
+            <select class="form-select-custom">
+              <option>RQ Persona</option>
+              <option>RQ Vehículos</option>
+            </select>
+          </div>
+          <button class="btn-search-custom"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
+        </div>
+      </section>
+
+      <!-- 4. POLICÍA PNP (5 CRÉDITOS) -->
+      <section class="custom-panel-view" id="panel-justicia-policia">
+        <div class="panel-header-custom">
+          <h2 class="panel-title-custom"><i class="fa-solid fa-user-shield"></i> Consulta Personal Policial (PNP)</h2>
+          <p style="font-size:0.8rem; color:rgba(255,255,255,0.6); margin-top:4px;">Consulta si un DNI o CIP pertenece a personal policial</p>
+          <span class="credits-badge"><i class="fa-solid fa-coins"></i> Costo: 5 créditos</span>
+        </div>
+        <div class="panel-form-row">
+          <div class="form-group-custom">
+            <label>Valor</label>
+            <input type="text" class="form-input-custom" placeholder="Ej: 78678760">
+          </div>
+          <div class="form-group-custom">
+            <label>Tipo</label>
+            <select class="form-select-custom">
+              <option>Consulta por DNI</option>
+              <option>Consulta por CIP</option>
+            </select>
+          </div>
+          <button class="btn-search-custom"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
+        </div>
+      </section>
+
+      <!-- OSIPTEL Y SUNARP -->
       <section class="custom-panel-view" id="panel-osiptel">
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-phone"></i> Consulta OSIPTEL (SBI / DNI)</h2>
@@ -1400,7 +1532,6 @@
         </div>
       </section>
 
-      <!-- PANALES INTERACTIVOS SUNARP (8 CRÉDITOS Y OPCIÓN PDF ASIENTOS) -->
       <section class="custom-panel-view" id="panel-sunarp">
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-building"></i> Consulta SUNARP por DNI</h2>
@@ -1423,7 +1554,7 @@
         </div>
       </section>
 
-      <!-- SECCIÓN PLANES Y PRECIOS DIVERSIFICADOS DE CREACIÓN WEB (S/. 5 A S/. 75) -->
+      <!-- CREACIÓN WEB PLANES -->
       <section class="web-plans-section" id="web-plans-container">
         <div class="vision-divider" style="max-width:100%; margin-bottom:15px;">
           <div class="line"></div>
@@ -1500,7 +1631,7 @@
         </div>
       </section>
 
-      <!-- SECCIÓN INFRAESTRUCTURA GENERAL -->
+      <!-- INFRAESTRUCTURA GENERAL -->
       <section class="rocket-infra-hero" id="infra-rocket-section">
         <div class="infra-header">
           <div class="infra-tag-wrapper">
@@ -1551,7 +1682,7 @@
         </div>
       </section>
 
-      <!-- Grid de Servicios General (SIN TARJETA REPETIDA DE DESARROLLO WEB) -->
+      <!-- SERVICIOS GRID GENERAL -->
       <section class="services-grid" id="services-container">
         
         <div class="service-card" data-cat="DIGITAL">
@@ -1586,7 +1717,7 @@
 
       </section>
 
-      <!-- SECCIÓN FINAL CON BANDERAS -->
+      <!-- BANDERAS -->
       <section class="guerra-total-section">
         <div class="vision-divider">
           <div class="line"></div>
@@ -1614,7 +1745,7 @@
     </main>
   </div>
 
-  <!-- MODAL DE PAGO -->
+  <!-- MODAL PAGO -->
   <div class="payment-modal" id="payment-modal">
     <div class="modal-content">
       <button class="modal-close-btn" id="close-modal">&times;</button>
@@ -1683,110 +1814,79 @@
         paymentModal.classList.remove("active");
       });
 
-      // MANEJO DE VISTAS DINÁMICAS
-      const panelOsiptel = document.getElementById("panel-osiptel");
-      const panelSunarp = document.getElementById("panel-sunarp");
-      const panelReniecFicha = document.getElementById("panel-reniec-ficha");
-      const panelReniecNombres = document.getElementById("panel-reniec-nombres");
-      const panelReniecDniVirtual = document.getElementById("panel-reniec-dni-virtual");
-      const panelReniecArbol = document.getElementById("panel-reniec-arbol");
-      const panelReniecFacial = document.getElementById("panel-reniec-facial");
-      
+      // MANEJO DE VISTA PREVIA Y CARGA DE ARCHIVOS EN RECONOCIMIENTO FACIAL
+      const fileInput = document.getElementById("facial-file-input");
+      const previewImg = document.getElementById("facial-preview");
+      const clearBtn = document.getElementById("btn-clear-facial");
+      const cameraBtn = document.getElementById("btn-camera-facial");
+
+      fileInput.addEventListener("change", (e) => {
+        const file = e.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = (event) => {
+            previewImg.src = event.target.result;
+            previewImg.style.display = "inline-block";
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+
+      clearBtn.addEventListener("click", () => {
+        fileInput.value = "";
+        previewImg.src = "";
+        previewImg.style.display = "none";
+      });
+
+      cameraBtn.addEventListener("click", () => {
+        fileInput.click();
+      });
+
+      // RUTAS Y NAVEGACIÓN DE VISTAS
+      const panels = document.querySelectorAll(".custom-panel-view");
       const webPlansContainer = document.getElementById("web-plans-container");
       const infraSection = document.getElementById("infra-rocket-section");
       const serviceCards = document.querySelectorAll(".service-card");
 
-      function resetViews() {
-        panelOsiptel.classList.remove("active");
-        panelSunarp.classList.remove("active");
-        panelReniecFicha.classList.remove("active");
-        panelReniecNombres.classList.remove("active");
-        panelReniecDniVirtual.classList.remove("active");
-        panelReniecArbol.classList.remove("active");
-        panelReniecFacial.classList.remove("active");
+      function hideAllPanels() {
+        panels.forEach(p => p.classList.remove("active"));
         webPlansContainer.classList.remove("active");
-        
-        infraSection.style.display = "block";
-        serviceCards.forEach(c => c.style.display = "block");
-      }
-
-      function hideGeneralGrid() {
         infraSection.style.display = "none";
         serviceCards.forEach(c => c.style.display = "none");
       }
 
-      document.getElementById("menu-home").addEventListener("click", (e) => {
-        e.preventDefault();
-        resetViews();
-        closeSidebar();
-      });
+      function showHome() {
+        panels.forEach(p => p.classList.remove("active"));
+        webPlansContainer.classList.remove("active");
+        infraSection.style.display = "block";
+        serviceCards.forEach(c => c.style.display = "block");
+      }
 
-      document.getElementById("menu-creacion-web").addEventListener("click", (e) => {
-        e.preventDefault();
-        resetViews();
-        hideGeneralGrid();
-        webPlansContainer.classList.add("active");
+      function openPanel(id) {
+        hideAllPanels();
+        document.getElementById(id).classList.add("active");
         closeSidebar();
-      });
+      }
 
-      document.getElementById("menu-telefonos").addEventListener("click", (e) => {
-        e.preventDefault();
-        resetViews();
-        hideGeneralGrid();
-        panelOsiptel.classList.add("active");
-        closeSidebar();
-      });
+      document.getElementById("menu-home").addEventListener("click", (e) => { e.preventDefault(); showHome(); closeSidebar(); });
+      document.getElementById("menu-creacion-web").addEventListener("click", (e) => { e.preventDefault(); hideAllPanels(); webPlansContainer.classList.add("active"); closeSidebar(); });
+      document.getElementById("menu-telefonos").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-osiptel"); });
+      document.getElementById("menu-sunarp").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-sunarp"); });
 
-      document.getElementById("menu-sunarp").addEventListener("click", (e) => {
-        e.preventDefault();
-        resetViews();
-        hideGeneralGrid();
-        panelSunarp.classList.add("active");
-        closeSidebar();
-      });
+      // RENIEC
+      document.getElementById("reniec-ficha").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-reniec-ficha"); });
+      document.getElementById("reniec-nombres").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-reniec-nombres"); });
+      document.getElementById("reniec-dni-virtual").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-reniec-dni-virtual"); });
+      document.getElementById("reniec-arbol").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-reniec-arbol"); });
+      document.getElementById("reniec-facial").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-reniec-facial"); });
 
-      /* RUTAS SUBMENU RENIEC */
-      document.getElementById("reniec-ficha").addEventListener("click", (e) => {
-        e.preventDefault();
-        resetViews();
-        hideGeneralGrid();
-        panelReniecFicha.classList.add("active");
-        closeSidebar();
-      });
+      // JUSTICIA
+      document.getElementById("justicia-denuncias").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-justicia-denuncias"); });
+      document.getElementById("justicia-antecedentes").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-justicia-antecedentes"); });
+      document.getElementById("justicia-requisitorias").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-justicia-requisitorias"); });
+      document.getElementById("justicia-policia").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-justicia-policia"); });
 
-      document.getElementById("reniec-nombres").addEventListener("click", (e) => {
-        e.preventDefault();
-        resetViews();
-        hideGeneralGrid();
-        panelReniecNombres.classList.add("active");
-        closeSidebar();
-      });
-
-      document.getElementById("reniec-dni-virtual").addEventListener("click", (e) => {
-        e.preventDefault();
-        resetViews();
-        hideGeneralGrid();
-        panelReniecDniVirtual.classList.add("active");
-        closeSidebar();
-      });
-
-      document.getElementById("reniec-arbol").addEventListener("click", (e) => {
-        e.preventDefault();
-        resetViews();
-        hideGeneralGrid();
-        panelReniecArbol.classList.add("active");
-        closeSidebar();
-      });
-
-      document.getElementById("reniec-facial").addEventListener("click", (e) => {
-        e.preventDefault();
-        resetViews();
-        hideGeneralGrid();
-        panelReniecFacial.classList.add("active");
-        closeSidebar();
-      });
-
-      /* DROPDOWN SUBMENU */
+      // DROPDOWNS
       document.querySelectorAll(".dropdown-trigger").forEach(trig => {
         trig.addEventListener("click", () => {
           trig.parentElement.classList.toggle("open");
