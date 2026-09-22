@@ -572,7 +572,7 @@
       border-color: #a855f7;
     }
 
-    /* ESTILO SECCIÓN STREAMING - NARANJA / KENNY */
+    /* ESTILO SECCIÓN STREAMING */
     .streaming-panel-wrapper {
       background: linear-gradient(135deg, rgba(255, 107, 0, 0.12), rgba(15, 10, 26, 0.95));
       border: 1.5px solid #ff6b00;
@@ -807,7 +807,7 @@
       border-color: #a855f7;
     }
 
-    /* SECCIÓN INFRAESTRUCTURA */
+    /* SECCIÓN INFRAESTRUCTURA Central de Datos */
     .rocket-infra-hero {
       width: 100%;
       background-image: linear-gradient(rgba(8, 4, 16, 0.82), rgba(8, 4, 16, 0.90)), url('dineroo.jpg');
@@ -1116,11 +1116,11 @@
 
     .btn-plan-tg:hover { background: #a855f7; color: #fff; }
 
-    /* GRID DE SERVICIOS GENERAL */
+    /* GRID DE SERVICIOS GENERAL (HOME RESTRUCTURADO) */
     .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 16px;
+      gap: 18px;
       margin-bottom: 35px;
       width: 100%;
     }
@@ -1131,10 +1131,13 @@
       border: 1px solid rgba(255, 255, 255, 0.08);
       overflow: hidden;
       transition: transform 0.25s ease, border-color 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     .service-card:hover {
-      border-color: rgba(168, 85, 247, 0.5);
+      border-color: rgba(168, 85, 247, 0.6);
       transform: translateY(-4px);
     }
 
@@ -1170,16 +1173,17 @@
       border-radius: 20px;
     }
 
-    .card-body { padding: 14px; }
+    .card-body { padding: 14px; flex-grow: 1; }
     .card-title { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 6px; }
-    .card-desc { font-size: 0.78rem; color: rgba(226, 232, 240, 0.65); line-height: 1.4; margin-bottom: 14px; min-height: 38px; }
+    .card-desc { font-size: 0.78rem; color: rgba(226, 232, 240, 0.65); line-height: 1.4; margin-bottom: 14px; }
 
     .card-footer {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding-top: 10px;
+      padding: 12px 14px;
       border-top: 1px solid rgba(255, 255, 255, 0.05);
+      background: rgba(0, 0, 0, 0.2);
     }
 
     .card-time {
@@ -1203,6 +1207,26 @@
       align-items: center;
       gap: 6px;
       text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .card-btn:hover { background: #a855f7; color: #fff; }
+
+    .osint-tags-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .osint-tag-item {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: #e0b0ff;
+      background: rgba(168, 85, 247, 0.15);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      padding: 3px 8px;
+      border-radius: 6px;
     }
 
     /* BANDERAS */
@@ -1330,7 +1354,7 @@
   <svg style="display:none;">
     <g id="ss-logo-path">
       <path d="M 65 10 C 35 10, 15 25, 20 45 C 23 58, 35 65, 52 70 L 68 75 C 80 79, 88 86, 86 98 C 83 112, 60 120, 35 115 C 22 112, 12 104, 10 95 L 2 98 C 5 112, 18 122, 35 125 C 65 129, 94 120, 96 98 C 98 78, 78 72, 62 67 L 46 62 C 32 58, 28 50, 30 42 C 33 30, 52 20, 72 22 C 82 23, 90 28, 92 35 L 100 32 C 96 22, 84 12, 65 10 Z" />
-      <path d="M 35 30 C 65 30, 85 45, 80 65 C 77 78, 65 85, 48 90 L 32 95 C 20 99, 12 106, 14 118 C 17 132, 40 140, 65 135 C 78 132, 88 124, 70 62 C 67 50, 48 40, 28 42 C 18 43, 10 48, 8 55 L 0 52 C 4 42, 16 32, 35 30 Z" opacity="0.85" />
+      <path d="M 35 30 C 65 30, 85 45, 80 65 C 77 78, 65 85, 48 90 L 32 95 C 20 99, 12 106, 14 118 C 17 132, 40 140, 65 135 C 78 132, 88 124, 90 115 L 98 118 C 95 132, 82 142, 65 145 C 35 149, 6 140, 4 118 C 2 98, 22 92, 38 87 L 54 82 C 68 78, 72 70, 70 62 C 67 50, 48 40, 28 42 C 18 43, 10 48, 8 55 L 0 52 C 4 42, 16 32, 35 30 Z" opacity="0.85" />
     </g>
   </svg>
 
@@ -1875,11 +1899,10 @@
         </div>
       </section>
 
-      <!-- SECCIÓN STREAMING EXCLUSIVA Y PERSONALIZADA (NARANJA / KENNY) -->
+      <!-- SECCIÓN STREAMING EXCLUSIVA -->
       <section class="custom-panel-view" id="panel-streaming">
         <div class="streaming-panel-wrapper">
           
-          <!-- Avatar Estilo Kenny -->
           <div class="kenny-avatar-box">
             <i class="fa-solid fa-user-ninja"></i>
           </div>
@@ -1889,7 +1912,6 @@
             <p style="font-size:0.9rem; color:#ffaa00; font-weight:800; letter-spacing:0.1em;">INSTALACIÓN DE PROGRAMAS REMOTAMENTE</p>
           </div>
 
-          <!-- Banner Celular Exclusivo -->
           <div class="streaming-contact-banner">
             <div>
               <p style="font-size:0.75rem; color:rgba(255,255,255,0.7); text-transform:uppercase; font-weight:800;">Contacto Directo Exclusivo Streaming</p>
@@ -1905,7 +1927,6 @@
             </div>
           </div>
 
-          <!-- Cuadrícula Plataformas Streaming -->
           <div class="category-section-title"><i class="fa-solid fa-play"></i> Cuadrícula de Plataformas</div>
           <div class="streaming-grid">
             <div class="streaming-card"><i class="fa-solid fa-square-n" style="color:#e50914;"></i><span>Netflix</span></div>
@@ -1917,11 +1938,10 @@
             <div class="streaming-card"><i class="fa-brands fa-tiktok" style="color:#00f2fe;"></i><span>TikTok Live</span></div>
           </div>
 
-          <!-- Cuadrícula Programas Remotos -->
           <div class="category-section-title"><i class="fa-solid fa-laptop-code"></i> Instalación Remota de Programas</div>
           <div class="streaming-grid">
             <div class="streaming-card"><i class="fa-solid fa-file-word" style="color:#2b579a;"></i><span>Microsoft Office</span></div>
-            <div class="streaming-card"><i class="fa-solid fa-compass-drafting" style="color:#red;"></i><span>AutoCAD</span></div>
+            <div class="streaming-card"><i class="fa-solid fa-compass-drafting" style="color:red;"></i><span>AutoCAD</span></div>
             <div class="streaming-card"><i class="fa-solid fa-image" style="color:#31a8ff;"></i><span>Photoshop</span></div>
             <div class="streaming-card"><i class="fa-solid fa-pen-nib" style="color:#ff9a00;"></i><span>Illustrator</span></div>
             <div class="streaming-card"><i class="fa-solid fa-video" style="color:#9999fb;"></i><span>Premiere Pro</span></div>
@@ -1929,7 +1949,6 @@
             <div class="streaming-card"><i class="fa-solid fa-palette" style="color:#00c853;"></i><span>CorelDRAW 2024</span></div>
           </div>
 
-          <!-- Cuadrícula Asistencia Remota -->
           <div class="category-section-title"><i class="fa-solid fa-desktop"></i> Asistencia Remota Disponible</div>
           <div class="streaming-grid">
             <div class="streaming-card"><i class="fa-solid fa-network-wired" style="color:#ef4444;"></i><span>AnyDesk</span></div>
@@ -2106,7 +2125,7 @@
         </div>
       </section>
 
-      <!-- INFRAESTRUCTURA GENERAL -->
+      <!-- INFRAESTRUCTURA GENERAL (EN HOME) -->
       <section class="rocket-infra-hero" id="infra-rocket-section">
         <div class="infra-header">
           <div class="infra-tag-wrapper">
@@ -2157,36 +2176,100 @@
         </div>
       </section>
 
-      <!-- SERVICIOS GRID GENERAL -->
+      <!-- SERVICIOS GRID GENERAL (MEJORADO EN HOME CON OSINT INTEGRADO) -->
       <section class="services-grid" id="services-container">
         
-        <div class="service-card" data-cat="DIGITAL">
-          <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('imagencartillas.jpg');">
-            <span class="category-tag">DIGITAL</span>
-            <span class="card-price-badge">S/. 15.00</span>
+        <!-- TARJETA UNIFICADA DE SERVICIOS OSINT -->
+        <div class="service-card large-card" data-cat="OSINT">
+          <div class="card-header-img" style="height: 180px; background-image: linear-gradient(rgba(16,10,24,0.2), rgba(16,10,24,0.9)), url('fondorocket.jpg');">
+            <span class="category-tag">RECOPILATORIO COMPLETO OSINT</span>
+            <span class="card-price-badge">Acceso Directo</span>
           </div>
           <div class="card-body">
-            <h3 class="card-title">Números Virtuales & SMS</h3>
-            <p class="card-desc">Recepción de códigos de verificación e integración para WhatsApp, Telegram y servicios web.</p>
-            <div class="card-footer">
-              <span class="card-time"><i class="fa-regular fa-clock"></i> Instantáneo</span>
-              <a href="#" id="card-num-virt-btn" class="card-btn">Ver Detalles <i class="fa-solid fa-arrow-right"></i></a>
+            <h3 class="card-title"><i class="fa-solid fa-eye" style="color:#a855f7;"></i> Servicios OSINT Unificados</h3>
+            <p class="card-desc">Búsquedas avanzadas integradas en un solo lugar. Consulta todos los registros públicos y privados en tiempo real:</p>
+            
+            <div class="osint-tags-cloud">
+              <span class="osint-tag-item"><i class="fa-solid fa-phone"></i> Teléfonos</span>
+              <span class="osint-tag-item"><i class="fa-solid fa-building"></i> Sunarp</span>
+              <span class="osint-tag-item"><i class="fa-solid fa-id-card"></i> Reniec</span>
+              <span class="osint-tag-item"><i class="fa-solid fa-folder"></i> Justicia / PNP</span>
+              <span class="osint-tag-item"><i class="fa-solid fa-user-gear"></i> Persona Plus</span>
+              <span class="osint-tag-item"><i class="fa-solid fa-file-invoice-dollar"></i> Sunat</span>
+              <span class="osint-tag-item"><i class="fa-solid fa-shield-halved"></i> Sentinel</span>
+              <span class="osint-tag-item"><i class="fa-solid fa-car"></i> Vehículo</span>
+              <span class="osint-tag-item"><i class="fa-solid fa-car-side"></i> Síguelo Plus</span>
+              <span class="osint-tag-item"><i class="fa-solid fa-file-lines"></i> Actas</span>
+              <span class="osint-tag-item"><i class="fa-solid fa-chart-simple"></i> Doxing</span>
             </div>
+          </div>
+          <div class="card-footer">
+            <span class="card-time"><i class="fa-regular fa-clock"></i> Consultas Instantáneas</span>
+            <button id="card-osint-full-btn" class="card-btn">Ir a Persona Plus <i class="fa-solid fa-arrow-right"></i></button>
           </div>
         </div>
 
-        <div class="service-card large-card" data-cat="OSINT">
-          <div class="card-header-img" style="height: 180px; background-image: linear-gradient(rgba(16,10,24,0.2), rgba(16,10,24,0.9)), url('fondorocket.jpg');">
-            <span class="category-tag">OSINT / RASTREO</span>
-            <span class="card-price-badge">Consultar</span>
+        <!-- TARJETA NÚMEROS VIRTUALES -->
+        <div class="service-card" data-cat="DIGITAL">
+          <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('imagencartillas.jpg');">
+            <span class="category-tag">DIGITAL</span>
+            <span class="card-price-badge">Desde S/. 15.00</span>
           </div>
           <div class="card-body">
-            <h3 class="card-title">Investigación & Perfilado Digital Completo</h3>
-            <p class="card-desc">Análisis profundo de fuentes abiertas, huella digital, conexiones de números y registros estructurados.</p>
-            <div class="card-footer">
-              <span class="card-time"><i class="fa-regular fa-clock"></i> Entrega Rápida</span>
-              <a href="https://t.me/Adolf3728?text=Hola%2C%20deseo%20mas%20informacion%20sobre%20Investigacion%20y%20Perfilado" target="_blank" rel="noopener noreferrer" class="card-btn">Solicitar <i class="fa-solid fa-arrow-right"></i></a>
-            </div>
+            <h3 class="card-title">Números Virtuales & SMS</h3>
+            <p class="card-desc">Recepción de códigos de verificación e integración para WhatsApp, Telegram y servicios web globales.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-time"><i class="fa-regular fa-clock"></i> Instantáneo</span>
+            <a href="#" id="card-num-virt-btn" class="card-btn">Ver Detalles <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- TARJETA STREAMING & SOFTWARE -->
+        <div class="service-card" data-cat="STREAMING">
+          <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('fondorocket.jpg');">
+            <span class="category-tag" style="border-color:#ff6b00; color:#ffaa00;">STREAMING</span>
+            <span class="card-price-badge" style="background:#ff6b00;">Kenny Streaming</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Streaming & Instalación Remota</h3>
+            <p class="card-desc">Cuentas premium de Netflix, Disney+, Prime, más instalación remota de AutoCAD, Photoshop, Office y más.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-time"><i class="fa-regular fa-clock"></i> Soporte 24/7</span>
+            <a href="#" id="card-streaming-btn" class="card-btn" style="border-color:#ff6b00; color:#ffaa00;">Ver Catálogo <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- TARJETA CHATBOT WHATSAPP -->
+        <div class="service-card" data-cat="DIGITAL">
+          <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('fondorocket.jpg');">
+            <span class="category-tag" style="color:#86efac;">BOT WHATSAPP</span>
+            <span class="card-price-badge" style="background:#22c55e;">Auto-Respuesta</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">ChatBot para WhatsApp</h3>
+            <p class="card-desc">Consulta datos y reportes directo desde tu chat de WhatsApp mediante comandos automatizados.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-time"><i class="fa-regular fa-clock"></i> Vinculación inmediata</span>
+            <a href="#" id="card-chatbot-btn" class="card-btn">Probar Bot <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- TARJETA DESARROLLO WEB -->
+        <div class="service-card" data-cat="CREACION_WEB">
+          <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('fondorocket.jpg');">
+            <span class="category-tag">CREACIÓN WEB</span>
+            <span class="card-price-badge">Desde S/. 5.00</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Desarrollo Web & Landing Pages</h3>
+            <p class="card-desc">Páginas modernas para eventos, fiestas, negocios y e-commerce con catálogo en WhatsApp.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-time"><i class="fa-regular fa-clock"></i> Entrega rápida</span>
+            <a href="#" id="card-web-btn" class="card-btn">Ver Planes <i class="fa-solid fa-arrow-right"></i></a>
           </div>
         </div>
 
@@ -2330,7 +2413,7 @@
         panels.forEach(p => p.classList.remove("active"));
         webPlansContainer.classList.remove("active");
         infraSection.style.display = "block";
-        serviceCards.forEach(c => c.style.display = "block");
+        serviceCards.forEach(c => c.style.display = "flex");
       }
 
       function openPanel(id) {
@@ -2342,6 +2425,8 @@
 
       document.getElementById("menu-home").addEventListener("click", (e) => { e.preventDefault(); showHome(); closeSidebar(); });
       document.getElementById("menu-creacion-web").addEventListener("click", (e) => { e.preventDefault(); hideAllPanels(); webPlansContainer.classList.add("active"); closeSidebar(); });
+      document.getElementById("card-web-btn").addEventListener("click", (e) => { e.preventDefault(); hideAllPanels(); webPlansContainer.classList.add("active"); closeSidebar(); });
+
       document.getElementById("menu-telefonos").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-osiptel"); });
       document.getElementById("menu-sunarp").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-sunarp"); });
 
@@ -2360,11 +2445,19 @@
 
       // OPCIONES
       document.getElementById("menu-persona-plus").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-persona-plus"); });
+      document.getElementById("card-osint-full-btn").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-persona-plus"); });
+
       document.getElementById("menu-sunat").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-sunat"); });
+      
       document.getElementById("menu-chatbot").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-chatbot"); });
+      document.getElementById("card-chatbot-btn").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-chatbot"); });
+
       document.getElementById("menu-numeros-virtuales").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-numeros-virtuales"); });
       document.getElementById("card-num-virt-btn").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-numeros-virtuales"); });
+
       document.getElementById("menu-streaming").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-streaming"); });
+      document.getElementById("card-streaming-btn").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-streaming"); });
+
       document.getElementById("menu-sentinel").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-sentinel"); });
       document.getElementById("menu-vehiculo").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-vehiculo"); });
       document.getElementById("menu-siguelo-plus").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-siguelo-plus"); });
