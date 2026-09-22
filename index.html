@@ -515,18 +515,6 @@
       color: #fff;
     }
 
-    .credits-badge {
-      display: inline-block;
-      padding: 4px 12px;
-      background: rgba(168, 85, 247, 0.2);
-      border: 1px solid rgba(168, 85, 247, 0.5);
-      color: #d8b4fe;
-      border-radius: 20px;
-      font-size: 0.72rem;
-      font-weight: 700;
-      margin-top: 6px;
-    }
-
     .panel-form-row {
       display: flex;
       flex-wrap: wrap;
@@ -584,10 +572,10 @@
       border-color: #a855f7;
     }
 
-    /* ESTILO INTEGRADO CHATBOT */
-    .chatbot-card-wrapper {
+    /* ESTILO CHATBOT & NÚMEROS VIRTUALES */
+    .info-card-wrapper {
       background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(34, 197, 94, 0.3);
+      border: 1px solid rgba(168, 85, 247, 0.3);
       border-radius: 16px;
       padding: 30px 20px;
       text-align: center;
@@ -597,29 +585,49 @@
       gap: 15px;
     }
 
-    .chatbot-hero-title {
+    .info-hero-title {
       font-size: clamp(1.4rem, 4vw, 2.2rem);
       font-weight: 900;
       color: #fff;
     }
 
-    .chatbot-hero-title span { color: #22c55e; }
+    .info-hero-title span { color: #a855f7; }
+
+    .action-btn-group {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 10px;
+    }
 
     .btn-whatsapp-action {
       background: #22c55e;
       color: #fff;
       font-weight: 800;
-      padding: 12px 24px;
-      border-radius: 30px;
+      padding: 12px 20px;
+      border-radius: 10px;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      box-shadow: 0 0 20px rgba(34, 197, 94, 0.4);
       transition: transform 0.2s;
     }
 
-    .btn-whatsapp-action:hover { transform: scale(1.05); }
+    .btn-telegram-action {
+      background: #0088cc;
+      color: #fff;
+      font-weight: 800;
+      padding: 12px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.2s;
+    }
+
+    .btn-whatsapp-action:hover, .btn-telegram-action:hover { transform: translateY(-2px); }
 
     /* FACIAL DROPZONE */
     .dropzone-facial {
@@ -860,7 +868,7 @@
       font-weight: 700;
     }
 
-    /* PLANES DE CREACIÓN WEB */
+    /* PLANES DE CREACIÓN WEB MEJORADOS */
     .web-plans-section {
       display: none;
       width: 100%;
@@ -871,7 +879,7 @@
 
     .plans-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
       gap: 16px;
       margin-top: 15px;
     }
@@ -915,7 +923,7 @@
       font-size: 1.8rem;
       font-weight: 900;
       color: #d8b4fe;
-      margin: 10px 0;
+      margin: 10px 0 4px 0;
     }
 
     .plan-price span {
@@ -924,9 +932,16 @@
       font-weight: 500;
     }
 
+    .plan-subtitle {
+      font-size: 0.75rem;
+      color: #c084fc;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
     .plan-features {
       list-style: none;
-      margin: 12px 0 20px 0;
+      margin: 10px 0 20px 0;
       display: flex;
       flex-direction: column;
       gap: 8px;
@@ -936,14 +951,58 @@
       font-size: 0.76rem;
       color: rgba(226, 232, 240, 0.85);
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 8px;
+      line-height: 1.3;
     }
 
     .plan-features li i {
       color: #22c55e;
       font-size: 0.75rem;
+      margin-top: 2px;
     }
+
+    .plan-buttons-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .btn-plan-ws {
+      background: rgba(34, 197, 94, 0.2);
+      border: 1px solid rgba(34, 197, 94, 0.5);
+      color: #86efac;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .btn-plan-ws:hover { background: #22c55e; color: #fff; }
+
+    .btn-plan-tg {
+      background: rgba(168, 85, 247, 0.2);
+      border: 1px solid rgba(168, 85, 247, 0.5);
+      color: #d8b4fe;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .btn-plan-tg:hover { background: #a855f7; color: #fff; }
 
     /* GRID DE SERVICIOS GENERAL */
     .services-grid {
@@ -1032,72 +1091,6 @@
       align-items: center;
       gap: 6px;
       text-decoration: none;
-    }
-
-    /* MODAL DE PAGO */
-    .payment-modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.90);
-      backdrop-filter: blur(10px);
-      z-index: 99999;
-      justify-content: center;
-      align-items: center;
-      padding: 16px;
-    }
-
-    .payment-modal.active { display: flex; }
-
-    .modal-content {
-      background: #0f081d;
-      border: 1.5px solid #a855f7;
-      box-shadow: 0 0 30px rgba(168, 85, 247, 0.4);
-      border-radius: 20px;
-      padding: 24px 18px;
-      max-width: 380px;
-      width: 100%;
-      text-align: center;
-      position: relative;
-    }
-
-    .modal-close-btn {
-      position: absolute;
-      top: 12px;
-      right: 16px;
-      background: none;
-      border: none;
-      color: rgba(255, 255, 255, 0.7);
-      font-size: 1.4rem;
-      cursor: pointer;
-    }
-
-    .modal-title { font-size: 1.25rem; font-weight: 800; color: #fff; margin-bottom: 4px; }
-    .modal-subtitle { font-size: 0.78rem; color: #d8b4fe; margin-bottom: 16px; }
-
-    .qr-image-container {
-      width: 100%;
-      max-width: 260px;
-      margin: 0 auto 18px auto;
-      border-radius: 14px;
-      overflow: hidden;
-      border: 1px solid rgba(168, 85, 247, 0.4);
-    }
-
-    .qr-image-container img { width: 100%; height: auto; display: block; }
-
-    .modal-telegram-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      background: #a855f7;
-      color: #fff;
-      text-decoration: none;
-      padding: 12px 16px;
-      border-radius: 12px;
-      font-weight: 700;
-      font-size: 0.88rem;
     }
 
     /* BANDERAS */
@@ -1308,7 +1301,7 @@
           </ul>
         </li>
 
-        <!-- MÓDULOS AGREGADOS -->
+        <!-- MÓDULOS -->
         <li class="nav-item" id="menu-persona-plus">
           <a href="#"><span class="nav-item-content"><i class="fa-solid fa-user-gear"></i> Persona Plus</span></a>
         </li>
@@ -1334,7 +1327,7 @@
         <li class="nav-item" data-category="STREAMING">
           <a href="#"><span class="nav-item-content"><i class="fa-solid fa-tv"></i> Streaming</span></a>
         </li>
-        <li class="nav-item" data-category="DIGITAL">
+        <li class="nav-item" id="menu-numeros-virtuales">
           <a href="#"><span class="nav-item-content"><i class="fa-solid fa-sim-card"></i> Números virtuales</span></a>
         </li>
         <li class="nav-item" id="menu-chatbot">
@@ -1373,7 +1366,6 @@
         </div>
 
         <div class="social-contacts">
-          <a href="javascript:void(0)" class="social-btn open-payment-modal" title="Métodos de Pago / Yape"><i class="fa-solid fa-qrcode"></i></a>
           <a href="https://t.me/Adolf3728" target="_blank" rel="noopener noreferrer" class="social-btn"><i class="fa-brands fa-telegram"></i></a>
           <a href="https://www.instagram.com/rocket.official.pe" target="_blank" rel="noopener noreferrer" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
           <a href="https://chat.whatsapp.com/COvbjXfEXVT6caiGYmBkKI" target="_blank" rel="noopener noreferrer" class="social-btn"><i class="fa-solid fa-users"></i></a>
@@ -1387,11 +1379,10 @@
         <h1 class="hero-banner-title">ROCKET</h1>
       </section>
 
-      <!-- RENIEC PANELES -->
+      <!-- RENIEC PANELES SIN CRÉDITOS -->
       <section class="custom-panel-view" id="panel-reniec-ficha">
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-id-card"></i> Consulta RENIEC (TXT / PDF / C4 / FICHA)</h2>
-          <span class="credits-badge"><i class="fa-solid fa-coins"></i> Costo: 3 créditos</span>
         </div>
         <div class="panel-form-row">
           <div class="form-group-custom">
@@ -1416,7 +1407,6 @@
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-users-viewfinder"></i> Búsqueda RENIEC por nombres</h2>
           <p style="font-size:0.8rem; color:rgba(255,255,255,0.6); margin-top:4px;">Consulta por nombres y apellidos</p>
-          <span class="credits-badge"><i class="fa-solid fa-coins"></i> Costo: 2 créditos</span>
         </div>
         <div class="panel-form-row">
           <div class="form-group-custom">
@@ -1438,7 +1428,6 @@
       <section class="custom-panel-view" id="panel-reniec-dni-virtual">
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-address-card"></i> DNI Virtual (Imágenes)</h2>
-          <span class="credits-badge"><i class="fa-solid fa-coins"></i> Costo: 7 créditos</span>
         </div>
         <div class="panel-form-row">
           <div class="form-group-custom">
@@ -1460,7 +1449,6 @@
       <section class="custom-panel-view" id="panel-reniec-arbol">
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-sitemap"></i> Árbol Genealógico (TXT / Visual)</h2>
-          <span class="credits-badge"><i class="fa-solid fa-coins"></i> Costo: 7 créditos</span>
         </div>
         <div class="panel-form-row">
           <div class="form-group-custom">
@@ -1482,7 +1470,6 @@
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-user-astronaut"></i> Facial Server - ID Perú</h2>
           <p style="font-size:0.8rem; color:rgba(255,255,255,0.6); margin-top:4px;">Reconocimiento facial avanzado · Identificación por foto</p>
-          <span class="credits-badge"><i class="fa-solid fa-coins"></i> Costo: 15 créditos</span>
         </div>
         
         <div class="dropzone-facial" id="dropzone-facial-container">
@@ -1498,14 +1485,12 @@
           <button class="card-btn" id="btn-clear-facial"><i class="fa-solid fa-trash-can"></i> Limpiar</button>
         </div>
         <button class="btn-search-custom" style="width:100%; justify-content:center;"><i class="fa-solid fa-magnifying-glass"></i> Identificar persona</button>
-        <p style="font-size:0.72rem; color:rgba(255,255,255,0.4); text-align:center; margin-top:8px;">Solo se cobra si hay coincidencias detectadas.</p>
       </section>
 
-      <!-- JUSTICIA PANELES -->
+      <!-- JUSTICIA PANELES SIN CRÉDITOS -->
       <section class="custom-panel-view" id="panel-justicia-denuncias">
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-shield-halved"></i> Denuncias Policiales (SIDPOL)</h2>
-          <span class="credits-badge"><i class="fa-solid fa-coins"></i> Costo: 8 créditos</span>
         </div>
         <div class="panel-form-row">
           <div class="form-group-custom">
@@ -1520,13 +1505,11 @@
           </div>
           <button class="btn-search-custom"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
         </div>
-        <p style="font-size:0.75rem; color:rgba(255,255,255,0.5); text-align:center; margin-top:10px;">Por ahora solo está habilitado: Denuncias policiales.</p>
       </section>
 
       <section class="custom-panel-view" id="panel-justicia-antecedentes">
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-file-contract"></i> Consulta Antecedentes</h2>
-          <span class="credits-badge"><i class="fa-solid fa-coins"></i> Costo: 8 créditos</span>
         </div>
         <div class="panel-form-row">
           <div class="form-group-custom">
@@ -1548,7 +1531,6 @@
       <section class="custom-panel-view" id="panel-justicia-requisitorias">
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-handcuffs"></i> Consulta Requisitorias (e-SINPOL)</h2>
-          <span class="credits-badge"><i class="fa-solid fa-coins"></i> Costo: 10 créditos</span>
         </div>
         <div class="panel-form-row">
           <div class="form-group-custom">
@@ -1569,8 +1551,6 @@
       <section class="custom-panel-view" id="panel-justicia-policia">
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-user-shield"></i> Consulta Personal Policial (PNP)</h2>
-          <p style="font-size:0.8rem; color:rgba(255,255,255,0.6); margin-top:4px;">Consulta si un DNI o CIP pertenece a personal policial</p>
-          <span class="credits-badge"><i class="fa-solid fa-coins"></i> Costo: 5 créditos</span>
         </div>
         <div class="panel-form-row">
           <div class="form-group-custom">
@@ -1593,7 +1573,6 @@
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-fingerprint"></i> Persona Avanzada</h2>
           <p style="font-size:0.8rem; color:rgba(255,255,255,0.6); margin-top:4px;">RENIEC · MTC · ÁRBOL · PNP · SUNEDU · DENUNCIAS · FISCALÍA · REQUISITORIAS · SUNAT · SUNARP · OSIPTEL</p>
-          <span class="credits-badge"><i class="fa-solid fa-coins"></i> Costo: 15 créditos</span>
         </div>
         <div class="panel-form-row">
           <div class="form-group-custom">
@@ -1608,15 +1587,12 @@
           </div>
           <button class="btn-search-custom"><i class="fa-solid fa-magnifying-glass"></i> Consultar</button>
         </div>
-        <p style="font-size:0.72rem; color:rgba(255,255,255,0.4); text-align:center; margin-top:8px;">Podrás agregar más opciones pronto. Se cobra solo si hay resultado.</p>
       </section>
 
       <!-- SUNAT PANEL -->
       <section class="custom-panel-view" id="panel-sunat">
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-file-invoice-dollar"></i> SUNAT - Consulta de Consumos</h2>
-          <p style="font-size:0.8rem; color:rgba(255,255,255,0.6); margin-top:4px;">Consulta de consumos por documento o valor.</p>
-          <span class="credits-badge"><i class="fa-solid fa-coins"></i> Costo: 5 créditos</span>
         </div>
         <div class="panel-form-row">
           <div class="form-group-custom">
@@ -1631,33 +1607,12 @@
           </div>
           <button class="btn-search-custom"><i class="fa-solid fa-magnifying-glass"></i> Consultar</button>
         </div>
-        <p style="font-size:0.72rem; color:rgba(255,255,255,0.4); text-align:center; margin-top:8px;">Ingresa solo números. luego podrás agregar más opciones. Se cobra solo si hay PDF válido.</p>
-      </section>
-
-      <!-- CHAT BOT PANEL -->
-      <section class="custom-panel-view" id="panel-chatbot">
-        <div class="chatbot-card-wrapper">
-          <h2 class="chatbot-hero-title">Consulta todo desde tu <span>WhatsApp</span></h2>
-          <p style="font-size:0.88rem; color:rgba(226,232,240,0.8); max-width:600px; line-height:1.5;">Vincula tu cuenta de Kmente y accede a más de 30 comandos desde el chat. RENIEC, SUNARP, MTC, antecedentes, requisitorias, vehículos y mucho más — sin abrir la web.</p>
-          
-          <a href="https://wa.me/573135022169" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-action">
-            <i class="fa-brands fa-whatsapp" style="font-size:1.2rem;"></i> Empezar en WhatsApp
-          </a>
-
-          <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin-top:10px;">
-            <span class="credits-badge"><i class="fa-solid fa-check"></i> 30+ comandos</span>
-            <span class="credits-badge"><i class="fa-solid fa-clock"></i> Disponible 24/7</span>
-            <span class="credits-badge"><i class="fa-solid fa-mobile-screen"></i> Sin app extra</span>
-          </div>
-        </div>
       </section>
 
       <!-- SENTINEL PANEL -->
       <section class="custom-panel-view" id="panel-sentinel">
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-shield-halved"></i> Sentinel</h2>
-          <p style="font-size:0.8rem; color:rgba(255,255,255,0.6); margin-top:4px;">Consulta reportes PDF de Sentinel V2 o SBS.</p>
-          <span class="credits-badge"><i class="fa-solid fa-coins"></i> Costo: 15 cr</span>
         </div>
         <div class="panel-form-row">
           <div class="form-group-custom">
@@ -1667,21 +1622,18 @@
           <div class="form-group-custom">
             <label>Proveedor</label>
             <select class="form-select-custom">
-              <option>Sentinel V2 (15 cr)</option>
-              <option>SBS - Reporte de Deudas (15 cr)</option>
+              <option>Sentinel V2</option>
+              <option>SBS - Reporte de Deudas</option>
             </select>
           </div>
           <button class="btn-search-custom"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
         </div>
-        <p style="font-size:0.72rem; color:rgba(255,255,255,0.4); text-align:center; margin-top:8px;">Sentinel V2: DNI de 8 dígitos.</p>
       </section>
 
       <!-- VEHÍCULO / TIVE PANEL -->
       <section class="custom-panel-view" id="panel-vehiculo">
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-car"></i> Vehículo (TIVE)</h2>
-          <p style="font-size:0.8rem; color:rgba(255,255,255,0.6); margin-top:4px;">Consulta Vehicular (SUNARP + TIVE + SOAT + Boletín + Asientos).</p>
-          <span class="credits-badge"><i class="fa-solid fa-coins"></i> Placa: 3 cr · TIVE: 8 cr · Rev. Técnica: 8 cr</span>
         </div>
         <div class="panel-form-row">
           <div class="form-group-custom">
@@ -1691,27 +1643,24 @@
           <div class="form-group-custom">
             <label>Tipo de consulta</label>
             <select class="form-select-custom">
-              <option>Datos vehiculares SUNARP (3 cr)</option>
-              <option>TIVE (8 cr)</option>
-              <option>TIVE Respaldo (8 cr)</option>
-              <option>TIVE Plantilla (8 cr)</option>
-              <option>Boletín (8 cr)</option>
-              <option>SOAT (3 cr)</option>
-              <option>Asientos (8 cr)</option>
-              <option>Rev. Técnica (8 cr)</option>
+              <option>Datos vehiculares SUNARP</option>
+              <option>TIVE</option>
+              <option>TIVE Respaldo</option>
+              <option>TIVE Plantilla</option>
+              <option>Boletín</option>
+              <option>SOAT</option>
+              <option>Asientos</option>
+              <option>Rev. Técnica</option>
             </select>
           </div>
           <button class="btn-search-custom"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
         </div>
-        <p style="font-size:0.72rem; color:rgba(255,255,255,0.4); text-align:center; margin-top:8px;">Solo letras y números, sin espacios.</p>
       </section>
 
       <!-- SÍGUELO PLUS PANEL -->
       <section class="custom-panel-view" id="panel-siguelo-plus">
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-car-side"></i> Síguelo Plus - Vehicular Avanzado</h2>
-          <p style="font-size:0.8rem; color:rgba(255,255,255,0.6); margin-top:4px;">OCR · Propietarios · TIVE · SOAT · Rev. Técnica · Asientos PDF</p>
-          <span class="credits-badge"><i class="fa-solid fa-coins"></i> Costo: 15 cr</span>
         </div>
 
         <div class="sub-tabs-container">
@@ -1732,8 +1681,6 @@
       <section class="custom-panel-view" id="panel-actas">
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-file-lines"></i> ACTAS</h2>
-          <p style="font-size:0.8rem; color:rgba(255,255,255,0.6); margin-top:4px;">Brevete · Nacimiento · Migraciones · Estudios · Matrimonio · Defunción</p>
-          <span class="credits-badge"><i class="fa-solid fa-coins"></i> Costo: 5 créditos</span>
         </div>
         <div class="panel-form-row">
           <div class="form-group-custom">
@@ -1759,8 +1706,6 @@
       <section class="custom-panel-view" id="panel-doxing">
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-chart-simple"></i> INFO BURO (Doxing)</h2>
-          <p style="font-size:0.8rem; color:rgba(255,255,255,0.6); margin-top:4px;">Consulta por secciones: generales, contacto, familia, empresas, Essalud, finanzas y vehículos.</p>
-          <span class="credits-badge"><i class="fa-solid fa-coins"></i> Costo: 8 créditos</span>
         </div>
         <div class="panel-form-row">
           <div class="form-group-custom">
@@ -1775,14 +1720,12 @@
           </div>
           <button class="btn-search-custom"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
         </div>
-        <p style="font-size:0.72rem; color:rgba(255,255,255,0.4); text-align:center; margin-top:8px;">Sisgo aún no está disponible.</p>
       </section>
 
       <!-- OSIPTEL Y SUNARP -->
       <section class="custom-panel-view" id="panel-osiptel">
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-phone"></i> Consulta OSIPTEL (SBI / DNI)</h2>
-          <span class="credits-badge"><i class="fa-solid fa-coins"></i> Costo: 10 créditos</span>
         </div>
         <div class="panel-form-row">
           <div class="form-group-custom">
@@ -1803,8 +1746,6 @@
       <section class="custom-panel-view" id="panel-sunarp">
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-building"></i> Consulta SUNARP por DNI</h2>
-          <p style="font-size:0.8rem; color:rgba(255,255,255,0.6); margin-top:4px;">Propiedades · Vehículos · PDFs registrales</p>
-          <span class="credits-badge"><i class="fa-solid fa-coins"></i> Costo: 8 créditos</span>
         </div>
         <div class="panel-form-row">
           <div class="form-group-custom">
@@ -1822,79 +1763,174 @@
         </div>
       </section>
 
-      <!-- CREACIÓN WEB PLANES -->
+      <!-- NUEVO PANEL NÚMEROS VIRTUALES -->
+      <section class="custom-panel-view" id="panel-numeros-virtuales">
+        <div class="info-card-wrapper">
+          <i class="fa-solid fa-sim-card" style="font-size: 3rem; color: #a855f7;"></i>
+          <h2 class="info-hero-title">¿Deseas números virtuales de <span>cualquier país</span>?</h2>
+          <p style="font-size:1.1rem; font-weight:800; color:#86efac; margin-top:-5px;">¡Tenemos desde S/. 15.00!</p>
+          <p style="font-size:0.85rem; color:rgba(226,232,240,0.8); max-width:650px; line-height:1.5;">
+            Líneas 100% privadas y garantizadas para activación inmediata de WhatsApp, Telegram, PayPal, TikTok, Facebook y cualquier plataforma global. Cobertura en más de 50 países con recepción instantánea de códigos SMS.
+          </p>
+
+          <div class="action-btn-group">
+            <a href="https://wa.me/573135022169" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-action">
+              <i class="fa-brands fa-whatsapp"></i> Pedir por WhatsApp
+            </a>
+            <a href="https://t.me/Adolf3728?text=Hola%2C%20deseo%20comprar%20un%20Numero%20Virtual" target="_blank" rel="noopener noreferrer" class="btn-telegram-action">
+              <i class="fa-brands fa-telegram"></i> Pedir por Telegram
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- CHAT BOT PANEL -->
+      <section class="custom-panel-view" id="panel-chatbot">
+        <div class="info-card-wrapper">
+          <i class="fa-brands fa-whatsapp" style="font-size: 3.5rem; color: #22c55e;"></i>
+          <h2 class="info-hero-title">Consulta todo desde tu <span style="color:#22c55e;">WhatsApp</span></h2>
+          <p style="font-size:0.88rem; color:rgba(226,232,240,0.8); max-width:600px; line-height:1.5;">Vincula tu cuenta y accede a más de 30 comandos desde el chat. RENIEC, SUNARP, MTC, antecedentes, requisitorias, vehículos y mucho más — sin abrir la web.</p>
+          
+          <div class="action-btn-group">
+            <a href="https://wa.me/573135022169" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-action">
+              <i class="fa-brands fa-whatsapp"></i> Empezar en WhatsApp
+            </a>
+            <a href="https://t.me/Adolf3728?text=Hola%2C%20deseo%20vincular%20el%20Chatbot%20de%20WhatsApp" target="_blank" rel="noopener noreferrer" class="btn-telegram-action">
+              <i class="fa-brands fa-telegram"></i> Consultar por Telegram
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- PLANES DE CREACIÓN WEB CON NÚMERO DIRECTO Y MENSAJE AUTOMATIZADO TELEGRAM -->
       <section class="web-plans-section" id="web-plans-container">
         <div class="vision-divider" style="max-width:100%; margin-bottom:15px;">
           <div class="line"></div>
-          <span class="badge">PLANES Y DESARROLLO WEB DIVERSIFICADOS</span>
+          <span class="badge">PLANES DE PÁGINAS WEB PARA TODO TIPO DE NEGOCIOS Y EVENTOS</span>
           <div class="line"></div>
         </div>
 
         <div class="plans-grid">
+          <!-- PLAN 1 -->
           <div class="plan-card">
             <div>
               <h3>Básico Express</h3>
-              <div class="plan-price">S/. 5 <span>/ único</span></div>
+              <div class="plan-price">S/. 5 <span>/ pago único</span></div>
+              <div class="plan-subtitle">Ideal para Tarjetas de Presentación y Eventos</div>
               <ul class="plan-features">
-                <li><i class="fa-solid fa-check"></i> Landing Page de 1 Sección</li>
-                <li><i class="fa-solid fa-check"></i> Enlace directo a Redes</li>
+                <li><i class="fa-solid fa-check"></i> Página de 1 Sección (Landing Page)</li>
+                <li><i class="fa-solid fa-check"></i> Diseño perfecto para Fiestas, Promociones y Eventos</li>
+                <li><i class="fa-solid fa-check"></i> Botones directos a tus Redes Sociales y WhatsApp</li>
+                <li><i class="fa-solid fa-check"></i> Dominio y hosting gratuito incluido</li>
+                <li><i class="fa-solid fa-check"></i> Carga Ultra Rápida y Adaptable a Celulares</li>
               </ul>
             </div>
-            <button class="card-btn open-payment-modal" style="width:100%; justify-content:center;">Solicitar Plan</button>
+            <div class="plan-buttons-group">
+              <a href="https://wa.me/573135022169" target="_blank" rel="noopener noreferrer" class="btn-plan-ws">
+                <i class="fa-brands fa-whatsapp"></i> Solicitar por WhatsApp
+              </a>
+              <a href="https://t.me/Adolf3728?text=Hola%20deseo%20comprar%20el%20plan%20Basico%20Express%20de%205%20soles" target="_blank" rel="noopener noreferrer" class="btn-plan-tg">
+                <i class="fa-brands fa-telegram"></i> Solicitar por Telegram
+              </a>
+            </div>
           </div>
 
+          <!-- PLAN 2 -->
           <div class="plan-card">
             <div>
               <h3>Estándar Lite</h3>
-              <div class="plan-price">S/. 15 <span>/ único</span></div>
+              <div class="plan-price">S/. 15 <span>/ pago único</span></div>
+              <div class="plan-subtitle">Para Negocios Locales y Emprendedores</div>
               <ul class="plan-features">
-                <li><i class="fa-solid fa-check"></i> Web Multi-sección (2 Secciones)</li>
-                <li><i class="fa-solid fa-check"></i> Formulario de contacto básico</li>
+                <li><i class="fa-solid fa-check"></i> Web Multi-sección (Inicio + Servicios/Productos)</li>
+                <li><i class="fa-solid fa-check"></i> Formulario de contacto directo a tu correo o celular</li>
+                <li><i class="fa-solid fa-check"></i> Galería de Fotos interactiva de tu local o productos</li>
+                <li><i class="fa-solid fa-check"></i> Ubicación e integración con Google Maps</li>
+                <li><i class="fa-solid fa-check"></i> Mantenimiento y asesoría básica de regalo</li>
               </ul>
             </div>
-            <button class="card-btn open-payment-modal" style="width:100%; justify-content:center;">Solicitar Plan</button>
+            <div class="plan-buttons-group">
+              <a href="https://wa.me/573135022169" target="_blank" rel="noopener noreferrer" class="btn-plan-ws">
+                <i class="fa-brands fa-whatsapp"></i> Solicitar por WhatsApp
+              </a>
+              <a href="https://t.me/Adolf3728?text=Hola%20deseo%20comprar%20el%20plan%20Estandard%20Lite%20de%2015%20soles" target="_blank" rel="noopener noreferrer" class="btn-plan-tg">
+                <i class="fa-brands fa-telegram"></i> Solicitar por Telegram
+              </a>
+            </div>
           </div>
 
+          <!-- PLAN 3 -->
           <div class="plan-card">
             <div>
               <h3>Pro Cyber</h3>
-              <div class="plan-price">S/. 35 <span>/ único</span></div>
+              <div class="plan-price">S/. 35 <span>/ pago único</span></div>
+              <div class="plan-subtitle">Impacto Visual Dark / Neón Futurista</div>
               <ul class="plan-features">
-                <li><i class="fa-solid fa-check"></i> Diseño Neón / Dark Avanzado</li>
-                <li><i class="fa-solid fa-check"></i> Repositorio Privado GitHub</li>
-                <li><i class="fa-solid fa-check"></i> Optimización Móvil Completa</li>
+                <li><i class="fa-solid fa-check"></i> Diseño Personalizado Cyber/Neón de Alto Impacto</li>
+                <li><i class="fa-solid fa-check"></i> Múltiples Secciones Estructuradas</li>
+                <li><i class="fa-solid fa-check"></i> Repositorio Privado y Código 100% Tuyo</li>
+                <li><i class="fa-solid fa-check"></i> Optimización SEO para aparecer en buscadores</li>
+                <li><i class="fa-solid fa-check"></i> Integración con Reproductores, Música o Streaming</li>
               </ul>
             </div>
-            <button class="card-btn open-payment-modal" style="width:100%; justify-content:center;">Solicitar Plan</button>
+            <div class="plan-buttons-group">
+              <a href="https://wa.me/573135022169" target="_blank" rel="noopener noreferrer" class="btn-plan-ws">
+                <i class="fa-brands fa-whatsapp"></i> Solicitar por WhatsApp
+              </a>
+              <a href="https://t.me/Adolf3728?text=Hola%20deseo%20comprar%20el%20plan%20Pro%20Cyber%20de%2035%20soles" target="_blank" rel="noopener noreferrer" class="btn-plan-tg">
+                <i class="fa-brands fa-telegram"></i> Solicitar por Telegram
+              </a>
+            </div>
           </div>
 
+          <!-- PLAN 4 -->
           <div class="plan-card featured">
-            <span class="plan-badge">POPULAR</span>
+            <span class="plan-badge">MÁS VENDIDO</span>
             <div>
               <h3>Business Pro</h3>
-              <div class="plan-price">S/. 50 <span>/ único</span></div>
+              <div class="plan-price">S/. 50 <span>/ pago único</span></div>
+              <div class="plan-subtitle">Tienda Virtual y Marcas Consolidadas</div>
               <ul class="plan-features">
-                <li><i class="fa-solid fa-check"></i> Catálogo Interactivo de Productos</li>
-                <li><i class="fa-solid fa-check"></i> Dominio y SSL Certificado</li>
-                <li><i class="fa-solid fa-check"></i> Posicionamiento SEO Básico</li>
+                <li><i class="fa-solid fa-check"></i> Catálogo Interactivo de Productos con Carrito</li>
+                <li><i class="fa-solid fa-check"></i> Pedidos automáticos directos a tu WhatsApp</li>
+                <li><i class="fa-solid fa-check"></i> Dominio propio (.com) + Certificado SSL Seguro</li>
+                <li><i class="fa-solid fa-check"></i> Posicionamiento SEO Avanzado</li>
+                <li><i class="fa-solid fa-check"></i> Correos corporativos profesionales</li>
               </ul>
             </div>
-            <button class="card-btn open-payment-modal" style="width:100%; justify-content:center; background:#a855f7; color:#fff;">Solicitar Plan</button>
+            <div class="plan-buttons-group">
+              <a href="https://wa.me/573135022169" target="_blank" rel="noopener noreferrer" class="btn-plan-ws" style="background:#22c55e; color:#fff;">
+                <i class="fa-brands fa-whatsapp"></i> Solicitar por WhatsApp
+              </a>
+              <a href="https://t.me/Adolf3728?text=Hola%20deseo%20comprar%20el%20plan%20Business%20Pro%20de%2050%20soles" target="_blank" rel="noopener noreferrer" class="btn-plan-tg" style="background:#a855f7; color:#fff;">
+                <i class="fa-brands fa-telegram"></i> Solicitar por Telegram
+              </a>
+            </div>
           </div>
 
+          <!-- PLAN 5 -->
           <div class="plan-card">
-            <span class="plan-badge" style="background:#22c55e;">MÁXIMO VIP</span>
+            <span class="plan-badge" style="background:#22c55e;">MÁXIMO POWER</span>
             <div>
-              <h3>Enterprise & Anti-Attack 24/7</h3>
-              <div class="plan-price">S/. 75 <span>/ único</span></div>
+              <h3>Enterprise & Protection</h3>
+              <div class="plan-price">S/. 75 <span>/ pago único</span></div>
+              <div class="plan-subtitle">Sistemas a Medida y Seguridad Máxima</div>
               <ul class="plan-features">
-                <li><i class="fa-solid fa-check"></i> Panel Administrativo Integrado</li>
-                <li><i class="fa-solid fa-check"></i> Protección Anti-Ataques DDoS</li>
-                <li><i class="fa-solid fa-check"></i> Servidores Dedicados Ultra Rápido</li>
-                <li><i class="fa-solid fa-check"></i> Soporte VIP Prioritario 24/7</li>
+                <li><i class="fa-solid fa-check"></i> Panel de Administración Integrado a Medida</li>
+                <li><i class="fa-solid fa-check"></i> Protección Anti-Ataques DDoS y Blindaje Web</li>
+                <li><i class="fa-solid fa-check"></i> Servidores Dedicados de Velocidad Extrema</li>
+                <li><i class="fa-solid fa-check"></i> Soporte Técnico Prioritario 24/7 de por vida</li>
+                <li><i class="fa-solid fa-check"></i> Actualizaciones y copias de seguridad continuas</li>
               </ul>
             </div>
-            <button class="card-btn open-payment-modal" style="width:100%; justify-content:center;">Solicitar Plan</button>
+            <div class="plan-buttons-group">
+              <a href="https://wa.me/573135022169" target="_blank" rel="noopener noreferrer" class="btn-plan-ws">
+                <i class="fa-brands fa-whatsapp"></i> Solicitar por WhatsApp
+              </a>
+              <a href="https://t.me/Adolf3728?text=Hola%20deseo%20comprar%20el%20plan%20Enterprise%20de%2075%20soles" target="_blank" rel="noopener noreferrer" class="btn-plan-tg">
+                <i class="fa-brands fa-telegram"></i> Solicitar por Telegram
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -1963,7 +1999,7 @@
             <p class="card-desc">Recepción de códigos de verificación e integración para WhatsApp, Telegram y servicios web.</p>
             <div class="card-footer">
               <span class="card-time"><i class="fa-regular fa-clock"></i> Instantáneo</span>
-              <button class="card-btn open-payment-modal">Pagar / Solicitar <i class="fa-solid fa-arrow-right"></i></button>
+              <a href="#" id="card-num-virt-btn" class="card-btn">Ver Detalles <i class="fa-solid fa-arrow-right"></i></a>
             </div>
           </div>
         </div>
@@ -1978,7 +2014,7 @@
             <p class="card-desc">Análisis profundo de fuentes abiertas, huella digital, conexiones de números y registros estructurados.</p>
             <div class="card-footer">
               <span class="card-time"><i class="fa-regular fa-clock"></i> Entrega Rápida</span>
-              <button class="card-btn open-payment-modal">Pagar / Solicitar <i class="fa-solid fa-arrow-right"></i></button>
+              <a href="https://t.me/Adolf3728?text=Hola%2C%20deseo%20mas%20informacion%20sobre%20Investigacion%20y%20Perfilado" target="_blank" rel="noopener noreferrer" class="card-btn">Solicitar <i class="fa-solid fa-arrow-right"></i></a>
             </div>
           </div>
         </div>
@@ -2011,23 +2047,6 @@
       </section>
 
     </main>
-  </div>
-
-  <!-- MODAL PAGO -->
-  <div class="payment-modal" id="payment-modal">
-    <div class="modal-content">
-      <button class="modal-close-btn" id="close-modal">&times;</button>
-      <h2 class="modal-title">Método de Pago</h2>
-      <p class="modal-subtitle">Escanea el código QR de Yape para realizar tu pago</p>
-      
-      <div class="qr-image-container">
-        <img src="yape.jpeg" alt="QR Yape">
-      </div>
-
-      <a href="https://t.me/Adolf3728" target="_blank" rel="noopener noreferrer" class="modal-telegram-btn">
-        <i class="fa-brands fa-telegram"></i> Confirmar Pago en Telegram
-      </a>
-    </div>
   </div>
 
   <script>
@@ -2069,18 +2088,6 @@
         overlay.classList.add("active");
       });
       overlay.addEventListener("click", closeSidebar);
-
-      // MODAL PAGO
-      const paymentModal = document.getElementById("payment-modal");
-      document.querySelectorAll(".open-payment-modal").forEach(btn => {
-        btn.addEventListener("click", (e) => {
-          e.preventDefault();
-          paymentModal.classList.add("active");
-        });
-      });
-      document.getElementById("close-modal").addEventListener("click", () => {
-        paymentModal.classList.remove("active");
-      });
 
       // VISTA PREVIA FACIAL
       const fileInput = document.getElementById("facial-file-input");
@@ -2184,6 +2191,8 @@
       document.getElementById("menu-persona-plus").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-persona-plus"); });
       document.getElementById("menu-sunat").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-sunat"); });
       document.getElementById("menu-chatbot").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-chatbot"); });
+      document.getElementById("menu-numeros-virtuales").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-numeros-virtuales"); });
+      document.getElementById("card-num-virt-btn").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-numeros-virtuales"); });
       document.getElementById("menu-sentinel").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-sentinel"); });
       document.getElementById("menu-vehiculo").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-vehiculo"); });
       document.getElementById("menu-siguelo-plus").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-siguelo-plus"); });
