@@ -161,7 +161,7 @@
       display: block;
     }
 
-    /* SIDEBAR COMPLETO Y CORREGIDO */
+    /* SIDEBAR COMPLETO */
     .sidebar {
       width: 260px;
       background: rgba(10, 7, 18, 0.95);
@@ -314,6 +314,7 @@
       color: #e0b0ff;
       border: 1px solid rgba(168, 85, 247, 0.4);
       margin-top: 8px;
+      border-radius: 10px;
     }
 
     .nav-item.highlight-telegram a:hover {
@@ -585,7 +586,7 @@
       color: #fff;
     }
 
-    /* SECCIÓN DE CIERRE CON BANDERAS */
+    /* SECCIÓN DE CIERRE CON BANDERAS EN IMAGEN ENLAZADA */
     .guerra-total-section {
       width: 100%;
       padding: 35px 25px;
@@ -627,11 +628,23 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 8px;
-      max-width: 650px;
-      font-size: 1.1rem;
-      margin-top: 5px;
-      opacity: 0.85;
+      align-items: center;
+      gap: 12px;
+      max-width: 750px;
+      margin-top: 10px;
+    }
+
+    .flag-img {
+      width: 28px;
+      height: 18px;
+      object-fit: cover;
+      border-radius: 3px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+      transition: transform 0.2s ease;
+    }
+
+    .flag-img:hover {
+      transform: scale(1.25);
     }
 
     /* Responsive */
@@ -765,7 +778,7 @@
           <a href="#"><span class="nav-item-content"><i class="fa-solid fa-comment-dots"></i> Chat Bot</span></a>
         </li>
 
-        <!-- Botón de Soporte Telegram en Sidebar con Ícono Limpio -->
+        <!-- Botón de Soporte Telegram con Ícono Bonito de Telegram -->
         <li class="nav-item highlight-telegram">
           <a href="https://t.me/Adolf3728" target="_blank">
             <span class="nav-item-content"><i class="fa-brands fa-telegram"></i> Soporte Telegram</span>
@@ -795,10 +808,11 @@
           <button class="tab-btn" data-filter="ACADEMICO">ACADÉMICOS</button>
         </div>
 
-        <!-- Redes Sociales y WhatsApp Directo sin automensaje -->
+        <!-- Redes Sociales, Grupo de Clientes y WhatsApp Directo -->
         <div class="social-contacts">
           <a href="https://t.me/Adolf3728" target="_blank" class="social-btn" title="Telegram"><i class="fa-brands fa-telegram"></i></a>
           <a href="https://www.instagram.com/rocket.official.pe?stkn=MXIybGJtNXpoN2wxbA%3D%3D&utm_source=qr" target="_blank" class="social-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://chat.whatsapp.com/COvbjXfEXVT6caiGYmBkKI?s=cl&p=i&mlu=0&ilr=4" target="_blank" class="social-btn" title="Grupo Clientes WhatsApp"><i class="fa-solid fa-users"></i></a>
           <a href="https://wa.me/573135022169" target="_blank" class="social-btn" title="WhatsApp Directo"><i class="fa-brands fa-whatsapp"></i></a>
         </div>
       </header>
@@ -916,14 +930,26 @@
 
       </section>
 
-      <!-- SECCIÓN GUERRA TOTAL Y BANDERAS DE LATAM Y MÉXICO -->
+      <!-- SECCIÓN GUERRA TOTAL Y BANDERAS (IMÁGENES CARGADAS) -->
       <section class="guerra-total-section">
         <span class="guerra-tag">GUERRA TOTAL</span>
         <p class="quote-text">"Si el destino no nos abre la puerta, la derribamos. Dominio total en cada byte."</p>
 
-        <!-- Banderas de Latinoamérica, Centroamérica y México -->
+        <!-- Banderas usando exactamente los nombres de tus archivos subidos -->
         <div class="flags-container">
-          🇲🇽 🇬🇹 🇸🇻 🇭🇳 🇳🇮 🇨🇷 🇵🇦 🇨🇺 🇩🇴 🇵🇷 🇨🇴 🇻🇪 🇪🇨 🇵🇪 🇧🇴 🇨🇱 🇦🇷 🇵🇾 🇺🇾 🇧🇷
+          <img src="mexico.jpg" class="flag-img" alt="México" title="México">
+          <img src="jamaica.png" class="flag-img" alt="Jamaica" title="Jamaica">
+          <img src="rusia.jpg" class="flag-img" alt="Rusia" title="Rusia">
+          <img src="brasil.jpg" class="flag-img" alt="Brasil" title="Brasil">
+          <img src="uruguay.jpg" class="flag-img" alt="Uruguay" title="Uruguay">
+          <img src="paraguay.jpg" class="flag-img" alt="Paraguay" title="Paraguay">
+          <img src="argentina.jpg" class="flag-img" alt="Argentina" title="Argentina">
+          <img src="chile.jpg" class="flag-img" alt="Chile" title="Chile">
+          <img src="bolivia.jpg" class="flag-img" alt="Bolivia" title="Bolivia">
+          <img src="peru.jpg" class="flag-img" alt="Perú" title="Perú">
+          <img src="ecuador.jpg" class="flag-img" alt="Ecuador" title="Ecuador">
+          <img src="venezuela.jpg" class="flag-img" alt="Venezuela" title="Venezuela">
+          <img src="colombia.jpg" class="flag-img" alt="Colombia" title="Colombia">
         </div>
       </section>
 
