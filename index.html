@@ -410,35 +410,6 @@
       box-shadow: 0 0 22px rgba(168, 85, 247, 0.7);
     }
 
-    .nav-tabs {
-      display: flex;
-      gap: 8px;
-      background: rgba(255, 255, 255, 0.03);
-      padding: 6px 14px;
-      border-radius: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      overflow-x: auto;
-    }
-
-    .tab-btn {
-      background: none;
-      border: none;
-      color: rgba(255, 255, 255, 0.6);
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      cursor: pointer;
-      padding: 6px 14px;
-      border-radius: 12px;
-      white-space: nowrap;
-      transition: all 0.2s;
-    }
-
-    .tab-btn.active, .tab-btn:hover {
-      color: #fff;
-      background: rgba(255, 255, 255, 0.08);
-    }
-
     .social-contacts {
       display: flex;
       gap: 10px;
@@ -509,6 +480,176 @@
       text-shadow: 0 0 12px rgba(192, 132, 252, 0.7), 0 0 25px rgba(147, 51, 234, 0.4);
       margin-right: -0.25em;
       text-align: center;
+    }
+
+    /* ESTILOS MÓDULO RECARGA KMENTE */
+    .kmente-recharge-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .recharge-top-card {
+      background: rgba(18, 10, 32, 0.95);
+      border: 1px solid rgba(168, 85, 247, 0.4);
+      border-radius: 20px;
+      padding: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    }
+
+    .recharge-info-header h2 {
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: #fff;
+    }
+
+    .recharge-info-header p {
+      font-size: 0.85rem;
+      color: rgba(226, 232, 240, 0.7);
+      margin-top: 4px;
+      max-width: 500px;
+    }
+
+    .user-credits-badge-box {
+      background: rgba(168, 85, 247, 0.15);
+      border: 1px solid rgba(168, 85, 247, 0.4);
+      border-radius: 16px;
+      padding: 16px 24px;
+      text-align: right;
+    }
+
+    .uc-label {
+      font-size: 0.7rem;
+      font-weight: 800;
+      color: rgba(226, 232, 240, 0.6);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .uc-value {
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: #d8b4fe;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .uc-user {
+      font-size: 0.75rem;
+      color: rgba(226, 232, 240, 0.5);
+      margin-top: 2px;
+    }
+
+    .kmente-packages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 18px;
+    }
+
+    .km-pkg-card {
+      background: rgba(15, 8, 26, 0.9);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      border-radius: 18px;
+      padding: 20px 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+
+    .km-pkg-card:hover {
+      border-color: #a855f7;
+      transform: translateY(-4px);
+      box-shadow: 0 0 25px rgba(168, 85, 247, 0.35);
+    }
+
+    .km-pkg-card.popular {
+      border: 2px solid #a855f7;
+      box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+    }
+
+    .km-tag {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(168, 85, 247, 0.3);
+      border: 1px solid rgba(168, 85, 247, 0.5);
+      color: #d8b4fe;
+      font-size: 0.65rem;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 10px;
+    }
+
+    .km-title {
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: #fff;
+    }
+
+    .km-subtitle {
+      font-size: 0.72rem;
+      color: rgba(226, 232, 240, 0.5);
+      margin-bottom: 12px;
+    }
+
+    .km-price {
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: #86efac;
+      margin-bottom: 12px;
+    }
+
+    .km-price span {
+      font-size: 0.8rem;
+      color: rgba(226, 232, 240, 0.6);
+    }
+
+    .km-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+
+    .km-features li {
+      font-size: 0.75rem;
+      color: rgba(226, 232, 240, 0.8);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .km-features li i {
+      color: #a855f7;
+      font-size: 0.7rem;
+    }
+
+    .btn-select-km-plan {
+      width: 100%;
+      padding: 10px;
+      background: rgba(168, 85, 247, 0.2);
+      border: 1px solid rgba(168, 85, 247, 0.5);
+      color: #d8b4fe;
+      border-radius: 10px;
+      font-weight: 800;
+      font-size: 0.82rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-select-km-plan:hover {
+      background: #a855f7;
+      color: #fff;
     }
 
     /* PANELES DE CONSULTA GENERALES */
@@ -593,7 +734,7 @@
       border-color: #a855f7;
     }
 
-    /* CONTENEDOR DE RESULTADOS Y ACCIONES RÁPIDAS (PUNTO 5) */
+    /* CONTENEDOR DE RESULTADOS Y ACCIONES RÁPIDAS */
     .result-box-container {
       margin-top: 20px;
       background: rgba(8, 4, 16, 0.95);
@@ -657,7 +798,7 @@
       overflow-y: auto;
     }
 
-    /* VISTA DE HISTORIAL (PUNTO 4) */
+    /* VISTA DE HISTORIAL */
     .history-table {
       width: 100%;
       border-collapse: collapse;
@@ -677,7 +818,7 @@
       background: rgba(168, 85, 247, 0.1);
     }
 
-    /* MODAL DE CRÉDITOS (PUNTO 3) */
+    /* MODAL DE CRÉDITOS */
     .modal-overlay {
       display: none;
       position: fixed;
@@ -715,31 +856,41 @@
 
     .close-modal-btn:hover { color: #fff; }
 
-    .credits-packages-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
+    .action-btn-group {
+      display: flex;
       gap: 12px;
-      margin: 20px 0;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 10px;
     }
 
-    .credit-pkg-card {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(168, 85, 247, 0.3);
-      border-radius: 12px;
-      padding: 14px;
-      text-align: center;
-      cursor: pointer;
-      transition: all 0.2s;
+    .btn-whatsapp-action {
+      background: #22c55e;
+      color: #fff;
+      font-weight: 800;
+      padding: 12px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.2s;
     }
 
-    .credit-pkg-card:hover, .credit-pkg-card.selected {
-      border-color: #a855f7;
-      background: rgba(168, 85, 247, 0.15);
-      box-shadow: 0 0 15px rgba(168, 85, 247, 0.3);
+    .btn-telegram-action {
+      background: #0088cc;
+      color: #fff;
+      font-weight: 800;
+      padding: 12px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.2s;
     }
 
-    .pkg-amount { font-size: 1.4rem; font-weight: 900; color: #d8b4fe; }
-    .pkg-price { font-size: 0.85rem; color: #86efac; font-weight: 800; margin-top: 4px; }
+    .btn-whatsapp-action:hover, .btn-telegram-action:hover { transform: translateY(-2px); }
 
     /* ESTILO SECCIÓN STREAMING */
     .streaming-panel-wrapper {
@@ -873,42 +1024,6 @@
     }
 
     .info-hero-title span { color: #a855f7; }
-
-    .action-btn-group {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 10px;
-    }
-
-    .btn-whatsapp-action {
-      background: #22c55e;
-      color: #fff;
-      font-weight: 800;
-      padding: 12px 20px;
-      border-radius: 10px;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: transform 0.2s;
-    }
-
-    .btn-telegram-action {
-      background: #0088cc;
-      color: #fff;
-      font-weight: 800;
-      padding: 12px 20px;
-      border-radius: 10px;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: transform 0.2s;
-    }
-
-    .btn-whatsapp-action:hover, .btn-telegram-action:hover { transform: translateY(-2px); }
 
     /* FACIAL DROPZONE */
     .dropzone-facial {
@@ -1285,7 +1400,7 @@
 
     .btn-plan-tg:hover { background: #a855f7; color: #fff; }
 
-    /* GRID DE SERVICIOS GENERAL (HOME RESTRUCTURADO) */
+    /* GRID DE SERVICIOS GENERAL */
     .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -1512,7 +1627,6 @@
       .sidebar.open { transform: translateX(0) !important; }
       .main-content { margin-left: 0 !important; width: 100% !important; padding: 16px 10px !important; }
       .mobile-menu-btn { display: flex !important; }
-      .nav-tabs { display: none !important; }
       .infra-diagram-grid { grid-template-columns: 1fr !important; }
       .service-card.large-card { grid-column: span 1 !important; }
     }
@@ -1527,41 +1641,27 @@
     </g>
   </svg>
 
-  <!-- MODAL DE CRÉDITOS (PUNTO 3) -->
+  <!-- MODAL DE CRÉDITOS SELECCIONADOS -->
   <div class="modal-overlay" id="modal-credits">
     <div class="modal-credits-box">
       <button class="close-modal-btn" id="btn-close-modal"><i class="fa-solid fa-xmark"></i></button>
       <div style="text-align:center;">
         <i class="fa-solid fa-coins" style="font-size:2.5rem; color:#a855f7; margin-bottom:10px;"></i>
-        <h3 style="font-size:1.3rem; font-weight:800; color:#fff;">Recarga de Créditos</h3>
-        <p style="font-size:0.8rem; color:rgba(255,255,255,0.6); margin-top:4px;">Selecciona tu paquete para habilitar consultas instantáneas</p>
+        <h3 style="font-size:1.3rem; font-weight:800; color:#fff;" id="modal-pkg-title">Confirmar Recarga</h3>
+        <p style="font-size:0.85rem; color:#86efac; font-weight:800; margin-top:4px;" id="modal-pkg-price">Monto a Pagar: S/. 10.00</p>
       </div>
 
-      <div class="credits-packages-grid">
-        <div class="credit-pkg-card selected" data-amount="20" data-price="10">
-          <div class="pkg-amount">20 Créditos</div>
-          <div class="pkg-price">S/. 10.00</div>
-        </div>
-        <div class="credit-pkg-card" data-amount="60" data-price="25">
-          <div class="pkg-amount">60 Créditos</div>
-          <div class="pkg-price">S/. 25.00</div>
-        </div>
-        <div class="credit-pkg-card" data-amount="150" data-price="50">
-          <div class="pkg-amount">150 Créditos</div>
-          <div class="pkg-price">S/. 50.00</div>
-        </div>
-        <div class="credit-pkg-card" data-amount="350" data-price="100">
-          <div class="pkg-amount">350 Créditos</div>
-          <div class="pkg-price">S/. 100.00</div>
-        </div>
+      <div style="margin:20px 0; text-align:center; background:rgba(255,255,255,0.03); padding:15px; border-radius:12px; border:1px solid rgba(168,85,247,0.2);">
+        <p style="font-size:0.8rem; color:rgba(226,232,240,0.8);">Recarga automática procesada con Culqi / Yape.</p>
+        <p style="font-size:0.75rem; color:rgba(226,232,240,0.5); margin-top:4px;">Los créditos se asignarán instantáneamente a tu usuario.</p>
       </div>
 
       <div class="action-btn-group">
-        <a href="https://wa.me/573135022169?text=Hola%2C%20deseo%20recargar%20el%20paquete%20de%2020%20creditos" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-action" id="pkg-link-ws">
-          <i class="fa-brands fa-whatsapp"></i> Pagar por WhatsApp
+        <a href="https://wa.me/573135022169?text=Hola%2C%20deseo%20recargar%20creditos" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-action" id="pkg-link-ws">
+          <i class="fa-brands fa-whatsapp"></i> Validar por WhatsApp
         </a>
-        <a href="https://t.me/Adolf3728?text=Hola%2C%20deseo%20recargar%20el%20paquete%20de%2020%20creditos" target="_blank" rel="noopener noreferrer" class="btn-telegram-action" id="pkg-link-tg">
-          <i class="fa-brands fa-telegram"></i> Pagar por Telegram
+        <a href="https://t.me/Adolf3728?text=Hola%2C%20deseo%20recargar%20creditos" target="_blank" rel="noopener noreferrer" class="btn-telegram-action" id="pkg-link-tg">
+          <i class="fa-brands fa-telegram"></i> Validar por Telegram
         </a>
       </div>
     </div>
@@ -1589,7 +1689,7 @@
 
   <div id="app-container">
     
-    <!-- SIDEBAR DE NAVEGACIÓN COMPLETO CON HISTORIAL -->
+    <!-- SIDEBAR DE NAVEGACIÓN -->
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-header">
         <div class="sidebar-logo-icon">
@@ -1606,6 +1706,9 @@
       <ul class="nav-menu">
         <li class="nav-item active" id="menu-home">
           <a href="#"><span class="nav-item-content"><i class="fa-solid fa-house"></i> Home</span></a>
+        </li>
+        <li class="nav-item" id="menu-recarga">
+          <a href="#"><span class="nav-item-content" style="color:#a855f7;"><i class="fa-solid fa-wallet"></i> Recarga</span></a>
         </li>
         <li class="nav-item" id="menu-creacion-web">
           <a href="#"><span class="nav-item-content"><i class="fa-solid fa-laptop-code"></i> Creación Web</span></a>
@@ -1669,7 +1772,7 @@
           <a href="#"><span class="nav-item-content"><i class="fa-solid fa-chart-simple"></i> Doxing</span></a>
         </li>
 
-        <!-- HISTORIAL LOCAL (PUNTO 4) -->
+        <!-- HISTORIAL LOCAL -->
         <li class="nav-item" id="menu-historial">
           <a href="#"><span class="nav-item-content" style="color:#d8b4fe;"><i class="fa-solid fa-clock-rotate-left"></i> Mi Historial</span></a>
         </li>
@@ -1723,7 +1826,95 @@
         <h1 class="hero-banner-title">ROCKET</h1>
       </section>
 
-      <!-- RENIEC PANELES CON RESULTADO (PUNTO 5) -->
+      <!-- VISTA MÓDULO RECARGA KMENTE -->
+      <section class="custom-panel-view" id="panel-recarga">
+        <div class="kmente-recharge-wrapper">
+          
+          <div class="recharge-top-card">
+            <div class="recharge-info-header">
+              <h2>Recarga tus créditos en segundos</h2>
+              <p>Selecciona un paquete, paga por Yape o tarjeta y la recarga se aplicará automáticamente a tu cuenta.</p>
+            </div>
+            <div class="user-credits-badge-box">
+              <div class="uc-label">CRÉDITOS ACTUALES</div>
+              <div class="uc-value"><i class="fa-solid fa-coins" style="color:#a855f7; font-size:1.4rem;"></i> <span id="current-user-credits">0</span></div>
+              <div class="uc-user">Usuario: <span id="current-user-name" style="color:#fff; font-weight:700;">Cliente Rocket</span></div>
+            </div>
+          </div>
+
+          <div style="margin-top: 10px;">
+            <h3 style="font-size:1.1rem; font-weight:800; color:#fff; margin-bottom:12px;">Paquetes Disponibles</h3>
+            
+            <div class="kmente-packages-grid">
+              <!-- PAQUETE 1 -->
+              <div class="km-pkg-card">
+                <div>
+                  <div class="km-title">100 Créditos</div>
+                  <div class="km-subtitle">Plan de inicio</div>
+                  <div class="km-price">S/. 10 <span>/ paquete</span></div>
+                  <ul class="km-features">
+                    <li><i class="fa-solid fa-bolt"></i> Recarga automática e inmediata</li>
+                    <li><i class="fa-solid fa-check"></i> Créditos sin vencimiento</li>
+                    <li><i class="fa-solid fa-check"></i> Ideal para uso ocasional</li>
+                  </ul>
+                </div>
+                <button class="btn-select-km-plan" onclick="openCreditModal('100 Créditos', '10')">Seleccionar plan</button>
+              </div>
+
+              <!-- PAQUETE 2 -->
+              <div class="km-pkg-card">
+                <span class="km-tag">Más equilibrado</span>
+                <div>
+                  <div class="km-title">250 Créditos</div>
+                  <div class="km-subtitle">Plan equilibrado</div>
+                  <div class="km-price">S/. 20 <span>/ paquete</span></div>
+                  <ul class="km-features">
+                    <li><i class="fa-solid fa-bolt"></i> Aplicación inmediata al validar el pago</li>
+                    <li><i class="fa-solid fa-check"></i> Saldo cómodo para trabajar</li>
+                    <li><i class="fa-solid fa-check"></i> Recomendado para uso frecuente</li>
+                  </ul>
+                </div>
+                <button class="btn-select-km-plan" onclick="openCreditModal('250 Créditos', '20')">Seleccionar plan</button>
+              </div>
+
+              <!-- PAQUETE 3 -->
+              <div class="km-pkg-card popular">
+                <span class="km-tag" style="background:#a855f7; color:#fff;">Más popular</span>
+                <div>
+                  <div class="km-title">700 Créditos</div>
+                  <div class="km-subtitle">Mayor rendimiento</div>
+                  <div class="km-price">S/. 50 <span>/ paquete</span></div>
+                  <ul class="km-features">
+                    <li><i class="fa-solid fa-bolt"></i> Mayor capacidad de consultas</li>
+                    <li><i class="fa-solid fa-check"></i> Mejor balance precio/volumen</li>
+                    <li><i class="fa-solid fa-check"></i> Ideal para usuarios activos</li>
+                  </ul>
+                </div>
+                <button class="btn-select-km-plan" style="background:#a855f7; color:#fff;" onclick="openCreditModal('700 Créditos', '50')">Seleccionar plan</button>
+              </div>
+
+              <!-- PAQUETE 4 -->
+              <div class="km-pkg-card">
+                <span class="km-tag">Pro</span>
+                <div>
+                  <div class="km-title">1500 Créditos</div>
+                  <div class="km-subtitle">Trabajo continuo</div>
+                  <div class="km-price">S/. 100 <span>/ paquete</span></div>
+                  <ul class="km-features">
+                    <li><i class="fa-solid fa-bolt"></i> Gran saldo para operacion intensiva</li>
+                    <li><i class="fa-solid fa-check"></i> Créditos permanentes en tu cuenta</li>
+                    <li><i class="fa-solid fa-check"></i> Excelente para revendedores</li>
+                  </ul>
+                </div>
+                <button class="btn-select-km-plan" onclick="openCreditModal('1500 Créditos', '100')">Seleccionar plan</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- RENIEC PANELES CON RESULTADO -->
       <section class="custom-panel-view" id="panel-reniec-ficha">
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-id-card"></i> Consulta RENIEC (TXT / PDF / C4 / FICHA)</h2>
@@ -1878,7 +2069,7 @@
         </div>
       </section>
 
-      <!-- JUSTICIA PANELES CON RESULTADO (PUNTO 5) -->
+      <!-- JUSTICIA PANELES CON RESULTADO -->
       <section class="custom-panel-view" id="panel-justicia-denuncias">
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-shield-halved"></i> Denuncias Policiales (SIDPOL)</h2>
@@ -2206,7 +2397,7 @@
         </div>
       </section>
 
-      <!-- PANEL DE HISTORIAL LOCAL (PUNTO 4) -->
+      <!-- PANEL DE HISTORIAL LOCAL -->
       <section class="custom-panel-view" id="panel-historial">
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-clock-rotate-left"></i> Historial de Consultas Realizadas</h2>
@@ -2462,7 +2653,7 @@
         </div>
       </section>
 
-      <!-- INFRAESTRUCTURA GENERAL (EN HOME) -->
+      <!-- INFRAESTRUCTURA GENERAL -->
       <section class="rocket-infra-hero" id="infra-rocket-section">
         <div class="infra-header">
           <div class="infra-tag-wrapper">
@@ -2513,7 +2704,7 @@
         </div>
       </section>
 
-      <!-- SERVICIOS GRID GENERAL (MEJORADO EN HOME CON OSINT INTEGRADO) -->
+      <!-- SERVICIOS GRID GENERAL -->
       <section class="services-grid" id="services-container">
         
         <!-- TARJETA UNIFICADA DE SERVICIOS OSINT -->
@@ -2680,30 +2871,19 @@
       });
       overlay.addEventListener("click", closeSidebar);
 
-      // MODAL CRÉDITOS (PUNTO 3)
+      // MODAL CRÉDITOS
       const modalCredits = document.getElementById("modal-credits");
       const btnOpenCredits = document.getElementById("btn-open-credits");
       const btnCloseModal = document.getElementById("btn-close-modal");
-      const pkgCards = document.querySelectorAll(".credit-pkg-card");
-      const pkgLinkWs = document.getElementById("pkg-link-ws");
-      const pkgLinkTg = document.getElementById("pkg-link-tg");
 
       if (btnOpenCredits) {
-        btnOpenCredits.addEventListener("click", () => modalCredits.classList.add("active"));
+        btnOpenCredits.addEventListener("click", () => {
+          openPanel("panel-recarga");
+        });
       }
       if (btnCloseModal) {
         btnCloseModal.addEventListener("click", () => modalCredits.classList.remove("active"));
       }
-
-      pkgCards.forEach(card => {
-        card.addEventListener("click", () => {
-          pkgCards.forEach(c => c.classList.remove("selected"));
-          card.classList.add("selected");
-          const amount = card.getAttribute("data-amount");
-          pkgLinkWs.href = `https://wa.me/573135022169?text=Hola%2C%20deseo%20recargar%20el%20paquete%20de%20${amount}%20creditos`;
-          pkgLinkTg.href = `https://t.me/Adolf3728?text=Hola%2C%20deseo%20recargar%20el%20paquete%20de%20${amount}%20creditos`;
-        });
-      });
 
       // VISTA PREVIA FACIAL
       const fileInput = document.getElementById("facial-file-input");
@@ -2783,6 +2963,8 @@
       }
 
       document.getElementById("menu-home").addEventListener("click", (e) => { e.preventDefault(); showHome(); closeSidebar(); });
+      document.getElementById("menu-recarga").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-recarga"); });
+
       document.getElementById("menu-creacion-web").addEventListener("click", (e) => { e.preventDefault(); hideAllPanels(); if(webPlansContainer) webPlansContainer.classList.add("active"); closeSidebar(); });
       document.getElementById("card-web-btn").addEventListener("click", (e) => { e.preventDefault(); hideAllPanels(); if(webPlansContainer) webPlansContainer.classList.add("active"); closeSidebar(); });
 
@@ -2832,7 +3014,24 @@
       });
     });
 
-    // EJECUCIÓN SIMULADA Y REGISTRO DE HISTORIAL (PUNTOS 4 Y 5)
+    // ABRIR MODAL DE CRÉDITOS SELECCIONADO
+    function openCreditModal(pkgName, price) {
+      const modal = document.getElementById("modal-credits");
+      const title = document.getElementById("modal-pkg-title");
+      const priceEl = document.getElementById("modal-pkg-price");
+      const linkWs = document.getElementById("pkg-link-ws");
+      const linkTg = document.getElementById("pkg-link-tg");
+
+      title.innerText = `Recargar ${pkgName}`;
+      priceEl.innerText = `Monto a Pagar: S/. ${price}.00`;
+      
+      linkWs.href = `https://wa.me/573135022169?text=Hola%2C%20deseo%20recargar%20el%20paquete%20de%20${encodeURIComponent(pkgName)}%20por%20S/.%20${price}`;
+      linkTg.href = `https://t.me/Adolf3728?text=Hola%2C%20deseo%20recargar%20el%20paquete%20de%20${encodeURIComponent(pkgName)}%20por%20S/.%20${price}`;
+
+      modal.classList.add("active");
+    }
+
+    // EJECUCIÓN SIMULADA Y REGISTRO DE HISTORIAL
     function executeSearch(serviceName, inputId, resultBoxId) {
       const inputEl = document.getElementById(inputId);
       const inputVal = inputEl ? inputEl.value.trim() : "";
@@ -2852,7 +3051,6 @@
         const mockResult = `=== RESULTADO DE CONSULTA ROCKET ===\nServicio: ${serviceName}\nConsulta: ${inputVal}\nFecha: ${new Date().toLocaleString()}\nEstado: COMPLETADO\n-----------------------------------\n[DATOS OBTENIDOS REGISTRADOS EXITOSAMENTE]`;
         dataBox.innerText = mockResult;
 
-        // Guardar en Historial Local
         let history = JSON.parse(localStorage.getItem("rocket_history") || "[]");
         history.unshift({
           service: serviceName,
