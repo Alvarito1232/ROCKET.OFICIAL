@@ -34,6 +34,16 @@
     }
 
     /* =========================================================
+       ESTILOS DEL LOGO "SS" VECTORIAL
+       ========================================================= */
+    .ss-logo-svg {
+      display: inline-block;
+      vertical-align: middle;
+      fill: #e2e8f0;
+      transition: all 0.3s ease;
+    }
+
+    /* =========================================================
        PANTALLA DE CARGA (SPLASH SCREEN)
        ========================================================= */
     #loading-screen {
@@ -59,7 +69,6 @@
       visibility: hidden;
     }
 
-    /* Cuadro ROCKET - Edición Imponente */
     .rocket-card {
       width: min(92%, 650px);
       padding: 38px 24px;
@@ -75,14 +84,13 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 15px;
+      gap: 18px;
     }
 
-    /* Emblema Águila Vintage */
-    .eagle-emblem {
-      font-size: clamp(2rem, 5vw, 3rem);
-      color: #e2e8f0;
-      filter: drop-shadow(0 0 10px rgba(192, 132, 252, 0.8));
+    .eagle-emblem-svg {
+      width: clamp(50px, 8vw, 75px);
+      height: auto;
+      filter: drop-shadow(0 0 12px rgba(192, 132, 252, 0.9));
     }
 
     .rocket-title {
@@ -95,7 +103,6 @@
       margin-right: -0.25em;
     }
 
-    /* Contenedor Carga Minimalista */
     .loader-container {
       width: min(85%, 380px);
       display: flex;
@@ -187,16 +194,20 @@
     }
 
     .sidebar-logo-icon {
-      width: 36px;
-      height: 36px;
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
-      background: #000;
+      background: rgba(168, 85, 247, 0.1);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 800;
-      color: #fff;
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      box-shadow: 0 0 10px rgba(168, 85, 247, 0.2);
+    }
+
+    .sidebar-logo-icon .ss-logo-svg {
+      width: 22px;
+      height: 22px;
     }
 
     .sidebar-brand {
@@ -362,6 +373,12 @@
       letter-spacing: 0.15em;
     }
 
+    .top-logo-svg {
+      width: 22px;
+      height: 22px;
+      filter: drop-shadow(0 0 6px rgba(216, 180, 254, 0.8));
+    }
+
     .nav-tabs {
       display: flex;
       gap: 10px;
@@ -423,8 +440,14 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 16px;
+      gap: 20px;
       backdrop-filter: blur(8px);
+    }
+
+    .hero-logo-svg {
+      width: clamp(45px, 6vw, 65px);
+      height: auto;
+      filter: drop-shadow(0 0 12px rgba(226, 232, 240, 0.8));
     }
 
     .hero-banner-title {
@@ -604,6 +627,14 @@
 </head>
 <body>
 
+  <!-- SVG del Logo SS reutilizable mediante defs -->
+  <svg style="display:none;">
+    <g id="ss-logo-path">
+      <path d="M 65 10 C 35 10, 15 25, 20 45 C 23 58, 35 65, 52 70 L 68 75 C 80 79, 88 86, 86 98 C 83 112, 60 120, 35 115 C 22 112, 12 104, 10 95 L 2 98 C 5 112, 18 122, 35 125 C 65 129, 94 120, 96 98 C 98 78, 78 72, 62 67 L 46 62 C 32 58, 28 50, 30 42 C 33 30, 52 20, 72 22 C 82 23, 90 28, 92 35 L 100 32 C 96 22, 84 12, 65 10 Z" />
+      <path d="M 35 30 C 65 30, 85 45, 80 65 C 77 78, 65 85, 48 90 L 32 95 C 20 99, 12 106, 14 118 C 17 132, 40 140, 65 135 C 78 132, 88 124, 90 115 L 98 118 C 95 132, 82 142, 65 145 C 35 149, 6 140, 4 118 C 2 98, 22 92, 38 87 L 54 82 C 68 78, 72 70, 70 62 C 67 50, 48 40, 28 42 C 18 43, 10 48, 8 55 L 0 52 C 4 42, 16 32, 35 30 Z" opacity="0.85" />
+    </g>
+  </svg>
+
   <div class="sidebar-overlay" id="sidebar-overlay"></div>
 
   <!-- =========================================================
@@ -611,7 +642,9 @@
        ========================================================= -->
   <div id="loading-screen">
     <div class="rocket-card">
-      <i class="fa-solid fa-crow eagle-emblem"></i>
+      <svg class="ss-logo-svg eagle-emblem-svg" viewBox="0 0 100 150">
+        <use href="#ss-logo-path"></use>
+      </svg>
       <h1 class="rocket-title">ROCKET</h1>
     </div>
 
@@ -632,7 +665,11 @@
     <!-- Sidebar -->
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-header">
-        <div class="sidebar-logo-icon">R</div>
+        <div class="sidebar-logo-icon">
+          <svg class="ss-logo-svg" viewBox="0 0 100 150">
+            <use href="#ss-logo-path"></use>
+          </svg>
+        </div>
         <span class="sidebar-brand">ROCKET</span>
       </div>
 
@@ -722,7 +759,10 @@
           <i class="fa-solid fa-bars"></i>
         </button>
         <div class="top-logo">
-          <i class="fa-solid fa-crow" style="font-size:0.95rem; color:#d8b4fe;"></i> ROCKET
+          <svg class="ss-logo-svg top-logo-svg" viewBox="0 0 100 150">
+            <use href="#ss-logo-path"></use>
+          </svg>
+          ROCKET
         </div>
         <div class="nav-tabs">
           <button class="tab-btn active">TODOS</button>
@@ -736,7 +776,9 @@
 
       <!-- Banner Hero -->
       <section class="hero-banner-clean">
-        <i class="fa-solid fa-crow" style="font-size:2rem; color:#e2e8f0;"></i>
+        <svg class="ss-logo-svg hero-logo-svg" viewBox="0 0 100 150">
+          <use href="#ss-logo-path"></use>
+        </svg>
         <h1 class="hero-banner-title">ROCKET</h1>
       </section>
 
