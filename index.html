@@ -572,7 +572,119 @@
       border-color: #a855f7;
     }
 
-    /* ESTILO CHATBOT & NÚMEROS VIRTUALES */
+    /* ESTILO SECCIÓN STREAMING - NARANJA / KENNY */
+    .streaming-panel-wrapper {
+      background: linear-gradient(135deg, rgba(255, 107, 0, 0.12), rgba(15, 10, 26, 0.95));
+      border: 1.5px solid #ff6b00;
+      border-radius: 20px;
+      padding: 30px 20px;
+      box-shadow: 0 0 30px rgba(255, 107, 0, 0.25);
+    }
+
+    .kenny-avatar-box {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ff8c00, #ff4500);
+      border: 3px solid #ffaa00;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 15px auto;
+      box-shadow: 0 0 25px rgba(255, 140, 0, 0.6);
+      position: relative;
+    }
+
+    .kenny-avatar-box i {
+      font-size: 4rem;
+      color: #000;
+    }
+
+    .streaming-title {
+      font-size: clamp(1.5rem, 4vw, 2.4rem);
+      font-weight: 900;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      text-shadow: 0 0 15px rgba(255, 107, 0, 0.8);
+    }
+
+    .streaming-title span { color: #ff6b00; }
+
+    .streaming-contact-banner {
+      background: rgba(255, 107, 0, 0.15);
+      border: 1px solid #ff6b00;
+      border-radius: 14px;
+      padding: 15px 20px;
+      margin: 20px 0 30px 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .streaming-phone-tag {
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: #ffaa00;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .streaming-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 14px;
+      margin-top: 15px;
+    }
+
+    .streaming-card {
+      background: rgba(20, 12, 30, 0.85);
+      border: 1px solid rgba(255, 107, 0, 0.3);
+      border-radius: 12px;
+      padding: 16px 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-align: center;
+      transition: all 0.25s ease;
+    }
+
+    .streaming-card:hover {
+      border-color: #ff6b00;
+      background: rgba(255, 107, 0, 0.2);
+      transform: translateY(-4px);
+      box-shadow: 0 0 15px rgba(255, 107, 0, 0.4);
+    }
+
+    .streaming-card i {
+      font-size: 2.2rem;
+      color: #ffaa00;
+    }
+
+    .streaming-card span {
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .category-section-title {
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: #ffaa00;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin: 25px 0 10px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* INFO CARD GENERAL */
     .info-card-wrapper {
       background: rgba(255, 255, 255, 0.02);
       border: 1px solid rgba(168, 85, 247, 0.3);
@@ -868,7 +980,7 @@
       font-weight: 700;
     }
 
-    /* PLANES DE CREACIÓN WEB MEJORADOS */
+    /* PLANES DE CREACIÓN WEB */
     .web-plans-section {
       display: none;
       width: 100%;
@@ -1218,7 +1330,7 @@
   <svg style="display:none;">
     <g id="ss-logo-path">
       <path d="M 65 10 C 35 10, 15 25, 20 45 C 23 58, 35 65, 52 70 L 68 75 C 80 79, 88 86, 86 98 C 83 112, 60 120, 35 115 C 22 112, 12 104, 10 95 L 2 98 C 5 112, 18 122, 35 125 C 65 129, 94 120, 96 98 C 98 78, 78 72, 62 67 L 46 62 C 32 58, 28 50, 30 42 C 33 30, 52 20, 72 22 C 82 23, 90 28, 92 35 L 100 32 C 96 22, 84 12, 65 10 Z" />
-      <path d="M 35 30 C 65 30, 85 45, 80 65 C 77 78, 65 85, 48 90 L 32 95 C 20 99, 12 106, 14 118 C 17 132, 40 140, 65 135 C 78 132, 88 124, 90 115 L 98 118 C 95 132, 82 142, 65 145 C 35 149, 6 140, 4 118 C 2 98, 22 92, 38 87 L 54 82 C 68 78, 72 70, 70 62 C 67 50, 48 40, 28 42 C 18 43, 10 48, 8 55 L 0 52 C 4 42, 16 32, 35 30 Z" opacity="0.85" />
+      <path d="M 35 30 C 65 30, 85 45, 80 65 C 77 78, 65 85, 48 90 L 32 95 C 20 99, 12 106, 14 118 C 17 132, 40 140, 65 135 C 78 132, 88 124, 70 62 C 67 50, 48 40, 28 42 C 18 43, 10 48, 8 55 L 0 52 C 4 42, 16 32, 35 30 Z" opacity="0.85" />
     </g>
   </svg>
 
@@ -1324,8 +1436,8 @@
           <a href="#"><span class="nav-item-content"><i class="fa-solid fa-chart-simple"></i> Doxing</span></a>
         </li>
 
-        <li class="nav-item" data-category="STREAMING">
-          <a href="#"><span class="nav-item-content"><i class="fa-solid fa-tv"></i> Streaming</span></a>
+        <li class="nav-item" id="menu-streaming">
+          <a href="#"><span class="nav-item-content" style="color: #ffaa00;"><i class="fa-solid fa-tv" style="color:#ff6b00;"></i> Streaming & Software</span></a>
         </li>
         <li class="nav-item" id="menu-numeros-virtuales">
           <a href="#"><span class="nav-item-content"><i class="fa-solid fa-sim-card"></i> Números virtuales</span></a>
@@ -1379,7 +1491,7 @@
         <h1 class="hero-banner-title">ROCKET</h1>
       </section>
 
-      <!-- RENIEC PANELES SIN CRÉDITOS -->
+      <!-- RENIEC PANELES -->
       <section class="custom-panel-view" id="panel-reniec-ficha">
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-id-card"></i> Consulta RENIEC (TXT / PDF / C4 / FICHA)</h2>
@@ -1487,7 +1599,7 @@
         <button class="btn-search-custom" style="width:100%; justify-content:center;"><i class="fa-solid fa-magnifying-glass"></i> Identificar persona</button>
       </section>
 
-      <!-- JUSTICIA PANELES SIN CRÉDITOS -->
+      <!-- JUSTICIA PANELES -->
       <section class="custom-panel-view" id="panel-justicia-denuncias">
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-shield-halved"></i> Denuncias Policiales (SIDPOL)</h2>
@@ -1763,7 +1875,71 @@
         </div>
       </section>
 
-      <!-- NUEVO PANEL NÚMEROS VIRTUALES -->
+      <!-- SECCIÓN STREAMING EXCLUSIVA Y PERSONALIZADA (NARANJA / KENNY) -->
+      <section class="custom-panel-view" id="panel-streaming">
+        <div class="streaming-panel-wrapper">
+          
+          <!-- Avatar Estilo Kenny -->
+          <div class="kenny-avatar-box">
+            <i class="fa-solid fa-user-ninja"></i>
+          </div>
+
+          <div style="text-align: center;">
+            <h2 class="streaming-title">KENNY <span>STREAMING</span></h2>
+            <p style="font-size:0.9rem; color:#ffaa00; font-weight:800; letter-spacing:0.1em;">INSTALACIÓN DE PROGRAMAS REMOTAMENTE</p>
+          </div>
+
+          <!-- Banner Celular Exclusivo -->
+          <div class="streaming-contact-banner">
+            <div>
+              <p style="font-size:0.75rem; color:rgba(255,255,255,0.7); text-transform:uppercase; font-weight:800;">Contacto Directo Exclusivo Streaming</p>
+              <div class="streaming-phone-tag"><i class="fa-brands fa-whatsapp"></i> +51 937 089 748</div>
+            </div>
+            <div class="action-btn-group" style="margin-top:0;">
+              <a href="https://wa.me/51937089748?text=Hola%20Kenny%20Streaming%2C%20deseo%20informacion" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-action" style="background:#ff6b00;">
+                <i class="fa-brands fa-whatsapp"></i> Contactar por WhatsApp
+              </a>
+              <a href="https://t.me/Adolf3728?text=Hola%20Kenny%20Streaming%2C%20deseo%20informacion" target="_blank" rel="noopener noreferrer" class="btn-telegram-action" style="background:#e65100;">
+                <i class="fa-brands fa-telegram"></i> Contactar por Telegram
+              </a>
+            </div>
+          </div>
+
+          <!-- Cuadrícula Plataformas Streaming -->
+          <div class="category-section-title"><i class="fa-solid fa-play"></i> Cuadrícula de Plataformas</div>
+          <div class="streaming-grid">
+            <div class="streaming-card"><i class="fa-solid fa-square-n" style="color:#e50914;"></i><span>Netflix</span></div>
+            <div class="streaming-card"><i class="fa-brands fa-amazon" style="color:#00a8e1;"></i><span>Prime Video</span></div>
+            <div class="streaming-card"><i class="fa-solid fa-hand-holding-heart" style="color:#113ccf;"></i><span>Disney+</span></div>
+            <div class="streaming-card"><i class="fa-solid fa-film" style="color:#9933ff;"></i><span>HBO Max</span></div>
+            <div class="streaming-card"><i class="fa-solid fa-circle-play" style="color:#ff0055;"></i><span>ViX Premium</span></div>
+            <div class="streaming-card"><i class="fa-brands fa-youtube" style="color:#ff0000;"></i><span>YouTube Premium</span></div>
+            <div class="streaming-card"><i class="fa-brands fa-tiktok" style="color:#00f2fe;"></i><span>TikTok Live</span></div>
+          </div>
+
+          <!-- Cuadrícula Programas Remotos -->
+          <div class="category-section-title"><i class="fa-solid fa-laptop-code"></i> Instalación Remota de Programas</div>
+          <div class="streaming-grid">
+            <div class="streaming-card"><i class="fa-solid fa-file-word" style="color:#2b579a;"></i><span>Microsoft Office</span></div>
+            <div class="streaming-card"><i class="fa-solid fa-compass-drafting" style="color:#red;"></i><span>AutoCAD</span></div>
+            <div class="streaming-card"><i class="fa-solid fa-image" style="color:#31a8ff;"></i><span>Photoshop</span></div>
+            <div class="streaming-card"><i class="fa-solid fa-pen-nib" style="color:#ff9a00;"></i><span>Illustrator</span></div>
+            <div class="streaming-card"><i class="fa-solid fa-video" style="color:#9999fb;"></i><span>Premiere Pro</span></div>
+            <div class="streaming-card"><i class="fa-solid fa-file-pdf" style="color:#ff4444;"></i><span>Nitro PDF</span></div>
+            <div class="streaming-card"><i class="fa-solid fa-palette" style="color:#00c853;"></i><span>CorelDRAW 2024</span></div>
+          </div>
+
+          <!-- Cuadrícula Asistencia Remota -->
+          <div class="category-section-title"><i class="fa-solid fa-desktop"></i> Asistencia Remota Disponible</div>
+          <div class="streaming-grid">
+            <div class="streaming-card"><i class="fa-solid fa-network-wired" style="color:#ef4444;"></i><span>AnyDesk</span></div>
+            <div class="streaming-card"><i class="fa-solid fa-arrows-split-up-and-left" style="color:#00539b;"></i><span>TeamViewer</span></div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- NÚMEROS VIRTUALES PANEL -->
       <section class="custom-panel-view" id="panel-numeros-virtuales">
         <div class="info-card-wrapper">
           <i class="fa-solid fa-sim-card" style="font-size: 3rem; color: #a855f7;"></i>
@@ -1802,7 +1978,7 @@
         </div>
       </section>
 
-      <!-- PLANES DE CREACIÓN WEB CON NÚMERO DIRECTO Y MENSAJE AUTOMATIZADO TELEGRAM -->
+      <!-- PLANES DE CREACIÓN WEB -->
       <section class="web-plans-section" id="web-plans-container">
         <div class="vision-divider" style="max-width:100%; margin-bottom:15px;">
           <div class="line"></div>
@@ -1811,7 +1987,6 @@
         </div>
 
         <div class="plans-grid">
-          <!-- PLAN 1 -->
           <div class="plan-card">
             <div>
               <h3>Básico Express</h3>
@@ -1835,7 +2010,6 @@
             </div>
           </div>
 
-          <!-- PLAN 2 -->
           <div class="plan-card">
             <div>
               <h3>Estándar Lite</h3>
@@ -1859,7 +2033,6 @@
             </div>
           </div>
 
-          <!-- PLAN 3 -->
           <div class="plan-card">
             <div>
               <h3>Pro Cyber</h3>
@@ -1883,7 +2056,6 @@
             </div>
           </div>
 
-          <!-- PLAN 4 -->
           <div class="plan-card featured">
             <span class="plan-badge">MÁS VENDIDO</span>
             <div>
@@ -1908,7 +2080,6 @@
             </div>
           </div>
 
-          <!-- PLAN 5 -->
           <div class="plan-card">
             <span class="plan-badge" style="background:#22c55e;">MÁXIMO POWER</span>
             <div>
@@ -2193,6 +2364,7 @@
       document.getElementById("menu-chatbot").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-chatbot"); });
       document.getElementById("menu-numeros-virtuales").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-numeros-virtuales"); });
       document.getElementById("card-num-virt-btn").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-numeros-virtuales"); });
+      document.getElementById("menu-streaming").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-streaming"); });
       document.getElementById("menu-sentinel").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-sentinel"); });
       document.getElementById("menu-vehiculo").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-vehiculo"); });
       document.getElementById("menu-siguelo-plus").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-siguelo-plus"); });
