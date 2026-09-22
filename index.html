@@ -3,7 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- POLÍTICAS Y CABECERAS DE SEGURIDAD META -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  
   <title>ROCKET - Plataforma de Servicios</title>
+
   <!-- Google Fonts & FontAwesome Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,7 +37,7 @@
       background-attachment: fixed;
     }
 
-    /* ESTILOS DEL LOGO "SS" VECTORIAL */
+    /* LOGO "SS" VECTORIAL */
     .ss-logo-svg {
       display: inline-block;
       vertical-align: middle;
@@ -136,7 +142,7 @@
       color: rgba(226, 232, 240, 0.6);
     }
 
-    /* APP CONTAINER */
+    /* INTERFACE PRINCIPAL */
     #app-container {
       display: flex;
       min-height: 100vh;
@@ -308,7 +314,7 @@
     .dropdown-group.open .submenu { display: flex; }
     .dropdown-group.open .chevron-icon { transform: rotate(180deg); }
 
-    /* ESTILO DE BOTÓN TELEGRAM EN SIDEBAR */
+    /* BOTONES DESTACADOS SIDEBAR (TELEGRAM & GRUPO CLIENTES) */
     .nav-item.highlight-telegram a {
       background: rgba(168, 85, 247, 0.18);
       color: #e0b0ff;
@@ -321,6 +327,20 @@
       background: rgba(168, 85, 247, 0.35);
       color: #ffffff;
       box-shadow: 0 0 15px rgba(168, 85, 247, 0.3);
+    }
+
+    .nav-item.highlight-whatsapp-group a {
+      background: rgba(34, 197, 94, 0.15);
+      color: #86efac;
+      border: 1px solid rgba(34, 197, 94, 0.35);
+      margin-top: 4px;
+      border-radius: 10px;
+    }
+
+    .nav-item.highlight-whatsapp-group a:hover {
+      background: rgba(34, 197, 94, 0.3);
+      color: #ffffff;
+      box-shadow: 0 0 15px rgba(34, 197, 94, 0.3);
     }
 
     /* CONTENIDO PRINCIPAL */
@@ -778,10 +798,17 @@
           <a href="#"><span class="nav-item-content"><i class="fa-solid fa-comment-dots"></i> Chat Bot</span></a>
         </li>
 
-        <!-- Botón de Soporte Telegram con Ícono Bonito de Telegram -->
+        <!-- Botón de Soporte Telegram -->
         <li class="nav-item highlight-telegram">
-          <a href="https://t.me/Adolf3728" target="_blank">
+          <a href="https://t.me/Adolf3728" target="_blank" rel="noopener noreferrer">
             <span class="nav-item-content"><i class="fa-brands fa-telegram"></i> Soporte Telegram</span>
+          </a>
+        </li>
+
+        <!-- Botón Grupo Clientes en Sidebar -->
+        <li class="nav-item highlight-whatsapp-group">
+          <a href="https://chat.whatsapp.com/COvbjXfEXVT6caiGYmBkKI?s=cl&p=i&mlu=0&ilr=4" target="_blank" rel="noopener noreferrer">
+            <span class="nav-item-content"><i class="fa-solid fa-users"></i> Grupo Clientes</span>
           </a>
         </li>
       </ul>
@@ -810,10 +837,10 @@
 
         <!-- Redes Sociales, Grupo de Clientes y WhatsApp Directo -->
         <div class="social-contacts">
-          <a href="https://t.me/Adolf3728" target="_blank" class="social-btn" title="Telegram"><i class="fa-brands fa-telegram"></i></a>
-          <a href="https://www.instagram.com/rocket.official.pe?stkn=MXIybGJtNXpoN2wxbA%3D%3D&utm_source=qr" target="_blank" class="social-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-          <a href="https://chat.whatsapp.com/COvbjXfEXVT6caiGYmBkKI?s=cl&p=i&mlu=0&ilr=4" target="_blank" class="social-btn" title="Grupo Clientes WhatsApp"><i class="fa-solid fa-users"></i></a>
-          <a href="https://wa.me/573135022169" target="_blank" class="social-btn" title="WhatsApp Directo"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="https://t.me/Adolf3728" target="_blank" rel="noopener noreferrer" class="social-btn" title="Telegram"><i class="fa-brands fa-telegram"></i></a>
+          <a href="https://www.instagram.com/rocket.official.pe?stkn=MXIybGJtNXpoN2wxbA%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" class="social-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://chat.whatsapp.com/COvbjXfEXVT6caiGYmBkKI?s=cl&p=i&mlu=0&ilr=4" target="_blank" rel="noopener noreferrer" class="social-btn" title="Grupo Clientes WhatsApp"><i class="fa-solid fa-users"></i></a>
+          <a href="https://wa.me/573135022169" target="_blank" rel="noopener noreferrer" class="social-btn" title="WhatsApp Directo"><i class="fa-brands fa-whatsapp"></i></a>
         </div>
       </header>
 
@@ -842,7 +869,7 @@
             </div>
             <div class="card-footer">
               <span class="card-time"><i class="fa-regular fa-clock"></i> 2-4 días</span>
-              <a href="https://t.me/Adolf3728" target="_blank" class="card-btn">Solicitar <i class="fa-solid fa-arrow-right"></i></a>
+              <a href="https://t.me/Adolf3728" target="_blank" rel="noopener noreferrer" class="card-btn">Solicitar <i class="fa-solid fa-arrow-right"></i></a>
             </div>
           </div>
         </div>
@@ -860,7 +887,7 @@
             </div>
             <div class="card-footer">
               <span class="card-time"><i class="fa-regular fa-clock"></i> 24-48 hrs</span>
-              <a href="https://t.me/Adolf3728" target="_blank" class="card-btn">Solicitar <i class="fa-solid fa-arrow-right"></i></a>
+              <a href="https://t.me/Adolf3728" target="_blank" rel="noopener noreferrer" class="card-btn">Solicitar <i class="fa-solid fa-arrow-right"></i></a>
             </div>
           </div>
         </div>
@@ -876,7 +903,7 @@
             <p class="card-desc">Análisis profundo de fuentes abiertas, huella digital, conexiones de números y registros estructurados en informe gráfico detallado.</p>
             <div class="card-footer">
               <span class="card-time"><i class="fa-regular fa-clock"></i> Entrega Rápida</span>
-              <a href="https://t.me/Adolf3728" target="_blank" class="card-btn">Solicitar Informe <i class="fa-solid fa-arrow-right"></i></a>
+              <a href="https://t.me/Adolf3728" target="_blank" rel="noopener noreferrer" class="card-btn">Solicitar Informe <i class="fa-solid fa-arrow-right"></i></a>
             </div>
           </div>
         </div>
@@ -892,7 +919,7 @@
             <p class="card-desc">Cuentas completas y perfiles privados con garantía total de duración y calidad Ultra HD 4K sin interrupciones.</p>
             <div class="card-footer">
               <span class="card-time"><i class="fa-regular fa-clock"></i> Activación Inmediata</span>
-              <a href="https://t.me/Adolf3728" target="_blank" class="card-btn">Obtener Cuenta <i class="fa-solid fa-arrow-right"></i></a>
+              <a href="https://t.me/Adolf3728" target="_blank" rel="noopener noreferrer" class="card-btn">Obtener Cuenta <i class="fa-solid fa-arrow-right"></i></a>
             </div>
           </div>
         </div>
@@ -908,7 +935,7 @@
             <p class="card-desc">Redacción, estructuración, revisión antiplagio y aplicación estricta de normas APA/Vancouver.</p>
             <div class="card-footer">
               <span class="card-time"><i class="fa-regular fa-clock"></i> Según proyecto</span>
-              <a href="https://t.me/Adolf3728" target="_blank" class="card-btn">Solicitar <i class="fa-solid fa-arrow-right"></i></a>
+              <a href="https://t.me/Adolf3728" target="_blank" rel="noopener noreferrer" class="card-btn">Solicitar <i class="fa-solid fa-arrow-right"></i></a>
             </div>
           </div>
         </div>
@@ -923,19 +950,18 @@
             <p class="card-desc">Edición audiovisual profesional para exposiciones, proyectos académicos y presentaciones de alto impacto.</p>
             <div class="card-footer">
               <span class="card-time"><i class="fa-regular fa-clock"></i> 24-48 hrs</span>
-              <a href="https://t.me/Adolf3728" target="_blank" class="card-btn">Solicitar <i class="fa-solid fa-arrow-right"></i></a>
+              <a href="https://t.me/Adolf3728" target="_blank" rel="noopener noreferrer" class="card-btn">Solicitar <i class="fa-solid fa-arrow-right"></i></a>
             </div>
           </div>
         </div>
 
       </section>
 
-      <!-- SECCIÓN GUERRA TOTAL Y BANDERAS (IMÁGENES CARGADAS) -->
+      <!-- SECCIÓN GUERRA TOTAL Y BANDERAS -->
       <section class="guerra-total-section">
         <span class="guerra-tag">GUERRA TOTAL</span>
         <p class="quote-text">"Si el destino no nos abre la puerta, la derribamos. Dominio total en cada byte."</p>
 
-        <!-- Banderas usando exactamente los nombres de tus archivos subidos -->
         <div class="flags-container">
           <img src="mexico.jpg" class="flag-img" alt="México" title="México">
           <img src="jamaica.png" class="flag-img" alt="Jamaica" title="Jamaica">
@@ -958,6 +984,18 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
+      // PROTECCIÓN Y SEGURIDAD BÁSICA FRONT-END
+      document.addEventListener("contextmenu", e => e.preventDefault());
+      document.addEventListener("keydown", e => {
+        if (
+          e.key === "F12" ||
+          (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "J" || e.key === "C")) ||
+          (e.ctrlKey && e.key === "u")
+        ) {
+          e.preventDefault();
+        }
+      });
+
       // PANTALLA DE CARGA
       const progressFill = document.getElementById("progress-fill");
       const progressText = document.getElementById("progress-text");
