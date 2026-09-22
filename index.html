@@ -490,7 +490,7 @@
       text-align: center;
     }
 
-    /* PANELES DE CONSULTA */
+    /* PANELES DE CONSULTA GENERALES */
     .custom-panel-view {
       display: none;
       width: 100%;
@@ -584,7 +584,7 @@
       border-color: #a855f7;
     }
 
-    /* DROPZONE PARA SUBIR IMÁGENES / GALERÍA EN RECONOCIMIENTO FACIAL */
+    /* FACIAL DROPZONE */
     .dropzone-facial {
       position: relative;
       border: 2px dashed rgba(168, 85, 247, 0.4);
@@ -624,6 +624,30 @@
       border: 2px solid #a855f7;
       margin-top: 10px;
       display: none;
+    }
+
+    /* PABS SUB-TAB PARA SÍGUELO PLUS */
+    .sub-tabs-container {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .sub-tab-btn {
+      padding: 10px 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      color: #fff;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .sub-tab-btn.active {
+      background: rgba(168, 85, 247, 0.3);
+      border-color: #a855f7;
     }
 
     /* SECCIÓN INFRAESTRUCTURA */
@@ -1039,7 +1063,7 @@
       font-size: 0.88rem;
     }
 
-    /* SECCIÓN FINAL BANDERAS */
+    /* BANDERAS */
     .guerra-total-section {
       width: 100%;
       padding: 32px 20px;
@@ -1190,7 +1214,7 @@
 
   <div id="app-container">
     
-    <!-- SIDEBAR -->
+    <!-- SIDEBAR DE NAVEGACIÓN COMPLETO -->
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-header">
         <div class="sidebar-logo-icon">
@@ -1218,7 +1242,7 @@
           <a href="#"><span class="nav-item-content"><i class="fa-solid fa-building"></i> Sunarp</span></a>
         </li>
 
-        <!-- RENIEC DROPDOWN -->
+        <!-- RENIEC -->
         <li class="nav-item dropdown-group open" id="dropdown-reniec">
           <div class="dropdown-trigger">
             <span class="nav-item-content"><i class="fa-solid fa-id-card"></i> Reniec</span>
@@ -1233,7 +1257,7 @@
           </ul>
         </li>
 
-        <!-- JUSTICIA DROPDOWN (AÑADIDO JUSTO DEBAJO DE RENIEC) -->
+        <!-- JUSTICIA -->
         <li class="nav-item dropdown-group open" id="dropdown-justicia">
           <div class="dropdown-trigger">
             <span class="nav-item-content"><i class="fa-solid fa-folder"></i> Justicia</span>
@@ -1245,6 +1269,23 @@
             <li><a href="#" id="justicia-requisitorias">Requisitorias</a></li>
             <li><a href="#" id="justicia-policia">Policia</a></li>
           </ul>
+        </li>
+
+        <!-- NUEVOS ELEMENTOS DE MENÚ -->
+        <li class="nav-item" id="menu-sentinel">
+          <a href="#"><span class="nav-item-content"><i class="fa-solid fa-shield-halved"></i> Sentinel</span></a>
+        </li>
+        <li class="nav-item" id="menu-vehiculo">
+          <a href="#"><span class="nav-item-content"><i class="fa-solid fa-car"></i> Vehículo</span></a>
+        </li>
+        <li class="nav-item" id="menu-siguelo-plus">
+          <a href="#"><span class="nav-item-content"><i class="fa-solid fa-car-side"></i> Síguelo Plus</span></a>
+        </li>
+        <li class="nav-item" id="menu-actas">
+          <a href="#"><span class="nav-item-content"><i class="fa-solid fa-file-lines"></i> Actas</span></a>
+        </li>
+        <li class="nav-item" id="menu-doxing">
+          <a href="#"><span class="nav-item-content"><i class="fa-solid fa-chart-simple"></i> Doxing</span></a>
         </li>
 
         <li class="nav-item" data-category="STREAMING">
@@ -1394,7 +1435,6 @@
         </div>
       </section>
 
-      <!-- RECONOCIMIENTO FACIAL CON CARGA DE GALERÍA Y ARCHIVOS INTERACTIVA -->
       <section class="custom-panel-view" id="panel-reniec-facial">
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-user-astronaut"></i> Facial Server - ID Perú</h2>
@@ -1419,8 +1459,6 @@
       </section>
 
       <!-- JUSTICIA PANELES -->
-      
-      <!-- 1. DENUNCIAS POLICIALES (SIDPOL - 8 CRÉDITOS) -->
       <section class="custom-panel-view" id="panel-justicia-denuncias">
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-shield-halved"></i> Denuncias Policiales (SIDPOL)</h2>
@@ -1442,7 +1480,6 @@
         <p style="font-size:0.75rem; color:rgba(255,255,255,0.5); text-align:center; margin-top:10px;">Por ahora solo está habilitado: Denuncias policiales.</p>
       </section>
 
-      <!-- 2. ANTECEDENTES (8 CRÉDITOS) -->
       <section class="custom-panel-view" id="panel-justicia-antecedentes">
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-file-contract"></i> Consulta Antecedentes</h2>
@@ -1465,7 +1502,6 @@
         </div>
       </section>
 
-      <!-- 3. REQUISITORIAS (e-SINPOL - 10 CRÉDITOS) -->
       <section class="custom-panel-view" id="panel-justicia-requisitorias">
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-handcuffs"></i> Consulta Requisitorias (e-SINPOL)</h2>
@@ -1487,7 +1523,6 @@
         </div>
       </section>
 
-      <!-- 4. POLICÍA PNP (5 CRÉDITOS) -->
       <section class="custom-panel-view" id="panel-justicia-policia">
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-user-shield"></i> Consulta Personal Policial (PNP)</h2>
@@ -1508,6 +1543,132 @@
           </div>
           <button class="btn-search-custom"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
         </div>
+      </section>
+
+      <!-- 1. SENTINEL PANEL -->
+      <section class="custom-panel-view" id="panel-sentinel">
+        <div class="panel-header-custom">
+          <h2 class="panel-title-custom"><i class="fa-solid fa-shield-halved"></i> Sentinel</h2>
+          <p style="font-size:0.8rem; color:rgba(255,255,255,0.6); margin-top:4px;">Consulta reportes PDF de Sentinel V2 o SBS.</p>
+          <span class="credits-badge"><i class="fa-solid fa-coins"></i> Costo: 15 cr</span>
+        </div>
+        <div class="panel-form-row">
+          <div class="form-group-custom">
+            <label>DNI / RUC</label>
+            <input type="text" class="form-input-custom" placeholder="Ej: 70318551 o 20123456789">
+          </div>
+          <div class="form-group-custom">
+            <label>Proveedor</label>
+            <select class="form-select-custom">
+              <option>Sentinel V2 (15 cr)</option>
+              <option>SBS - Reporte de Deudas (15 cr)</option>
+            </select>
+          </div>
+          <button class="btn-search-custom"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
+        </div>
+        <p style="font-size:0.72rem; color:rgba(255,255,255,0.4); text-align:center; margin-top:8px;">Sentinel V2: DNI de 8 dígitos.</p>
+      </section>
+
+      <!-- 2. VEHÍCULO / TIVE PANEL -->
+      <section class="custom-panel-view" id="panel-vehiculo">
+        <div class="panel-header-custom">
+          <h2 class="panel-title-custom"><i class="fa-solid fa-car"></i> Vehículo (TIVE)</h2>
+          <p style="font-size:0.8rem; color:rgba(255,255,255,0.6); margin-top:4px;">Consulta Vehicular (SUNARP + TIVE + SOAT + Boletín + Asientos).</p>
+          <span class="credits-badge"><i class="fa-solid fa-coins"></i> Placa: 3 cr · TIVE: 8 cr · Rev. Técnica: 8 cr</span>
+        </div>
+        <div class="panel-form-row">
+          <div class="form-group-custom">
+            <label>Placa</label>
+            <input type="text" class="form-input-custom" placeholder="Ej: Z1270Q">
+          </div>
+          <div class="form-group-custom">
+            <label>Tipo de consulta</label>
+            <select class="form-select-custom">
+              <option>Datos vehiculares SUNARP (3 cr)</option>
+              <option>TIVE (8 cr)</option>
+              <option>TIVE Respaldo (8 cr)</option>
+              <option>TIVE Plantilla (8 cr)</option>
+              <option>Boletín (8 cr)</option>
+              <option>SOAT (3 cr)</option>
+              <option>Asientos (8 cr)</option>
+              <option>Rev. Técnica (8 cr)</option>
+            </select>
+          </div>
+          <button class="btn-search-custom"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
+        </div>
+        <p style="font-size:0.72rem; color:rgba(255,255,255,0.4); text-align:center; margin-top:8px;">Solo letras y números, sin espacios.</p>
+      </section>
+
+      <!-- 3. SÍGUELO PLUS PANEL -->
+      <section class="custom-panel-view" id="panel-siguelo-plus">
+        <div class="panel-header-custom">
+          <h2 class="panel-title-custom"><i class="fa-solid fa-car-side"></i> Síguelo Plus - Vehicular Avanzado</h2>
+          <p style="font-size:0.8rem; color:rgba(255,255,255,0.6); margin-top:4px;">OCR · Propietarios · TIVE · SOAT · Rev. Técnica · Asientos PDF</p>
+          <span class="credits-badge"><i class="fa-solid fa-coins"></i> Costo: 15 cr</span>
+        </div>
+
+        <div class="sub-tabs-container">
+          <button class="sub-tab-btn active" id="subtab-placa"><i class="fa-solid fa-id-card"></i> Por Placa (OCR + SUNARP + TIVE + SOAT)</button>
+          <button class="sub-tab-btn" id="subtab-vin"><i class="fa-solid fa-barcode"></i> Por VIN / Serie</button>
+        </div>
+
+        <div class="panel-form-row">
+          <div class="form-group-custom" id="group-siguelo-input">
+            <label id="label-siguelo-input">PLACA VEHICULAR</label>
+            <input type="text" class="form-input-custom" placeholder="Ej: ABC123">
+          </div>
+          <button class="btn-search-custom"><i class="fa-solid fa-magnifying-glass"></i> Consultar placa</button>
+        </div>
+      </section>
+
+      <!-- 4. ACTAS PANEL -->
+      <section class="custom-panel-view" id="panel-actas">
+        <div class="panel-header-custom">
+          <h2 class="panel-title-custom"><i class="fa-solid fa-file-lines"></i> ACTAS</h2>
+          <p style="font-size:0.8rem; color:rgba(255,255,255,0.6); margin-top:4px;">Brevete · Nacimiento · Migraciones · Estudios · Matrimonio · Defunción</p>
+          <span class="credits-badge"><i class="fa-solid fa-coins"></i> Costo: 5 créditos</span>
+        </div>
+        <div class="panel-form-row">
+          <div class="form-group-custom">
+            <label>DNI</label>
+            <input type="text" class="form-input-custom" placeholder="Ej: 27835459" maxlength="8">
+          </div>
+          <div class="form-group-custom">
+            <label>Tipo de consulta</label>
+            <select class="form-select-custom">
+              <option>Brevete</option>
+              <option>Acta de nacimiento</option>
+              <option>Movimientos migratorios</option>
+              <option>Certificado de estudios</option>
+              <option>Acta de matrimonio</option>
+              <option>Acta de defunción</option>
+            </select>
+          </div>
+          <button class="btn-search-custom"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
+        </div>
+      </section>
+
+      <!-- 5. DOXING / INFO BURO PANEL -->
+      <section class="custom-panel-view" id="panel-doxing">
+        <div class="panel-header-custom">
+          <h2 class="panel-title-custom"><i class="fa-solid fa-chart-simple"></i> INFO BURO (Doxing)</h2>
+          <p style="font-size:0.8rem; color:rgba(255,255,255,0.6); margin-top:4px;">Consulta por secciones: generales, contacto, familia, empresas, Essalud, finanzas y vehículos.</p>
+          <span class="credits-badge"><i class="fa-solid fa-coins"></i> Costo: 8 créditos</span>
+        </div>
+        <div class="panel-form-row">
+          <div class="form-group-custom">
+            <label>DNI</label>
+            <input type="text" class="form-input-custom" placeholder="Ej: 70364031" maxlength="8">
+          </div>
+          <div class="form-group-custom">
+            <label>Proveedor</label>
+            <select class="form-select-custom">
+              <option>Infoburo</option>
+            </select>
+          </div>
+          <button class="btn-search-custom"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
+        </div>
+        <p style="font-size:0.72rem; color:rgba(255,255,255,0.4); text-align:center; margin-top:8px;">Sisgo aún no está disponible.</p>
       </section>
 
       <!-- OSIPTEL Y SUNARP -->
@@ -1814,35 +1975,60 @@
         paymentModal.classList.remove("active");
       });
 
-      // MANEJO DE VISTA PREVIA Y CARGA DE ARCHIVOS EN RECONOCIMIENTO FACIAL
+      // VISTA PREVIA FACIAL
       const fileInput = document.getElementById("facial-file-input");
       const previewImg = document.getElementById("facial-preview");
       const clearBtn = document.getElementById("btn-clear-facial");
       const cameraBtn = document.getElementById("btn-camera-facial");
 
-      fileInput.addEventListener("change", (e) => {
-        const file = e.target.files[0];
-        if (file) {
-          const reader = new FileReader();
-          reader.onload = (event) => {
-            previewImg.src = event.target.result;
-            previewImg.style.display = "inline-block";
-          };
-          reader.readAsDataURL(file);
-        }
-      });
+      if(fileInput) {
+        fileInput.addEventListener("change", (e) => {
+          const file = e.target.files[0];
+          if (file) {
+            const reader = new FileReader();
+            reader.onload = (event) => {
+              previewImg.src = event.target.result;
+              previewImg.style.display = "inline-block";
+            };
+            reader.readAsDataURL(file);
+          }
+        });
+      }
 
-      clearBtn.addEventListener("click", () => {
-        fileInput.value = "";
-        previewImg.src = "";
-        previewImg.style.display = "none";
-      });
+      if(clearBtn) {
+        clearBtn.addEventListener("click", () => {
+          fileInput.value = "";
+          previewImg.src = "";
+          previewImg.style.display = "none";
+        });
+      }
 
-      cameraBtn.addEventListener("click", () => {
-        fileInput.click();
-      });
+      if(cameraBtn) {
+        cameraBtn.addEventListener("click", () => {
+          fileInput.click();
+        });
+      }
 
-      // RUTAS Y NAVEGACIÓN DE VISTAS
+      // SUBTABS SÍGUELO PLUS
+      const subtabPlaca = document.getElementById("subtab-placa");
+      const subtabVin = document.getElementById("subtab-vin");
+      const labelSigueloInput = document.getElementById("label-siguelo-input");
+
+      if (subtabPlaca && subtabVin) {
+        subtabPlaca.addEventListener("click", () => {
+          subtabPlaca.classList.add("active");
+          subtabVin.classList.remove("active");
+          labelSigueloInput.innerText = "PLACA VEHICULAR";
+        });
+
+        subtabVin.addEventListener("click", () => {
+          subtabVin.classList.add("active");
+          subtabPlaca.classList.remove("active");
+          labelSigueloInput.innerText = "NÚMERO DE VIN / SERIE";
+        });
+      }
+
+      // NAVEGACIÓN GENERAL DE PANELES
       const panels = document.querySelectorAll(".custom-panel-view");
       const webPlansContainer = document.getElementById("web-plans-container");
       const infraSection = document.getElementById("infra-rocket-section");
@@ -1864,7 +2050,8 @@
 
       function openPanel(id) {
         hideAllPanels();
-        document.getElementById(id).classList.add("active");
+        const p = document.getElementById(id);
+        if(p) p.classList.add("active");
         closeSidebar();
       }
 
@@ -1885,6 +2072,13 @@
       document.getElementById("justicia-antecedentes").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-justicia-antecedentes"); });
       document.getElementById("justicia-requisitorias").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-justicia-requisitorias"); });
       document.getElementById("justicia-policia").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-justicia-policia"); });
+
+      // NUEVAS OPCIONES
+      document.getElementById("menu-sentinel").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-sentinel"); });
+      document.getElementById("menu-vehiculo").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-vehiculo"); });
+      document.getElementById("menu-siguelo-plus").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-siguelo-plus"); });
+      document.getElementById("menu-actas").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-actas"); });
+      document.getElementById("menu-doxing").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-doxing"); });
 
       // DROPDOWNS
       document.querySelectorAll(".dropdown-trigger").forEach(trig => {
