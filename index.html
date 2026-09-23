@@ -4,8 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   
+  <!-- CABECERAS DE SEGURIDAD BLINDADAS -->
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="Permissions-Policy" content="geolocation=(self), microphone=(), camera=()">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com 'unsafe-inline' data:; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com data:;">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   
   <title>ROCKET - Plataforma de Servicios</title>
@@ -1749,7 +1752,7 @@
 
         <div style="text-align: left; margin: 20px 0; background: rgba(255,255,255,0.03); padding: 15px; border-radius: 12px; border: 1px solid rgba(168,85,247,0.2);">
           <label style="font-size: 0.72rem; font-weight: 800; color: #d8b4fe; text-transform: uppercase;">A nombre de quién sale el Yape:</label>
-          <input type="text" id="yape-payer-name" placeholder="Ej: Juan Perez" style="width: 100%; padding: 10px; margin-top: 6px; background: rgba(0,0,0,0.5); border: 1px solid rgba(168,85,247,0.4); border-radius: 8px; color: #fff; font-size: 0.88rem; outline: none;">
+          <input type="text" id="yape-payer-name" placeholder="Ej: Juan Perez" maxlength="50" style="width: 100%; padding: 10px; margin-top: 6px; background: rgba(0,0,0,0.5); border: 1px solid rgba(168,85,247,0.4); border-radius: 8px; color: #fff; font-size: 0.88rem; outline: none;">
         </div>
 
         <button class="btn-yape-submit" style="background: #22c55e; border-color: #22c55e;" onclick="confirmYapeBot()"><i class="fa-solid fa-circle-check"></i> Confirmar Pago</button>
@@ -2094,7 +2097,7 @@
         <div class="panel-form-row">
           <div class="form-group-custom">
             <label>Nombres / Apellidos</label>
-            <input type="text" id="input-reniec-nom" class="form-input-custom" placeholder="PEDRO CASTILLO TERRONES">
+            <input type="text" id="input-reniec-nom" class="form-input-custom" placeholder="PEDRO CASTILLO TERRONES" maxlength="100">
           </div>
           <button class="btn-search-custom" onclick="executeSearch('RENIEC Nombres', 'input-reniec-nom', 'res-reniec-nom')"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
         </div>
@@ -2181,7 +2184,7 @@
         </div>
         
         <div class="dropzone-facial" id="dropzone-facial-container">
-          <input type="file" id="facial-file-input" accept="image/*">
+          <input type="file" id="facial-file-input" accept="image/png, image/jpeg, image/webp">
           <i class="fa-solid fa-cloud-arrow-up"></i>
           <p style="font-size:0.9rem; font-weight:700;">Arrastra tu foto aquí o <span style="color:#d8b4fe; text-decoration:underline;">selecciona</span></p>
           <p style="font-size:0.75rem; color:rgba(255,255,255,0.5); margin-top:4px;">JPG · PNG · WEBP — hasta 15 MB</p>
@@ -2286,7 +2289,7 @@
         <div class="panel-form-row">
           <div class="form-group-custom">
             <label>Valor (DNI / CIP)</label>
-            <input type="text" id="input-justicia-pnp" class="form-input-custom" placeholder="Ej: 78678760">
+            <input type="text" id="input-justicia-pnp" class="form-input-custom" placeholder="Ej: 78678760" maxlength="20">
           </div>
           <button class="btn-search-custom" onclick="executeSearch('Consulta PNP', 'input-justicia-pnp', 'res-justicia-pnp')"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
         </div>
@@ -2312,7 +2315,7 @@
         <div class="panel-form-row">
           <div class="form-group-custom">
             <label>VALOR A CONSULTAR</label>
-            <input type="text" id="input-persona-plus" class="form-input-custom" placeholder="Ej: 12345678" maxlength="8">
+            <input type="text" id="input-persona-plus" class="form-input-custom" placeholder="Ej: 12345678" maxlength="15">
           </div>
           <button class="btn-search-custom" onclick="executeSearch('Persona Plus', 'input-persona-plus', 'res-persona-plus')"><i class="fa-solid fa-magnifying-glass"></i> Consultar</button>
         </div>
@@ -2337,7 +2340,7 @@
         <div class="panel-form-row">
           <div class="form-group-custom">
             <label>Valor a consultar</label>
-            <input type="text" id="input-sunat" class="form-input-custom" placeholder="Ej: 10001088">
+            <input type="text" id="input-sunat" class="form-input-custom" placeholder="Ej: 10001088" maxlength="15">
           </div>
           <button class="btn-search-custom" onclick="executeSearch('SUNAT Consumos', 'input-sunat', 'res-sunat')"><i class="fa-solid fa-magnifying-glass"></i> Consultar</button>
         </div>
@@ -2362,7 +2365,7 @@
         <div class="panel-form-row">
           <div class="form-group-custom">
             <label>DNI / RUC</label>
-            <input type="text" id="input-sentinel" class="form-input-custom" placeholder="Ej: 70318551 o 20123456789">
+            <input type="text" id="input-sentinel" class="form-input-custom" placeholder="Ej: 70318551 o 20123456789" maxlength="11">
           </div>
           <button class="btn-search-custom" onclick="executeSearch('Sentinel RIESGO', 'input-sentinel', 'res-sentinel')"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
         </div>
@@ -2387,7 +2390,7 @@
         <div class="panel-form-row">
           <div class="form-group-custom">
             <label>Placa</label>
-            <input type="text" id="input-vehiculo" class="form-input-custom" placeholder="Ej: Z1270Q">
+            <input type="text" id="input-vehiculo" class="form-input-custom" placeholder="Ej: Z1270Q" maxlength="10">
           </div>
           <button class="btn-search-custom" onclick="executeSearch('Vehicular TIVE', 'input-vehiculo', 'res-vehiculo')"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
         </div>
@@ -2418,7 +2421,7 @@
         <div class="panel-form-row">
           <div class="form-group-custom" id="group-siguelo-input">
             <label id="label-siguelo-input">PLACA VEHICULAR</label>
-            <input type="text" id="input-siguelo" class="form-input-custom" placeholder="Ej: ABC123">
+            <input type="text" id="input-siguelo" class="form-input-custom" placeholder="Ej: ABC123" maxlength="20">
           </div>
           <button class="btn-search-custom" onclick="executeSearch('Síguelo Plus Placa', 'input-siguelo', 'res-siguelo')"><i class="fa-solid fa-magnifying-glass"></i> Consultar placa</button>
         </div>
@@ -2493,7 +2496,7 @@
         <div class="panel-form-row">
           <div class="form-group-custom">
             <label>DNI / Documento</label>
-            <input type="text" id="input-osiptel" class="form-input-custom" placeholder="Ej: 70364031" maxlength="8">
+            <input type="text" id="input-osiptel" class="form-input-custom" placeholder="Ej: 70364031" maxlength="12">
           </div>
           <button class="btn-search-custom" onclick="executeSearch('OSIPTEL Teléfonos', 'input-osiptel', 'res-osiptel')"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
         </div>
@@ -2971,6 +2974,14 @@
   <script>
     let activePlanData = {};
 
+    // FUNCIÓN DE SEGURIDAD PARA ESCAPAR Y PREVENIR XSS / INYECCIONES
+    function sanitizeInput(str) {
+      if (typeof str !== 'string') return '';
+      return str.replace(/[&<>'"]/g, 
+        tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
+      );
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
       document.addEventListener("contextmenu", e => e.preventDefault());
 
@@ -3033,7 +3044,7 @@
         });
       }
 
-      // VISTA PREVIA FACIAL
+      // VISTA PREVIA FACIAL CON VALIDACIÓN DE TAMAÑO Y TIPO DE ARCHIVO
       const fileInput = document.getElementById("facial-file-input");
       const previewImg = document.getElementById("facial-preview");
       const clearBtn = document.getElementById("btn-clear-facial");
@@ -3043,6 +3054,11 @@
         fileInput.addEventListener("change", (e) => {
           const file = e.target.files[0];
           if (file) {
+            if (file.size > 15 * 1024 * 1024) {
+              alert("El archivo es demasiado pesado. Máximo 15 MB.");
+              fileInput.value = "";
+              return;
+            }
             const reader = new FileReader();
             reader.onload = (event) => {
               previewImg.src = event.target.result;
@@ -3176,11 +3192,13 @@
       document.getElementById("modal-credits").classList.add("active");
     }
 
-    // CONFIRMACIÓN Y LECTURA CON EL BOT
+    // CONFIRMACIÓN Y LECTURA CON EL BOT (CON VALIDACIÓN DE SEGURIDAD)
     function confirmYapeBot() {
-      const payerName = document.getElementById("yape-payer-name").value.trim();
-      if (!payerName) {
-        alert("Por favor ingresa el nombre de la persona que realiza el Yape.");
+      const rawPayerName = document.getElementById("yape-payer-name").value;
+      const payerName = sanitizeInput(rawPayerName.trim());
+      
+      if (!payerName || payerName.length < 2) {
+        alert("Por favor ingresa un nombre de titular válido.");
         return;
       }
 
@@ -3188,10 +3206,12 @@
       document.getElementById("modal-credits").classList.remove("active");
     }
 
-    // EJECUCIÓN SIMULADA Y REGISTRO DE HISTORIAL
+    // EJECUCIÓN SIMULADA Y REGISTRO DE HISTORIAL (SANITIZADA)
     function executeSearch(serviceName, inputId, resultBoxId) {
       const inputEl = document.getElementById(inputId);
-      const inputVal = inputEl ? inputEl.value.trim() : "";
+      const rawVal = inputEl ? inputEl.value : "";
+      const inputVal = sanitizeInput(rawVal.trim());
+
       if (!inputVal) {
         alert("Por favor ingresa un valor válido para consultar.");
         return;
@@ -3202,19 +3222,23 @@
 
       const dataBox = resBox.querySelector(".result-data-content");
       resBox.style.display = "block";
-      dataBox.innerHTML = `[PROCESANDO CONSULTA CON INDEX.JS BOT...]\nConsultando servicio: ${serviceName}\nValor: ${inputVal}\nEspere un momento...`;
+      dataBox.innerHTML = `[PROCESANDO CONSULTA CON INDEX.JS BOT...]\nConsultando servicio: ${sanitizeInput(serviceName)}\nValor: ${inputVal}\nEspere un momento...`;
 
       setTimeout(() => {
-        const mockResult = `=== RESULTADO DE CONSULTA ROCKET ===\nServicio: ${serviceName}\nConsulta: ${inputVal}\nFecha: ${new Date().toLocaleString()}\nEstado: COMPLETADO\n-----------------------------------\n[DATOS OBTENIDOS REGISTRADOS EXITOSAMENTE]`;
+        const mockResult = `=== RESULTADO DE CONSULTA ROCKET ===\nServicio: ${sanitizeInput(serviceName)}\nConsulta: ${inputVal}\nFecha: ${new Date().toLocaleString()}\nEstado: COMPLETADO\n-----------------------------------\n[DATOS OBTENIDOS REGISTRADOS EXITOSAMENTE]`;
         dataBox.innerText = mockResult;
 
         let history = JSON.parse(localStorage.getItem("rocket_history") || "[]");
         history.unshift({
-          service: serviceName,
+          service: sanitizeInput(serviceName),
           value: inputVal,
           date: new Date().toLocaleString(),
           status: "Exitoso"
         });
+        
+        // Limitar historial máximo para evitar saturación de almacenamiento local
+        if (history.length > 50) history = history.slice(0, 50);
+        
         localStorage.setItem("rocket_history", JSON.stringify(history));
       }, 1000);
     }
@@ -3251,12 +3275,12 @@
       });
     }
 
-    // EXPORTAR A PDF (IMPRESIÓN)
+    // EXPORTAR A PDF (IMPRESIÓN SEGURA)
     function exportPDF(dataBoxId, fileName) {
       const el = document.getElementById(dataBoxId);
       if (!el) return;
       const printWindow = window.open("", "", "width=800,height=600");
-      printWindow.document.write(`<pre style="font-family:monospace; padding:20px; font-size:14px; background:#000; color:#fff;">${el.innerText}</pre>`);
+      printWindow.document.write(`<pre style="font-family:monospace; padding:20px; font-size:14px; background:#000; color:#fff;">${sanitizeInput(el.innerText)}</pre>`);
       printWindow.document.close();
       printWindow.focus();
       printWindow.print();
@@ -3275,10 +3299,10 @@
 
       tbody.innerHTML = history.map(item => `
         <tr>
-          <td><strong style="color:#d8b4fe;">${item.service}</strong></td>
-          <td>${item.value}</td>
-          <td style="color:rgba(255,255,255,0.6);">${item.date}</td>
-          <td><span style="color:#86efac; font-weight:800;">● ${item.status}</span></td>
+          <td><strong style="color:#d8b4fe;">${sanitizeInput(item.service)}</strong></td>
+          <td>${sanitizeInput(item.value)}</td>
+          <td style="color:rgba(255,255,255,0.6);">${sanitizeInput(item.date)}</td>
+          <td><span style="color:#86efac; font-weight:800;">● ${sanitizeInput(item.status)}</span></td>
         </tr>
       `).join("");
     }
