@@ -906,50 +906,76 @@
       display: inline-block;
     }
 
-    /* ESTILO SECCIÓN STREAMING EXCLUSIVA Y OPTIMIZADA */
+    /* ESTILO SECCIÓN STREAMING EXCLUSIVA Y OPTIMIZADA (PRECIOSA) */
     .streaming-panel-wrapper {
-      background: linear-gradient(135deg, rgba(255, 107, 0, 0.12), rgba(15, 10, 26, 0.95));
+      background: linear-gradient(135deg, rgba(255, 107, 0, 0.15), rgba(15, 10, 26, 0.98));
       border: 1.5px solid #ff6b00;
-      border-radius: 20px;
-      padding: 30px 20px;
-      box-shadow: 0 0 30px rgba(255, 107, 0, 0.25);
-    }
-
-    .kenny-banner-grid {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
-    }
-
-    .kenny-avatar-box {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #ff8c00, #ff4500);
-      border: 3px solid #ffaa00;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 0 25px rgba(255, 140, 0, 0.6);
+      border-radius: 24px;
+      padding: 35px 25px;
+      box-shadow: 0 0 45px rgba(255, 107, 0, 0.35);
+      position: relative;
       overflow: hidden;
     }
 
-    .kenny-avatar-box img {
+    /* Banner con foto principal de Kenny al centro y detalles flotantes en esquinas */
+    .kenny-hero-showcase {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      margin-bottom: 25px;
+      padding: 15px 0;
+    }
+
+    .kenny-main-avatar {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ff8c00, #ff4500);
+      border: 4px solid #ffaa00;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 30px rgba(255, 140, 0, 0.8);
+      overflow: hidden;
+      z-index: 2;
+    }
+
+    .kenny-main-avatar img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
 
+    .kenny-corner-badge {
+      position: absolute;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      border: 2px solid #ffaa00;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(255, 107, 0, 0.6);
+      background: #000;
+    }
+
+    .kenny-corner-badge img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .kenny-corner-left { top: 5px; left: 12%; transform: rotate(-12deg); }
+    .kenny-corner-right { top: 5px; right: 12%; transform: rotate(12deg); }
+
     .streaming-title {
-      font-size: clamp(1.5rem, 4vw, 2.4rem);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
       font-weight: 900;
       color: #fff;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
-      text-shadow: 0 0 15px rgba(255, 107, 0, 0.8);
+      letter-spacing: 0.08em;
+      text-shadow: 0 0 20px rgba(255, 107, 0, 0.9);
       text-align: center;
+      margin-top: 15px;
     }
 
     .streaming-title span { color: #ff6b00; }
@@ -957,18 +983,19 @@
     .streaming-contact-banner {
       background: rgba(255, 107, 0, 0.15);
       border: 1px solid #ff6b00;
-      border-radius: 14px;
-      padding: 15px 20px;
+      border-radius: 16px;
+      padding: 18px 22px;
       margin: 20px 0 30px 0;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
       gap: 15px;
+      backdrop-filter: blur(10px);
     }
 
     .streaming-phone-tag {
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       font-weight: 900;
       color: #ffaa00;
       display: flex;
@@ -976,99 +1003,143 @@
       gap: 10px;
     }
 
-    /* NUEVAS CUADRÍCULAS DE STREAMING INDIVIDUALES Y BONITAS */
-    .platforms-grid-custom {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 18px;
-      margin-top: 15px;
-    }
-
-    .platform-card-item {
-      background: rgba(20, 12, 30, 0.9);
-      border: 1.5px solid rgba(255, 107, 0, 0.35);
-      border-radius: 16px;
-      padding: 20px 16px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 12px;
-      transition: all 0.25s ease;
-      position: relative;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-    }
-
-    .platform-card-item:hover {
-      border-color: #ff6b00;
-      transform: translateY(-4px);
-      box-shadow: 0 0 20px rgba(255, 107, 0, 0.4);
-    }
-
-    .platform-img-box {
-      width: 65px;
-      height: 65px;
-      border-radius: 14px;
-      background: rgba(0,0,0,0.5);
-      border: 1px solid rgba(255, 107, 0, 0.4);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      padding: 6px;
-    }
-
-    .platform-img-box img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      border-radius: 8px;
-    }
-
-    .platform-name {
-      font-size: 1.05rem;
-      font-weight: 900;
-      color: #fff;
-    }
-
-    .platform-desc {
-      font-size: 0.72rem;
-      color: rgba(226, 232, 240, 0.7);
-      margin-bottom: 4px;
-    }
-
-    .btn-platform-wa {
-      width: 100%;
-      background: #25d366;
-      color: #fff;
-      font-weight: 800;
-      font-size: 0.78rem;
-      padding: 10px;
-      border-radius: 10px;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      transition: all 0.2s;
-      box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
-    }
-
-    .btn-platform-wa:hover {
-      background: #1ebc57;
-      transform: scale(1.02);
-    }
-
-    .category-section-title {
-      font-size: 0.88rem;
+    /* NUEVAS CUADRÍCULAS DE STREAMING ESTILO HOME CON FONDOS */
+    .streaming-category-header {
+      font-size: 0.95rem;
       font-weight: 800;
       color: #ffaa00;
       text-transform: uppercase;
       letter-spacing: 0.15em;
-      margin: 25px 0 10px 0;
+      margin: 30px 0 15px 0;
       display: flex;
       align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid rgba(255, 107, 0, 0.3);
+      padding-bottom: 8px;
+    }
+
+    .streaming-grid-home-style {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .stream-service-card {
+      background: rgba(18, 10, 28, 0.88);
+      border: 1px solid rgba(255, 107, 0, 0.35);
+      border-radius: 18px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+    }
+
+    .stream-service-card:hover {
+      border-color: #ff6b00;
+      transform: translateY(-5px);
+      box-shadow: 0 0 25px rgba(255, 107, 0, 0.4);
+    }
+
+    .stream-card-top-bg {
+      height: 120px;
+      width: 100%;
+      background-size: cover;
+      background-position: center;
+      padding: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      position: relative;
+    }
+
+    .stream-card-top-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 40%, rgba(18, 10, 28, 0.95) 100%);
+    }
+
+    .platform-logo-overlay {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(0, 0, 0, 0.7);
+      border: 1px solid rgba(255, 107, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px;
+      z-index: 1;
+      box-shadow: 0 0 10px rgba(0,0,0,0.8);
+    }
+
+    .platform-logo-overlay img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 6px;
+    }
+
+    .stream-card-badge {
+      background: rgba(255, 107, 0, 0.85);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 20px;
+      z-index: 1;
+    }
+
+    .stream-card-body {
+      padding: 16px;
+      flex-grow: 1;
+    }
+
+    .stream-card-title {
+      font-size: 1.15rem;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .stream-card-desc {
+      font-size: 0.78rem;
+      color: rgba(226, 232, 240, 0.7);
+      line-height: 1.4;
+      margin-bottom: 15px;
+    }
+
+    .stream-card-footer {
+      padding: 14px 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      background: rgba(0, 0, 0, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .btn-stream-whatsapp {
+      background: #25d366;
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.8rem;
+      padding: 10px 16px;
+      border-radius: 10px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
       gap: 8px;
+      transition: all 0.2s;
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+      width: 100%;
+      justify-content: center;
+    }
+
+    .btn-stream-whatsapp:hover {
+      background: #1ebc57;
+      transform: scale(1.02);
     }
 
     /* INFO CARD GENERAL */
@@ -1168,31 +1239,6 @@
       border: 2px solid #a855f7;
       margin-top: 10px;
       display: none;
-    }
-
-    /* SUB-TABS SÍGUELO PLUS */
-    .sub-tabs-container {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
-    }
-
-    .sub-tab-btn {
-      padding: 10px 20px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(168, 85, 247, 0.3);
-      color: #fff;
-      border-radius: 10px;
-      cursor: pointer;
-      font-size: 0.85rem;
-      font-weight: 700;
-    }
-
-    .sub-tab-btn.active {
-      background: rgba(168, 85, 247, 0.3);
-      border-color: #a855f7;
     }
 
     /* SECCIÓN INFRAESTRUCTURA Central de Datos */
@@ -1432,13 +1478,6 @@
       font-weight: 500;
     }
 
-    .plan-subtitle {
-      font-size: 0.75rem;
-      color: #c084fc;
-      font-weight: 700;
-      margin-bottom: 12px;
-    }
-
     .plan-features {
       list-style: none;
       margin: 10px 0 20px 0;
@@ -1485,24 +1524,6 @@
     }
 
     .btn-plan-ws:hover { background: #22c55e; color: #fff; }
-
-    .btn-plan-tg {
-      background: rgba(168, 85, 247, 0.2);
-      border: 1px solid rgba(168, 85, 247, 0.5);
-      color: #d8b4fe;
-      padding: 8px 12px;
-      border-radius: 8px;
-      font-size: 0.75rem;
-      font-weight: 800;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      transition: all 0.2s;
-    }
-
-    .btn-plan-tg:hover { background: #a855f7; color: #fff; }
 
     /* GRID DE SERVICIOS GENERAL */
     .services-grid {
@@ -1599,23 +1620,6 @@
     }
 
     .card-btn:hover { background: #a855f7; color: #fff; }
-
-    .osint-tags-cloud {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 8px;
-    }
-
-    .osint-tag-item {
-      font-size: 0.68rem;
-      font-weight: 700;
-      color: #e0b0ff;
-      background: rgba(168, 85, 247, 0.15);
-      border: 1px solid rgba(168, 85, 247, 0.3);
-      padding: 3px 8px;
-      border-radius: 6px;
-    }
 
     /* BANDERAS */
     .guerra-total-section {
@@ -1752,7 +1756,6 @@
     <div class="modal-credits-box">
       <button class="close-modal-btn" id="btn-close-modal"><i class="fa-solid fa-xmark"></i></button>
 
-      <!-- PASO 1: YAPE QR -->
       <div id="modal-step-yape">
         <h3 style="font-size:1.3rem; font-weight:800; color:#fff;">Realiza tu pago con Yape</h3>
         <p style="font-size:0.78rem; color:rgba(226,232,240,0.7); margin-top:4px;">Escanea el QR, paga el monto exacto y presiona "Ya pagué"</p>
@@ -1779,7 +1782,6 @@
         <button class="btn-yape-submit" id="btn-ya-pague">Ya pagué</button>
       </div>
 
-      <!-- PASO 2: CONFIRMACIÓN Y BOT -->
       <div id="modal-step-confirm" style="display: none;">
         <i class="fa-solid fa-robot" style="font-size: 3rem; color: #a855f7; margin-bottom: 12px;"></i>
         <h3 style="font-size:1.3rem; font-weight:800; color:#fff;">Confirmar Recarga</h3>
@@ -1835,7 +1837,6 @@
         <li class="nav-item active" id="menu-home">
           <a href="#"><span class="nav-item-content"><i class="fa-solid fa-house"></i> Home</span></a>
         </li>
-        <!-- OPCIÓN RECARGAR EN SIDEBAR -->
         <li class="nav-item" id="menu-recarga">
           <a href="#"><span class="nav-item-content" style="color:#a855f7;"><i class="fa-solid fa-wallet"></i> Recargar</span></a>
         </li>
@@ -1849,7 +1850,6 @@
           <a href="#"><span class="nav-item-content"><i class="fa-solid fa-building"></i> Sunarp</span></a>
         </li>
 
-        <!-- RENIEC -->
         <li class="nav-item dropdown-group open" id="dropdown-reniec">
           <div class="dropdown-trigger">
             <span class="nav-item-content"><i class="fa-solid fa-id-card"></i> Reniec</span>
@@ -1864,7 +1864,6 @@
           </ul>
         </li>
 
-        <!-- JUSTICIA -->
         <li class="nav-item dropdown-group open" id="dropdown-justicia">
           <div class="dropdown-trigger">
             <span class="nav-item-content"><i class="fa-solid fa-folder"></i> Justicia</span>
@@ -1878,7 +1877,6 @@
           </ul>
         </li>
 
-        <!-- MÓDULOS -->
         <li class="nav-item" id="menu-persona-plus">
           <a href="#"><span class="nav-item-content"><i class="fa-solid fa-user-gear"></i> Persona Plus</span></a>
         </li>
@@ -1901,7 +1899,6 @@
           <a href="#"><span class="nav-item-content"><i class="fa-solid fa-chart-simple"></i> Doxing</span></a>
         </li>
 
-        <!-- HISTORIAL LOCAL -->
         <li class="nav-item" id="menu-historial">
           <a href="#"><span class="nav-item-content" style="color:#d8b4fe;"><i class="fa-solid fa-clock-rotate-left"></i> Mi Historial</span></a>
         </li>
@@ -1973,7 +1970,6 @@
             <h3 style="font-size:1.1rem; font-weight:800; color:#fff; margin-bottom:16px;">Paquetes Disponibles</h3>
             
             <div class="kmente-packages-grid">
-              <!-- PLANES DE RECARGA -->
               <div class="km-pkg-card">
                 <div>
                   <div class="km-title">Plan Pruebas</div>
@@ -2179,7 +2175,6 @@
         </div>
       </section>
 
-      <!-- PERSONA PLUS PANEL -->
       <section class="custom-panel-view" id="panel-persona-plus">
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-fingerprint"></i> Persona Avanzada</h2>
@@ -2196,7 +2191,6 @@
         </div>
       </section>
 
-      <!-- SUNAT PANEL -->
       <section class="custom-panel-view" id="panel-sunat">
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-file-invoice-dollar"></i> SUNAT</h2>
@@ -2213,7 +2207,6 @@
         </div>
       </section>
 
-      <!-- SENTINEL PANEL -->
       <section class="custom-panel-view" id="panel-sentinel">
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-shield-halved"></i> Sentinel</h2>
@@ -2230,7 +2223,6 @@
         </div>
       </section>
 
-      <!-- VEHÍCULO -->
       <section class="custom-panel-view" id="panel-vehiculo">
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-car"></i> Vehículo (TIVE)</h2>
@@ -2247,7 +2239,6 @@
         </div>
       </section>
 
-      <!-- SÍGUELO PLUS -->
       <section class="custom-panel-view" id="panel-siguelo-plus">
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-car-side"></i> Síguelo Plus</h2>
@@ -2264,7 +2255,6 @@
         </div>
       </section>
 
-      <!-- ACTAS -->
       <section class="custom-panel-view" id="panel-actas">
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-file-lines"></i> Actas</h2>
@@ -2281,7 +2271,6 @@
         </div>
       </section>
 
-      <!-- DOXING -->
       <section class="custom-panel-view" id="panel-doxing">
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-chart-simple"></i> INFO BURO (Doxing)</h2>
@@ -2298,7 +2287,6 @@
         </div>
       </section>
 
-      <!-- OSIPTEL Y SUNARP -->
       <section class="custom-panel-view" id="panel-osiptel">
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-phone"></i> OSIPTEL</h2>
@@ -2331,7 +2319,6 @@
         </div>
       </section>
 
-      <!-- PANEL DE HISTORIAL LOCAL -->
       <section class="custom-panel-view" id="panel-historial">
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-clock-rotate-left"></i> Historial Local</h2>
@@ -2356,20 +2343,26 @@
         </div>
       </section>
 
-      <!-- SECCIÓN STREAMING EXCLUSIVA (KENNY STREAMING) - CAMBIO RADICAL Y MEJORADO -->
+      <!-- SECCIÓN STREAMING EXCLUSIVA (KENNY STREAMING) - NUEVO DISEÑO PRECIOSO Y MODERNO -->
       <section class="custom-panel-view" id="panel-streaming">
         <div class="streaming-panel-wrapper">
           
-          <!-- Combinación y uso de fotos de Kenny -->
-          <div class="kenny-banner-grid">
-            <div class="kenny-avatar-box"><img src="kennynegro.jpg" alt="Kenny Negro"></div>
-            <div class="kenny-avatar-box"><img src="kennyarrestado.jpg" alt="Kenny Arrestado"></div>
-            <div class="kenny-avatar-box"><img src="kennymuerto.jpg" alt="Kenny Muerto"></div>
-          </div>
+          <!-- Banner con Foto Principal de Kenny al centro y detalles flotantes en esquinas -->
+          <div class="kenny-hero-showcase">
+            <div class="kenny-corner-badge kenny-corner-left">
+              <img src="kennyarrestado.jpg" alt="Kenny Detail">
+            </div>
+            
+            <div class="kenny-main-avatar">
+              <img src="kennynegro.jpg" alt="Kenny Principal">
+            </div>
 
-          <div style="text-align: center;">
+            <div class="kenny-corner-badge kenny-corner-right">
+              <img src="kennymuerto.jpg" alt="Kenny Detail">
+            </div>
+
             <h2 class="streaming-title">KENNY <span>STREAMING</span></h2>
-            <p style="font-size:0.9rem; color:#ffaa00; font-weight:800; letter-spacing:0.1em;">INSTALACIÓN Y PLATAFORMAS PREMIUM</p>
+            <p style="font-size:0.9rem; color:#ffaa00; font-weight:800; letter-spacing:0.12em; margin-top:5px;">INSTALACIÓN Y PLATAFORMAS PREMIUM</p>
           </div>
 
           <div class="streaming-contact-banner">
@@ -2377,144 +2370,171 @@
               <p style="font-size:0.75rem; color:rgba(255,255,255,0.7); text-transform:uppercase; font-weight:800;">Contacto Directo Exclusivo</p>
               <div class="streaming-phone-tag"><i class="fa-brands fa-whatsapp"></i> +51 937 089 748</div>
             </div>
-            <div class="action-btn-group" style="margin-top:0;">
-              <a href="https://wa.me/51937089748?text=Hola%20Kenny%20Streaming%2C%20deseo%20informacion" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-action" style="background:#ff6b00;">
+            <div style="display:flex; gap:10px;">
+              <a href="https://wa.me/51937089748?text=Hola%20Kenny%20Streaming%2C%20deseo%20informacion" target="_blank" rel="noopener noreferrer" class="btn-stream-whatsapp" style="padding:10px 18px;">
                 <i class="fa-brands fa-whatsapp"></i> WhatsApp
-              </a>
-              <a href="https://t.me/Adolf3728?text=Hola%20Kenny%20Streaming%2C%20deseo%20informacion" target="_blank" rel="noopener noreferrer" class="btn-telegram-action" style="background:#e65100;">
-                <i class="fa-brands fa-telegram"></i> Telegram
               </a>
             </div>
           </div>
 
-          <!-- CUADRÍCULAS INDIVIDUALES Y BONITAS PARA CADA SERVICIO CON SU LOGO Y WHATSAPP PROPIO -->
-          <div class="category-section-title"><i class="fa-solid fa-play"></i> Cuadrícula de Plataformas Premium</div>
-          <div class="platforms-grid-custom">
+          <!-- CUADRÍCULAS DE PLATAFORMAS CON ESTILO HOME Y FONDOS -->
+          <div class="streaming-category-header"><i class="fa-solid fa-play"></i> Cuadrícula de Plataformas Premium</div>
+          <div class="streaming-grid-home-style">
             
             <!-- Netflix -->
-            <div class="platform-card-item">
-              <div class="platform-img-box"><img src="nexflix.jpg" alt="Netflix"></div>
-              <div>
-                <div class="platform-name">Netflix</div>
-                <div class="platform-desc">Pantallas 4K Ultra HD</div>
+            <div class="stream-service-card">
+              <div class="stream-card-top-bg" style="background-image: url('nexflix.jpg');">
+                <div class="platform-logo-overlay"><img src="nexflix.jpg" alt="Netflix"></div>
+                <span class="stream-card-badge">4K Ultra HD</span>
               </div>
-              <a href="https://wa.me/51937089748?text=Hola%20Kenny,%20deseo%20comprar%20cuenta%20de%20Netflix" target="_blank" rel="noopener noreferrer" class="btn-platform-wa">
-                <i class="fa-brands fa-whatsapp"></i> Pedir por WhatsApp
-              </a>
+              <div class="stream-card-body">
+                <h3 class="stream-card-title">Netflix Premium</h3>
+                <p class="stream-card-desc">Disfruta de perfiles estables, sin interrupciones y con la máxima calidad de pantalla.</p>
+              </div>
+              <div class="stream-card-footer">
+                <a href="https://wa.me/51937089748?text=Hola%20Kenny,%20deseo%20comprar%20cuenta%20de%20Netflix" target="_blank" rel="noopener noreferrer" class="btn-stream-whatsapp">
+                  <i class="fa-brands fa-whatsapp"></i> Pedir por WhatsApp
+                </a>
+              </div>
             </div>
 
             <!-- Prime Video -->
-            <div class="platform-card-item">
-              <div class="platform-img-box"><img src="primevideo.jpg" alt="Prime Video"></div>
-              <div>
-                <div class="platform-name">Prime Video</div>
-                <div class="platform-desc">Series y Películas Originales</div>
+            <div class="stream-service-card">
+              <div class="stream-card-top-bg" style="background-image: url('primevideo.jpg');">
+                <div class="platform-logo-overlay"><img src="primevideo.jpg" alt="Prime Video"></div>
+                <span class="stream-card-badge">Originales</span>
               </div>
-              <a href="https://wa.me/51937089748?text=Hola%20Kenny,%20deseo%20comprar%20cuenta%20de%20Prime%20Video" target="_blank" rel="noopener noreferrer" class="btn-platform-wa">
-                <i class="fa-brands fa-whatsapp"></i> Pedir por WhatsApp
-              </a>
+              <div class="stream-card-body">
+                <h3 class="stream-card-title">Prime Video</h3>
+                <p class="stream-card-desc">Series exclusivas, películas de estreno y contenido en alta definición.</p>
+              </div>
+              <div class="stream-card-footer">
+                <a href="https://wa.me/51937089748?text=Hola%20Kenny,%20deseo%20comprar%20cuenta%20de%20Prime%20Video" target="_blank" rel="noopener noreferrer" class="btn-stream-whatsapp">
+                  <i class="fa-brands fa-whatsapp"></i> Pedir por WhatsApp
+                </a>
+              </div>
             </div>
 
             <!-- Disney+ -->
-            <div class="platform-card-item">
-              <div class="platform-img-box"><img src="disney.jpg" alt="Disney+"></div>
-              <div>
-                <div class="platform-name">Disney+</div>
-                <div class="platform-desc">Estrenos y Contenido Familiar</div>
+            <div class="stream-service-card">
+              <div class="stream-card-top-bg" style="background-image: url('disney.jpg');">
+                <div class="platform-logo-overlay"><img src="disney.jpg" alt="Disney+"></div>
+                <span class="stream-card-badge">Familiar</span>
               </div>
-              <a href="https://wa.me/51937089748?text=Hola%20Kenny,%20deseo%20comprar%20cuenta%20de%20Disney+" target="_blank" rel="noopener noreferrer" class="btn-platform-wa">
-                <i class="fa-brands fa-whatsapp"></i> Pedir por WhatsApp
-              </a>
+              <div class="stream-card-body">
+                <h3 class="stream-card-title">Disney+</h3>
+                <p class="stream-card-desc">Todo el contenido de Disney, Marvel, Star Wars y estrenos para toda la familia.</p>
+              </div>
+              <div class="stream-card-footer">
+                <a href="https://wa.me/51937089748?text=Hola%20Kenny,%20deseo%20comprar%20cuenta%20de%20Disney+" target="_blank" rel="noopener noreferrer" class="btn-stream-whatsapp">
+                  <i class="fa-brands fa-whatsapp"></i> Pedir por WhatsApp
+                </a>
+              </div>
             </div>
 
             <!-- HBO Max -->
-            <div class="platform-card-item">
-              <div class="platform-img-box"><img src="hbomax.jpg" alt="HBO Max"></div>
-              <div>
-                <div class="platform-name">HBO Max</div>
-                <div class="platform-desc">Max Originals & Blockbusters</div>
+            <div class="stream-service-card">
+              <div class="stream-card-top-bg" style="background-image: url('hbomax.jpg');">
+                <div class="platform-logo-overlay"><img src="hbomax.jpg" alt="HBO Max"></div>
+                <span class="stream-card-badge">Max Originals</span>
               </div>
-              <a href="https://wa.me/51937089748?text=Hola%20Kenny,%20deseo%20comprar%20cuenta%20de%20HBO%20Max" target="_blank" rel="noopener noreferrer" class="btn-platform-wa">
-                <i class="fa-brands fa-whatsapp"></i> Pedir por WhatsApp
-              </a>
+              <div class="stream-card-body">
+                <h3 class="stream-card-title">HBO Max</h3>
+                <p class="stream-card-desc">Blockbusters de cine y producciones originales aclamadas por la crítica.</p>
+              </div>
+              <div class="stream-card-footer">
+                <a href="https://wa.me/51937089748?text=Hola%20Kenny,%20deseo%20comprar%20cuenta%20de%20HBO%20Max" target="_blank" rel="noopener noreferrer" class="btn-stream-whatsapp">
+                  <i class="fa-brands fa-whatsapp"></i> Pedir por WhatsApp
+                </a>
+              </div>
             </div>
 
             <!-- ViX Premium -->
-            <div class="platform-card-item">
-              <div class="platform-img-box"><img src="vixpremium.jpg" alt="ViX Premium"></div>
-              <div>
-                <div class="platform-name">ViX Premium</div>
-                <div class="platform-desc">Fútbol, Novelas y Películas</div>
+            <div class="stream-service-card">
+              <div class="stream-card-top-bg" style="background-image: url('vixpremium.jpg');">
+                <div class="platform-logo-overlay"><img src="vixpremium.jpg" alt="ViX Premium"></div>
+                <span class="stream-card-badge">Deportes & Novelas</span>
               </div>
-              <a href="https://wa.me/51937089748?text=Hola%20Kenny,%20deseo%20comprar%20cuenta%20de%20ViX%20Premium" target="_blank" rel="noopener noreferrer" class="btn-platform-wa">
-                <i class="fa-brands fa-whatsapp"></i> Pedir por WhatsApp
-              </a>
+              <div class="stream-card-body">
+                <h3 class="stream-card-title">ViX Premium</h3>
+                <p class="stream-card-desc">Fútbol en vivo, novelas exclusivas y películas latinas recientes.</p>
+              </div>
+              <div class="stream-card-footer">
+                <a href="https://wa.me/51937089748?text=Hola%20Kenny,%20deseo%20comprar%20cuenta%20de%20ViX%20Premium" target="_blank" rel="noopener noreferrer" class="btn-stream-whatsapp">
+                  <i class="fa-brands fa-whatsapp"></i> Pedir por WhatsApp
+                </a>
+              </div>
             </div>
 
             <!-- YouTube Premium -->
-            <div class="platform-card-item">
-              <div class="platform-img-box"><img src="yotube.jpg" alt="YouTube Premium"></div>
-              <div>
-                <div class="platform-name">YouTube Premium</div>
-                <div class="platform-desc">Sin Anuncios & YouTube Music</div>
+            <div class="stream-service-card">
+              <div class="stream-card-top-bg" style="background-image: url('yotube.jpg');">
+                <div class="platform-logo-overlay"><img src="yotube.jpg" alt="YouTube Premium"></div>
+                <span class="stream-card-badge">Sin Anuncios</span>
               </div>
-              <a href="https://wa.me/51937089748?text=Hola%20Kenny,%20deseo%20comprar%20cuenta%20de%20YouTube%20Premium" target="_blank" rel="noopener noreferrer" class="btn-platform-wa">
-                <i class="fa-brands fa-whatsapp"></i> Pedir por WhatsApp
-              </a>
-            </div>
-
-            <!-- TikTok Live -->
-            <div class="platform-card-item">
-              <div class="platform-img-box"><img src="tik tok.jpg" alt="TikTok Live"></div>
-              <div>
-                <div class="platform-name">TikTok Live</div>
-                <div class="platform-desc">Herramientas y Activaciones</div>
+              <div class="stream-card-body">
+                <h3 class="stream-card-title">YouTube Premium</h3>
+                <p class="stream-card-desc">Videos sin publicidad, reproducción en segundo plano y YouTube Music incluido.</p>
               </div>
-              <a href="https://wa.me/51937089748?text=Hola%20Kenny,%20deseo%20comprar%20servicios%20de%20TikTok" target="_blank" rel="noopener noreferrer" class="btn-platform-wa">
-                <i class="fa-brands fa-whatsapp"></i> Pedir por WhatsApp
-              </a>
+              <div class="stream-card-footer">
+                <a href="https://wa.me/51937089748?text=Hola%20Kenny,%20deseo%20comprar%20cuenta%20de%20YouTube%20Premium" target="_blank" rel="noopener noreferrer" class="btn-stream-whatsapp">
+                  <i class="fa-brands fa-whatsapp"></i> Pedir por WhatsApp
+                </a>
+              </div>
             </div>
 
           </div>
 
           <!-- INSTALACIÓN REMOTA DE PROGRAMAS -->
-          <div class="category-section-title"><i class="fa-solid fa-laptop-code"></i> Instalación Remota de Programas</div>
-          <div class="platforms-grid-custom">
+          <div class="streaming-category-header"><i class="fa-solid fa-laptop-code"></i> Instalación Remota de Programas</div>
+          <div class="streaming-grid-home-style">
             
-            <div class="platform-card-item">
-              <div class="platform-img-box"><i class="fa-solid fa-file-word" style="font-size:2.2rem; color:#2b579a;"></i></div>
-              <div>
-                <div class="platform-name">Microsoft Office</div>
-                <div class="platform-desc">Word, Excel, PowerPoint</div>
+            <div class="stream-service-card">
+              <div class="stream-card-body" style="padding-top:20px;">
+                <h3 class="stream-card-title"><i class="fa-solid fa-file-word" style="color:#2b579a;"></i> Microsoft Office</h3>
+                <p class="stream-card-desc">Word, Excel, PowerPoint activados y listos para trabajar.</p>
               </div>
-              <a href="https://wa.me/51937089748?text=Hola%20Kenny,%20deseo%20instalar%20Office" target="_blank" rel="noopener noreferrer" class="btn-platform-wa"><i class="fa-brands fa-whatsapp"></i> Solicitar</a>
+              <div class="stream-card-footer">
+                <a href="https://wa.me/51937089748?text=Hola%20Kenny,%20deseo%20instalar%20Microsoft%20Office" target="_blank" rel="noopener noreferrer" class="btn-stream-whatsapp">
+                  <i class="fa-brands fa-whatsapp"></i> Solicitar por WhatsApp
+                </a>
+              </div>
             </div>
 
-            <div class="platform-card-item">
-              <div class="platform-img-box"><i class="fa-solid fa-compass-drafting" style="font-size:2.2rem; color:red;"></i></div>
-              <div>
-                <div class="platform-name">AutoCAD</div>
-                <div class="platform-desc">Diseño CAD Profesional</div>
+            <div class="stream-service-card">
+              <div class="stream-card-body" style="padding-top:20px;">
+                <h3 class="stream-card-title"><i class="fa-solid fa-compass-drafting" style="color:red;"></i> AutoCAD</h3>
+                <p class="stream-card-desc">Diseño asistido por computadora profesional con instalación guiada.</p>
               </div>
-              <a href="https://wa.me/51937089748?text=Hola%20Kenny,%20deseo%20instalar%20AutoCAD" target="_blank" rel="noopener noreferrer" class="btn-platform-wa"><i class="fa-brands fa-whatsapp"></i> Solicitar</a>
+              <div class="stream-card-footer">
+                <a href="https://wa.me/51937089748?text=Hola%20Kenny,%20deseo%20instalar%20AutoCAD" target="_blank" rel="noopener noreferrer" class="btn-stream-whatsapp">
+                  <i class="fa-brands fa-whatsapp"></i> Solicitar por WhatsApp
+                </a>
+              </div>
             </div>
 
-            <div class="platform-card-item">
-              <div class="platform-img-box"><i class="fa-solid fa-image" style="font-size:2.2rem; color:#31a8ff;"></i></div>
-              <div>
-                <div class="platform-name">Photoshop</div>
-                <div class="platform-desc">Edición Fotográfica</div>
+            <div class="stream-service-card">
+              <div class="stream-card-body" style="padding-top:20px;">
+                <h3 class="stream-card-title"><i class="fa-solid fa-image" style="color:#31a8ff;"></i> Photoshop</h3>
+                <p class="stream-card-desc">Edición fotográfica profesional completa y sin restricciones.</p>
               </div>
-              <a href="https://wa.me/51937089748?text=Hola%20Kenny,%20deseo%20instalar%20Photoshop" target="_blank" rel="noopener noreferrer" class="btn-platform-wa"><i class="fa-brands fa-whatsapp"></i> Solicitar</a>
+              <div class="stream-card-footer">
+                <a href="https://wa.me/51937089748?text=Hola%20Kenny,%20deseo%20instalar%20Photoshop" target="_blank" rel="noopener noreferrer" class="btn-stream-whatsapp">
+                  <i class="fa-brands fa-whatsapp"></i> Solicitar por WhatsApp
+                </a>
+              </div>
             </div>
 
-            <div class="platform-card-item">
-              <div class="platform-img-box"><i class="fa-solid fa-palette" style="font-size:2.2rem; color:#00c853;"></i></div>
-              <div>
-                <div class="platform-name">CorelDRAW 2024</div>
-                <div class="platform-desc">Diseño Vectorial</div>
+            <div class="stream-service-card">
+              <div class="stream-card-body" style="padding-top:20px;">
+                <h3 class="stream-card-title"><i class="fa-solid fa-palette" style="color:#00c853;"></i> CorelDRAW 2024</h3>
+                <p class="stream-card-desc">Suite de diseño gráfico vectorial con licencia e instalación remota.</p>
               </div>
-              <a href="https://wa.me/51937089748?text=Hola%20Kenny,%20deseo%20instalar%20CorelDRAW" target="_blank" rel="noopener noreferrer" class="btn-platform-wa"><i class="fa-brands fa-whatsapp"></i> Solicitar</a>
+              <div class="stream-card-footer">
+                <a href="https://wa.me/51937089748?text=Hola%20Kenny,%20deseo%20instalar%20CorelDRAW" target="_blank" rel="noopener noreferrer" class="btn-stream-whatsapp">
+                  <i class="fa-brands fa-whatsapp"></i> Solicitar por WhatsApp
+                </a>
+              </div>
             </div>
 
           </div>
