@@ -46,7 +46,7 @@
       background-color: #08060a;
       color: #e2e8f0;
       min-height: 100vh;
-      background-image: linear-gradient(rgba(8, 6, 10, 0.88), rgba(8, 6, 10, 0.94)), url('carita.jpg');
+      background-image: linear-gradient(rgba(8, 6, 10, 0.88), rgba(8, 6, 10, 0.94));
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -91,7 +91,7 @@
       width: min(92%, 650px);
       padding: 30px 20px;
       border-radius: 20px;
-      background-image: linear-gradient(rgba(18, 10, 30, 0.75), rgba(12, 6, 20, 0.90)), url('fondorocket.jpg');
+      background-image: linear-gradient(rgba(18, 10, 30, 0.75), rgba(12, 6, 20, 0.90)), url('ojos.jpg');
       background-size: cover;
       background-position: center;
       border: 1px solid rgba(168, 85, 247, 0.45);
@@ -427,13 +427,12 @@
       border-color: #a855f7;
     }
 
-    /* Hero Banner */
     .hero-banner-clean {
       width: 100%;
       min-height: 160px;
       border-radius: 20px;
       padding: 30px 20px;
-      background-image: linear-gradient(rgba(18, 10, 30, 0.70), rgba(12, 6, 20, 0.88)), url('fondorocket.jpg');
+      background-image: linear-gradient(rgba(18, 10, 30, 0.70), rgba(12, 6, 20, 0.88)), url('ojos.jpg');
       background-size: cover;
       background-position: center;
       border: 1px solid rgba(168, 85, 247, 0.35);
@@ -1142,10 +1141,10 @@
       border-color: #a855f7;
     }
 
-    /* SECCIÓN INFRAESTRUCTURA Central de Datos */
+    /* SECCIÓN INFRAESTRUCTURA Central de Datos con carita.jpg en la cuadrícula de fondo */
     .rocket-infra-hero {
       width: 100%;
-      background-image: linear-gradient(rgba(8, 4, 16, 0.82), rgba(8, 4, 16, 0.90)), url('dineroo.jpg');
+      background-image: linear-gradient(rgba(8, 4, 16, 0.82), rgba(8, 4, 16, 0.90)), url('carita.jpg');
       background-size: cover;
       background-position: center;
       border: 1.5px solid rgba(168, 85, 247, 0.45);
@@ -1277,9 +1276,9 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      background-image: linear-gradient(rgba(14, 6, 28, 0.65), rgba(14, 6, 28, 0.85)), url('chicaa.jpg');
+      background-image: linear-gradient(rgba(14, 6, 28, 0.70), rgba(14, 6, 28, 0.88)), url('ojos.jpg');
       background-size: cover;
-      background-position: center 25%;
+      background-position: center;
       border: 2px solid #a855f7;
       box-shadow: 0 0 30px rgba(168, 85, 247, 0.6);
       border-radius: 20px;
@@ -1307,6 +1306,7 @@
       font-weight: 900;
       color: #ffffff;
       letter-spacing: 0.08em;
+      text-shadow: 0 0 12px rgba(192, 132, 252, 0.8);
     }
 
     .core-desc {
@@ -1894,7 +1894,7 @@
         </div>
       </header>
 
-      <!-- Banner Hero -->
+      <!-- Banner Hero con ojos.jpg -->
       <section class="hero-banner-clean">
         <svg class="ss-logo-svg hero-logo-svg" viewBox="0 0 100 100"><use href="#ss-logo-path"></use></svg>
         <h1 class="hero-banner-title">ROCKET</h1>
@@ -2773,7 +2773,7 @@
         </div>
       </section>
 
-      <!-- INFRAESTRUCTURA GENERAL -->
+      <!-- INFRAESTRUCTURA GENERAL (Con carita.jpg de fondo y ojos.jpg en la tarjeta central) -->
       <section class="rocket-infra-hero" id="infra-rocket-section">
         <div class="infra-header">
           <div class="infra-tag-wrapper">
@@ -2829,7 +2829,7 @@
         
         <!-- TARJETA UNIFICADA DE SERVICIOS OSINT -->
         <div class="service-card large-card" data-cat="OSINT">
-          <div class="card-header-img" style="height: 180px; background-image: linear-gradient(rgba(16,10,24,0.2), rgba(16,10,24,0.9)), url('fondorocket.jpg');">
+          <div class="card-header-img" style="height: 180px; background-image: linear-gradient(rgba(16,10,24,0.2), rgba(16,10,24,0.9)), url('ojos.jpg');">
             <span class="category-tag">RECOPILATORIO COMPLETO OSINT</span>
             <span class="card-price-badge">Acceso Directo</span>
           </div>
@@ -2875,7 +2875,7 @@
 
         <!-- TARJETA STREAMING & SOFTWARE -->
         <div class="service-card" data-cat="STREAMING">
-          <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('fondorocket.jpg');">
+          <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('ojos.jpg');">
             <span class="category-tag" style="border-color:#ff6b00; color:#ffaa00;">STREAMING</span>
             <span class="card-price-badge" style="background:#ff6b00;">Kenny Streaming</span>
           </div>
@@ -2891,7 +2891,7 @@
 
         <!-- TARJETA CHATBOT WHATSAPP -->
         <div class="service-card" data-cat="DIGITAL">
-          <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('fondorocket.jpg');">
+          <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('ojos.jpg');">
             <span class="category-tag" style="color:#86efac;">BOT WHATSAPP</span>
             <span class="card-price-badge" style="background:#22c55e;">Auto-Respuesta</span>
           </div>
@@ -2907,7 +2907,7 @@
 
         <!-- TARJETA DESARROLLO WEB -->
         <div class="service-card" data-cat="CREACION_WEB">
-          <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('fondorocket.jpg');">
+          <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('ojos.jpg');">
             <span class="category-tag">CREACIÓN WEB</span>
             <span class="card-price-badge">Desde S/. 5.00</span>
           </div>
