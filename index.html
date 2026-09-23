@@ -906,7 +906,7 @@
       display: inline-block;
     }
 
-    /* ESTILO SECCIÓN STREAMING */
+    /* ESTILO SECCIÓN STREAMING EXCLUSIVA Y OPTIMIZADA */
     .streaming-panel-wrapper {
       background: linear-gradient(135deg, rgba(255, 107, 0, 0.12), rgba(15, 10, 26, 0.95));
       border: 1.5px solid #ff6b00;
@@ -915,18 +915,24 @@
       box-shadow: 0 0 30px rgba(255, 107, 0, 0.25);
     }
 
+    .kenny-banner-grid {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
     .kenny-avatar-box {
-      width: 110px;
-      height: 110px;
+      width: 100px;
+      height: 100px;
       border-radius: 50%;
       background: linear-gradient(135deg, #ff8c00, #ff4500);
       border: 3px solid #ffaa00;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 15px auto;
       box-shadow: 0 0 25px rgba(255, 140, 0, 0.6);
-      position: relative;
       overflow: hidden;
     }
 
@@ -943,6 +949,7 @@
       text-transform: uppercase;
       letter-spacing: 0.05em;
       text-shadow: 0 0 15px rgba(255, 107, 0, 0.8);
+      text-align: center;
     }
 
     .streaming-title span { color: #ff6b00; }
@@ -969,45 +976,87 @@
       gap: 10px;
     }
 
-    .streaming-grid {
+    /* NUEVAS CUADRÍCULAS DE STREAMING INDIVIDUALES Y BONITAS */
+    .platforms-grid-custom {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-      gap: 14px;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 18px;
       margin-top: 15px;
     }
 
-    .streaming-card {
-      background: rgba(20, 12, 30, 0.85);
-      border: 1px solid rgba(255, 107, 0, 0.3);
-      border-radius: 12px;
-      padding: 16px 10px;
+    .platform-card-item {
+      background: rgba(20, 12, 30, 0.9);
+      border: 1.5px solid rgba(255, 107, 0, 0.35);
+      border-radius: 16px;
+      padding: 20px 16px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      gap: 10px;
       text-align: center;
+      gap: 12px;
       transition: all 0.25s ease;
+      position: relative;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
     }
 
-    .streaming-card:hover {
+    .platform-card-item:hover {
       border-color: #ff6b00;
-      background: rgba(255, 107, 0, 0.2);
       transform: translateY(-4px);
-      box-shadow: 0 0 15px rgba(255, 107, 0, 0.4);
+      box-shadow: 0 0 20px rgba(255, 107, 0, 0.4);
     }
 
-    .streaming-card img.platform-logo {
-      width: 42px;
-      height: 42px;
+    .platform-img-box {
+      width: 65px;
+      height: 65px;
+      border-radius: 14px;
+      background: rgba(0,0,0,0.5);
+      border: 1px solid rgba(255, 107, 0, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 6px;
+    }
+
+    .platform-img-box img {
+      width: 100%;
+      height: 100%;
       object-fit: contain;
       border-radius: 8px;
     }
 
-    .streaming-card span {
-      font-size: 0.8rem;
-      font-weight: 800;
+    .platform-name {
+      font-size: 1.05rem;
+      font-weight: 900;
       color: #fff;
+    }
+
+    .platform-desc {
+      font-size: 0.72rem;
+      color: rgba(226, 232, 240, 0.7);
+      margin-bottom: 4px;
+    }
+
+    .btn-platform-wa {
+      width: 100%;
+      background: #25d366;
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.78rem;
+      padding: 10px;
+      border-radius: 10px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.2s;
+      box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+    }
+
+    .btn-platform-wa:hover {
+      background: #1ebc57;
+      transform: scale(1.02);
     }
 
     .category-section-title {
@@ -1924,8 +1973,7 @@
             <h3 style="font-size:1.1rem; font-weight:800; color:#fff; margin-bottom:16px;">Paquetes Disponibles</h3>
             
             <div class="kmente-packages-grid">
-              
-              <!-- PLAN PRUEBAS -->
+              <!-- PLANES DE RECARGA -->
               <div class="km-pkg-card">
                 <div>
                   <div class="km-title">Plan Pruebas</div>
@@ -1934,13 +1982,11 @@
                   <ul class="km-features">
                     <li><i class="fa-solid fa-bolt"></i> Recarga automática al validar el pago</li>
                     <li><i class="fa-solid fa-check"></i> Créditos sin vencimiento</li>
-                    <li><i class="fa-solid fa-check"></i> Ideal para uso ocasional</li>
                   </ul>
                 </div>
                 <button class="btn-select-km-plan" onclick="openCreditModal('Plan Pruebas', '12.00', '100')">Seleccionar plan</button>
               </div>
 
-              <!-- PLAN BÁSICO -->
               <div class="km-pkg-card">
                 <div>
                   <div class="km-title">Plan Básico</div>
@@ -1949,28 +1995,11 @@
                   <ul class="km-features">
                     <li><i class="fa-solid fa-bolt"></i> Aplicación inmediata al detectar el pago</li>
                     <li><i class="fa-solid fa-check"></i> Saldo cómodo para trabajar</li>
-                    <li><i class="fa-solid fa-check"></i> Recomendado para clientes frecuentes</li>
                   </ul>
                 </div>
                 <button class="btn-select-km-plan" onclick="openCreditModal('Plan Básico', '21.00', '200')">Seleccionar plan</button>
               </div>
 
-              <!-- PLAN ESTÁNDAR -->
-              <div class="km-pkg-card">
-                <div>
-                  <div class="km-title">Plan Estándar</div>
-                  <div class="km-subtitle">350 Créditos</div>
-                  <div class="km-price">S/ 33.00 <span>/ paquete</span></div>
-                  <ul class="km-features">
-                    <li><i class="fa-solid fa-bolt"></i> Aplicación inmediata al detectar el pago</li>
-                    <li><i class="fa-solid fa-check"></i> Saldo extendido para múltiples consultas</li>
-                    <li><i class="fa-solid fa-check"></i> Recomendado para trabajo diario</li>
-                  </ul>
-                </div>
-                <button class="btn-select-km-plan" onclick="openCreditModal('Plan Estándar', '33.00', '350')">Seleccionar plan</button>
-              </div>
-
-              <!-- PLAN MEDIO -->
               <div class="km-pkg-card popular">
                 <span class="km-tag" style="background:#a855f7; color:#fff;">Recomendado</span>
                 <div>
@@ -1980,61 +2009,12 @@
                   <ul class="km-features">
                     <li><i class="fa-solid fa-bolt"></i> Más capacidad para múltiples consultas</li>
                     <li><i class="fa-solid fa-check"></i> Mejor balance precio/volumen</li>
-                    <li><i class="fa-solid fa-check"></i> Ideal para usuarios activos</li>
                   </ul>
                 </div>
                 <button class="btn-select-km-plan" style="background:#a855f7; color:#fff;" onclick="openCreditModal('Plan Medio', '45.00', '500')">Seleccionar plan</button>
               </div>
-
-              <!-- PLAN FRECUENTE -->
-              <div class="km-pkg-card">
-                <div>
-                  <div class="km-title">Plan Frecuente</div>
-                  <div class="km-subtitle">800 Créditos</div>
-                  <div class="km-price">S/ 68.00 <span>/ paquete</span></div>
-                  <ul class="km-features">
-                    <li><i class="fa-solid fa-bolt"></i> Gran saldo para operar sin recargar seguido</li>
-                    <li><i class="fa-solid fa-check"></i> Créditos permanentes en tu cuenta</li>
-                    <li><i class="fa-solid fa-check"></i> Excelente para negocio medio/alto</li>
-                  </ul>
-                </div>
-                <button class="btn-select-km-plan" onclick="openCreditModal('Plan Frecuente', '68.00', '800')">Seleccionar plan</button>
-              </div>
-
-              <!-- PLAN PRO -->
-              <div class="km-pkg-card">
-                <div>
-                  <div class="km-title">Plan Pro</div>
-                  <div class="km-subtitle">1,000 Créditos</div>
-                  <div class="km-price">S/ 85.00 <span>/ paquete</span></div>
-                  <ul class="km-features">
-                    <li><i class="fa-solid fa-bolt"></i> Ideal para uso profesional o alto volumen</li>
-                    <li><i class="fa-solid fa-check"></i> Menos recargas, mejor rendimiento</li>
-                    <li><i class="fa-solid fa-check"></i> Opción potente a largo plazo</li>
-                  </ul>
-                </div>
-                <button class="btn-select-km-plan" onclick="openCreditModal('Plan Pro', '85.00', '1000')">Seleccionar plan</button>
-              </div>
-
-              <!-- PLAN VIP / NEGOCIOS -->
-              <div class="km-pkg-card">
-                <span class="km-tag">Máximo Valor</span>
-                <div>
-                  <div class="km-title">Plan VIP / Negocios</div>
-                  <div class="km-subtitle">1,500 Créditos</div>
-                  <div class="km-price">S/ 115.00 <span>/ paquete</span></div>
-                  <ul class="km-features">
-                    <li><i class="fa-solid fa-bolt"></i> Máxima prioridad y rendimiento masivo</li>
-                    <li><i class="fa-solid fa-check"></i> Créditos acumulables e ilimitados</li>
-                    <li><i class="fa-solid fa-check"></i> La mejor tarifa por crédito</li>
-                  </ul>
-                </div>
-                <button class="btn-select-km-plan" onclick="openCreditModal('Plan VIP / Negocios', '115.00', '1500')">Seleccionar plan</button>
-              </div>
-
             </div>
           </div>
-
         </div>
       </section>
 
@@ -2047,16 +2027,6 @@
           <div class="form-group-custom">
             <label>DNI</label>
             <input type="text" id="input-reniec-dni" class="form-input-custom" placeholder="Ej: 75178640" maxlength="8">
-          </div>
-          <div class="form-group-custom">
-            <label>Tipo</label>
-            <select class="form-select-custom">
-              <option>RENIEC TXT (JSON)</option>
-              <option>RENIEC BLANCO (PDF)</option>
-              <option>C4 CERTIFICADO (PDF)</option>
-              <option>FICHA RENIEC (PNG)</option>
-              <option>FICHA RENIEC AZUL (PDF)</option>
-            </select>
           </div>
           <button class="btn-search-custom" onclick="executeSearch('RENIEC Ficha', 'input-reniec-dni', 'res-reniec-ficha')"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
         </div>
@@ -2076,7 +2046,6 @@
       <section class="custom-panel-view" id="panel-reniec-nombres">
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-users-viewfinder"></i> Búsqueda RENIEC por nombres</h2>
-          <p style="font-size:0.8rem; color:rgba(255,255,255,0.6); margin-top:4px;">Consulta por nombres y apellidos</p>
         </div>
         <div class="panel-form-row">
           <div class="form-group-custom">
@@ -2090,8 +2059,7 @@
           <div class="result-box-header">
             <span class="result-box-title"><i class="fa-solid fa-square-check"></i> Resultado de Consulta</span>
             <div class="result-action-btns">
-              <button class="btn-action-copy" onclick="copyResult('data-reniec-nom')"><i class="fa-regular fa-copy"></i> Copiar 1-Clic</button>
-              <button class="btn-action-pdf" onclick="exportPDF('data-reniec-nom', 'RENIEC_Nombres')"><i class="fa-solid fa-file-pdf"></i> Exportar PDF</button>
+              <button class="btn-action-copy" onclick="copyResult('data-reniec-nom')"><i class="fa-regular fa-copy"></i> Copiar</button>
             </div>
           </div>
           <div class="result-data-content" id="data-reniec-nom">Esperando ejecución...</div>
@@ -2107,56 +2075,25 @@
             <label>DNI</label>
             <input type="text" id="input-reniec-dnivirt" class="form-input-custom" placeholder="Ej: 70364031" maxlength="8">
           </div>
-          <div class="form-group-custom">
-            <label>Tipo</label>
-            <select class="form-select-custom">
-              <option>DNI Amarillo</option>
-              <option>DNI Azul</option>
-              <option>DNI VIRTUAL ELECTRÓNICO</option>
-            </select>
-          </div>
           <button class="btn-search-custom" onclick="executeSearch('DNI Virtual', 'input-reniec-dnivirt', 'res-reniec-dnivirt')"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
         </div>
-
         <div class="result-box-container" id="res-reniec-dnivirt">
-          <div class="result-box-header">
-            <span class="result-box-title"><i class="fa-solid fa-square-check"></i> Resultado DNI Virtual</span>
-            <div class="result-action-btns">
-              <button class="btn-action-copy" onclick="copyResult('data-reniec-dnivirt')"><i class="fa-regular fa-copy"></i> Copiar 1-Clic</button>
-              <button class="btn-action-pdf" onclick="exportPDF('data-reniec-dnivirt', 'DNIVirtual_Reporte')"><i class="fa-solid fa-file-pdf"></i> Exportar PDF</button>
-            </div>
-          </div>
           <div class="result-data-content" id="data-reniec-dnivirt">Esperando ejecución...</div>
         </div>
       </section>
 
       <section class="custom-panel-view" id="panel-reniec-arbol">
         <div class="panel-header-custom">
-          <h2 class="panel-title-custom"><i class="fa-solid fa-sitemap"></i> Árbol Genealógico (TXT / Visual)</h2>
+          <h2 class="panel-title-custom"><i class="fa-solid fa-sitemap"></i> Árbol Genealógico</h2>
         </div>
         <div class="panel-form-row">
           <div class="form-group-custom">
             <label>DNI</label>
             <input type="text" id="input-reniec-arbol" class="form-input-custom" placeholder="Ej: 70364031" maxlength="8">
           </div>
-          <div class="form-group-custom">
-            <label>Tipo</label>
-            <select class="form-select-custom">
-              <option>ÁRBOL TXT</option>
-              <option>ÁRBOL VISUAL</option>
-            </select>
-          </div>
           <button class="btn-search-custom" onclick="executeSearch('Árbol Genealógico', 'input-reniec-arbol', 'res-reniec-arbol')"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
         </div>
-
         <div class="result-box-container" id="res-reniec-arbol">
-          <div class="result-box-header">
-            <span class="result-box-title"><i class="fa-solid fa-square-check"></i> Resultado Árbol Genealógico</span>
-            <div class="result-action-btns">
-              <button class="btn-action-copy" onclick="copyResult('data-reniec-arbol')"><i class="fa-regular fa-copy"></i> Copiar 1-Clic</button>
-              <button class="btn-action-pdf" onclick="exportPDF('data-reniec-arbol', 'Arbol_Genealogico')"><i class="fa-solid fa-file-pdf"></i> Exportar PDF</button>
-            </div>
-          </div>
           <div class="result-data-content" id="data-reniec-arbol">Esperando ejecución...</div>
         </div>
       </section>
@@ -2164,56 +2101,32 @@
       <section class="custom-panel-view" id="panel-reniec-facial">
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-user-astronaut"></i> Facial Server - ID Perú</h2>
-          <p style="font-size:0.8rem; color:rgba(255,255,255,0.6); margin-top:4px;">Reconocimiento facial avanzado · Identificación por foto</p>
         </div>
-        
         <div class="dropzone-facial" id="dropzone-facial-container">
           <input type="file" id="facial-file-input" accept="image/png, image/jpeg, image/webp">
           <i class="fa-solid fa-cloud-arrow-up"></i>
           <p style="font-size:0.9rem; font-weight:700;">Arrastra tu foto aquí o <span style="color:#d8b4fe; text-decoration:underline;">selecciona</span></p>
-          <p style="font-size:0.75rem; color:rgba(255,255,255,0.5); margin-top:4px;">JPG · PNG · WEBP — hasta 15 MB</p>
           <img src="" id="facial-preview" class="preview-img-facial" alt="Vista previa">
         </div>
-
-        <div style="display:flex; justify-content:center; gap:10px; margin-bottom:15px; flex-wrap:wrap;">
-          <button class="card-btn" id="btn-camera-facial"><i class="fa-solid fa-camera"></i> Usar cámara</button>
-          <button class="card-btn" id="btn-clear-facial"><i class="fa-solid fa-trash-can"></i> Limpiar</button>
-        </div>
         <button class="btn-search-custom" style="width:100%; justify-content:center;" onclick="executeFacialSearch()"><i class="fa-solid fa-magnifying-glass"></i> Identificar persona</button>
-
         <div class="result-box-container" id="res-reniec-facial">
-          <div class="result-box-header">
-            <span class="result-box-title"><i class="fa-solid fa-square-check"></i> Coincidencia Facial Identificada</span>
-            <div class="result-action-btns">
-              <button class="btn-action-copy" onclick="copyResult('data-reniec-facial')"><i class="fa-regular fa-copy"></i> Copiar 1-Clic</button>
-              <button class="btn-action-pdf" onclick="exportPDF('data-reniec-facial', 'Facial_Reporte')"><i class="fa-solid fa-file-pdf"></i> Exportar PDF</button>
-            </div>
-          </div>
           <div class="result-data-content" id="data-reniec-facial">Esperando escaneo facial...</div>
         </div>
       </section>
 
-      <!-- JUSTICIA PANELES CON RESULTADO -->
+      <!-- JUSTICIA PANELES -->
       <section class="custom-panel-view" id="panel-justicia-denuncias">
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-shield-halved"></i> Denuncias Policiales (SIDPOL)</h2>
         </div>
         <div class="panel-form-row">
           <div class="form-group-custom">
-            <label>DNI del consultado</label>
+            <label>DNI</label>
             <input type="text" id="input-justicia-denuncias" class="form-input-custom" placeholder="Ej: 78657674" maxlength="8">
           </div>
           <button class="btn-search-custom" onclick="executeSearch('Denuncias SIDPOL', 'input-justicia-denuncias', 'res-justicia-denuncias')"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
         </div>
-
         <div class="result-box-container" id="res-justicia-denuncias">
-          <div class="result-box-header">
-            <span class="result-box-title"><i class="fa-solid fa-square-check"></i> Reporte de Denuncias</span>
-            <div class="result-action-btns">
-              <button class="btn-action-copy" onclick="copyResult('data-justicia-denuncias')"><i class="fa-regular fa-copy"></i> Copiar 1-Clic</button>
-              <button class="btn-action-pdf" onclick="exportPDF('data-justicia-denuncias', 'Denuncias_Reporte')"><i class="fa-solid fa-file-pdf"></i> Exportar PDF</button>
-            </div>
-          </div>
           <div class="result-data-content" id="data-justicia-denuncias">Esperando ejecución...</div>
         </div>
       </section>
@@ -2229,22 +2142,14 @@
           </div>
           <button class="btn-search-custom" onclick="executeSearch('Antecedentes', 'input-justicia-antecedentes', 'res-justicia-antecedentes')"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
         </div>
-
         <div class="result-box-container" id="res-justicia-antecedentes">
-          <div class="result-box-header">
-            <span class="result-box-title"><i class="fa-solid fa-square-check"></i> Reporte Antecedentes</span>
-            <div class="result-action-btns">
-              <button class="btn-action-copy" onclick="copyResult('data-justicia-antecedentes')"><i class="fa-regular fa-copy"></i> Copiar 1-Clic</button>
-              <button class="btn-action-pdf" onclick="exportPDF('data-justicia-antecedentes', 'Antecedentes_Reporte')"><i class="fa-solid fa-file-pdf"></i> Exportar PDF</button>
-            </div>
-          </div>
           <div class="result-data-content" id="data-justicia-antecedentes">Esperando ejecución...</div>
         </div>
       </section>
 
       <section class="custom-panel-view" id="panel-justicia-requisitorias">
         <div class="panel-header-custom">
-          <h2 class="panel-title-custom"><i class="fa-solid fa-handcuffs"></i> Consulta Requisitorias (e-SINPOL)</h2>
+          <h2 class="panel-title-custom"><i class="fa-solid fa-handcuffs"></i> Consulta Requisitorias</h2>
         </div>
         <div class="panel-form-row">
           <div class="form-group-custom">
@@ -2253,39 +2158,23 @@
           </div>
           <button class="btn-search-custom" onclick="executeSearch('Requisitorias e-SINPOL', 'input-justicia-req', 'res-justicia-req')"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
         </div>
-
         <div class="result-box-container" id="res-justicia-req">
-          <div class="result-box-header">
-            <span class="result-box-title"><i class="fa-solid fa-square-check"></i> Reporte Requisitorias</span>
-            <div class="result-action-btns">
-              <button class="btn-action-copy" onclick="copyResult('data-justicia-req')"><i class="fa-regular fa-copy"></i> Copiar 1-Clic</button>
-              <button class="btn-action-pdf" onclick="exportPDF('data-justicia-req', 'Requisitorias_Reporte')"><i class="fa-solid fa-file-pdf"></i> Exportar PDF</button>
-            </div>
-          </div>
           <div class="result-data-content" id="data-justicia-req">Esperando ejecución...</div>
         </div>
       </section>
 
       <section class="custom-panel-view" id="panel-justicia-policia">
         <div class="panel-header-custom">
-          <h2 class="panel-title-custom"><i class="fa-solid fa-user-shield"></i> Consulta Personal Policial (PNP)</h2>
+          <h2 class="panel-title-custom"><i class="fa-solid fa-user-shield"></i> Personal Policial (PNP)</h2>
         </div>
         <div class="panel-form-row">
           <div class="form-group-custom">
-            <label>Valor (DNI / CIP)</label>
+            <label>DNI / CIP</label>
             <input type="text" id="input-justicia-pnp" class="form-input-custom" placeholder="Ej: 78678760" maxlength="20">
           </div>
           <button class="btn-search-custom" onclick="executeSearch('Consulta PNP', 'input-justicia-pnp', 'res-justicia-pnp')"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
         </div>
-
         <div class="result-box-container" id="res-justicia-pnp">
-          <div class="result-box-header">
-            <span class="result-box-title"><i class="fa-solid fa-square-check"></i> Registro Policial PNP</span>
-            <div class="result-action-btns">
-              <button class="btn-action-copy" onclick="copyResult('data-justicia-pnp')"><i class="fa-regular fa-copy"></i> Copiar 1-Clic</button>
-              <button class="btn-action-pdf" onclick="exportPDF('data-justicia-pnp', 'PNP_Reporte')"><i class="fa-solid fa-file-pdf"></i> Exportar PDF</button>
-            </div>
-          </div>
           <div class="result-data-content" id="data-justicia-pnp">Esperando ejecución...</div>
         </div>
       </section>
@@ -2294,7 +2183,6 @@
       <section class="custom-panel-view" id="panel-persona-plus">
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-fingerprint"></i> Persona Avanzada</h2>
-          <p style="font-size:0.8rem; color:rgba(255,255,255,0.6); margin-top:4px;">RENIEC · MTC · ÁRBOL · PNP · SUNEDU · DENUNCIAS · FISCALÍA · REQUISITORIAS · SUNAT · SUNARP · OSIPTEL</p>
         </div>
         <div class="panel-form-row">
           <div class="form-group-custom">
@@ -2303,15 +2191,7 @@
           </div>
           <button class="btn-search-custom" onclick="executeSearch('Persona Plus', 'input-persona-plus', 'res-persona-plus')"><i class="fa-solid fa-magnifying-glass"></i> Consultar</button>
         </div>
-
         <div class="result-box-container" id="res-persona-plus">
-          <div class="result-box-header">
-            <span class="result-box-title"><i class="fa-solid fa-square-check"></i> Consolidado Persona Plus</span>
-            <div class="result-action-btns">
-              <button class="btn-action-copy" onclick="copyResult('data-persona-plus')"><i class="fa-regular fa-copy"></i> Copiar 1-Clic</button>
-              <button class="btn-action-pdf" onclick="exportPDF('data-persona-plus', 'PersonaPlus_Reporte')"><i class="fa-solid fa-file-pdf"></i> Exportar PDF</button>
-            </div>
-          </div>
           <div class="result-data-content" id="data-persona-plus">Esperando ejecución...</div>
         </div>
       </section>
@@ -2319,24 +2199,16 @@
       <!-- SUNAT PANEL -->
       <section class="custom-panel-view" id="panel-sunat">
         <div class="panel-header-custom">
-          <h2 class="panel-title-custom"><i class="fa-solid fa-file-invoice-dollar"></i> SUNAT - Consulta de Consumos</h2>
+          <h2 class="panel-title-custom"><i class="fa-solid fa-file-invoice-dollar"></i> SUNAT</h2>
         </div>
         <div class="panel-form-row">
           <div class="form-group-custom">
-            <label>Valor a consultar</label>
+            <label>Valor</label>
             <input type="text" id="input-sunat" class="form-input-custom" placeholder="Ej: 10001088" maxlength="15">
           </div>
           <button class="btn-search-custom" onclick="executeSearch('SUNAT Consumos', 'input-sunat', 'res-sunat')"><i class="fa-solid fa-magnifying-glass"></i> Consultar</button>
         </div>
-
         <div class="result-box-container" id="res-sunat">
-          <div class="result-box-header">
-            <span class="result-box-title"><i class="fa-solid fa-square-check"></i> Reporte SUNAT</span>
-            <div class="result-action-btns">
-              <button class="btn-action-copy" onclick="copyResult('data-sunat')"><i class="fa-regular fa-copy"></i> Copiar 1-Clic</button>
-              <button class="btn-action-pdf" onclick="exportPDF('data-sunat', 'SUNAT_Reporte')"><i class="fa-solid fa-file-pdf"></i> Exportar PDF</button>
-            </div>
-          </div>
           <div class="result-data-content" id="data-sunat">Esperando ejecución...</div>
         </div>
       </section>
@@ -2349,24 +2221,16 @@
         <div class="panel-form-row">
           <div class="form-group-custom">
             <label>DNI / RUC</label>
-            <input type="text" id="input-sentinel" class="form-input-custom" placeholder="Ej: 70318551 o 20123456789" maxlength="11">
+            <input type="text" id="input-sentinel" class="form-input-custom" placeholder="Ej: 70318551" maxlength="11">
           </div>
           <button class="btn-search-custom" onclick="executeSearch('Sentinel RIESGO', 'input-sentinel', 'res-sentinel')"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
         </div>
-
         <div class="result-box-container" id="res-sentinel">
-          <div class="result-box-header">
-            <span class="result-box-title"><i class="fa-solid fa-square-check"></i> Reporte Crediticio Sentinel</span>
-            <div class="result-action-btns">
-              <button class="btn-action-copy" onclick="copyResult('data-sentinel')"><i class="fa-regular fa-copy"></i> Copiar 1-Clic</button>
-              <button class="btn-action-pdf" onclick="exportPDF('data-sentinel', 'Sentinel_Reporte')"><i class="fa-solid fa-file-pdf"></i> Exportar PDF</button>
-            </div>
-          </div>
           <div class="result-data-content" id="data-sentinel">Esperando ejecución...</div>
         </div>
       </section>
 
-      <!-- VEHÍCULO / TIVE PANEL -->
+      <!-- VEHÍCULO -->
       <section class="custom-panel-view" id="panel-vehiculo">
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-car"></i> Vehículo (TIVE)</h2>
@@ -2378,54 +2242,32 @@
           </div>
           <button class="btn-search-custom" onclick="executeSearch('Vehicular TIVE', 'input-vehiculo', 'res-vehiculo')"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
         </div>
-
         <div class="result-box-container" id="res-vehiculo">
-          <div class="result-box-header">
-            <span class="result-box-title"><i class="fa-solid fa-square-check"></i> Datos Vehiculares TIVE</span>
-            <div class="result-action-btns">
-              <button class="btn-action-copy" onclick="copyResult('data-vehiculo')"><i class="fa-regular fa-copy"></i> Copiar 1-Clic</button>
-              <button class="btn-action-pdf" onclick="exportPDF('data-vehiculo', 'TIVE_Reporte')"><i class="fa-solid fa-file-pdf"></i> Exportar PDF</button>
-            </div>
-          </div>
           <div class="result-data-content" id="data-vehiculo">Esperando ejecución...</div>
         </div>
       </section>
 
-      <!-- SÍGUELO PLUS PANEL -->
+      <!-- SÍGUELO PLUS -->
       <section class="custom-panel-view" id="panel-siguelo-plus">
         <div class="panel-header-custom">
-          <h2 class="panel-title-custom"><i class="fa-solid fa-car-side"></i> Síguelo Plus - Vehicular Avanzado</h2>
+          <h2 class="panel-title-custom"><i class="fa-solid fa-car-side"></i> Síguelo Plus</h2>
         </div>
-
-        <div class="sub-tabs-container">
-          <button class="sub-tab-btn active" id="subtab-placa"><i class="fa-solid fa-id-card"></i> Por Placa (OCR + SUNARP + TIVE + SOAT)</button>
-          <button class="sub-tab-btn" id="subtab-vin"><i class="fa-solid fa-barcode"></i> Por VIN / Serie</button>
-        </div>
-
         <div class="panel-form-row">
-          <div class="form-group-custom" id="group-siguelo-input">
-            <label id="label-siguelo-input">PLACA VEHICULAR</label>
+          <div class="form-group-custom">
+            <label>Placa</label>
             <input type="text" id="input-siguelo" class="form-input-custom" placeholder="Ej: ABC123" maxlength="20">
           </div>
-          <button class="btn-search-custom" onclick="executeSearch('Síguelo Plus Placa', 'input-siguelo', 'res-siguelo')"><i class="fa-solid fa-magnifying-glass"></i> Consultar placa</button>
+          <button class="btn-search-custom" onclick="executeSearch('Síguelo Plus Placa', 'input-siguelo', 'res-siguelo')"><i class="fa-solid fa-magnifying-glass"></i> Consultar</button>
         </div>
-
         <div class="result-box-container" id="res-siguelo">
-          <div class="result-box-header">
-            <span class="result-box-title"><i class="fa-solid fa-square-check"></i> Reporte Síguelo Plus</span>
-            <div class="result-action-btns">
-              <button class="btn-action-copy" onclick="copyResult('data-siguelo')"><i class="fa-regular fa-copy"></i> Copiar 1-Clic</button>
-              <button class="btn-action-pdf" onclick="exportPDF('data-siguelo', 'SigueloPlus_Reporte')"><i class="fa-solid fa-file-pdf"></i> Exportar PDF</button>
-            </div>
-          </div>
           <div class="result-data-content" id="data-siguelo">Esperando ejecución...</div>
         </div>
       </section>
 
-      <!-- ACTAS PANEL -->
+      <!-- ACTAS -->
       <section class="custom-panel-view" id="panel-actas">
         <div class="panel-header-custom">
-          <h2 class="panel-title-custom"><i class="fa-solid fa-file-lines"></i> ACTAS</h2>
+          <h2 class="panel-title-custom"><i class="fa-solid fa-file-lines"></i> Actas</h2>
         </div>
         <div class="panel-form-row">
           <div class="form-group-custom">
@@ -2434,20 +2276,12 @@
           </div>
           <button class="btn-search-custom" onclick="executeSearch('Consulta Actas', 'input-actas', 'res-actas')"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
         </div>
-
         <div class="result-box-container" id="res-actas">
-          <div class="result-box-header">
-            <span class="result-box-title"><i class="fa-solid fa-square-check"></i> Documento Registrado</span>
-            <div class="result-action-btns">
-              <button class="btn-action-copy" onclick="copyResult('data-actas')"><i class="fa-regular fa-copy"></i> Copiar 1-Clic</button>
-              <button class="btn-action-pdf" onclick="exportPDF('data-actas', 'Actas_Reporte')"><i class="fa-solid fa-file-pdf"></i> Exportar PDF</button>
-            </div>
-          </div>
           <div class="result-data-content" id="data-actas">Esperando ejecución...</div>
         </div>
       </section>
 
-      <!-- DOXING / INFO BURO PANEL -->
+      <!-- DOXING -->
       <section class="custom-panel-view" id="panel-doxing">
         <div class="panel-header-custom">
           <h2 class="panel-title-custom"><i class="fa-solid fa-chart-simple"></i> INFO BURO (Doxing)</h2>
@@ -2459,15 +2293,7 @@
           </div>
           <button class="btn-search-custom" onclick="executeSearch('Doxing InfoBuro', 'input-doxing', 'res-doxing')"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
         </div>
-
         <div class="result-box-container" id="res-doxing">
-          <div class="result-box-header">
-            <span class="result-box-title"><i class="fa-solid fa-square-check"></i> Reporte InfoBuro</span>
-            <div class="result-action-btns">
-              <button class="btn-action-copy" onclick="copyResult('data-doxing')"><i class="fa-regular fa-copy"></i> Copiar 1-Clic</button>
-              <button class="btn-action-pdf" onclick="exportPDF('data-doxing', 'Doxing_Reporte')"><i class="fa-solid fa-file-pdf"></i> Exportar PDF</button>
-            </div>
-          </div>
           <div class="result-data-content" id="data-doxing">Esperando ejecución...</div>
         </div>
       </section>
@@ -2475,7 +2301,7 @@
       <!-- OSIPTEL Y SUNARP -->
       <section class="custom-panel-view" id="panel-osiptel">
         <div class="panel-header-custom">
-          <h2 class="panel-title-custom"><i class="fa-solid fa-phone"></i> Consulta OSIPTEL (SBI / DNI)</h2>
+          <h2 class="panel-title-custom"><i class="fa-solid fa-phone"></i> OSIPTEL</h2>
         </div>
         <div class="panel-form-row">
           <div class="form-group-custom">
@@ -2484,39 +2310,23 @@
           </div>
           <button class="btn-search-custom" onclick="executeSearch('OSIPTEL Teléfonos', 'input-osiptel', 'res-osiptel')"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
         </div>
-
         <div class="result-box-container" id="res-osiptel">
-          <div class="result-box-header">
-            <span class="result-box-title"><i class="fa-solid fa-square-check"></i> Resultado OSIPTEL</span>
-            <div class="result-action-btns">
-              <button class="btn-action-copy" onclick="copyResult('data-osiptel')"><i class="fa-regular fa-copy"></i> Copiar 1-Clic</button>
-              <button class="btn-action-pdf" onclick="exportPDF('data-osiptel', 'OSIPTEL_Reporte')"><i class="fa-solid fa-file-pdf"></i> Exportar PDF</button>
-            </div>
-          </div>
           <div class="result-data-content" id="data-osiptel">Esperando ejecución...</div>
         </div>
       </section>
 
       <section class="custom-panel-view" id="panel-sunarp">
         <div class="panel-header-custom">
-          <h2 class="panel-title-custom"><i class="fa-solid fa-building"></i> Consulta SUNARP por DNI</h2>
+          <h2 class="panel-title-custom"><i class="fa-solid fa-building"></i> SUNARP</h2>
         </div>
         <div class="panel-form-row">
           <div class="form-group-custom">
             <label>DNI</label>
             <input type="text" id="input-sunarp" class="form-input-custom" placeholder="Ej: 70364031" maxlength="8">
           </div>
-          <button class="btn-search-custom" onclick="executeSearch('SUNARP', 'input-sunarp', 'res-sunarp')"><i class="fa-solid fa-magnifying-glass"></i> Buscar en SUNARP</button>
+          <button class="btn-search-custom" onclick="executeSearch('SUNARP', 'input-sunarp', 'res-sunarp')"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
         </div>
-
         <div class="result-box-container" id="res-sunarp">
-          <div class="result-box-header">
-            <span class="result-box-title"><i class="fa-solid fa-square-check"></i> Resultado SUNARP</span>
-            <div class="result-action-btns">
-              <button class="btn-action-copy" onclick="copyResult('data-sunarp')"><i class="fa-regular fa-copy"></i> Copiar 1-Clic</button>
-              <button class="btn-action-pdf" onclick="exportPDF('data-sunarp', 'SUNARP_Reporte')"><i class="fa-solid fa-file-pdf"></i> Exportar PDF</button>
-            </div>
-          </div>
           <div class="result-data-content" id="data-sunarp">Esperando ejecución...</div>
         </div>
       </section>
@@ -2524,108 +2334,189 @@
       <!-- PANEL DE HISTORIAL LOCAL -->
       <section class="custom-panel-view" id="panel-historial">
         <div class="panel-header-custom">
-          <h2 class="panel-title-custom"><i class="fa-solid fa-clock-rotate-left"></i> Historial de Consultas Realizadas</h2>
-          <p style="font-size:0.8rem; color:rgba(255,255,255,0.6); margin-top:4px;">Registro guardado localmente en tu navegador</p>
+          <h2 class="panel-title-custom"><i class="fa-solid fa-clock-rotate-left"></i> Historial Local</h2>
         </div>
-
         <div style="display:flex; justify-content:flex-end; margin-bottom:10px;">
           <button class="card-btn" onclick="clearHistory()"><i class="fa-solid fa-trash-can"></i> Limpiar Historial</button>
         </div>
-
         <div style="overflow-x:auto;">
           <table class="history-table">
             <thead>
               <tr>
                 <th>Servicio</th>
-                <th>Valor Consultado</th>
-                <th>Fecha y Hora</th>
+                <th>Valor</th>
+                <th>Fecha</th>
                 <th>Estado</th>
               </tr>
             </thead>
             <tbody id="history-table-body">
-              <tr>
-                <td colspan="4" style="text-align:center; color:rgba(255,255,255,0.4);">No hay consultas recientes</td>
-              </tr>
+              <tr><td colspan="4" style="text-align:center; color:rgba(255,255,255,0.4);">No hay consultas recientes</td></tr>
             </tbody>
           </table>
         </div>
       </section>
 
-      <!-- SECCIÓN STREAMING EXCLUSIVA -->
+      <!-- SECCIÓN STREAMING EXCLUSIVA (KENNY STREAMING) - CAMBIO RADICAL Y MEJORADO -->
       <section class="custom-panel-view" id="panel-streaming">
         <div class="streaming-panel-wrapper">
           
-          <div class="kenny-avatar-box">
-            <img src="kennynegro.jpg" alt="Kenny Logo">
+          <!-- Combinación y uso de fotos de Kenny -->
+          <div class="kenny-banner-grid">
+            <div class="kenny-avatar-box"><img src="kennynegro.jpg" alt="Kenny Negro"></div>
+            <div class="kenny-avatar-box"><img src="kennyarrestado.jpg" alt="Kenny Arrestado"></div>
+            <div class="kenny-avatar-box"><img src="kennymuerto.jpg" alt="Kenny Muerto"></div>
           </div>
 
           <div style="text-align: center;">
             <h2 class="streaming-title">KENNY <span>STREAMING</span></h2>
-            <p style="font-size:0.9rem; color:#ffaa00; font-weight:800; letter-spacing:0.1em;">INSTALACIÓN DE PROGRAMAS REMOTAMENTE</p>
+            <p style="font-size:0.9rem; color:#ffaa00; font-weight:800; letter-spacing:0.1em;">INSTALACIÓN Y PLATAFORMAS PREMIUM</p>
           </div>
 
           <div class="streaming-contact-banner">
             <div>
-              <p style="font-size:0.75rem; color:rgba(255,255,255,0.7); text-transform:uppercase; font-weight:800;">Contacto Directo Exclusivo Streaming</p>
+              <p style="font-size:0.75rem; color:rgba(255,255,255,0.7); text-transform:uppercase; font-weight:800;">Contacto Directo Exclusivo</p>
               <div class="streaming-phone-tag"><i class="fa-brands fa-whatsapp"></i> +51 937 089 748</div>
             </div>
             <div class="action-btn-group" style="margin-top:0;">
               <a href="https://wa.me/51937089748?text=Hola%20Kenny%20Streaming%2C%20deseo%20informacion" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-action" style="background:#ff6b00;">
-                <i class="fa-brands fa-whatsapp"></i> Contactar por WhatsApp
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp
               </a>
               <a href="https://t.me/Adolf3728?text=Hola%20Kenny%20Streaming%2C%20deseo%20informacion" target="_blank" rel="noopener noreferrer" class="btn-telegram-action" style="background:#e65100;">
-                <i class="fa-brands fa-telegram"></i> Contactar por Telegram
+                <i class="fa-brands fa-telegram"></i> Telegram
               </a>
             </div>
           </div>
 
-          <div class="category-section-title"><i class="fa-solid fa-play"></i> Cuadrícula de Plataformas</div>
-          <div class="streaming-grid">
-            <div class="streaming-card">
-              <img src="nexflix.jpg" alt="Netflix" class="platform-logo">
-              <span>Netflix</span>
+          <!-- CUADRÍCULAS INDIVIDUALES Y BONITAS PARA CADA SERVICIO CON SU LOGO Y WHATSAPP PROPIO -->
+          <div class="category-section-title"><i class="fa-solid fa-play"></i> Cuadrícula de Plataformas Premium</div>
+          <div class="platforms-grid-custom">
+            
+            <!-- Netflix -->
+            <div class="platform-card-item">
+              <div class="platform-img-box"><img src="nexflix.jpg" alt="Netflix"></div>
+              <div>
+                <div class="platform-name">Netflix</div>
+                <div class="platform-desc">Pantallas 4K Ultra HD</div>
+              </div>
+              <a href="https://wa.me/51937089748?text=Hola%20Kenny,%20deseo%20comprar%20cuenta%20de%20Netflix" target="_blank" rel="noopener noreferrer" class="btn-platform-wa">
+                <i class="fa-brands fa-whatsapp"></i> Pedir por WhatsApp
+              </a>
             </div>
-            <div class="streaming-card">
-              <img src="primevideo.jpg" alt="Prime Video" class="platform-logo">
-              <span>Prime Video</span>
+
+            <!-- Prime Video -->
+            <div class="platform-card-item">
+              <div class="platform-img-box"><img src="primevideo.jpg" alt="Prime Video"></div>
+              <div>
+                <div class="platform-name">Prime Video</div>
+                <div class="platform-desc">Series y Películas Originales</div>
+              </div>
+              <a href="https://wa.me/51937089748?text=Hola%20Kenny,%20deseo%20comprar%20cuenta%20de%20Prime%20Video" target="_blank" rel="noopener noreferrer" class="btn-platform-wa">
+                <i class="fa-brands fa-whatsapp"></i> Pedir por WhatsApp
+              </a>
             </div>
-            <div class="streaming-card">
-              <img src="disney.jpg" alt="Disney+" class="platform-logo">
-              <span>Disney+</span>
+
+            <!-- Disney+ -->
+            <div class="platform-card-item">
+              <div class="platform-img-box"><img src="disney.jpg" alt="Disney+"></div>
+              <div>
+                <div class="platform-name">Disney+</div>
+                <div class="platform-desc">Estrenos y Contenido Familiar</div>
+              </div>
+              <a href="https://wa.me/51937089748?text=Hola%20Kenny,%20deseo%20comprar%20cuenta%20de%20Disney+" target="_blank" rel="noopener noreferrer" class="btn-platform-wa">
+                <i class="fa-brands fa-whatsapp"></i> Pedir por WhatsApp
+              </a>
             </div>
-            <div class="streaming-card">
-              <img src="hbomax.jpg" alt="HBO Max" class="platform-logo">
-              <span>HBO Max</span>
+
+            <!-- HBO Max -->
+            <div class="platform-card-item">
+              <div class="platform-img-box"><img src="hbomax.jpg" alt="HBO Max"></div>
+              <div>
+                <div class="platform-name">HBO Max</div>
+                <div class="platform-desc">Max Originals & Blockbusters</div>
+              </div>
+              <a href="https://wa.me/51937089748?text=Hola%20Kenny,%20deseo%20comprar%20cuenta%20de%20HBO%20Max" target="_blank" rel="noopener noreferrer" class="btn-platform-wa">
+                <i class="fa-brands fa-whatsapp"></i> Pedir por WhatsApp
+              </a>
             </div>
-            <div class="streaming-card">
-              <img src="vixpremium.jpg" alt="ViX Premium" class="platform-logo">
-              <span>ViX Premium</span>
+
+            <!-- ViX Premium -->
+            <div class="platform-card-item">
+              <div class="platform-img-box"><img src="vixpremium.jpg" alt="ViX Premium"></div>
+              <div>
+                <div class="platform-name">ViX Premium</div>
+                <div class="platform-desc">Fútbol, Novelas y Películas</div>
+              </div>
+              <a href="https://wa.me/51937089748?text=Hola%20Kenny,%20deseo%20comprar%20cuenta%20de%20ViX%20Premium" target="_blank" rel="noopener noreferrer" class="btn-platform-wa">
+                <i class="fa-brands fa-whatsapp"></i> Pedir por WhatsApp
+              </a>
             </div>
-            <div class="streaming-card">
-              <img src="yotube.jpg" alt="YouTube Premium" class="platform-logo">
-              <span>YouTube Premium</span>
+
+            <!-- YouTube Premium -->
+            <div class="platform-card-item">
+              <div class="platform-img-box"><img src="yotube.jpg" alt="YouTube Premium"></div>
+              <div>
+                <div class="platform-name">YouTube Premium</div>
+                <div class="platform-desc">Sin Anuncios & YouTube Music</div>
+              </div>
+              <a href="https://wa.me/51937089748?text=Hola%20Kenny,%20deseo%20comprar%20cuenta%20de%20YouTube%20Premium" target="_blank" rel="noopener noreferrer" class="btn-platform-wa">
+                <i class="fa-brands fa-whatsapp"></i> Pedir por WhatsApp
+              </a>
             </div>
-            <div class="streaming-card">
-              <img src="tik tok.jpg" alt="TikTok Live" class="platform-logo">
-              <span>TikTok Live</span>
+
+            <!-- TikTok Live -->
+            <div class="platform-card-item">
+              <div class="platform-img-box"><img src="tik tok.jpg" alt="TikTok Live"></div>
+              <div>
+                <div class="platform-name">TikTok Live</div>
+                <div class="platform-desc">Herramientas y Activaciones</div>
+              </div>
+              <a href="https://wa.me/51937089748?text=Hola%20Kenny,%20deseo%20comprar%20servicios%20de%20TikTok" target="_blank" rel="noopener noreferrer" class="btn-platform-wa">
+                <i class="fa-brands fa-whatsapp"></i> Pedir por WhatsApp
+              </a>
             </div>
+
           </div>
 
+          <!-- INSTALACIÓN REMOTA DE PROGRAMAS -->
           <div class="category-section-title"><i class="fa-solid fa-laptop-code"></i> Instalación Remota de Programas</div>
-          <div class="streaming-grid">
-            <div class="streaming-card"><i class="fa-solid fa-file-word" style="color:#2b579a;"></i><span>Microsoft Office</span></div>
-            <div class="streaming-card"><i class="fa-solid fa-compass-drafting" style="color:red;"></i><span>AutoCAD</span></div>
-            <div class="streaming-card"><i class="fa-solid fa-image" style="color:#31a8ff;"></i><span>Photoshop</span></div>
-            <div class="streaming-card"><i class="fa-solid fa-pen-nib" style="color:#ff9a00;"></i><span>Illustrator</span></div>
-            <div class="streaming-card"><i class="fa-solid fa-video" style="color:#9999fb;"></i><span>Premiere Pro</span></div>
-            <div class="streaming-card"><i class="fa-solid fa-file-pdf" style="color:#ff4444;"></i><span>Nitro PDF</span></div>
-            <div class="streaming-card"><i class="fa-solid fa-palette" style="color:#00c853;"></i><span>CorelDRAW 2024</span></div>
-          </div>
+          <div class="platforms-grid-custom">
+            
+            <div class="platform-card-item">
+              <div class="platform-img-box"><i class="fa-solid fa-file-word" style="font-size:2.2rem; color:#2b579a;"></i></div>
+              <div>
+                <div class="platform-name">Microsoft Office</div>
+                <div class="platform-desc">Word, Excel, PowerPoint</div>
+              </div>
+              <a href="https://wa.me/51937089748?text=Hola%20Kenny,%20deseo%20instalar%20Office" target="_blank" rel="noopener noreferrer" class="btn-platform-wa"><i class="fa-brands fa-whatsapp"></i> Solicitar</a>
+            </div>
 
-          <div class="category-section-title"><i class="fa-solid fa-desktop"></i> Asistencia Remota Disponible</div>
-          <div class="streaming-grid">
-            <div class="streaming-card"><i class="fa-solid fa-network-wired" style="color:#ef4444;"></i><span>AnyDesk</span></div>
-            <div class="streaming-card"><i class="fa-solid fa-arrows-split-up-and-left" style="color:#00539b;"></i><span>TeamViewer</span></div>
+            <div class="platform-card-item">
+              <div class="platform-img-box"><i class="fa-solid fa-compass-drafting" style="font-size:2.2rem; color:red;"></i></div>
+              <div>
+                <div class="platform-name">AutoCAD</div>
+                <div class="platform-desc">Diseño CAD Profesional</div>
+              </div>
+              <a href="https://wa.me/51937089748?text=Hola%20Kenny,%20deseo%20instalar%20AutoCAD" target="_blank" rel="noopener noreferrer" class="btn-platform-wa"><i class="fa-brands fa-whatsapp"></i> Solicitar</a>
+            </div>
+
+            <div class="platform-card-item">
+              <div class="platform-img-box"><i class="fa-solid fa-image" style="font-size:2.2rem; color:#31a8ff;"></i></div>
+              <div>
+                <div class="platform-name">Photoshop</div>
+                <div class="platform-desc">Edición Fotográfica</div>
+              </div>
+              <a href="https://wa.me/51937089748?text=Hola%20Kenny,%20deseo%20instalar%20Photoshop" target="_blank" rel="noopener noreferrer" class="btn-platform-wa"><i class="fa-brands fa-whatsapp"></i> Solicitar</a>
+            </div>
+
+            <div class="platform-card-item">
+              <div class="platform-img-box"><i class="fa-solid fa-palette" style="font-size:2.2rem; color:#00c853;"></i></div>
+              <div>
+                <div class="platform-name">CorelDRAW 2024</div>
+                <div class="platform-desc">Diseño Vectorial</div>
+              </div>
+              <a href="https://wa.me/51937089748?text=Hola%20Kenny,%20deseo%20instalar%20CorelDRAW" target="_blank" rel="noopener noreferrer" class="btn-platform-wa"><i class="fa-brands fa-whatsapp"></i> Solicitar</a>
+            </div>
+
           </div>
 
         </div>
@@ -2637,17 +2528,8 @@
           <i class="fa-solid fa-sim-card" style="font-size: 3rem; color: #a855f7;"></i>
           <h2 class="info-hero-title">¿Deseas números virtuales de <span>cualquier país</span>?</h2>
           <p style="font-size:1.1rem; font-weight:800; color:#86efac; margin-top:-5px;">¡Tenemos desde S/. 15.00!</p>
-          <p style="font-size:0.85rem; color:rgba(226,232,240,0.8); max-width:650px; line-height:1.5;">
-            Líneas 100% privadas y garantizadas para activación inmediata de WhatsApp, Telegram, PayPal, TikTok, Facebook y cualquier plataforma global. Cobertura en más de 50 países con recepción instantánea de códigos SMS.
-          </p>
-
           <div class="action-btn-group">
-            <a href="https://wa.me/573135022169" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-action">
-              <i class="fa-brands fa-whatsapp"></i> Pedir por WhatsApp
-            </a>
-            <a href="https://t.me/Adolf3728?text=Hola%2C%20deseo%20comprar%20un%20Numero%20Virtual" target="_blank" rel="noopener noreferrer" class="btn-telegram-action">
-              <i class="fa-brands fa-telegram"></i> Pedir por Telegram
-            </a>
+            <a href="https://wa.me/573135022169" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-action"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
           </div>
         </div>
       </section>
@@ -2657,15 +2539,8 @@
         <div class="info-card-wrapper">
           <i class="fa-brands fa-whatsapp" style="font-size: 3.5rem; color: #22c55e;"></i>
           <h2 class="info-hero-title">Consulta todo desde tu <span style="color:#22c55e;">WhatsApp</span></h2>
-          <p style="font-size:0.88rem; color:rgba(226,232,240,0.8); max-width:600px; line-height:1.5;">Vincula tu cuenta y accede a más de 30 comandos desde el chat. RENIEC, SUNARP, MTC, antecedentes, requisitorias, vehículos y mucho más — sin abrir la web.</p>
-          
           <div class="action-btn-group">
-            <a href="https://wa.me/573135022169" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-action">
-              <i class="fa-brands fa-whatsapp"></i> Empezar en WhatsApp
-            </a>
-            <a href="https://t.me/Adolf3728?text=Hola%2C%20deseo%20vincular%20el%20Chatbot%20de%20WhatsApp" target="_blank" rel="noopener noreferrer" class="btn-telegram-action">
-              <i class="fa-brands fa-telegram"></i> Consultar por Telegram
-            </a>
+            <a href="https://wa.me/573135022169" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-action"><i class="fa-brands fa-whatsapp"></i> Empezar</a>
           </div>
         </div>
       </section>
@@ -2674,7 +2549,7 @@
       <section class="web-plans-section" id="web-plans-container">
         <div class="vision-divider" style="max-width:100%; margin-bottom:15px;">
           <div class="line"></div>
-          <span class="badge">PLANES DE PÁGINAS WEB PARA TODO TIPO DE NEGOCIOS Y EVENTOS</span>
+          <span class="badge">PLANES DE PÁGINAS WEB</span>
           <div class="line"></div>
         </div>
 
@@ -2683,116 +2558,27 @@
             <div>
               <h3>Básico Express</h3>
               <div class="plan-price">S/. 5 <span>/ pago único</span></div>
-              <div class="plan-subtitle">Ideal para Tarjetas de Presentación y Eventos</div>
               <ul class="plan-features">
-                <li><i class="fa-solid fa-check"></i> Página de 1 Sección (Landing Page)</li>
-                <li><i class="fa-solid fa-check"></i> Diseño perfecto para Fiestas, Promociones y Eventos</li>
-                <li><i class="fa-solid fa-check"></i> Botones directos a tus Redes Sociales y WhatsApp</li>
-                <li><i class="fa-solid fa-check"></i> Dominio y hosting gratuito incluido</li>
-                <li><i class="fa-solid fa-check"></i> Carga Ultra Rápida y Adaptable a Celulares</li>
+                <li><i class="fa-solid fa-check"></i> Landing Page de 1 Sección</li>
+                <li><i class="fa-solid fa-check"></i> Botones directos a WhatsApp</li>
               </ul>
             </div>
             <div class="plan-buttons-group">
-              <a href="https://wa.me/573135022169" target="_blank" rel="noopener noreferrer" class="btn-plan-ws">
-                <i class="fa-brands fa-whatsapp"></i> Solicitar por WhatsApp
-              </a>
-              <a href="https://t.me/Adolf3728?text=Hola%20deseo%20comprar%20el%20plan%20Basico%20Express%20de%205%20soles" target="_blank" rel="noopener noreferrer" class="btn-plan-tg">
-                <i class="fa-brands fa-telegram"></i> Solicitar por Telegram
-              </a>
+              <a href="https://wa.me/573135022169" target="_blank" rel="noopener noreferrer" class="btn-plan-ws"><i class="fa-brands fa-whatsapp"></i> Solicitar</a>
             </div>
           </div>
-
-          <div class="plan-card">
-            <div>
-              <h3>Estándar Lite</h3>
-              <div class="plan-price">S/. 15 <span>/ pago único</span></div>
-              <div class="plan-subtitle">Para Negocios Locales y Emprendedores</div>
-              <ul class="plan-features">
-                <li><i class="fa-solid fa-check"></i> Web Multi-sección (Inicio + Servicios/Productos)</li>
-                <li><i class="fa-solid fa-check"></i> Formulario de contacto directo a tu correo o celular</li>
-                <li><i class="fa-solid fa-check"></i> Galería de Fotos interactiva de tu local o productos</li>
-                <li><i class="fa-solid fa-check"></i> Ubicación e integración con Google Maps</li>
-                <li><i class="fa-solid fa-check"></i> Mantenimiento y asesoría básica de regalo</li>
-              </ul>
-            </div>
-            <div class="plan-buttons-group">
-              <a href="https://wa.me/573135022169" target="_blank" rel="noopener noreferrer" class="btn-plan-ws">
-                <i class="fa-brands fa-whatsapp"></i> Solicitar por WhatsApp
-              </a>
-              <a href="https://t.me/Adolf3728?text=Hola%20deseo%20comprar%20el%20plan%20Estandard%20Lite%20de%2015%20soles" target="_blank" rel="noopener noreferrer" class="btn-plan-tg">
-                <i class="fa-brands fa-telegram"></i> Solicitar por Telegram
-              </a>
-            </div>
-          </div>
-
-          <div class="plan-card">
-            <div>
-              <h3>Pro Cyber</h3>
-              <div class="plan-price">S/. 35 <span>/ pago único</span></div>
-              <div class="plan-subtitle">Impacto Visual Dark / Neón Futurista</div>
-              <ul class="plan-features">
-                <li><i class="fa-solid fa-check"></i> Diseño Personalizado Cyber/Neón de Alto Impacto</li>
-                <li><i class="fa-solid fa-check"></i> Múltiples Secciones Estructuradas</li>
-                <li><i class="fa-solid fa-check"></i> Repositorio Privado y Código 100% Tuyo</li>
-                <li><i class="fa-solid fa-check"></i> Optimización SEO para aparecer en buscadores</li>
-                <li><i class="fa-solid fa-check"></i> Integración con Reproductores, Música o Streaming</li>
-              </ul>
-            </div>
-            <div class="plan-buttons-group">
-              <a href="https://wa.me/573135022169" target="_blank" rel="noopener noreferrer" class="btn-plan-ws">
-                <i class="fa-brands fa-whatsapp"></i> Solicitar por WhatsApp
-              </a>
-              <a href="https://t.me/Adolf3728?text=Hola%20deseo%20comprar%20el%20plan%20Pro%20Cyber%20de%2035%20soles" target="_blank" rel="noopener noreferrer" class="btn-plan-tg">
-                <i class="fa-brands fa-telegram"></i> Solicitar por Telegram
-              </a>
-            </div>
-          </div>
-
           <div class="plan-card featured">
             <span class="plan-badge">MÁS VENDIDO</span>
             <div>
               <h3>Business Pro</h3>
               <div class="plan-price">S/. 50 <span>/ pago único</span></div>
-              <div class="plan-subtitle">Tienda Virtual y Marcas Consolidadas</div>
               <ul class="plan-features">
-                <li><i class="fa-solid fa-check"></i> Catálogo Interactivo de Productos con Carrito</li>
-                <li><i class="fa-solid fa-check"></i> Pedidos automáticos directos a tu WhatsApp</li>
-                <li><i class="fa-solid fa-check"></i> Dominio propio (.com) + Certificado SSL Seguro</li>
-                <li><i class="fa-solid fa-check"></i> Posicionamiento SEO Avanzado</li>
-                <li><i class="fa-solid fa-check"></i> Correos corporativos profesionales</li>
+                <li><i class="fa-solid fa-check"></i> Catálogo Interactivo con Carrito</li>
+                <li><i class="fa-solid fa-check"></i> Pedidos directos a WhatsApp</li>
               </ul>
             </div>
             <div class="plan-buttons-group">
-              <a href="https://wa.me/573135022169" target="_blank" rel="noopener noreferrer" class="btn-plan-ws" style="background:#22c55e; color:#fff;">
-                <i class="fa-brands fa-whatsapp"></i> Solicitar por WhatsApp
-              </a>
-              <a href="https://t.me/Adolf3728?text=Hola%20deseo%20comprar%20el%20plan%20Business%20Pro%20de%2050%20soles" target="_blank" rel="noopener noreferrer" class="btn-plan-tg" style="background:#a855f7; color:#fff;">
-                <i class="fa-brands fa-telegram"></i> Solicitar por Telegram
-              </a>
-            </div>
-          </div>
-
-          <div class="plan-card">
-            <span class="plan-badge" style="background:#22c55e;">MÁXIMO POWER</span>
-            <div>
-              <h3>Enterprise & Protection</h3>
-              <div class="plan-price">S/. 75 <span>/ pago único</span></div>
-              <div class="plan-subtitle">Sistemas a Medida y Seguridad Máxima</div>
-              <ul class="plan-features">
-                <li><i class="fa-solid fa-check"></i> Panel de Administración Integrado a Medida</li>
-                <li><i class="fa-solid fa-check"></i> Protección Anti-Ataques DDoS y Blindaje Web</li>
-                <li><i class="fa-solid fa-check"></i> Servidores Dedicados de Velocidad Extrema</li>
-                <li><i class="fa-solid fa-check"></i> Soporte Técnico Prioritario 24/7 de por vida</li>
-                <li><i class="fa-solid fa-check"></i> Actualizaciones y copias de seguridad continuas</li>
-              </ul>
-            </div>
-            <div class="plan-buttons-group">
-              <a href="https://wa.me/573135022169" target="_blank" rel="noopener noreferrer" class="btn-plan-ws">
-                <i class="fa-brands fa-whatsapp"></i> Solicitar por WhatsApp
-              </a>
-              <a href="https://t.me/Adolf3728?text=Hola%20deseo%20comprar%20el%20plan%20Enterprise%20de%2075%20soles" target="_blank" rel="noopener noreferrer" class="btn-plan-tg">
-                <i class="fa-brands fa-telegram"></i> Solicitar por Telegram
-              </a>
+              <a href="https://wa.me/573135022169" target="_blank" rel="noopener noreferrer" class="btn-plan-ws" style="background:#22c55e; color:#fff;"><i class="fa-brands fa-whatsapp"></i> Solicitar</a>
             </div>
           </div>
         </div>
@@ -2814,36 +2600,18 @@
               <div class="node-icon"><i class="fa-solid fa-id-card"></i></div>
               <div class="node-info"><h4>RENIEC</h4><p>Identificación & Estado Civil</p></div>
             </div>
-            <div class="node-card">
-              <div class="node-icon"><i class="fa-solid fa-receipt"></i></div>
-              <div class="node-info"><h4>SUNAT</h4><p>Registros Tributarios & RUC</p></div>
-            </div>
-            <div class="node-card">
-              <div class="node-icon"><i class="fa-solid fa-building"></i></div>
-              <div class="node-info"><h4>SUNARP</h4><p>Propiedades & Registro Predial</p></div>
-            </div>
           </div>
-
           <div class="center-core-node">
             <div class="core-logo-box">
               <svg class="ss-logo-svg" viewBox="0 0 100 100" style="width: 28px; height: 28px;"><use href="#ss-logo-path"></use></svg>
             </div>
             <div class="core-title">Rocket.com</div>
-            <div class="core-desc">Centralizador Global OSINT & Servicios Digitales</div>
+            <div class="core-desc">Centralizador Global OSINT</div>
           </div>
-
           <div class="diagram-column">
             <div class="node-card">
               <div class="node-icon"><i class="fa-solid fa-scale-balanced"></i></div>
               <div class="node-info"><h4>PODER JUDICIAL</h4><p>Expedientes & Procesos</p></div>
-            </div>
-            <div class="node-card">
-              <div class="node-icon"><i class="fa-solid fa-passport"></i></div>
-              <div class="node-info"><h4>MIGRACIONES</h4><p>Movimiento Migratorio</p></div>
-            </div>
-            <div class="node-card">
-              <div class="node-icon"><i class="fa-solid fa-tower-cell"></i></div>
-              <div class="node-info"><h4>OSIPTEL</h4><p>Líneas & Telecomunicaciones</p></div>
             </div>
           </div>
         </div>
@@ -2851,101 +2619,35 @@
 
       <!-- SERVICIOS GRID GENERAL -->
       <section class="services-grid" id="services-container">
-        
-        <!-- TARJETA UNIFICADA DE SERVICIOS OSINT -->
         <div class="service-card large-card" data-cat="OSINT">
           <div class="card-header-img" style="height: 180px; background-image: linear-gradient(rgba(16,10,24,0.2), rgba(16,10,24,0.9)), url('imagenlogo.jpg'); background-position: center 32%;">
-            <span class="category-tag">RECOPILATORIO COMPLETO OSINT</span>
+            <span class="category-tag">OSINT UNIFICADO</span>
             <span class="card-price-badge">Acceso Directo</span>
           </div>
           <div class="card-body">
-            <h3 class="card-title"><i class="fa-solid fa-eye" style="color:#a855f7;"></i> Servicios OSINT Unificados</h3>
-            <p class="card-desc">Búsquedas avanzadas integradas en un solo lugar. Consulta todos los registros públicos y privados en tiempo real:</p>
-            
-            <div class="osint-tags-cloud">
-              <span class="osint-tag-item"><i class="fa-solid fa-phone"></i> Teléfonos</span>
-              <span class="osint-tag-item"><i class="fa-solid fa-building"></i> Sunarp</span>
-              <span class="osint-tag-item"><i class="fa-solid fa-id-card"></i> Reniec</span>
-              <span class="osint-tag-item"><i class="fa-solid fa-folder"></i> Justicia / PNP</span>
-              <span class="osint-tag-item"><i class="fa-solid fa-user-gear"></i> Persona Plus</span>
-              <span class="osint-tag-item"><i class="fa-solid fa-file-invoice-dollar"></i> Sunat</span>
-              <span class="osint-tag-item"><i class="fa-solid fa-shield-halved"></i> Sentinel</span>
-              <span class="osint-tag-item"><i class="fa-solid fa-car"></i> Vehículo</span>
-              <span class="osint-tag-item"><i class="fa-solid fa-car-side"></i> Síguelo Plus</span>
-              <span class="osint-tag-item"><i class="fa-solid fa-file-lines"></i> Actas</span>
-              <span class="osint-tag-item"><i class="fa-solid fa-chart-simple"></i> Doxing</span>
-            </div>
+            <h3 class="card-title"><i class="fa-solid fa-eye" style="color:#a855f7;"></i> Servicios OSINT</h3>
+            <p class="card-desc">Búsquedas avanzadas integradas en un solo lugar.</p>
           </div>
           <div class="card-footer">
-            <span class="card-time"><i class="fa-regular fa-clock"></i> Consultas Instantáneas</span>
+            <span class="card-time"><i class="fa-regular fa-clock"></i> Instantáneo</span>
             <button id="card-osint-full-btn" class="card-btn">Ir a Persona Plus <i class="fa-solid fa-arrow-right"></i></button>
           </div>
         </div>
 
-        <!-- TARJETA NÚMEROS VIRTUALES -->
-        <div class="service-card" data-cat="DIGITAL">
-          <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('imagencartillas.jpg');">
-            <span class="category-tag">DIGITAL</span>
-            <span class="card-price-badge">Desde S/. 15.00</span>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">Números Virtuales & SMS</h3>
-            <p class="card-desc">Recepción de códigos de verificación e integración para WhatsApp, Telegram y servicios web globales.</p>
-          </div>
-          <div class="card-footer">
-            <span class="card-time"><i class="fa-regular fa-clock"></i> Instantáneo</span>
-            <a href="#" id="card-num-virt-btn" class="card-btn">Ver Detalles <i class="fa-solid fa-arrow-right"></i></a>
-          </div>
-        </div>
-
-        <!-- TARJETA STREAMING & SOFTWARE -->
         <div class="service-card" data-cat="STREAMING">
           <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('imagenlogo.jpg'); background-position: center 32%;">
             <span class="category-tag" style="border-color:#ff6b00; color:#ffaa00;">STREAMING</span>
             <span class="card-price-badge" style="background:#ff6b00;">Kenny Streaming</span>
           </div>
           <div class="card-body">
-            <h3 class="card-title">Streaming & Instalación Remota</h3>
-            <p class="card-desc">Cuentas premium de Netflix, Disney+, Prime, más instalación remota de AutoCAD, Photoshop, Office y más.</p>
+            <h3 class="card-title">Streaming & Software</h3>
+            <p class="card-desc">Cuentas premium de Netflix, Disney+, Prime e instalación remota.</p>
           </div>
           <div class="card-footer">
-            <span class="card-time"><i class="fa-regular fa-clock"></i> Soporte 24/7</span>
+            <span class="card-time"><i class="fa-regular fa-clock"></i> 24/7</span>
             <a href="#" id="card-streaming-btn" class="card-btn" style="border-color:#ff6b00; color:#ffaa00;">Ver Catálogo <i class="fa-solid fa-arrow-right"></i></a>
           </div>
         </div>
-
-        <!-- TARJETA CHATBOT WHATSAPP -->
-        <div class="service-card" data-cat="DIGITAL">
-          <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('imagenlogo.jpg'); background-position: center 32%;">
-            <span class="category-tag" style="color:#86efac;">BOT WHATSAPP</span>
-            <span class="card-price-badge" style="background:#22c55e;">Auto-Respuesta</span>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">ChatBot para WhatsApp</h3>
-            <p class="card-desc">Consulta datos y reportes directo desde tu chat de WhatsApp mediante comandos automatizados.</p>
-          </div>
-          <div class="card-footer">
-            <span class="card-time"><i class="fa-regular fa-clock"></i> Vinculación inmediata</span>
-            <a href="#" id="card-chatbot-btn" class="card-btn">Probar Bot <i class="fa-solid fa-arrow-right"></i></a>
-          </div>
-        </div>
-
-        <!-- TARJETA DESARROLLO WEB -->
-        <div class="service-card" data-cat="CREACION_WEB">
-          <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('imagenlogo.jpg'); background-position: center 32%;">
-            <span class="category-tag">CREACIÓN WEB</span>
-            <span class="card-price-badge">Desde S/. 5.00</span>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">Desarrollo Web & Landing Pages</h3>
-            <p class="card-desc">Páginas modernas para eventos, fiestas, negocios y e-commerce con catálogo en WhatsApp.</p>
-          </div>
-          <div class="card-footer">
-            <span class="card-time"><i class="fa-regular fa-clock"></i> Entrega rápida</span>
-            <a href="#" id="card-web-btn" class="card-btn">Ver Planes <i class="fa-solid fa-arrow-right"></i></a>
-          </div>
-        </div>
-
       </section>
 
       <!-- BANDERAS -->
@@ -2955,21 +2657,11 @@
           <span class="badge">NUESTRA VISIÓN</span>
           <div class="line"></div>
         </div>
-        <p class="quote-text">"Somos ROCKET. Nacimos en silencio, avanzamos sin aviso y cuando nos conozcas, ya estaremos en todas partes."</p>
-
+        <p class="quote-text">"Somos ROCKET. Nacimos en silencio, avanzamos sin aviso."</p>
         <div class="flags-container">
-          <div class="flag-wrapper" data-country="Jamaica"><img src="jamaica.png" class="flag-img" alt="Jamaica"></div>
-          <div class="flag-wrapper" data-country="Rusia"><img src="rusia.jpg" class="flag-img" alt="Rusia"></div>
-          <div class="flag-wrapper" data-country="Brasil"><img src="brasil.jpg" class="flag-img" alt="Brasil"></div>
-          <div class="flag-wrapper" data-country="Uruguay"><img src="uruguay.jpg" class="flag-img" alt="Uruguay"></div>
-          <div class="flag-wrapper" data-country="Paraguay"><img src="paraguay.jpg" class="flag-img" alt="Paraguay"></div>
-          <div class="flag-wrapper" data-country="Argentina"><img src="argentina.jpg" class="flag-img" alt="Argentina"></div>
-          <div class="flag-wrapper" data-country="Chile"><img src="chile.jpg" class="flag-img" alt="Chile"></div>
-          <div class="flag-wrapper" data-country="Bolivia"><img src="bolivia.jpg" class="flag-img" alt="Bolivia"></div>
           <div class="flag-wrapper" data-country="Perú"><img src="peru.jpg" class="flag-img" alt="Perú"></div>
-          <div class="flag-wrapper" data-country="Ecuador"><img src="ecuador.jpg" class="flag-img" alt="Ecuador"></div>
-          <div class="flag-wrapper" data-country="Venezuela"><img src="venezuela.jpg" class="flag-img" alt="Venezuela"></div>
-          <div class="flag-wrapper" data-country="Colombia"><img src="colombia.jpg" class="flag-img" alt="Colombia"></div>
+          <div class="flag-wrapper" data-country="Brasil"><img src="brasil.jpg" class="flag-img" alt="Brasil"></div>
+          <div class="flag-wrapper" data-country="Argentina"><img src="argentina.jpg" class="flag-img" alt="Argentina"></div>
         </div>
       </section>
 
@@ -3040,18 +2732,11 @@
 
       const fileInput = document.getElementById("facial-file-input");
       const previewImg = document.getElementById("facial-preview");
-      const clearBtn = document.getElementById("btn-clear-facial");
-      const cameraBtn = document.getElementById("btn-camera-facial");
 
       if(fileInput) {
         fileInput.addEventListener("change", (e) => {
           const file = e.target.files[0];
           if (file) {
-            if (file.size > 15 * 1024 * 1024) {
-              alert("El archivo es demasiado pesado. Máximo 15 MB.");
-              fileInput.value = "";
-              return;
-            }
             const reader = new FileReader();
             reader.onload = (event) => {
               previewImg.src = event.target.result;
@@ -3059,35 +2744,6 @@
             };
             reader.readAsDataURL(file);
           }
-        });
-      }
-
-      if(clearBtn) {
-        clearBtn.addEventListener("click", () => {
-          if(fileInput) fileInput.value = "";
-          if(previewImg) { previewImg.src = ""; previewImg.style.display = "none"; }
-        });
-      }
-
-      if(cameraBtn && fileInput) {
-        cameraBtn.addEventListener("click", () => { fileInput.click(); });
-      }
-
-      const subtabPlaca = document.getElementById("subtab-placa");
-      const subtabVin = document.getElementById("subtab-vin");
-      const labelSigueloInput = document.getElementById("label-siguelo-input");
-
-      if (subtabPlaca && subtabVin) {
-        subtabPlaca.addEventListener("click", () => {
-          subtabPlaca.classList.add("active");
-          subtabVin.classList.remove("active");
-          if(labelSigueloInput) labelSigueloInput.innerText = "PLACA VEHICULAR";
-        });
-
-        subtabVin.addEventListener("click", () => {
-          subtabVin.classList.add("active");
-          subtabPlaca.classList.remove("active");
-          if(labelSigueloInput) labelSigueloInput.innerText = "NÚMERO DE VIN / SERIE";
         });
       }
 
@@ -3123,25 +2779,22 @@
       document.getElementById("menu-recarga").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-recarga"); });
 
       document.getElementById("menu-creacion-web").addEventListener("click", (e) => { e.preventDefault(); hideAllPanels(); if(webPlansContainer) webPlansContainer.classList.add("active"); closeSidebar(); });
-      document.getElementById("card-web-btn").addEventListener("click", (e) => { e.preventDefault(); hideAllPanels(); if(webPlansContainer) webPlansContainer.classList.add("active"); closeSidebar(); });
+      document.getElementById("card-web-btn")?.addEventListener("click", (e) => { e.preventDefault(); hideAllPanels(); if(webPlansContainer) webPlansContainer.classList.add("active"); closeSidebar(); });
 
       document.getElementById("menu-telefonos").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-osiptel"); });
       document.getElementById("menu-sunarp").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-sunarp"); });
 
-      // RENIEC
       document.getElementById("reniec-ficha").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-reniec-ficha"); });
       document.getElementById("reniec-nombres").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-reniec-nombres"); });
       document.getElementById("reniec-dni-virtual").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-reniec-dni-virtual"); });
       document.getElementById("reniec-arbol").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-reniec-arbol"); });
       document.getElementById("reniec-facial").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-reniec-facial"); });
 
-      // JUSTICIA
       document.getElementById("justicia-denuncias").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-justicia-denuncias"); });
       document.getElementById("justicia-antecedentes").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-justicia-antecedentes"); });
       document.getElementById("justicia-requisitorias").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-justicia-requisitorias"); });
       document.getElementById("justicia-policia").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-justicia-policia"); });
 
-      // OTROS MÓDULOS
       document.getElementById("menu-persona-plus").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-persona-plus"); });
       document.getElementById("card-osint-full-btn").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-persona-plus"); });
 
@@ -3152,135 +2805,81 @@
       document.getElementById("menu-actas").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-actas"); });
       document.getElementById("menu-doxing").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-doxing"); });
 
-      // HISTORIAL Y DIGITALES
       document.getElementById("menu-historial").addEventListener("click", (e) => { e.preventDefault(); renderHistory(); openPanel("panel-historial"); });
       document.getElementById("menu-chatbot").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-chatbot"); });
-      document.getElementById("card-chatbot-btn").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-chatbot"); });
-
       document.getElementById("menu-numeros-virtuales").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-numeros-virtuales"); });
-      document.getElementById("card-num-virt-btn").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-numeros-virtuales"); });
 
       document.getElementById("menu-streaming").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-streaming"); });
       document.getElementById("card-streaming-btn").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-streaming"); });
-
-      document.querySelectorAll(".dropdown-trigger").forEach(trig => {
-        trig.addEventListener("click", () => {
-          trig.parentElement.classList.toggle("open");
-        });
-      });
     });
 
     function openCreditModal(planName, price, credits) {
       activePlanData = { planName, price, credits };
-
       document.getElementById("modal-pay-amount").innerText = `S/ ${price}`;
       document.getElementById("modal-pay-credits").innerText = credits;
-
       document.getElementById("modal-step-yape").style.display = "block";
       document.getElementById("modal-step-confirm").style.display = "none";
       document.getElementById("yape-payer-name").value = "";
-
       document.getElementById("modal-credits").classList.add("active");
     }
 
     function confirmYapeBot() {
-      const rawPayerName = document.getElementById("yape-payer-name").value;
-      const payerName = sanitizeInput(rawPayerName.trim());
-      
+      const payerName = sanitizeInput(document.getElementById("yape-payer-name").value.trim());
       if (!payerName || payerName.length < 2) {
-        alert("Por favor ingresa un nombre de titular válido.");
+        alert("Ingresa un nombre de titular válido.");
         return;
       }
-
-      alert(`[BOT LEYENDO YAPE...]\nRegistrando pago de S/ ${activePlanData.price} a nombre de: ${payerName}\n\nLos créditos (${activePlanData.credits}) serán cargados en breve.`);
+      alert(`[BOT YAPE]\nRegistro correcto de S/ ${activePlanData.price} a nombre de: ${payerName}\nCréditos asignados: ${activePlanData.credits}`);
       document.getElementById("modal-credits").classList.remove("active");
     }
 
     function executeSearch(serviceName, inputId, resultBoxId) {
-      const inputEl = document.getElementById(inputId);
-      const rawVal = inputEl ? inputEl.value : "";
-      const inputVal = sanitizeInput(rawVal.trim());
-
+      const inputVal = sanitizeInput(document.getElementById(inputId)?.value.trim());
       if (!inputVal) {
-        alert("Por favor ingresa un valor válido para consultar.");
+        alert("Ingresa un valor válido.");
         return;
       }
-
       const resBox = document.getElementById(resultBoxId);
-      if (!resBox) return;
-
       const dataBox = resBox.querySelector(".result-data-content");
       resBox.style.display = "block";
-      dataBox.innerHTML = `[PROCESANDO CONSULTA CON INDEX.JS BOT...]\nConsultando servicio: ${sanitizeInput(serviceName)}\nValor: ${inputVal}\nEspere un momento...`;
+      dataBox.innerHTML = `[CONSULTANDO...] Servicio: ${sanitizeInput(serviceName)} | Valor: ${inputVal}`;
 
       setTimeout(() => {
-        const mockResult = `=== RESULTADO DE CONSULTA ROCKET ===\nServicio: ${sanitizeInput(serviceName)}\nConsulta: ${inputVal}\nFecha: ${new Date().toLocaleString()}\nEstado: COMPLETADO\n-----------------------------------\n[DATOS OBTENIDOS REGISTRADOS EXITOSAMENTE]`;
-        dataBox.innerText = mockResult;
-
+        dataBox.innerText = `=== RESULTADO ===\nServicio: ${sanitizeInput(serviceName)}\nConsulta: ${inputVal}\nEstado: EXITOSO`;
         let history = JSON.parse(localStorage.getItem("rocket_history") || "[]");
-        history.unshift({
-          service: sanitizeInput(serviceName),
-          value: inputVal,
-          date: new Date().toLocaleString(),
-          status: "Exitoso"
-        });
-        
-        if (history.length > 50) history = history.slice(0, 50);
+        history.unshift({ service: sanitizeInput(serviceName), value: inputVal, date: new Date().toLocaleString(), status: "Exitoso" });
         localStorage.setItem("rocket_history", JSON.stringify(history));
-      }, 1000);
+      }, 800);
     }
 
     function executeFacialSearch() {
       const resBox = document.getElementById("res-reniec-facial");
       const dataBox = document.getElementById("data-reniec-facial");
-      if (!resBox || !dataBox) return;
-
       resBox.style.display = "block";
-      dataBox.innerText = "[ESCANEANDO ROSTRO EN SERVER ID PERÚ...]\nComprobando con base de datos biometrica...\nEspere un momento...";
-
+      dataBox.innerText = "[ESCANEANDO ROSTRO... Aguarde un momento]";
       setTimeout(() => {
-        const mockResult = `=== RECONOCIMIENTO FACIAL COMPLETO ===\nEstado: Coincidencia Biometrica Encontrada (98.4%)\nFecha: ${new Date().toLocaleString()}\n-----------------------------------\n[ROSTRO IDENTIFICADO CON ÉXITO]`;
-        dataBox.innerText = mockResult;
-
-        let history = JSON.parse(localStorage.getItem("rocket_history") || "[]");
-        history.unshift({
-          service: "Facial Server ID Perú",
-          value: "Foto_Biometrica.png",
-          date: new Date().toLocaleString(),
-          status: "Exitoso"
-        });
-        localStorage.setItem("rocket_history", JSON.stringify(history));
-      }, 1200);
+        dataBox.innerText = `=== RECONOCIMIENTO FACIAL ===\nEstado: Coincidencia Exitosa (99.1%)\nFecha: ${new Date().toLocaleString()}`;
+      }, 1000);
     }
 
     function copyResult(dataBoxId) {
-      const el = document.getElementById(dataBoxId);
-      if (!el) return;
-      navigator.clipboard.writeText(el.innerText).then(() => {
-        alert("¡Resultado copiado al portapapeles!");
-      });
+      navigator.clipboard.writeText(document.getElementById(dataBoxId).innerText).then(() => alert("Copiado al portapapeles"));
     }
 
     function exportPDF(dataBoxId, fileName) {
-      const el = document.getElementById(dataBoxId);
-      if (!el) return;
-      const printWindow = window.open("", "", "width=800,height=600");
-      printWindow.document.write(`<pre style="font-family:monospace; padding:20px; font-size:14px; background:#000; color:#fff;">${sanitizeInput(el.innerText)}</pre>`);
-      printWindow.document.close();
-      printWindow.focus();
-      printWindow.print();
+      const w = window.open("", "", "width=800,height=600");
+      w.document.write(`<pre style="background:#000;color:#fff;padding:20px;">${sanitizeInput(document.getElementById(dataBoxId).innerText)}</pre>`);
+      w.document.close();
+      w.print();
     }
 
     function renderHistory() {
       const tbody = document.getElementById("history-table-body");
-      if (!tbody) return;
-
       let history = JSON.parse(localStorage.getItem("rocket_history") || "[]");
       if (history.length === 0) {
         tbody.innerHTML = `<tr><td colspan="4" style="text-align:center; color:rgba(255,255,255,0.4);">No hay consultas recientes</td></tr>`;
         return;
       }
-
       tbody.innerHTML = history.map(item => `
         <tr>
           <td><strong style="color:#d8b4fe;">${sanitizeInput(item.service)}</strong></td>
@@ -3292,7 +2891,7 @@
     }
 
     function clearHistory() {
-      if (confirm("¿Deseas borrar todo el historial local?")) {
+      if (confirm("¿Borrar historial?")) {
         localStorage.removeItem("rocket_history");
         renderHistory();
       }
