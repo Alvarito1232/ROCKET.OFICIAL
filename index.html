@@ -464,7 +464,7 @@
       text-align: center;
     }
 
-    /* RECARGA KMENTE - PRECIOS EXACTOS ANTERIORES */
+    /* RECARGA KMENTE */
     .kmente-recharge-wrapper {
       display: flex;
       flex-direction: column;
@@ -904,7 +904,7 @@
       display: inline-block;
     }
 
-    /* SECCIÓN STREAMING EXCLUSIVA - FOTOS COMPLETAS Y DISTRIBUIDAS (SIN CÍRCULOS) */
+    /* SECCIÓN STREAMING EXCLUSIVA */
     .streaming-panel-wrapper {
       background: linear-gradient(135deg, rgba(255, 107, 0, 0.15), rgba(15, 10, 26, 0.98));
       border: 1.5px solid #ff6b00;
@@ -1108,7 +1108,6 @@
       transform: scale(1.02);
     }
 
-    /* FOTO REPARTIDA EXTRA EN STREAMING */
     .streaming-extra-photo-box {
       margin-top: 25px;
       border-radius: 16px;
@@ -1221,16 +1220,16 @@
       display: none;
     }
 
-    /* INFRAESTRUCTURA */
+    /* INFRAESTRUCTURA MEJORADA (SOLO CENTRO Y CUADRÍCULA DE INSTITUCIONES) */
     .rocket-infra-hero {
       width: 100%;
-      background-image: linear-gradient(rgba(8, 4, 16, 0.82), rgba(8, 4, 16, 0.90)), url('dineroo.jpg');
+      background-image: linear-gradient(rgba(8, 4, 16, 0.88), rgba(8, 4, 16, 0.94)), url('dineroo.jpg');
       background-size: cover;
       background-position: center;
       border: 1.5px solid rgba(168, 85, 247, 0.45);
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.85);
       border-radius: 24px;
-      padding: 28px 18px;
+      padding: 30px 20px;
       margin-bottom: 30px;
       position: relative;
       overflow: hidden;
@@ -1304,97 +1303,99 @@
       text-transform: uppercase;
     }
 
-    .infra-diagram-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      align-items: center;
-      justify-items: center;
-      position: relative;
-      width: 100%;
-    }
-
-    .diagram-column {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      width: 100%;
-    }
-
-    .node-card {
-      background-image: linear-gradient(rgba(14, 8, 26, 0.80), rgba(14, 8, 26, 0.88)), url('nova.jpg');
-      background-size: cover;
-      background-position: center;
-      border: 1px solid rgba(168, 85, 247, 0.3);
-      border-radius: 14px;
-      padding: 14px 16px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-    }
-
-    .node-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      background: rgba(168, 85, 247, 0.2);
-      border: 1px solid rgba(168, 85, 247, 0.4);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-      color: #d8b4fe;
-      flex-shrink: 0;
-    }
-
-    .node-info h4 { font-size: 0.88rem; font-weight: 800; color: #ffffff; }
-    .node-info p { font-size: 0.72rem; color: rgba(226, 232, 240, 0.8); }
-
+    /* NÚCLEO CENTRAL MEJORADO */
     .center-core-node {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      background-image: linear-gradient(rgba(14, 6, 28, 0.65), rgba(14, 6, 28, 0.85)), url('chicaa.jpg');
+      background-image: linear-gradient(rgba(14, 6, 28, 0.70), rgba(14, 6, 28, 0.88)), url('chicaa.jpg');
       background-size: cover;
       background-position: center 25%;
       border: 2px solid #a855f7;
-      box-shadow: 0 0 30px rgba(168, 85, 247, 0.6);
+      box-shadow: 0 0 35px rgba(168, 85, 247, 0.65);
       border-radius: 20px;
-      padding: 35px 16px;
+      padding: 35px 20px;
       text-align: center;
       width: 100%;
-      min-height: 260px;
+      max-width: 600px;
+      margin: 0 auto 25px auto;
+      position: relative;
     }
 
     .core-logo-box {
-      width: 58px;
-      height: 58px;
+      width: 62px;
+      height: 62px;
       border-radius: 50%;
-      background: rgba(168, 85, 247, 0.3);
+      background: rgba(168, 85, 247, 0.35);
       border: 1.5px solid #c084fc;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       box-shadow: 0 0 20px rgba(192, 132, 252, 0.8);
     }
 
     .core-title {
-      font-size: 1.6rem;
+      font-size: 1.8rem;
       font-weight: 900;
       color: #ffffff;
       letter-spacing: 0.08em;
+      text-shadow: 0 0 10px rgba(168, 85, 247, 0.8);
     }
 
     .core-desc {
-      font-size: 0.78rem;
+      font-size: 0.82rem;
       color: rgba(233, 213, 255, 0.95);
       font-weight: 700;
+      margin-top: 4px;
     }
 
-    /* PLANES DE CREACIÓN WEB ACTUALIZADOS (S/. 10 A S/. 120, VARIAMIENTO S/. 14, REGLAS DE RENOVACIÓN) */
+    /* CUADRÍCULA DE INSTITUCIONES (NUEVO ESTILO BASADO EN TU IMAGEN) */
+    .institutions-grid-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 14px;
+      width: 100%;
+      margin-top: 15px;
+    }
+
+    .inst-card {
+      background: rgba(14, 8, 26, 0.85);
+      border: 1px solid rgba(168, 85, 247, 0.35);
+      border-radius: 12px;
+      padding: 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    }
+
+    .inst-card:hover {
+      border-color: #a855f7;
+      transform: translateY(-2px);
+      box-shadow: 0 0 15px rgba(168, 85, 247, 0.3);
+    }
+
+    .inst-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: rgba(168, 85, 247, 0.15);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      color: #d8b4fe;
+      flex-shrink: 0;
+    }
+
+    .inst-info h5 { font-size: 0.82rem; font-weight: 800; color: #ffffff; }
+    .inst-info p { font-size: 0.68rem; color: rgba(226, 232, 240, 0.7); }
+
+    /* PLANES DE CREACIÓN WEB */
     .web-plans-section {
       display: none;
       width: 100%;
@@ -1710,9 +1711,9 @@
       .sidebar.open { transform: translateX(0) !important; }
       .main-content { margin-left: 0 !important; width: 100% !important; padding: 16px 12px !important; }
       .mobile-menu-btn { display: flex !important; }
-      .infra-diagram-grid { grid-template-columns: 1fr !important; }
       .service-card.large-card { grid-column: span 1 !important; }
       .streaming-top-banner-grid { grid-template-columns: 1fr !important; text-align: center; }
+      .institutions-grid-section { grid-template-columns: repeat(2, 1fr) !important; }
     }
   </style>
 </head>
@@ -1923,10 +1924,9 @@
         <h1 class="hero-banner-title">ROCKET</h1>
       </section>
 
-      <!-- VISTA MÓDULO RECARGA KMENTE (PRECIOS EXACTOS ANTERIORES) -->
+      <!-- VISTA MÓDULO RECARGA KMENTE -->
       <section class="custom-panel-view" id="panel-recarga">
         <div class="kmente-recharge-wrapper">
-          
           <div class="recharge-top-card">
             <div class="recharge-info-header">
               <h2>Recarga tus créditos en segundos</h2>
@@ -1941,7 +1941,6 @@
 
           <div style="margin-top: 10px;">
             <h3 style="font-size:1.1rem; font-weight:800; color:#fff; margin-bottom:16px;">Paquetes Disponibles</h3>
-            
             <div class="kmente-packages-grid">
               <div class="km-pkg-card">
                 <div>
@@ -2368,10 +2367,9 @@
         </div>
       </section>
 
-      <!-- SECCIÓN STREAMING EXCLUSIVA - FOTOS COMPLETAS Y DISTRIBUIDAS (SIN CÍRCULOS) -->
+      <!-- SECCIÓN STREAMING EXCLUSIVA -->
       <section class="custom-panel-view" id="panel-streaming">
         <div class="streaming-panel-wrapper">
-          
           <div class="streaming-top-banner-grid">
             <img src="kennynegro.jpg" alt="Kenny Principal" class="kenny-main-full-img">
             <div>
@@ -2395,10 +2393,8 @@
             </div>
           </div>
 
-          <!-- CUADRÍCULAS DE PLATAFORMAS CON FONDOS -->
           <div class="streaming-category-header"><i class="fa-solid fa-play"></i> Cuadrícula de Plataformas Premium</div>
           <div class="streaming-grid-home-style">
-            
             <div class="stream-service-card">
               <div class="stream-card-top-bg" style="background-image: url('nexflix.jpg');">
                 <div class="platform-logo-overlay"><img src="nexflix.jpg" alt="Netflix"></div>
@@ -2494,18 +2490,14 @@
                 </a>
               </div>
             </div>
-
           </div>
 
-          <!-- INSTALACIÓN REMOTA DE PROGRAMAS Y TERCERA FOTO DE KENNY -->
           <div class="streaming-category-header"><i class="fa-solid fa-laptop-code"></i> Instalación Remota de Programas</div>
-          
           <div style="margin-bottom: 20px; border-radius: 14px; overflow: hidden; border: 1px solid rgba(255,107,0,0.3);">
             <img src="kennymuerto.jpg" alt="Kenny Extra" style="width:100%; height:140px; object-fit:cover; display:block;">
           </div>
 
           <div class="streaming-grid-home-style">
-            
             <div class="stream-service-card">
               <div class="stream-card-body" style="padding-top:20px;">
                 <h3 class="stream-card-title"><i class="fa-solid fa-file-word" style="color:#2b579a;"></i> Microsoft Office</h3>
@@ -2553,9 +2545,7 @@
                 </a>
               </div>
             </div>
-
           </div>
-
         </div>
       </section>
 
@@ -2582,7 +2572,7 @@
         </div>
       </section>
 
-      <!-- PLANES DE CREACIÓN WEB (ACTUALIZADOS: S/. 10 a S/. 120, variando en S/. 14, reglas de pago único, mensual y permanente) -->
+      <!-- PLANES DE CREACIÓN WEB -->
       <section class="web-plans-section" id="web-plans-container">
         <div class="vision-divider" style="max-width:100%; margin-bottom:15px;">
           <div class="line"></div>
@@ -2591,8 +2581,6 @@
         </div>
 
         <div class="plans-grid">
-          
-          <!-- Plan 1: S/ 10 (Pago único) -->
           <div class="plan-card">
             <div>
               <span class="plan-badge" style="background:#22c55e;">Pago Único</span>
@@ -2609,7 +2597,6 @@
             </div>
           </div>
 
-          <!-- Plan 2: S/ 24 (Pago único) -->
           <div class="plan-card">
             <div>
               <span class="plan-badge" style="background:#22c55e;">Pago Único</span>
@@ -2626,7 +2613,6 @@
             </div>
           </div>
 
-          <!-- Plan 3: S/ 38 (Renovación cada mes - Supera los 35 soles) -->
           <div class="plan-card">
             <div>
               <span class="plan-badge" style="background:#eab308;">Renovación Mensual</span>
@@ -2643,7 +2629,6 @@
             </div>
           </div>
 
-          <!-- Plan 4: S/ 52 (Renovación cada mes) -->
           <div class="plan-card">
             <div>
               <span class="plan-badge" style="background:#eab308;">Renovación Mensual</span>
@@ -2660,7 +2645,6 @@
             </div>
           </div>
 
-          <!-- Plan 5: S/ 66 (Renovación cada mes) -->
           <div class="plan-card">
             <div>
               <span class="plan-badge" style="background:#eab308;">Renovación Mensual</span>
@@ -2677,7 +2661,6 @@
             </div>
           </div>
 
-          <!-- Plan 6: S/ 80 (Renovación cada mes) -->
           <div class="plan-card">
             <div>
               <span class="plan-badge" style="background:#eab308;">Renovación Mensual</span>
@@ -2694,7 +2677,6 @@
             </div>
           </div>
 
-          <!-- Plan 7: S/ 94 (Permanente - Supera los 90 soles) -->
           <div class="plan-card featured">
             <span class="plan-badge" style="background:#a855f7;">Permanente</span>
             <div>
@@ -2711,7 +2693,6 @@
             </div>
           </div>
 
-          <!-- Plan 8: S/ 108 (Permanente) -->
           <div class="plan-card featured">
             <span class="plan-badge" style="background:#a855f7;">Permanente</span>
             <div>
@@ -2728,7 +2709,6 @@
             </div>
           </div>
 
-          <!-- Plan 9: S/ 120 (Permanente - Máximo) -->
           <div class="plan-card featured">
             <span class="plan-badge" style="background:#ff6b00;">Máximo Nivel</span>
             <div>
@@ -2744,11 +2724,10 @@
               <a href="https://wa.me/573135022169?text=Hola,%20deseo%20la%20Soluci%C3%B3n%20Suprema%20de%20120%20soles%20permanente" target="_blank" rel="noopener noreferrer" class="btn-plan-ws" style="background:#22c55e; color:#fff;"><i class="fa-brands fa-whatsapp"></i> Solicitar</a>
             </div>
           </div>
-
         </div>
       </section>
 
-      <!-- INFRAESTRUCTURA GENERAL -->
+      <!-- INFRAESTRUCTURA CENTRAL MEJORADA CON CUADRÍCULA DE INSTITUCIONES -->
       <section class="rocket-infra-hero" id="infra-rocket-section">
         <div class="infra-header">
           <div class="infra-tag-wrapper">
@@ -2758,39 +2737,79 @@
           </div>
         </div>
 
-        <div class="infra-diagram-grid">
-          <div class="diagram-column">
-            <div class="node-card">
-              <div class="node-icon"><i class="fa-solid fa-id-card"></i></div>
-              <div class="node-info"><h4>RENIEC</h4><p>Identificación & Estado Civil</p></div>
-            </div>
+        <!-- NÚCLEO CENTRAL ESTILIZADO -->
+        <div class="center-core-node">
+          <div class="core-logo-box">
+            <svg class="ss-logo-svg" viewBox="0 0 100 100" style="width: 32px; height: 32px;"><use href="#ss-logo-path"></use></svg>
           </div>
-          <div class="center-core-node">
-            <div class="core-logo-box">
-              <svg class="ss-logo-svg" viewBox="0 0 100 100" style="width: 28px; height: 28px;"><use href="#ss-logo-path"></use></svg>
-            </div>
-            <div class="core-title">Rocket.com</div>
-            <div class="core-desc">Centralizador Global OSINT</div>
+          <div class="core-title">ROCKET.COM</div>
+          <div class="core-desc">Centralizador Global OSINT & Servicios del Perú</div>
+        </div>
+
+        <!-- CUADRÍCULA DE INSTITUCIONES CONECTADAS -->
+        <div class="institutions-grid-section">
+          <div class="inst-card">
+            <div class="inst-icon"><i class="fa-solid fa-id-card"></i></div>
+            <div class="inst-info"><h5>RENIEC</h5><p>Identidad y Estado Civil</p></div>
           </div>
-          <div class="diagram-column">
-            <div class="node-card">
-              <div class="node-icon"><i class="fa-solid fa-scale-balanced"></i></div>
-              <div class="node-info"><h4>PODER JUDICIAL</h4><p>Expedientes & Procesos</p></div>
-            </div>
+          <div class="inst-card">
+            <div class="inst-icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+            <div class="inst-info"><h5>SUNAT</h5><p>Tributos y RUC</p></div>
+          </div>
+          <div class="inst-card">
+            <div class="inst-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+            <div class="inst-info"><h5>Poder Judicial</h5><p>Expedientes y Procesos</p></div>
+          </div>
+          <div class="inst-card">
+            <div class="inst-icon"><i class="fa-solid fa-passport"></i></div>
+            <div class="inst-info"><h5>Migraciones</h5><p>Control Migratorio</p></div>
+          </div>
+          <div class="inst-card">
+            <div class="inst-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <div class="inst-info"><h5>Policía Nacional</h5><p>Antecedentes y Denuncias</p></div>
+          </div>
+          <div class="inst-card">
+            <div class="inst-icon"><i class="fa-solid fa-phone"></i></div>
+            <div class="inst-info"><h5>Osiptel</h5><p>Líneas y Titularidad</p></div>
+          </div>
+          <div class="inst-card">
+            <div class="inst-icon"><i class="fa-solid fa-building-lock"></i></div>
+            <div class="inst-info"><h5>INPE</h5><p>Sistema Penitenciario</p></div>
+          </div>
+          <div class="inst-card">
+            <div class="inst-icon"><i class="fa-solid fa-landmark"></i></div>
+            <div class="inst-info"><h5>Ministerio Público</h5><p>Fiscalía de la Nación</p></div>
+          </div>
+          <div class="inst-card">
+            <div class="inst-icon"><i class="fa-solid fa-car"></i></div>
+            <div class="inst-info"><h5>MTC</h5><p>Transportes y Licencias</p></div>
+          </div>
+          <div class="inst-card">
+            <div class="inst-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div class="inst-info"><h5>SUNEDU</h5><p>Grados y Títulos</p></div>
+          </div>
+          <div class="inst-card">
+            <div class="inst-icon"><i class="fa-solid fa-shield"></i></div>
+            <div class="inst-info"><h5>Sentinel</h5><p>Central de Riesgos</p></div>
+          </div>
+          <div class="inst-card">
+            <div class="inst-icon"><i class="fa-solid fa-book-open"></i></div>
+            <div class="inst-info"><h5>MINEDU</h5><p>Educación y Registro</p></div>
           </div>
         </div>
       </section>
 
-      <!-- SERVICIOS GRID GENERAL -->
+      <!-- SERVICIOS GRID GENERAL (INCLUYENDO TODOS LOS SERVICIOS MENOS REPETIDOS) -->
       <section class="services-grid" id="services-container">
+        
         <div class="service-card large-card" data-cat="OSINT">
           <div class="card-header-img" style="height: 180px; background-image: linear-gradient(rgba(16,10,24,0.2), rgba(16,10,24,0.9)), url('imagenlogo.jpg'); background-position: center 32%;">
             <span class="category-tag">OSINT UNIFICADO</span>
             <span class="card-price-badge">Acceso Directo</span>
           </div>
           <div class="card-body">
-            <h3 class="card-title"><i class="fa-solid fa-eye" style="color:#a855f7;"></i> Servicios OSINT</h3>
-            <p class="card-desc">Búsquedas avanzadas integradas en un solo lugar.</p>
+            <h3 class="card-title"><i class="fa-solid fa-eye" style="color:#a855f7;"></i> Servicios OSINT & Persona Plus</h3>
+            <p class="card-desc">Búsquedas avanzadas de perfiles, datos civiles y registros integrados en un solo lugar.</p>
           </div>
           <div class="card-footer">
             <span class="card-time"><i class="fa-regular fa-clock"></i> Instantáneo</span>
@@ -2805,13 +2824,299 @@
           </div>
           <div class="card-body">
             <h3 class="card-title">Streaming & Software</h3>
-            <p class="card-desc">Cuentas premium de Netflix, Disney+, Prime e instalación remota.</p>
+            <p class="card-desc">Cuentas premium de Netflix, Disney+, Prime e instalación remota de programas.</p>
           </div>
           <div class="card-footer">
             <span class="card-time"><i class="fa-regular fa-clock"></i> 24/7</span>
             <a href="#" id="card-streaming-btn" class="card-btn" style="border-color:#ff6b00; color:#ffaa00;">Ver Catálogo <i class="fa-solid fa-arrow-right"></i></a>
           </div>
         </div>
+
+        <div class="service-card" data-cat="RENIEC">
+          <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('imagenlogo.jpg');">
+            <span class="category-tag">IDENTIDAD</span>
+            <span class="card-price-badge">Reniec Ficha</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Ficha Reniec / C4</h3>
+            <p class="card-desc">Consulta fichas completas, datos y formato oficial con un solo clic.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-time"><i class="fa-regular fa-clock"></i> Inmediato</span>
+            <button class="card-btn" onclick="openPanel('panel-reniec-ficha')">Consultar <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <div class="service-card" data-cat="RENIEC">
+          <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('imagenlogo.jpg');">
+            <span class="category-tag">BÚSQUEDA</span>
+            <span class="card-price-badge">Nombres</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Búsqueda por Nombres</h3>
+            <p class="card-desc">Localiza personas ingresando sus nombres y apellidos completos.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-time"><i class="fa-regular fa-clock"></i> Inmediato</span>
+            <button class="card-btn" onclick="openPanel('panel-reniec-nombres')">Consultar <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <div class="service-card" data-cat="RENIEC">
+          <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('imagenlogo.jpg');">
+            <span class="category-tag">DNI VIRTUAL</span>
+            <span class="card-price-badge">Imágenes</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">DNI Virtual & Fotos</h3>
+            <p class="card-desc">Obtén la vista previa digital del DNI y fotografía oficial del ciudadano.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-time"><i class="fa-regular fa-clock"></i> Inmediato</span>
+            <button class="card-btn" onclick="openPanel('panel-reniec-dni-virtual')">Consultar <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <div class="service-card" data-cat="RENIEC">
+          <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('imagenlogo.jpg');">
+            <span class="category-tag">FAMILIA</span>
+            <span class="card-price-badge">Genealogía</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Árbol Genealógico</h3>
+            <p class="card-desc">Conoce vínculos familiares directos, padres, hermanos y parientes registrados.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-time"><i class="fa-regular fa-clock"></i> Inmediato</span>
+            <button class="card-btn" onclick="openPanel('panel-reniec-arbol')">Consultar <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <div class="service-card" data-cat="RENIEC">
+          <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('imagenlogo.jpg');">
+            <span class="category-tag">IA FACIAL</span>
+            <span class="card-price-badge">Servidor ID</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Reconocimiento Facial</h3>
+            <p class="card-desc">Sube una fotografía para realizar una búsqueda biométrica avanzada en segundos.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-time"><i class="fa-regular fa-clock"></i> Inmediato</span>
+            <button class="card-btn" onclick="openPanel('panel-reniec-facial')">Consultar <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <div class="service-card" data-cat="JUSTICIA">
+          <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('imagenlogo.jpg');">
+            <span class="category-tag">SIDPOL</span>
+            <span class="card-price-badge">Denuncias</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Denuncias Policiales</h3>
+            <p class="card-desc">Verifica si una persona cuenta con registros de denuncias en la base policial.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-time"><i class="fa-regular fa-clock"></i> Inmediato</span>
+            <button class="card-btn" onclick="openPanel('panel-justicia-denuncias')">Consultar <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <div class="service-card" data-cat="JUSTICIA">
+          <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('imagenlogo.jpg');">
+            <span class="category-tag">LEGAL</span>
+            <span class="card-price-badge">Antecedentes</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Consulta de Antecedentes</h3>
+            <p class="card-desc">Revisa el estado de antecedentes policiales, penales y judiciales.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-time"><i class="fa-regular fa-clock"></i> Inmediato</span>
+            <button class="card-btn" onclick="openPanel('panel-justicia-antecedentes')">Consultar <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <div class="service-card" data-cat="JUSTICIA">
+          <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('imagenlogo.jpg');">
+            <span class="category-tag">E-SINPOL</span>
+            <span class="card-price-badge">Requisitorias</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Requisitorias Activas</h3>
+            <p class="card-desc">Consulta órdenes de captura, requisitorias vigentes a nivel nacional.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-time"><i class="fa-regular fa-clock"></i> Inmediato</span>
+            <button class="card-btn" onclick="openPanel('panel-justicia-requisitorias')">Consultar <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <div class="service-card" data-cat="JUSTICIA">
+          <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('imagenlogo.jpg');">
+            <span class="category-tag">PNP</span>
+            <span class="card-price-badge">Personal</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Personal Policial (PNP)</h3>
+            <p class="card-desc">Verifica datos, CIP y situación de efectivos de la Policía Nacional del Perú.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-time"><i class="fa-regular fa-clock"></i> Inmediato</span>
+            <button class="card-btn" onclick="openPanel('panel-justicia-policia')">Consultar <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <div class="service-card" data-cat="TRIBUTARIO">
+          <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('imagenlogo.jpg');">
+            <span class="category-tag">SUNAT</span>
+            <span class="card-price-badge">Consumos</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Consulta SUNAT</h3>
+            <p class="card-desc">Revisa datos de contribuyentes, RUC, condición y situación tributaria.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-time"><i class="fa-regular fa-clock"></i> Inmediato</span>
+            <button class="card-btn" onclick="openPanel('panel-sunat')">Consultar <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <div class="service-card" data-cat="FINANCIERO">
+          <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('imagenlogo.jpg');">
+            <span class="category-tag">RIESGO</span>
+            <span class="card-price-badge">Sentinel</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Sentinel & Deuda</h3>
+            <p class="card-desc">Evalúa el perfil crediticio, score y deudas financieras en el sistema.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-time"><i class="fa-regular fa-clock"></i> Inmediato</span>
+            <button class="card-btn" onclick="openPanel('panel-sentinel')">Consultar <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <div class="service-card" data-cat="VEHICULAR">
+          <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('imagenlogo.jpg');">
+            <span class="category-tag">TIVE</span>
+            <span class="card-price-badge">Vehículos</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Consulta Vehicular (TIVE)</h3>
+            <p class="card-desc">Obtén la tarjeta de identificación vehicular por número de placa.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-time"><i class="fa-regular fa-clock"></i> Inmediato</span>
+            <button class="card-btn" onclick="openPanel('panel-vehiculo')">Consultar <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <div class="service-card" data-cat="VEHICULAR">
+          <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('imagenlogo.jpg');">
+            <span class="category-tag">SAT</span>
+            <span class="card-price-badge">Síguelo Plus</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Síguelo Plus Placas</h3>
+            <p class="card-desc">Consulta papeletas, gravámenes e historial vehicular detallado.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-time"><i class="fa-regular fa-clock"></i> Inmediato</span>
+            <button class="card-btn" onclick="openPanel('panel-siguelo-plus')">Consultar <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <div class="service-card" data-cat="CIVIL">
+          <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('imagenlogo.jpg');">
+            <span class="category-tag">ACTAS</span>
+            <span class="card-price-badge">Civil</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Consulta de Actas</h3>
+            <p class="card-desc">Revisa actas de nacimiento, matrimonio y defunción registradas.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-time"><i class="fa-regular fa-clock"></i> Inmediato</span>
+            <button class="card-btn" onclick="openPanel('panel-actas')">Consultar <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <div class="service-card" data-cat="AVANZADO">
+          <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('imagenlogo.jpg');">
+            <span class="category-tag">INFO BURO</span>
+            <span class="card-price-badge">Doxing</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Info Buro (Doxing)</h3>
+            <p class="card-desc">Reportes integrados de bases de datos cruzadas y perfiles extendidos.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-time"><i class="fa-regular fa-clock"></i> Inmediato</span>
+            <button class="card-btn" onclick="openPanel('panel-doxing')">Consultar <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <div class="service-card" data-cat="TELEFONIA">
+          <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('imagenlogo.jpg');">
+            <span class="category-tag">OSIPTEL</span>
+            <span class="card-price-badge">Teléfonos</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Teléfonos & Osiptel</h3>
+            <p class="card-desc">Consulta líneas móviles y operadores asociados a un número de documento.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-time"><i class="fa-regular fa-clock"></i> Inmediato</span>
+            <button class="card-btn" onclick="openPanel('panel-osiptel')">Consultar <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <div class="service-card" data-cat="REGISTROS">
+          <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('imagenlogo.jpg');">
+            <span class="category-tag">SUNARP</span>
+            <span class="card-price-badge">Propiedades</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">SUNARP Propiedades</h3>
+            <p class="card-desc">Consulta propiedades, bienes y registros públicos a nombre de personas o empresas.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-time"><i class="fa-regular fa-clock"></i> Inmediato</span>
+            <button class="card-btn" onclick="openPanel('panel-sunarp')">Consultar <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <div class="service-card" data-cat="VIRTUAL">
+          <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('imagenlogo.jpg');">
+            <span class="category-tag">VIRTUAL</span>
+            <span class="card-price-badge">S/. 15.00</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Números Virtuales</h3>
+            <p class="card-desc">Adquiere números virtuales internacionales para validaciones y mensajería.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-time"><i class="fa-regular fa-clock"></i> Rápido</span>
+            <button class="card-btn" onclick="openPanel('panel-numeros-virtuales')">Ver más <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <div class="service-card" data-cat="BOT">
+          <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('imagenlogo.jpg');">
+            <span class="category-tag">WHATSAPP</span>
+            <span class="card-price-badge">Bot 24/7</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Chat Bot de Consultas</h3>
+            <p class="card-desc">Automatiza tus consultas y soporte directo desde tu aplicación de WhatsApp.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-time"><i class="fa-regular fa-clock"></i> 24/7</span>
+            <button class="card-btn" onclick="openPanel('panel-chatbot')">Acceder <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+
       </section>
 
       <!-- BANDERAS -->
@@ -2923,7 +3228,7 @@
         serviceCards.forEach(c => c.style.display = "none");
       }
 
-      function showHome() {
+      window.showHome = function() {
         panels.forEach(p => p.classList.remove("active"));
         if (webPlansContainer) webPlansContainer.classList.remove("active");
         if (infraSection) infraSection.style.display = "block";
@@ -2932,7 +3237,7 @@
         document.getElementById("menu-home").classList.add("active");
       }
 
-      function openPanel(id) {
+      window.openPanel = function(id) {
         hideAllPanels();
         const p = document.getElementById(id);
         if(p) p.classList.add("active");
@@ -2943,7 +3248,6 @@
       document.getElementById("menu-recarga").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-recarga"); });
 
       document.getElementById("menu-creacion-web").addEventListener("click", (e) => { e.preventDefault(); hideAllPanels(); if(webPlansContainer) webPlansContainer.classList.add("active"); closeSidebar(); });
-      document.getElementById("card-web-btn")?.addEventListener("click", (e) => { e.preventDefault(); hideAllPanels(); if(webPlansContainer) webPlansContainer.classList.add("active"); closeSidebar(); });
 
       document.getElementById("menu-telefonos").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-osiptel"); });
       document.getElementById("menu-sunarp").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-sunarp"); });
