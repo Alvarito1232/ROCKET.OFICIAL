@@ -904,74 +904,109 @@
       display: inline-block;
     }
 
-    /* SECCIÓN STREAMING EXCLUSIVA */
+    /* SECCIÓN STREAMING EXCLUSIVA REDISEÑADA Y PREMIUM */
     .streaming-panel-wrapper {
-      background: linear-gradient(135deg, rgba(255, 107, 0, 0.15), rgba(15, 10, 26, 0.98));
-      border: 1.5px solid #ff6b00;
+      background: linear-gradient(135deg, rgba(20, 12, 30, 0.98), rgba(10, 6, 18, 0.98));
+      border: 1px solid rgba(255, 140, 0, 0.3);
       border-radius: 24px;
-      padding: 35px 25px;
-      box-shadow: 0 0 45px rgba(255, 107, 0, 0.35);
+      padding: 30px 20px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
       position: relative;
-      overflow: hidden;
     }
 
-    .streaming-top-banner-grid {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 20px;
-      align-items: center;
-      background: rgba(0, 0, 0, 0.4);
-      border: 1px solid rgba(255, 107, 0, 0.4);
-      border-radius: 18px;
-      padding: 20px;
-      margin-bottom: 25px;
+    .streaming-hero-header {
+      text-align: center;
+      margin-bottom: 30px;
+      position: relative;
+      padding: 30px 20px;
+      background: radial-gradient(circle at center, rgba(255, 140, 0, 0.12) 0%, transparent 70%);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 140, 0, 0.2);
     }
 
-    .kenny-main-full-img {
-      width: 100%;
-      max-height: 180px;
+    .streaming-hero-avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
       object-fit: cover;
-      border-radius: 12px;
-      border: 2px solid #ffaa00;
-      box-shadow: 0 0 20px rgba(255, 107, 0, 0.5);
+      border: 3px solid #ff8c00;
+      box-shadow: 0 0 25px rgba(255, 140, 0, 0.5);
+      margin: 0 auto 15px auto;
+      display: block;
     }
 
     .streaming-title {
-      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-size: clamp(2rem, 5vw, 2.8rem);
       font-weight: 900;
-      color: #fff;
+      color: #ffffff;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      text-shadow: 0 0 20px rgba(255, 107, 0, 0.9);
+      letter-spacing: 0.1em;
     }
 
-    .streaming-title span { color: #ff6b00; }
+    .streaming-title span { color: #ff8c00; }
 
-    .streaming-contact-banner {
-      background: rgba(255, 107, 0, 0.15);
-      border: 1px solid #ff6b00;
-      border-radius: 16px;
-      padding: 18px 22px;
-      margin: 20px 0 30px 0;
+    .streaming-subtitle {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      margin-top: 6px;
+      text-transform: uppercase;
+    }
+
+    .streaming-contact-bar {
       display: flex;
-      flex-wrap: wrap;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
+      background: rgba(255, 140, 0, 0.08);
+      border: 1px solid rgba(255, 140, 0, 0.3);
+      border-radius: 16px;
+      padding: 16px 24px;
+      margin-bottom: 35px;
+      flex-wrap: wrap;
       gap: 15px;
-      backdrop-filter: blur(10px);
     }
 
-    .streaming-phone-tag {
-      font-size: 1.4rem;
+    .streaming-contact-info h4 {
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.6);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 700;
+    }
+
+    .streaming-contact-info p {
+      font-size: 1.3rem;
       font-weight: 900;
       color: #ffaa00;
       display: flex;
       align-items: center;
       gap: 10px;
+      margin-top: 2px;
     }
 
-    .streaming-category-header {
-      font-size: 0.95rem;
+    .btn-streaming-main-ws {
+      background: #25d366;
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.88rem;
+      padding: 12px 22px;
+      border-radius: 12px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    }
+
+    .btn-streaming-main-ws:hover {
+      background: #1ebc57;
+      transform: translateY(-2px);
+    }
+
+    .streaming-section-title {
+      font-size: 1rem;
       font-weight: 800;
       color: #ffaa00;
       text-transform: uppercase;
@@ -980,40 +1015,66 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      border-bottom: 1px solid rgba(255, 107, 0, 0.3);
+      border-bottom: 1px solid rgba(255, 140, 0, 0.2);
       padding-bottom: 8px;
+    }
+
+    .streaming-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+
+    .streaming-gallery-card {
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 140, 0, 0.25);
+      height: 140px;
+      background: #000;
+    }
+
+    .streaming-gallery-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .streaming-gallery-card:hover img {
+      transform: scale(1.05);
     }
 
     .streaming-grid-home-style {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 18px;
     }
 
     .stream-service-card {
-      background: rgba(18, 10, 28, 0.88);
-      border: 1px solid rgba(255, 107, 0, 0.35);
-      border-radius: 18px;
+      background: rgba(15, 10, 24, 0.9);
+      border: 1px solid rgba(255, 140, 0, 0.25);
+      border-radius: 16px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: all 0.3s ease;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+      transition: all 0.25s ease;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
     }
 
     .stream-service-card:hover {
-      border-color: #ff6b00;
-      transform: translateY(-5px);
-      box-shadow: 0 0 25px rgba(255, 107, 0, 0.4);
+      border-color: #ff8c00;
+      transform: translateY(-4px);
+      box-shadow: 0 0 25px rgba(255, 140, 0, 0.3);
     }
 
     .stream-card-top-bg {
-      height: 120px;
+      height: 110px;
       width: 100%;
       background-size: cover;
       background-position: center;
-      padding: 14px;
+      padding: 12px;
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
@@ -1024,101 +1085,82 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, transparent 40%, rgba(18, 10, 28, 0.95) 100%);
+      background: linear-gradient(180deg, transparent 30%, rgba(15, 10, 24, 0.95) 100%);
     }
 
     .platform-logo-overlay {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      background: rgba(0, 0, 0, 0.7);
-      border: 1px solid rgba(255, 107, 0, 0.5);
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: rgba(0, 0, 0, 0.75);
+      border: 1px solid rgba(255, 140, 0, 0.4);
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 6px;
+      padding: 5px;
       z-index: 1;
-      box-shadow: 0 0 10px rgba(0,0,0,0.8);
     }
 
     .platform-logo-overlay img {
       width: 100%;
       height: 100%;
       object-fit: contain;
-      border-radius: 6px;
+      border-radius: 4px;
     }
 
     .stream-card-badge {
-      background: rgba(255, 107, 0, 0.85);
+      background: rgba(255, 140, 0, 0.85);
       color: #fff;
-      font-size: 0.7rem;
+      font-size: 0.65rem;
       font-weight: 800;
-      padding: 4px 10px;
+      padding: 3px 8px;
       border-radius: 20px;
       z-index: 1;
     }
 
     .stream-card-body {
-      padding: 16px;
+      padding: 14px;
       flex-grow: 1;
     }
 
     .stream-card-title {
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       font-weight: 900;
       color: #fff;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
 
     .stream-card-desc {
-      font-size: 0.78rem;
-      color: rgba(226, 232, 240, 0.7);
+      font-size: 0.75rem;
+      color: rgba(226, 232, 240, 0.65);
       line-height: 1.4;
-      margin-bottom: 15px;
+      margin-bottom: 12px;
     }
 
     .stream-card-footer {
-      padding: 14px 16px;
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
-      background: rgba(0, 0, 0, 0.3);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      padding: 12px 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      background: rgba(0, 0, 0, 0.25);
     }
 
     .btn-stream-whatsapp {
       background: #25d366;
       color: #fff;
       font-weight: 800;
-      font-size: 0.8rem;
-      padding: 10px 16px;
-      border-radius: 10px;
+      font-size: 0.78rem;
+      padding: 9px 14px;
+      border-radius: 9px;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
       gap: 8px;
       transition: all 0.2s;
-      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
       width: 100%;
       justify-content: center;
     }
 
     .btn-stream-whatsapp:hover {
       background: #1ebc57;
-      transform: scale(1.02);
-    }
-
-    .streaming-extra-photo-box {
-      margin-top: 25px;
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1.5px solid rgba(255, 107, 0, 0.4);
-      max-height: 220px;
-    }
-    .streaming-extra-photo-box img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
     }
 
     /* INFO CARD GENERAL */
@@ -1220,7 +1262,7 @@
       display: none;
     }
 
-    /* INFRAESTRUCTURA MEJORADA (SOLO CENTRO Y CUADRÍCULA DE INSTITUCIONES) */
+    /* INFRAESTRUCTURA MEJORADA */
     .rocket-infra-hero {
       width: 100%;
       background-image: linear-gradient(rgba(8, 4, 16, 0.88), rgba(8, 4, 16, 0.94)), url('dineroo.jpg');
@@ -1303,7 +1345,6 @@
       text-transform: uppercase;
     }
 
-    /* NÚCLEO CENTRAL MEJORADO */
     .center-core-node {
       display: flex;
       flex-direction: column;
@@ -1351,7 +1392,6 @@
       margin-top: 4px;
     }
 
-    /* CUADRÍCULA DE INSTITUCIONES (NUEVO ESTILO BASADO EN TU IMAGEN) */
     .institutions-grid-section {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -1712,8 +1752,8 @@
       .main-content { margin-left: 0 !important; width: 100% !important; padding: 16px 12px !important; }
       .mobile-menu-btn { display: flex !important; }
       .service-card.large-card { grid-column: span 1 !important; }
-      .streaming-top-banner-grid { grid-template-columns: 1fr !important; text-align: center; }
       .institutions-grid-section { grid-template-columns: repeat(2, 1fr) !important; }
+      .streaming-gallery-grid { grid-template-columns: 1fr !important; }
     }
   </style>
 </head>
@@ -1878,7 +1918,7 @@
         </li>
 
         <li class="nav-item" id="menu-streaming">
-          <a href="#"><span class="nav-item-content" style="color: #ffaa00;"><i class="fa-solid fa-tv" style="color:#ff6b00;"></i> Streaming & Software</span></a>
+          <a href="#"><span class="nav-item-content" style="color: #ffaa00;"><i class="fa-solid fa-tv" style="color:#ff8c00;"></i> Streaming & Software</span></a>
         </li>
         <li class="nav-item" id="menu-numeros-virtuales">
           <a href="#"><span class="nav-item-content"><i class="fa-solid fa-sim-card"></i> Números virtuales</span></a>
@@ -2367,34 +2407,44 @@
         </div>
       </section>
 
-      <!-- SECCIÓN STREAMING EXCLUSIVA -->
+      <!-- SECCIÓN STREAMING EXCLUSIVA REDISEÑADA Y ELEGANTE -->
       <section class="custom-panel-view" id="panel-streaming">
         <div class="streaming-panel-wrapper">
-          <div class="streaming-top-banner-grid">
-            <img src="kennynegro.jpg" alt="Kenny Principal" class="kenny-main-full-img">
-            <div>
-              <h2 class="streaming-title">KENNY <span>STREAMING</span></h2>
-              <p style="font-size:0.9rem; color:#ffaa00; font-weight:800; letter-spacing:0.12em; margin-top:5px;">INSTALACIÓN Y PLATAFORMAS PREMIUM</p>
-              <div class="streaming-extra-photo-box">
-                <img src="kennyarrestado.jpg" alt="Kenny Detalle">
-              </div>
-            </div>
+          
+          <!-- Encabezado Hero Estilizado con Kenny -->
+          <div class="streaming-hero-header">
+            <img src="kennynegro.jpg" alt="Kenny Streaming" class="streaming-hero-avatar">
+            <h2 class="streaming-title">KENNY <span>STREAMING</span></h2>
+            <p class="streaming-subtitle">Instalación y Plataformas Premium</p>
           </div>
 
-          <div class="streaming-contact-banner">
-            <div>
-              <p style="font-size:0.75rem; color:rgba(255,255,255,0.7); text-transform:uppercase; font-weight:800;">Contacto Directo Exclusivo</p>
-              <div class="streaming-phone-tag"><i class="fa-brands fa-whatsapp"></i> +51 937 089 748</div>
+          <!-- Barra de Contacto Rápido -->
+          <div class="streaming-contact-bar">
+            <div class="streaming-contact-info">
+              <h4>Contacto Directo Exclusivo</h4>
+              <p><i class="fa-brands fa-whatsapp"></i> +51 937 089 748</p>
             </div>
             <div>
-              <a href="https://wa.me/51937089748?text=Hola%20Kenny%20Streaming%2C%20deseo%20informacion" target="_blank" rel="noopener noreferrer" class="btn-stream-whatsapp" style="padding:10px 18px;">
-                <i class="fa-brands fa-whatsapp"></i> WhatsApp
+              <a href="https://wa.me/51937089748?text=Hola%20Kenny%20Streaming%2C%20deseo%20informacion" target="_blank" rel="noopener noreferrer" class="btn-streaming-main-ws">
+                <i class="fa-brands fa-whatsapp"></i> Chatear con Kenny
               </a>
             </div>
           </div>
 
-          <div class="streaming-category-header"><i class="fa-solid fa-play"></i> Cuadrícula de Plataformas Premium</div>
+          <!-- Galería visual elegante de Kenny -->
+          <div class="streaming-gallery-grid">
+            <div class="streaming-gallery-card">
+              <img src="kennyarrestado.jpg" alt="Kenny Arrestado">
+            </div>
+            <div class="streaming-gallery-card">
+              <img src="kennymuerto.jpg" alt="Kenny Muerto">
+            </div>
+          </div>
+
+          <!-- Cuadrícula de Plataformas Premium -->
+          <div class="streaming-section-title"><i class="fa-solid fa-play"></i> Cuadrícula de Plataformas Premium</div>
           <div class="streaming-grid-home-style">
+            
             <div class="stream-service-card">
               <div class="stream-card-top-bg" style="background-image: url('nexflix.jpg');">
                 <div class="platform-logo-overlay"><img src="nexflix.jpg" alt="Netflix"></div>
@@ -2490,14 +2540,13 @@
                 </a>
               </div>
             </div>
+
           </div>
 
-          <div class="streaming-category-header"><i class="fa-solid fa-laptop-code"></i> Instalación Remota de Programas</div>
-          <div style="margin-bottom: 20px; border-radius: 14px; overflow: hidden; border: 1px solid rgba(255,107,0,0.3);">
-            <img src="kennymuerto.jpg" alt="Kenny Extra" style="width:100%; height:140px; object-fit:cover; display:block;">
-          </div>
-
+          <!-- Instalación Remota de Programas -->
+          <div class="streaming-section-title" style="margin-top: 40px;"><i class="fa-solid fa-laptop-code"></i> Instalación Remota de Programas</div>
           <div class="streaming-grid-home-style">
+            
             <div class="stream-service-card">
               <div class="stream-card-body" style="padding-top:20px;">
                 <h3 class="stream-card-title"><i class="fa-solid fa-file-word" style="color:#2b579a;"></i> Microsoft Office</h3>
@@ -2545,7 +2594,9 @@
                 </a>
               </div>
             </div>
+
           </div>
+
         </div>
       </section>
 
@@ -2710,7 +2761,7 @@
           </div>
 
           <div class="plan-card featured">
-            <span class="plan-badge" style="background:#ff6b00;">Máximo Nivel</span>
+            <span class="plan-badge" style="background:#ff8c00;">Máximo Nivel</span>
             <div>
               <h3>Solución Suprema</h3>
               <div class="plan-price">S/. 120 <span>/ permanente</span></div>
@@ -2737,7 +2788,6 @@
           </div>
         </div>
 
-        <!-- NÚCLEO CENTRAL ESTILIZADO -->
         <div class="center-core-node">
           <div class="core-logo-box">
             <svg class="ss-logo-svg" viewBox="0 0 100 100" style="width: 32px; height: 32px;"><use href="#ss-logo-path"></use></svg>
@@ -2746,7 +2796,6 @@
           <div class="core-desc">Centralizador Global OSINT & Servicios del Perú</div>
         </div>
 
-        <!-- CUADRÍCULA DE INSTITUCIONES CONECTADAS -->
         <div class="institutions-grid-section">
           <div class="inst-card">
             <div class="inst-icon"><i class="fa-solid fa-id-card"></i></div>
@@ -2799,7 +2848,7 @@
         </div>
       </section>
 
-      <!-- SERVICIOS GRID GENERAL (INCLUYENDO TODOS LOS SERVICIOS MENOS REPETIDOS) -->
+      <!-- SERVICIOS GRID GENERAL -->
       <section class="services-grid" id="services-container">
         
         <div class="service-card large-card" data-cat="OSINT">
@@ -2819,8 +2868,8 @@
 
         <div class="service-card" data-cat="STREAMING">
           <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('imagenlogo.jpg'); background-position: center 32%;">
-            <span class="category-tag" style="border-color:#ff6b00; color:#ffaa00;">STREAMING</span>
-            <span class="card-price-badge" style="background:#ff6b00;">Kenny Streaming</span>
+            <span class="category-tag" style="border-color:#ff8c00; color:#ffaa00;">STREAMING</span>
+            <span class="card-price-badge" style="background:#ff8c00;">Kenny Streaming</span>
           </div>
           <div class="card-body">
             <h3 class="card-title">Streaming & Software</h3>
@@ -2828,7 +2877,7 @@
           </div>
           <div class="card-footer">
             <span class="card-time"><i class="fa-regular fa-clock"></i> 24/7</span>
-            <a href="#" id="card-streaming-btn" class="card-btn" style="border-color:#ff6b00; color:#ffaa00;">Ver Catálogo <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="#" id="card-streaming-btn" class="card-btn" style="border-color:#ff8c00; color:#ffaa00;">Ver Catálogo <i class="fa-solid fa-arrow-right"></i></a>
           </div>
         </div>
 
