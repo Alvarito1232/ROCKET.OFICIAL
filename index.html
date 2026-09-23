@@ -11,9 +11,9 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com 'unsafe-inline' data:; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com data:;">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   
-  <title>ROCKET - Plataforma de Servicios</title>
+  <title>ROCKET - Plataforma Global de Servicios y OSINT</title>
 
-  <!-- FAVICON / LOGO "SS" -->
+  <!-- FAVICON / LOGO ÁGUILA / SS VECTOR -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 150'><path fill='%23a855f7' d='M 65 10 C 35 10, 15 25, 20 45 C 23 58, 35 65, 52 70 L 68 75 C 80 79, 88 86, 86 98 C 83 112, 60 120, 35 115 C 22 112, 12 104, 10 95 L 2 98 C 5 112, 18 122, 35 125 C 65 129, 94 120, 96 98 C 98 78, 78 72, 62 67 L 46 62 C 32 58, 28 50, 30 42 C 33 30, 52 20, 72 22 C 82 23, 90 28, 92 35 L 100 32 C 96 22, 84 12, 65 10 Z'/><path fill='%23c084fc' d='M 35 30 C 65 30, 85 45, 80 65 C 77 78, 65 85, 48 90 L 32 95 C 20 99, 12 106, 14 118 C 17 132, 40 140, 65 135 C 78 132, 88 124, 90 115 L 98 118 C 95 132, 82 142, 65 145 C 35 149, 6 140, 4 118 C 2 98, 22 92, 38 87 L 54 82 C 68 78, 72 70, 70 62 C 67 50, 48 40, 28 42 C 18 43, 10 48, 8 55 L 0 52 C 4 42, 16 32, 35 30 Z'/></svg>">
 
   <!-- Google Fonts & Icons -->
@@ -2974,7 +2974,6 @@
   <script>
     let activePlanData = {};
 
-    // FUNCIÓN DE SEGURIDAD PARA ESCAPAR Y PREVENIR XSS / INYECCIONES
     function sanitizeInput(str) {
       if (typeof str !== 'string') return '';
       return str.replace(/[&<>'"]/g, 
@@ -2985,7 +2984,6 @@
     document.addEventListener("DOMContentLoaded", () => {
       document.addEventListener("contextmenu", e => e.preventDefault());
 
-      // PANTALLA DE CARGA
       const progressFill = document.getElementById("progress-fill");
       const progressText = document.getElementById("progress-text");
       const loadingScreen = document.getElementById("loading-screen");
@@ -3005,7 +3003,6 @@
         }
       }, 20);
 
-      // SIDEBAR MOBILE
       const toggleBtn = document.getElementById("toggle-menu");
       const sidebar = document.getElementById("sidebar");
       const overlay = document.getElementById("sidebar-overlay");
@@ -3021,7 +3018,6 @@
       });
       overlay.addEventListener("click", closeSidebar);
 
-      // MODAL YAPE CONTROLES
       const modalCredits = document.getElementById("modal-credits");
       const btnOpenCredits = document.getElementById("btn-open-credits");
       const btnCloseModal = document.getElementById("btn-close-modal");
@@ -3044,7 +3040,6 @@
         });
       }
 
-      // VISTA PREVIA FACIAL CON VALIDACIÓN DE TAMAÑO Y TIPO DE ARCHIVO
       const fileInput = document.getElementById("facial-file-input");
       const previewImg = document.getElementById("facial-preview");
       const clearBtn = document.getElementById("btn-clear-facial");
@@ -3080,7 +3075,6 @@
         cameraBtn.addEventListener("click", () => { fileInput.click(); });
       }
 
-      // SUBTABS SÍGUELO PLUS
       const subtabPlaca = document.getElementById("subtab-placa");
       const subtabVin = document.getElementById("subtab-vin");
       const labelSigueloInput = document.getElementById("label-siguelo-input");
@@ -3099,7 +3093,6 @@
         });
       }
 
-      // NAVEGACIÓN GENERAL DE PANELES
       const panels = document.querySelectorAll(".custom-panel-view");
       const webPlansContainer = document.getElementById("web-plans-container");
       const infraSection = document.getElementById("infra-rocket-section");
@@ -3135,20 +3128,17 @@
       document.getElementById("menu-telefonos").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-osiptel"); });
       document.getElementById("menu-sunarp").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-sunarp"); });
 
-      // RENIEC
       document.getElementById("reniec-ficha").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-reniec-ficha"); });
       document.getElementById("reniec-nombres").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-reniec-nombres"); });
       document.getElementById("reniec-dni-virtual").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-reniec-dni-virtual"); });
       document.getElementById("reniec-arbol").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-reniec-arbol"); });
       document.getElementById("reniec-facial").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-reniec-facial"); });
 
-      // JUSTICIA
       document.getElementById("justicia-denuncias").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-justicia-denuncias"); });
       document.getElementById("justicia-antecedentes").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-justicia-antecedentes"); });
       document.getElementById("justicia-requisitorias").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-justicia-requisitorias"); });
       document.getElementById("justicia-policia").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-justicia-policia"); });
 
-      // OTROS MÓDULOS
       document.getElementById("menu-persona-plus").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-persona-plus"); });
       document.getElementById("card-osint-full-btn").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-persona-plus"); });
 
@@ -3159,7 +3149,6 @@
       document.getElementById("menu-actas").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-actas"); });
       document.getElementById("menu-doxing").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-doxing"); });
 
-      // HISTORIAL Y DIGITALES
       document.getElementById("menu-historial").addEventListener("click", (e) => { e.preventDefault(); renderHistory(); openPanel("panel-historial"); });
       document.getElementById("menu-chatbot").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-chatbot"); });
       document.getElementById("card-chatbot-btn").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-chatbot"); });
@@ -3170,7 +3159,6 @@
       document.getElementById("menu-streaming").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-streaming"); });
       document.getElementById("card-streaming-btn").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-streaming"); });
 
-      // DROPDOWNS
       document.querySelectorAll(".dropdown-trigger").forEach(trig => {
         trig.addEventListener("click", () => {
           trig.parentElement.classList.toggle("open");
@@ -3178,7 +3166,6 @@
       });
     });
 
-    // ABRIR MODAL CON YAPE PARA PLAN SELECCIONADO
     function openCreditModal(planName, price, credits) {
       activePlanData = { planName, price, credits };
 
@@ -3192,7 +3179,6 @@
       document.getElementById("modal-credits").classList.add("active");
     }
 
-    // CONFIRMACIÓN Y LECTURA CON EL BOT (CON VALIDACIÓN DE SEGURIDAD)
     function confirmYapeBot() {
       const rawPayerName = document.getElementById("yape-payer-name").value;
       const payerName = sanitizeInput(rawPayerName.trim());
@@ -3206,7 +3192,6 @@
       document.getElementById("modal-credits").classList.remove("active");
     }
 
-    // EJECUCIÓN SIMULADA Y REGISTRO DE HISTORIAL (SANITIZADA)
     function executeSearch(serviceName, inputId, resultBoxId) {
       const inputEl = document.getElementById(inputId);
       const rawVal = inputEl ? inputEl.value : "";
@@ -3236,7 +3221,6 @@
           status: "Exitoso"
         });
         
-        // Limitar historial máximo para evitar saturación de almacenamiento local
         if (history.length > 50) history = history.slice(0, 50);
         
         localStorage.setItem("rocket_history", JSON.stringify(history));
@@ -3266,7 +3250,6 @@
       }, 1200);
     }
 
-    // COPIAR EN 1-CLIC
     function copyResult(dataBoxId) {
       const el = document.getElementById(dataBoxId);
       if (!el) return;
@@ -3275,7 +3258,6 @@
       });
     }
 
-    // EXPORTAR A PDF (IMPRESIÓN SEGURA)
     function exportPDF(dataBoxId, fileName) {
       const el = document.getElementById(dataBoxId);
       if (!el) return;
@@ -3286,7 +3268,6 @@
       printWindow.print();
     }
 
-    // RENDERIZAR HISTORIAL
     function renderHistory() {
       const tbody = document.getElementById("history-table-body");
       if (!tbody) return;
@@ -3307,7 +3288,6 @@
       `).join("");
     }
 
-    // LIMPIAR HISTORIAL
     function clearHistory() {
       if (confirm("¿Deseas borrar todo el historial local?")) {
         localStorage.removeItem("rocket_history");
