@@ -11,10 +11,10 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com 'unsafe-inline' data:; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com data:;">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   
-  <title>ROCKET - Plataforma Global de Servicios y OSINT</title>
+  <title>ROCKET - Plataforma de Servicios</title>
 
-  <!-- FAVICON / LOGO ÁGUILA / SS VECTOR -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 150'><path fill='%23a855f7' d='M 65 10 C 35 10, 15 25, 20 45 C 23 58, 35 65, 52 70 L 68 75 C 80 79, 88 86, 86 98 C 83 112, 60 120, 35 115 C 22 112, 12 104, 10 95 L 2 98 C 5 112, 18 122, 35 125 C 65 129, 94 120, 96 98 C 98 78, 78 72, 62 67 L 46 62 C 32 58, 28 50, 30 42 C 33 30, 52 20, 72 22 C 82 23, 90 28, 92 35 L 100 32 C 96 22, 84 12, 65 10 Z'/><path fill='%23c084fc' d='M 35 30 C 65 30, 85 45, 80 65 C 77 78, 65 85, 48 90 L 32 95 C 20 99, 12 106, 14 118 C 17 132, 40 140, 65 135 C 78 132, 88 124, 90 115 L 98 118 C 95 132, 82 142, 65 145 C 35 149, 6 140, 4 118 C 2 98, 22 92, 38 87 L 54 82 C 68 78, 72 70, 70 62 C 67 50, 48 40, 28 42 C 18 43, 10 48, 8 55 L 0 52 C 4 42, 16 32, 35 30 Z'/></svg>">
+  <!-- FAVICON / LOGO RUNAS SS -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path fill='%23a855f7' d='M20 10 L45 10 L30 50 L55 50 L40 90 L15 90 L30 50 L5 50 Z'/><path fill='%23a855f7' d='M60 10 L85 10 L70 50 L95 50 L80 90 L55 90 L70 50 L45 50 Z'/></svg>">
 
   <!-- Google Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,9 +46,9 @@
       background-color: #08060a;
       color: #e2e8f0;
       min-height: 100vh;
-      background-image: linear-gradient(rgba(8, 6, 10, 0.90), rgba(8, 6, 10, 0.96)), url('Fondoprincipal.jpg');
+      background-image: linear-gradient(rgba(8, 6, 10, 0.88), rgba(8, 6, 10, 0.94)), url('nuevaimagen.jpg');
       background-size: cover;
-      background-position: center 30%;
+      background-position: center;
       background-attachment: fixed;
       -webkit-overflow-scrolling: touch;
       overflow-y: auto;
@@ -59,7 +59,7 @@
     .ss-logo-svg {
       display: inline-block;
       vertical-align: middle;
-      fill: #e2e8f0;
+      fill: #a855f7;
       transition: all 0.3s ease;
     }
 
@@ -70,9 +70,9 @@
       left: 0;
       width: 100vw;
       height: 100vh;
-      background-image: linear-gradient(rgba(8, 6, 10, 0.82), rgba(8, 6, 10, 0.95)), url('Fondoprincipal.jpg');
+      background-image: linear-gradient(rgba(8, 6, 10, 0.82), rgba(8, 6, 10, 0.95)), url('nuevaimagen.jpg');
       background-size: cover;
-      background-position: center 30%;
+      background-position: center;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -93,7 +93,7 @@
       border-radius: 20px;
       background-image: linear-gradient(rgba(18, 10, 30, 0.75), rgba(12, 6, 20, 0.90)), url('fondorocket.jpg');
       background-size: cover;
-      background-position: center 35%;
+      background-position: center;
       border: 1px solid rgba(168, 85, 247, 0.45);
       box-shadow: 0 0 35px rgba(147, 51, 234, 0.3), inset 0 0 20px rgba(168, 85, 247, 0.2);
       text-align: center;
@@ -106,7 +106,7 @@
     }
 
     .eagle-emblem-svg {
-      width: clamp(45px, 8vw, 75px);
+      width: clamp(35px, 7vw, 55px);
       height: auto;
       filter: drop-shadow(0 0 12px rgba(192, 132, 252, 0.9));
     }
@@ -218,7 +218,7 @@
       box-shadow: 0 0 10px rgba(168, 85, 247, 0.2);
     }
 
-    .sidebar-logo-icon .ss-logo-svg { width: 22px; height: 22px; }
+    .sidebar-logo-icon .ss-logo-svg { width: 20px; height: 20px; }
 
     .sidebar-brand {
       font-size: 1.25rem;
@@ -387,30 +387,9 @@
     }
 
     .top-logo-svg {
-      width: 22px;
-      height: 22px;
+      width: 20px;
+      height: 20px;
       filter: drop-shadow(0 0 6px rgba(216, 180, 254, 0.8));
-    }
-
-    .btn-credit-modal-trigger {
-      background: linear-gradient(135deg, #a855f7, #7e22ce);
-      color: #fff;
-      border: 1px solid rgba(192, 132, 252, 0.5);
-      padding: 8px 16px;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 800;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
-      transition: all 0.2s;
-    }
-
-    .btn-credit-modal-trigger:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 22px rgba(168, 85, 247, 0.7);
     }
 
     .social-contacts {
@@ -456,7 +435,7 @@
       padding: 30px 20px;
       background-image: linear-gradient(rgba(18, 10, 30, 0.70), rgba(12, 6, 20, 0.88)), url('fondorocket.jpg');
       background-size: cover;
-      background-position: center 35%;
+      background-position: center;
       border: 1px solid rgba(168, 85, 247, 0.35);
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
       margin-bottom: 25px;
@@ -469,7 +448,7 @@
     }
 
     .hero-logo-svg {
-      width: clamp(40px, 6vw, 65px);
+      width: clamp(38px, 6vw, 55px);
       height: auto;
       filter: drop-shadow(0 0 12px rgba(226, 232, 240, 0.8));
     }
@@ -1144,6 +1123,7 @@
       justify-content: center;
       gap: 15px;
       margin-bottom: 20px;
+      flex-wrap: wrap;
     }
 
     .sub-tab-btn {
@@ -1619,6 +1599,7 @@
       letter-spacing: 0.22em;
       color: #d8b4fe;
       text-transform: uppercase;
+      text-align: center;
     }
 
     .quote-text {
@@ -1696,7 +1677,7 @@
         background: #0d071a !important;
       }
       .sidebar.open { transform: translateX(0) !important; }
-      .main-content { margin-left: 0 !important; width: 100% !important; padding: 16px 10px !important; }
+      .main-content { margin-left: 0 !important; width: 100% !important; padding: 16px 12px !important; }
       .mobile-menu-btn { display: flex !important; }
       .infra-diagram-grid { grid-template-columns: 1fr !important; }
       .service-card.large-card { grid-column: span 1 !important; }
@@ -1705,10 +1686,11 @@
 </head>
 <body oncontextmenu="return false;" ondragstart="return false;">
 
+  <!-- DEFINICIÓN DE LOGOTIPO RUNAS SS -->
   <svg style="display:none;">
     <g id="ss-logo-path">
-      <path d="M 65 10 C 35 10, 15 25, 20 45 C 23 58, 35 65, 52 70 L 68 75 C 80 79, 88 86, 86 98 C 83 112, 60 120, 35 115 C 22 112, 12 104, 10 95 L 2 98 C 5 112, 18 122, 35 125 C 65 129, 94 120, 96 98 C 98 78, 78 72, 62 67 L 46 62 C 32 58, 28 50, 30 42 C 33 30, 52 20, 72 22 C 82 23, 90 28, 92 35 L 100 32 C 96 22, 84 12, 65 10 Z" />
-      <path d="M 35 30 C 65 30, 85 45, 80 65 C 77 78, 65 85, 48 90 L 32 95 C 20 99, 12 106, 14 118 C 17 132, 40 140, 65 135 C 78 132, 88 124, 90 115 L 98 118 C 95 132, 82 142, 65 145 C 35 149, 6 140, 4 118 C 2 98, 22 92, 38 87 L 54 82 C 68 78, 72 70, 70 62 C 67 50, 48 40, 28 42 C 18 43, 10 48, 8 55 L 0 52 C 4 42, 16 32, 35 30 Z" opacity="0.85" />
+      <path d="M20 10 L45 10 L30 50 L55 50 L40 90 L15 90 L30 50 L5 50 Z"/>
+      <path d="M60 10 L85 10 L70 50 L95 50 L80 90 L55 90 L70 50 L45 50 Z"/>
     </g>
   </svg>
 
@@ -1765,7 +1747,7 @@
   <!-- PANTALLA DE CARGA -->
   <div id="loading-screen">
     <div class="rocket-card">
-      <svg class="ss-logo-svg eagle-emblem-svg" viewBox="0 0 100 150">
+      <svg class="ss-logo-svg eagle-emblem-svg" viewBox="0 0 100 100">
         <use href="#ss-logo-path"></use>
       </svg>
       <h1 class="rocket-title">ROCKET</h1>
@@ -1786,7 +1768,7 @@
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-header">
         <div class="sidebar-logo-icon">
-          <svg class="ss-logo-svg" viewBox="0 0 100 150"><use href="#ss-logo-path"></use></svg>
+          <svg class="ss-logo-svg" viewBox="0 0 100 100"><use href="#ss-logo-path"></use></svg>
         </div>
         <span class="sidebar-brand">ROCKET</span>
       </div>
@@ -1797,11 +1779,11 @@
       </div>
 
       <ul class="nav-menu">
-        <li class="nav-item" id="menu-home">
+        <li class="nav-item active" id="menu-home">
           <a href="#"><span class="nav-item-content"><i class="fa-solid fa-house"></i> Home</span></a>
         </li>
         <!-- OPCIÓN RECARGAR EN SIDEBAR -->
-        <li class="nav-item active" id="menu-recarga">
+        <li class="nav-item" id="menu-recarga">
           <a href="#"><span class="nav-item-content" style="color:#a855f7;"><i class="fa-solid fa-wallet"></i> Recargar</span></a>
         </li>
         <li class="nav-item" id="menu-creacion-web">
@@ -1900,11 +1882,9 @@
       <header class="top-header">
         <button class="mobile-menu-btn" id="toggle-menu"><i class="fa-solid fa-bars"></i></button>
         <div class="top-logo">
-          <svg class="ss-logo-svg top-logo-svg" viewBox="0 0 100 150"><use href="#ss-logo-path"></use></svg>
+          <svg class="ss-logo-svg top-logo-svg" viewBox="0 0 100 100"><use href="#ss-logo-path"></use></svg>
           ROCKET
         </div>
-
-        <button class="btn-credit-modal-trigger" id="btn-open-credits"><i class="fa-solid fa-coins"></i> Recargar Créditos</button>
 
         <div class="social-contacts">
           <a href="https://t.me/Adolf3728" target="_blank" rel="noopener noreferrer" class="social-btn"><i class="fa-brands fa-telegram"></i></a>
@@ -1916,12 +1896,12 @@
 
       <!-- Banner Hero -->
       <section class="hero-banner-clean">
-        <svg class="ss-logo-svg hero-logo-svg" viewBox="0 0 100 150"><use href="#ss-logo-path"></use></svg>
+        <svg class="ss-logo-svg hero-logo-svg" viewBox="0 0 100 100"><use href="#ss-logo-path"></use></svg>
         <h1 class="hero-banner-title">ROCKET</h1>
       </section>
 
       <!-- VISTA MÓDULO RECARGA KMENTE -->
-      <section class="custom-panel-view active" id="panel-recarga">
+      <section class="custom-panel-view" id="panel-recarga">
         <div class="kmente-recharge-wrapper">
           
           <div class="recharge-top-card">
@@ -2191,7 +2171,7 @@
           <img src="" id="facial-preview" class="preview-img-facial" alt="Vista previa">
         </div>
 
-        <div style="display:flex; justify-content:center; gap:10px; margin-bottom:15px;">
+        <div style="display:flex; justify-content:center; gap:10px; margin-bottom:15px; flex-wrap:wrap;">
           <button class="card-btn" id="btn-camera-facial"><i class="fa-solid fa-camera"></i> Usar cámara</button>
           <button class="card-btn" id="btn-clear-facial"><i class="fa-solid fa-trash-can"></i> Limpiar</button>
         </div>
@@ -2821,7 +2801,7 @@
 
           <div class="center-core-node">
             <div class="core-logo-box">
-              <svg class="ss-logo-svg" viewBox="0 0 100 150" style="width: 32px; height: 32px;"><use href="#ss-logo-path"></use></svg>
+              <svg class="ss-logo-svg" viewBox="0 0 100 100" style="width: 28px; height: 28px;"><use href="#ss-logo-path"></use></svg>
             </div>
             <div class="core-title">Rocket.com</div>
             <div class="core-desc">Centralizador Global OSINT & Servicios Digitales</div>
@@ -3019,15 +2999,8 @@
       overlay.addEventListener("click", closeSidebar);
 
       const modalCredits = document.getElementById("modal-credits");
-      const btnOpenCredits = document.getElementById("btn-open-credits");
       const btnCloseModal = document.getElementById("btn-close-modal");
       const btnYaPague = document.getElementById("btn-ya-pague");
-
-      if (btnOpenCredits) {
-        btnOpenCredits.addEventListener("click", () => {
-          openPanel("panel-recarga");
-        });
-      }
 
       if (btnCloseModal) {
         btnCloseModal.addEventListener("click", () => modalCredits.classList.remove("active"));
@@ -3110,6 +3083,8 @@
         if (webPlansContainer) webPlansContainer.classList.remove("active");
         if (infraSection) infraSection.style.display = "block";
         serviceCards.forEach(c => c.style.display = "flex");
+        document.querySelectorAll(".nav-item").forEach(i => i.classList.remove("active"));
+        document.getElementById("menu-home").classList.add("active");
       }
 
       function openPanel(id) {
@@ -3128,17 +3103,20 @@
       document.getElementById("menu-telefonos").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-osiptel"); });
       document.getElementById("menu-sunarp").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-sunarp"); });
 
+      // RENIEC
       document.getElementById("reniec-ficha").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-reniec-ficha"); });
       document.getElementById("reniec-nombres").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-reniec-nombres"); });
       document.getElementById("reniec-dni-virtual").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-reniec-dni-virtual"); });
       document.getElementById("reniec-arbol").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-reniec-arbol"); });
       document.getElementById("reniec-facial").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-reniec-facial"); });
 
+      // JUSTICIA
       document.getElementById("justicia-denuncias").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-justicia-denuncias"); });
       document.getElementById("justicia-antecedentes").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-justicia-antecedentes"); });
       document.getElementById("justicia-requisitorias").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-justicia-requisitorias"); });
       document.getElementById("justicia-policia").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-justicia-policia"); });
 
+      // OTROS MÓDULOS
       document.getElementById("menu-persona-plus").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-persona-plus"); });
       document.getElementById("card-osint-full-btn").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-persona-plus"); });
 
@@ -3149,6 +3127,7 @@
       document.getElementById("menu-actas").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-actas"); });
       document.getElementById("menu-doxing").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-doxing"); });
 
+      // HISTORIAL Y DIGITALES
       document.getElementById("menu-historial").addEventListener("click", (e) => { e.preventDefault(); renderHistory(); openPanel("panel-historial"); });
       document.getElementById("menu-chatbot").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-chatbot"); });
       document.getElementById("card-chatbot-btn").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-chatbot"); });
@@ -3222,7 +3201,6 @@
         });
         
         if (history.length > 50) history = history.slice(0, 50);
-        
         localStorage.setItem("rocket_history", JSON.stringify(history));
       }, 1000);
     }
