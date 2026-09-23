@@ -464,7 +464,7 @@
       text-align: center;
     }
 
-    /* ESTILOS MÓDULO RECARGA KMENTE */
+    /* RECARGA KMENTE - PRECIOS EXACTOS ANTERIORES */
     .kmente-recharge-wrapper {
       display: flex;
       flex-direction: column;
@@ -634,7 +634,7 @@
       color: #fff;
     }
 
-    /* PANELES DE CONSULTA GENERALES */
+    /* PANELES GENERALES */
     .custom-panel-view {
       display: none;
       width: 100%;
@@ -716,7 +716,6 @@
       border-color: #a855f7;
     }
 
-    /* CONTENEDOR DE RESULTADOS Y ACCIONES RÁPIDAS */
     .result-box-container {
       margin-top: 20px;
       background: rgba(8, 4, 16, 0.95);
@@ -780,7 +779,6 @@
       overflow-y: auto;
     }
 
-    /* VISTA DE HISTORIAL */
     .history-table {
       width: 100%;
       border-collapse: collapse;
@@ -800,7 +798,7 @@
       background: rgba(168, 85, 247, 0.1);
     }
 
-    /* MODAL YAPE Y CONFIRMACIÓN */
+    /* MODAL YAPE */
     .modal-overlay {
       display: none;
       position: fixed;
@@ -906,7 +904,7 @@
       display: inline-block;
     }
 
-    /* ESTILO SECCIÓN STREAMING EXCLUSIVA Y OPTIMIZADA (PRECIOSA) */
+    /* SECCIÓN STREAMING EXCLUSIVA - FOTOS COMPLETAS Y DISTRIBUIDAS (SIN CÍRCULOS) */
     .streaming-panel-wrapper {
       background: linear-gradient(135deg, rgba(255, 107, 0, 0.15), rgba(15, 10, 26, 0.98));
       border: 1.5px solid #ff6b00;
@@ -917,65 +915,34 @@
       overflow: hidden;
     }
 
-    /* Banner con foto principal de Kenny al centro y detalles flotantes en esquinas */
-    .kenny-hero-showcase {
-      display: flex;
-      flex-direction: column;
+    .streaming-top-banner-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 20px;
       align-items: center;
-      position: relative;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 107, 0, 0.4);
+      border-radius: 18px;
+      padding: 20px;
       margin-bottom: 25px;
-      padding: 15px 0;
     }
 
-    .kenny-main-avatar {
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #ff8c00, #ff4500);
-      border: 4px solid #ffaa00;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 0 30px rgba(255, 140, 0, 0.8);
-      overflow: hidden;
-      z-index: 2;
-    }
-
-    .kenny-main-avatar img {
+    .kenny-main-full-img {
       width: 100%;
-      height: 100%;
+      max-height: 180px;
       object-fit: cover;
-    }
-
-    .kenny-corner-badge {
-      position: absolute;
-      width: 55px;
-      height: 55px;
-      border-radius: 50%;
+      border-radius: 12px;
       border: 2px solid #ffaa00;
-      overflow: hidden;
-      box-shadow: 0 0 15px rgba(255, 107, 0, 0.6);
-      background: #000;
+      box-shadow: 0 0 20px rgba(255, 107, 0, 0.5);
     }
-
-    .kenny-corner-badge img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .kenny-corner-left { top: 5px; left: 12%; transform: rotate(-12deg); }
-    .kenny-corner-right { top: 5px; right: 12%; transform: rotate(12deg); }
 
     .streaming-title {
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
       font-weight: 900;
       color: #fff;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       text-shadow: 0 0 20px rgba(255, 107, 0, 0.9);
-      text-align: center;
-      margin-top: 15px;
     }
 
     .streaming-title span { color: #ff6b00; }
@@ -1003,7 +970,6 @@
       gap: 10px;
     }
 
-    /* NUEVAS CUADRÍCULAS DE STREAMING ESTILO HOME CON FONDOS */
     .streaming-category-header {
       font-size: 0.95rem;
       font-weight: 800;
@@ -1142,6 +1108,20 @@
       transform: scale(1.02);
     }
 
+    /* FOTO REPARTIDA EXTRA EN STREAMING */
+    .streaming-extra-photo-box {
+      margin-top: 25px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1.5px solid rgba(255, 107, 0, 0.4);
+      max-height: 220px;
+    }
+    .streaming-extra-photo-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
     /* INFO CARD GENERAL */
     .info-card-wrapper {
       background: rgba(255, 255, 255, 0.02);
@@ -1241,7 +1221,7 @@
       display: none;
     }
 
-    /* SECCIÓN INFRAESTRUCTURA Central de Datos */
+    /* INFRAESTRUCTURA */
     .rocket-infra-hero {
       width: 100%;
       background-image: linear-gradient(rgba(8, 4, 16, 0.82), rgba(8, 4, 16, 0.90)), url('dineroo.jpg');
@@ -1414,7 +1394,7 @@
       font-weight: 700;
     }
 
-    /* PLANES DE CREACIÓN WEB */
+    /* PLANES DE CREACIÓN WEB ACTUALIZADOS (S/. 10 A S/. 120, VARIAMIENTO S/. 14, REGLAS DE RENOVACIÓN) */
     .web-plans-section {
       display: none;
       width: 100%;
@@ -1425,8 +1405,8 @@
 
     .plans-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 18px;
       margin-top: 15px;
     }
 
@@ -1499,12 +1479,6 @@
       color: #22c55e;
       font-size: 0.75rem;
       margin-top: 2px;
-    }
-
-    .plan-buttons-group {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
     }
 
     .btn-plan-ws {
@@ -1738,12 +1712,13 @@
       .mobile-menu-btn { display: flex !important; }
       .infra-diagram-grid { grid-template-columns: 1fr !important; }
       .service-card.large-card { grid-column: span 1 !important; }
+      .streaming-top-banner-grid { grid-template-columns: 1fr !important; text-align: center; }
     }
   </style>
 </head>
 <body oncontextmenu="return false;" ondragstart="return false;">
 
-  <!-- DEFINICIÓN DE LOGOTIPO RUNAS SS -->
+  <!-- LOGO RUNAS SS -->
   <svg style="display:none;">
     <g id="ss-logo-path">
       <path d="M20 10 L45 10 L30 50 L55 50 L40 90 L15 90 L30 50 L5 50 Z"/>
@@ -1751,7 +1726,7 @@
     </g>
   </svg>
 
-  <!-- MODAL DE YAPE Y VERIFICACIÓN AUTOMÁTICA -->
+  <!-- MODAL YAPE -->
   <div class="modal-overlay" id="modal-credits">
     <div class="modal-credits-box">
       <button class="close-modal-btn" id="btn-close-modal"><i class="fa-solid fa-xmark"></i></button>
@@ -1799,12 +1774,10 @@
 
   <div class="sidebar-overlay" id="sidebar-overlay"></div>
 
-  <!-- PANTALLA DE CARGA CON FONDOFINAL.JPG -->
+  <!-- PANTALLA DE CARGA -->
   <div id="loading-screen">
     <div class="rocket-card">
-      <svg class="ss-logo-svg eagle-emblem-svg" viewBox="0 0 100 100">
-        <use href="#ss-logo-path"></use>
-      </svg>
+      <svg class="ss-logo-svg eagle-emblem-svg" viewBox="0 0 100 100"><use href="#ss-logo-path"></use></svg>
       <h1 class="rocket-title">ROCKET</h1>
     </div>
 
@@ -1819,7 +1792,7 @@
 
   <div id="app-container">
     
-    <!-- SIDEBAR DE NAVEGACIÓN -->
+    <!-- SIDEBAR -->
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-header">
         <div class="sidebar-logo-icon">
@@ -1950,7 +1923,7 @@
         <h1 class="hero-banner-title">ROCKET</h1>
       </section>
 
-      <!-- VISTA MÓDULO RECARGA KMENTE -->
+      <!-- VISTA MÓDULO RECARGA KMENTE (PRECIOS EXACTOS ANTERIORES) -->
       <section class="custom-panel-view" id="panel-recarga">
         <div class="kmente-recharge-wrapper">
           
@@ -1996,6 +1969,19 @@
                 <button class="btn-select-km-plan" onclick="openCreditModal('Plan Básico', '21.00', '200')">Seleccionar plan</button>
               </div>
 
+              <div class="km-pkg-card">
+                <div>
+                  <div class="km-title">Plan Estándar</div>
+                  <div class="km-subtitle">350 Créditos</div>
+                  <div class="km-price">S/ 33.00 <span>/ paquete</span></div>
+                  <ul class="km-features">
+                    <li><i class="fa-solid fa-bolt"></i> Aplicación inmediata al detectar el pago</li>
+                    <li><i class="fa-solid fa-check"></i> Saldo extendido para múltiples consultas</li>
+                  </ul>
+                </div>
+                <button class="btn-select-km-plan" onclick="openCreditModal('Plan Estándar', '33.00', '350')">Seleccionar plan</button>
+              </div>
+
               <div class="km-pkg-card popular">
                 <span class="km-tag" style="background:#a855f7; color:#fff;">Recomendado</span>
                 <div>
@@ -2008,6 +1994,45 @@
                   </ul>
                 </div>
                 <button class="btn-select-km-plan" style="background:#a855f7; color:#fff;" onclick="openCreditModal('Plan Medio', '45.00', '500')">Seleccionar plan</button>
+              </div>
+
+              <div class="km-pkg-card">
+                <div>
+                  <div class="km-title">Plan Frecuente</div>
+                  <div class="km-subtitle">800 Créditos</div>
+                  <div class="km-price">S/ 68.00 <span>/ paquete</span></div>
+                  <ul class="km-features">
+                    <li><i class="fa-solid fa-bolt"></i> Gran saldo para operar sin recargar seguido</li>
+                    <li><i class="fa-solid fa-check"></i> Créditos permanentes en tu cuenta</li>
+                  </ul>
+                </div>
+                <button class="btn-select-km-plan" onclick="openCreditModal('Plan Frecuente', '68.00', '800')">Seleccionar plan</button>
+              </div>
+
+              <div class="km-pkg-card">
+                <div>
+                  <div class="km-title">Plan Pro</div>
+                  <div class="km-subtitle">1,000 Créditos</div>
+                  <div class="km-price">S/ 85.00 <span>/ paquete</span></div>
+                  <ul class="km-features">
+                    <li><i class="fa-solid fa-bolt"></i> Ideal para uso profesional o alto volumen</li>
+                    <li><i class="fa-solid fa-check"></i> Menos recargas, mejor rendimiento</li>
+                  </ul>
+                </div>
+                <button class="btn-select-km-plan" onclick="openCreditModal('Plan Pro', '85.00', '1000')">Seleccionar plan</button>
+              </div>
+
+              <div class="km-pkg-card">
+                <div>
+                  <div class="km-title">Plan VIP / Negocios</div>
+                  <div class="km-subtitle">1,500 Créditos</div>
+                  <div class="km-price">S/ 115.00 <span>/ paquete</span></div>
+                  <ul class="km-features">
+                    <li><i class="fa-solid fa-bolt"></i> Máxima prioridad y rendimiento masivo</li>
+                    <li><i class="fa-solid fa-check"></i> Créditos acumulables e ilimitados</li>
+                  </ul>
+                </div>
+                <button class="btn-select-km-plan" onclick="openCreditModal('Plan VIP / Negocios', '115.00', '1500')">Seleccionar plan</button>
               </div>
             </div>
           </div>
@@ -2343,26 +2368,19 @@
         </div>
       </section>
 
-      <!-- SECCIÓN STREAMING EXCLUSIVA (KENNY STREAMING) - NUEVO DISEÑO PRECIOSO Y MODERNO -->
+      <!-- SECCIÓN STREAMING EXCLUSIVA - FOTOS COMPLETAS Y DISTRIBUIDAS (SIN CÍRCULOS) -->
       <section class="custom-panel-view" id="panel-streaming">
         <div class="streaming-panel-wrapper">
           
-          <!-- Banner con Foto Principal de Kenny al centro y detalles flotantes en esquinas -->
-          <div class="kenny-hero-showcase">
-            <div class="kenny-corner-badge kenny-corner-left">
-              <img src="kennyarrestado.jpg" alt="Kenny Detail">
+          <div class="streaming-top-banner-grid">
+            <img src="kennynegro.jpg" alt="Kenny Principal" class="kenny-main-full-img">
+            <div>
+              <h2 class="streaming-title">KENNY <span>STREAMING</span></h2>
+              <p style="font-size:0.9rem; color:#ffaa00; font-weight:800; letter-spacing:0.12em; margin-top:5px;">INSTALACIÓN Y PLATAFORMAS PREMIUM</p>
+              <div class="streaming-extra-photo-box">
+                <img src="kennyarrestado.jpg" alt="Kenny Detalle">
+              </div>
             </div>
-            
-            <div class="kenny-main-avatar">
-              <img src="kennynegro.jpg" alt="Kenny Principal">
-            </div>
-
-            <div class="kenny-corner-badge kenny-corner-right">
-              <img src="kennymuerto.jpg" alt="Kenny Detail">
-            </div>
-
-            <h2 class="streaming-title">KENNY <span>STREAMING</span></h2>
-            <p style="font-size:0.9rem; color:#ffaa00; font-weight:800; letter-spacing:0.12em; margin-top:5px;">INSTALACIÓN Y PLATAFORMAS PREMIUM</p>
           </div>
 
           <div class="streaming-contact-banner">
@@ -2370,18 +2388,17 @@
               <p style="font-size:0.75rem; color:rgba(255,255,255,0.7); text-transform:uppercase; font-weight:800;">Contacto Directo Exclusivo</p>
               <div class="streaming-phone-tag"><i class="fa-brands fa-whatsapp"></i> +51 937 089 748</div>
             </div>
-            <div style="display:flex; gap:10px;">
+            <div>
               <a href="https://wa.me/51937089748?text=Hola%20Kenny%20Streaming%2C%20deseo%20informacion" target="_blank" rel="noopener noreferrer" class="btn-stream-whatsapp" style="padding:10px 18px;">
                 <i class="fa-brands fa-whatsapp"></i> WhatsApp
               </a>
             </div>
           </div>
 
-          <!-- CUADRÍCULAS DE PLATAFORMAS CON ESTILO HOME Y FONDOS -->
+          <!-- CUADRÍCULAS DE PLATAFORMAS CON FONDOS -->
           <div class="streaming-category-header"><i class="fa-solid fa-play"></i> Cuadrícula de Plataformas Premium</div>
           <div class="streaming-grid-home-style">
             
-            <!-- Netflix -->
             <div class="stream-service-card">
               <div class="stream-card-top-bg" style="background-image: url('nexflix.jpg');">
                 <div class="platform-logo-overlay"><img src="nexflix.jpg" alt="Netflix"></div>
@@ -2389,7 +2406,7 @@
               </div>
               <div class="stream-card-body">
                 <h3 class="stream-card-title">Netflix Premium</h3>
-                <p class="stream-card-desc">Disfruta de perfiles estables, sin interrupciones y con la máxima calidad de pantalla.</p>
+                <p class="stream-card-desc">Perfiles estables, sin interrupciones y con la máxima calidad de pantalla.</p>
               </div>
               <div class="stream-card-footer">
                 <a href="https://wa.me/51937089748?text=Hola%20Kenny,%20deseo%20comprar%20cuenta%20de%20Netflix" target="_blank" rel="noopener noreferrer" class="btn-stream-whatsapp">
@@ -2398,7 +2415,6 @@
               </div>
             </div>
 
-            <!-- Prime Video -->
             <div class="stream-service-card">
               <div class="stream-card-top-bg" style="background-image: url('primevideo.jpg');">
                 <div class="platform-logo-overlay"><img src="primevideo.jpg" alt="Prime Video"></div>
@@ -2415,7 +2431,6 @@
               </div>
             </div>
 
-            <!-- Disney+ -->
             <div class="stream-service-card">
               <div class="stream-card-top-bg" style="background-image: url('disney.jpg');">
                 <div class="platform-logo-overlay"><img src="disney.jpg" alt="Disney+"></div>
@@ -2423,7 +2438,7 @@
               </div>
               <div class="stream-card-body">
                 <h3 class="stream-card-title">Disney+</h3>
-                <p class="stream-card-desc">Todo el contenido de Disney, Marvel, Star Wars y estrenos para toda la familia.</p>
+                <p class="stream-card-desc">Todo el contenido de Disney, Marvel, Star Wars y estrenos familiares.</p>
               </div>
               <div class="stream-card-footer">
                 <a href="https://wa.me/51937089748?text=Hola%20Kenny,%20deseo%20comprar%20cuenta%20de%20Disney+" target="_blank" rel="noopener noreferrer" class="btn-stream-whatsapp">
@@ -2432,7 +2447,6 @@
               </div>
             </div>
 
-            <!-- HBO Max -->
             <div class="stream-service-card">
               <div class="stream-card-top-bg" style="background-image: url('hbomax.jpg');">
                 <div class="platform-logo-overlay"><img src="hbomax.jpg" alt="HBO Max"></div>
@@ -2440,7 +2454,7 @@
               </div>
               <div class="stream-card-body">
                 <h3 class="stream-card-title">HBO Max</h3>
-                <p class="stream-card-desc">Blockbusters de cine y producciones originales aclamadas por la crítica.</p>
+                <p class="stream-card-desc">Blockbusters de cine y producciones originales aclamadas.</p>
               </div>
               <div class="stream-card-footer">
                 <a href="https://wa.me/51937089748?text=Hola%20Kenny,%20deseo%20comprar%20cuenta%20de%20HBO%20Max" target="_blank" rel="noopener noreferrer" class="btn-stream-whatsapp">
@@ -2449,7 +2463,6 @@
               </div>
             </div>
 
-            <!-- ViX Premium -->
             <div class="stream-service-card">
               <div class="stream-card-top-bg" style="background-image: url('vixpremium.jpg');">
                 <div class="platform-logo-overlay"><img src="vixpremium.jpg" alt="ViX Premium"></div>
@@ -2466,7 +2479,6 @@
               </div>
             </div>
 
-            <!-- YouTube Premium -->
             <div class="stream-service-card">
               <div class="stream-card-top-bg" style="background-image: url('yotube.jpg');">
                 <div class="platform-logo-overlay"><img src="yotube.jpg" alt="YouTube Premium"></div>
@@ -2474,7 +2486,7 @@
               </div>
               <div class="stream-card-body">
                 <h3 class="stream-card-title">YouTube Premium</h3>
-                <p class="stream-card-desc">Videos sin publicidad, reproducción en segundo plano y YouTube Music incluido.</p>
+                <p class="stream-card-desc">Videos sin publicidad, reproducción en segundo plano y YouTube Music.</p>
               </div>
               <div class="stream-card-footer">
                 <a href="https://wa.me/51937089748?text=Hola%20Kenny,%20deseo%20comprar%20cuenta%20de%20YouTube%20Premium" target="_blank" rel="noopener noreferrer" class="btn-stream-whatsapp">
@@ -2485,8 +2497,13 @@
 
           </div>
 
-          <!-- INSTALACIÓN REMOTA DE PROGRAMAS -->
+          <!-- INSTALACIÓN REMOTA DE PROGRAMAS Y TERCERA FOTO DE KENNY -->
           <div class="streaming-category-header"><i class="fa-solid fa-laptop-code"></i> Instalación Remota de Programas</div>
+          
+          <div style="margin-bottom: 20px; border-radius: 14px; overflow: hidden; border: 1px solid rgba(255,107,0,0.3);">
+            <img src="kennymuerto.jpg" alt="Kenny Extra" style="width:100%; height:140px; object-fit:cover; display:block;">
+          </div>
+
           <div class="streaming-grid-home-style">
             
             <div class="stream-service-card">
@@ -2542,7 +2559,7 @@
         </div>
       </section>
 
-      <!-- NÚMEROS VIRTUALES PANEL -->
+      <!-- NÚMEROS VIRTUALES -->
       <section class="custom-panel-view" id="panel-numeros-virtuales">
         <div class="info-card-wrapper">
           <i class="fa-solid fa-sim-card" style="font-size: 3rem; color: #a855f7;"></i>
@@ -2554,7 +2571,7 @@
         </div>
       </section>
 
-      <!-- CHAT BOT PANEL -->
+      <!-- CHAT BOT -->
       <section class="custom-panel-view" id="panel-chatbot">
         <div class="info-card-wrapper">
           <i class="fa-brands fa-whatsapp" style="font-size: 3.5rem; color: #22c55e;"></i>
@@ -2565,42 +2582,169 @@
         </div>
       </section>
 
-      <!-- PLANES DE CREACIÓN WEB -->
+      <!-- PLANES DE CREACIÓN WEB (ACTUALIZADOS: S/. 10 a S/. 120, variando en S/. 14, reglas de pago único, mensual y permanente) -->
       <section class="web-plans-section" id="web-plans-container">
         <div class="vision-divider" style="max-width:100%; margin-bottom:15px;">
           <div class="line"></div>
-          <span class="badge">PLANES DE PÁGINAS WEB</span>
+          <span class="badge">PLANES DE PÁGINAS WEB (S/. 10 - S/. 120)</span>
           <div class="line"></div>
         </div>
 
         <div class="plans-grid">
+          
+          <!-- Plan 1: S/ 10 (Pago único) -->
           <div class="plan-card">
             <div>
-              <h3>Básico Express</h3>
-              <div class="plan-price">S/. 5 <span>/ pago único</span></div>
+              <span class="plan-badge" style="background:#22c55e;">Pago Único</span>
+              <h3>Landing Starter</h3>
+              <div class="plan-price">S/. 10 <span>/ único</span></div>
               <ul class="plan-features">
-                <li><i class="fa-solid fa-check"></i> Landing Page de 1 Sección</li>
-                <li><i class="fa-solid fa-check"></i> Botones directos a WhatsApp</li>
+                <li><i class="fa-solid fa-check"></i> Página de 1 sección</li>
+                <li><i class="fa-solid fa-check"></i> Botón básico a WhatsApp</li>
+                <li><i class="fa-solid fa-check"></i> Seguridad SSL básica</li>
               </ul>
             </div>
-            <div class="plan-buttons-group">
-              <a href="https://wa.me/573135022169" target="_blank" rel="noopener noreferrer" class="btn-plan-ws"><i class="fa-brands fa-whatsapp"></i> Solicitar</a>
+            <div style="margin-top:15px;">
+              <a href="https://wa.me/573135022169?text=Hola,%20deseo%20el%20plan%20Landing%20Starter%20de%2010%20soles" target="_blank" rel="noopener noreferrer" class="btn-plan-ws"><i class="fa-brands fa-whatsapp"></i> Solicitar</a>
             </div>
           </div>
-          <div class="plan-card featured">
-            <span class="plan-badge">MÁS VENDIDO</span>
+
+          <!-- Plan 2: S/ 24 (Pago único) -->
+          <div class="plan-card">
             <div>
-              <h3>Business Pro</h3>
-              <div class="plan-price">S/. 50 <span>/ pago único</span></div>
+              <span class="plan-badge" style="background:#22c55e;">Pago Único</span>
+              <h3>Landing Business</h3>
+              <div class="plan-price">S/. 24 <span>/ único</span></div>
               <ul class="plan-features">
-                <li><i class="fa-solid fa-check"></i> Catálogo Interactivo con Carrito</li>
-                <li><i class="fa-solid fa-check"></i> Pedidos directos a WhatsApp</li>
+                <li><i class="fa-solid fa-check"></i> Landing Page de 3 secciones</li>
+                <li><i class="fa-solid fa-check"></i> Múltiples botones de contacto</li>
+                <li><i class="fa-solid fa-check"></i> Encriptación y anti-bot básico</li>
               </ul>
             </div>
-            <div class="plan-buttons-group">
-              <a href="https://wa.me/573135022169" target="_blank" rel="noopener noreferrer" class="btn-plan-ws" style="background:#22c55e; color:#fff;"><i class="fa-brands fa-whatsapp"></i> Solicitar</a>
+            <div style="margin-top:15px;">
+              <a href="https://wa.me/573135022169?text=Hola,%20deseo%20el%20plan%20Landing%20Business%20de%2024%20soles" target="_blank" rel="noopener noreferrer" class="btn-plan-ws"><i class="fa-brands fa-whatsapp"></i> Solicitar</a>
             </div>
           </div>
+
+          <!-- Plan 3: S/ 38 (Renovación cada mes - Supera los 35 soles) -->
+          <div class="plan-card">
+            <div>
+              <span class="plan-badge" style="background:#eab308;">Renovación Mensual</span>
+              <h3>Catálogo Pro</h3>
+              <div class="plan-price">S/. 38 <span>/ mes</span></div>
+              <ul class="plan-features">
+                <li><i class="fa-solid fa-check"></i> Catálogo digital interactivo</li>
+                <li><i class="fa-solid fa-check"></i> Pasarela de pagos integrada</li>
+                <li><i class="fa-solid fa-check"></i> Seguridad avanzada antifraude</li>
+              </ul>
+            </div>
+            <div style="margin-top:15px;">
+              <a href="https://wa.me/573135022169?text=Hola,%20deseo%20el%20plan%20Cat%C3%A1logo%20Pro%20de%2038%20soles%20mensuales" target="_blank" rel="noopener noreferrer" class="btn-plan-ws"><i class="fa-brands fa-whatsapp"></i> Solicitar</a>
+            </div>
+          </div>
+
+          <!-- Plan 4: S/ 52 (Renovación cada mes) -->
+          <div class="plan-card">
+            <div>
+              <span class="plan-badge" style="background:#eab308;">Renovación Mensual</span>
+              <h3>E-Commerce Avanzado</h3>
+              <div class="plan-price">S/. 52 <span>/ mes</span></div>
+              <ul class="plan-features">
+                <li><i class="fa-solid fa-check"></i> Tienda online completa con carrito</li>
+                <li><i class="fa-solid fa-check"></i> Integración con Yape / Plin / Tarjetas</li>
+                <li><i class="fa-solid fa-check"></i> Firewall de seguridad web activo</li>
+              </ul>
+            </div>
+            <div style="margin-top:15px;">
+              <a href="https://wa.me/573135022169?text=Hola,%20deseo%20el%20plan%20E-Commerce%20Avanzado%20de%2052%20soles%20mensuales" target="_blank" rel="noopener noreferrer" class="btn-plan-ws"><i class="fa-brands fa-whatsapp"></i> Solicitar</a>
+            </div>
+          </div>
+
+          <!-- Plan 5: S/ 66 (Renovación cada mes) -->
+          <div class="plan-card">
+            <div>
+              <span class="plan-badge" style="background:#eab308;">Renovación Mensual</span>
+              <h3>Corporativo Plus</h3>
+              <div class="plan-price">S/. 66 <span>/ mes</span></div>
+              <ul class="plan-features">
+                <li><i class="fa-solid fa-check"></i> Sitio web corporativo multi-página</li>
+                <li><i class="fa-solid fa-check"></i> Panel de administración privado</li>
+                <li><i class="fa-solid fa-check"></i> Certificado SSL EV y copias de seguridad</li>
+              </ul>
+            </div>
+            <div style="margin-top:15px;">
+              <a href="https://wa.me/573135022169?text=Hola,%20deseo%20el%20plan%20Corporativo%20Plus%20de%2066%20soles%20mensuales" target="_blank" rel="noopener noreferrer" class="btn-plan-ws"><i class="fa-brands fa-whatsapp"></i> Solicitar</a>
+            </div>
+          </div>
+
+          <!-- Plan 6: S/ 80 (Renovación cada mes) -->
+          <div class="plan-card">
+            <div>
+              <span class="plan-badge" style="background:#eab308;">Renovación Mensual</span>
+              <h3>Plataforma SaaS</h3>
+              <div class="plan-price">S/. 80 <span>/ mes</span></div>
+              <ul class="plan-features">
+                <li><i class="fa-solid fa-check"></i> Sistema web a medida con base de datos</li>
+                <li><i class="fa-solid fa-check"></i> Autenticación de usuarios segura (2FA)</li>
+                <li><i class="fa-solid fa-check"></i> Protección DDoS y cortafuegos avanzado</li>
+              </ul>
+            </div>
+            <div style="margin-top:15px;">
+              <a href="https://wa.me/573135022169?text=Hola,%20deseo%20el%20plan%20Plataforma%20SaaS%20de%2080%20soles%20mensuales" target="_blank" rel="noopener noreferrer" class="btn-plan-ws"><i class="fa-brands fa-whatsapp"></i> Solicitar</a>
+            </div>
+          </div>
+
+          <!-- Plan 7: S/ 94 (Permanente - Supera los 90 soles) -->
+          <div class="plan-card featured">
+            <span class="plan-badge" style="background:#a855f7;">Permanente</span>
+            <div>
+              <h3>Web Master VIP</h3>
+              <div class="plan-price">S/. 94 <span>/ permanente</span></div>
+              <ul class="plan-features">
+                <li><i class="fa-solid fa-check"></i> Licencia web 100% propia y sin pagos mensuales</li>
+                <li><i class="fa-solid fa-check"></i> Máxima seguridad antifraude y pasarelas PRO</li>
+                <li><i class="fa-solid fa-check"></i> Soporte técnico prioritario de por vida</li>
+              </ul>
+            </div>
+            <div style="margin-top:15px;">
+              <a href="https://wa.me/573135022169?text=Hola,%20deseo%20el%20plan%20Web%20Master%20VIP%20de%2094%20soles%20permanente" target="_blank" rel="noopener noreferrer" class="btn-plan-ws" style="background:#22c55e; color:#fff;"><i class="fa-brands fa-whatsapp"></i> Solicitar</a>
+            </div>
+          </div>
+
+          <!-- Plan 8: S/ 108 (Permanente) -->
+          <div class="plan-card featured">
+            <span class="plan-badge" style="background:#a855f7;">Permanente</span>
+            <div>
+              <h3>E-Commerce Elite</h3>
+              <div class="plan-price">S/. 108 <span>/ permanente</span></div>
+              <ul class="plan-features">
+                <li><i class="fa-solid fa-check"></i> Tienda virtual profesional vitalicia</li>
+                <li><i class="fa-solid fa-check"></i> Encriptación bancaria y pasarelas múltiples</li>
+                <li><i class="fa-solid fa-check"></i> Optimización SEO máxima y velocidad extrema</li>
+              </ul>
+            </div>
+            <div style="margin-top:15px;">
+              <a href="https://wa.me/573135022169?text=Hola,%20deseo%20el%20plan%20E-Commerce%20Elite%20de%20108%20soles%20permanente" target="_blank" rel="noopener noreferrer" class="btn-plan-ws" style="background:#22c55e; color:#fff;"><i class="fa-brands fa-whatsapp"></i> Solicitar</a>
+            </div>
+          </div>
+
+          <!-- Plan 9: S/ 120 (Permanente - Máximo) -->
+          <div class="plan-card featured">
+            <span class="plan-badge" style="background:#ff6b00;">Máximo Nivel</span>
+            <div>
+              <h3>Solución Suprema</h3>
+              <div class="plan-price">S/. 120 <span>/ permanente</span></div>
+              <ul class="plan-features">
+                <li><i class="fa-solid fa-check"></i> Ecosistema digital completo sin pagos recurrentes</li>
+                <li><i class="fa-solid fa-check"></i> Seguridad impenetrable con auditoría de código</li>
+                <li><i class="fa-solid fa-check"></i> Servidor dedicado y mantenimiento vitalicio</li>
+              </ul>
+            </div>
+            <div style="margin-top:15px;">
+              <a href="https://wa.me/573135022169?text=Hola,%20deseo%20la%20Soluci%C3%B3n%20Suprema%20de%20120%20soles%20permanente" target="_blank" rel="noopener noreferrer" class="btn-plan-ws" style="background:#22c55e; color:#fff;"><i class="fa-brands fa-whatsapp"></i> Solicitar</a>
+            </div>
+          </div>
+
         </div>
       </section>
 
