@@ -520,8 +520,8 @@
 
     .btn-search-custom {
       padding: 12px 28px;
-      background: #25d366;
-      border: 1px solid #22c55e;
+      background: #710193;
+      border: 1px solid #a855f7;
       color: #fff;
       border-radius: 10px;
       font-weight: 800;
@@ -534,8 +534,8 @@
     }
 
     .btn-search-custom:hover {
-      background: #1ebc57;
-      border-color: #1ebc57;
+      background: #8b5cf6;
+      border-color: #8b5cf6;
     }
 
     .history-table {
@@ -555,6 +555,116 @@
       color: #d8b4fe;
       font-weight: 800;
       background: rgba(168, 85, 247, 0.1);
+    }
+
+    /* MODAL DE YAPE DE SERVICIOS */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(10px);
+      z-index: 99999;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-overlay.active { display: flex; }
+
+    .modal-yape-box {
+      background: #0f081d;
+      border: 2px solid #a855f7;
+      border-radius: 22px;
+      width: min(95%, 440px);
+      padding: 25px;
+      box-shadow: 0 0 50px rgba(168, 85, 247, 0.6);
+      position: relative;
+      text-align: center;
+    }
+
+    .close-modal-btn {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: rgba(255,255,255,0.1);
+      border: none;
+      color: #fff;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .close-modal-btn:hover { background: #ef4444; }
+
+    .yape-qr-container {
+      background: #fff;
+      border-radius: 16px;
+      padding: 12px;
+      display: inline-block;
+      margin: 15px 0;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    }
+
+    .yape-qr-img {
+      width: 200px;
+      height: 200px;
+      object-fit: contain;
+      display: block;
+      border-radius: 8px;
+    }
+
+    .yape-owner-badge {
+      font-size: 0.85rem;
+      color: #86efac;
+      font-weight: 800;
+      background: rgba(34, 197, 94, 0.15);
+      border: 1px solid rgba(34, 197, 94, 0.4);
+      padding: 8px 16px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      display: inline-block;
+    }
+
+    .payment-summary-box {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      padding: 14px;
+      border-radius: 12px;
+      margin-bottom: 18px;
+      text-align: left;
+    }
+
+    .pay-card-lbl { font-size: 0.7rem; font-weight: 800; color: rgba(226, 232, 240, 0.6); text-transform: uppercase; }
+    .pay-card-val { font-size: 0.92rem; font-weight: 800; color: #fff; }
+    .pay-card-price { font-size: 1.5rem; font-weight: 900; color: #facc15; }
+
+    .btn-yape-submit {
+      width: 100%;
+      padding: 14px;
+      background: #25d366;
+      border: 1px solid #22c55e;
+      color: #fff;
+      border-radius: 12px;
+      font-weight: 900;
+      font-size: 0.95rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all 0.2s;
+    }
+
+    .btn-yape-submit:hover {
+      background: #1ebc57;
+      transform: translateY(-2px);
     }
 
     /* SECCIÓN STREAMING EXCLUSIVA REDISEÑADA Y PREMIUM */
@@ -1407,6 +1517,41 @@
     </g>
   </svg>
 
+  <!-- MODAL DE PAGO YAPE -->
+  <div class="modal-overlay" id="modal-yape">
+    <div class="modal-yape-box">
+      <button class="close-modal-btn" onclick="closeYapeModal()"><i class="fa-solid fa-xmark"></i></button>
+
+      <h3 style="font-size:1.25rem; font-weight:900; color:#fff;"><i class="fa-solid fa-qrcode" style="color:#a855f7;"></i> Paga con Yape</h3>
+      <p style="font-size:0.78rem; color:rgba(226,232,240,0.7); margin-top:4px;">Escanea el código QR desde tu app Yape y realiza la transferencia</p>
+
+      <div class="yape-qr-container">
+        <img src="YAPE 2.jpeg" alt="QR Yape Alvaro Alata" class="yape-qr-img">
+      </div>
+
+      <div>
+        <span class="yape-owner-badge"><i class="fa-solid fa-user-check"></i> Titular Yape: Alvaro Alata</span>
+      </div>
+
+      <div class="payment-summary-box">
+        <div>
+          <div class="pay-card-lbl">Servicio Seleccionado</div>
+          <div class="pay-card-val" id="yape-modal-service-name">Servicio</div>
+        </div>
+        <div style="margin-top:6px;">
+          <div class="pay-card-lbl">Dato a Consultar</div>
+          <div class="pay-card-val" id="yape-modal-input-val" style="color:#d8b4fe;">-</div>
+        </div>
+        <div style="margin-top:8px; display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(255,255,255,0.1); padding-top:8px;">
+          <div class="pay-card-lbl">Monto a Yapear</div>
+          <div class="pay-card-price" id="yape-modal-price">S/ 0.00</div>
+        </div>
+      </div>
+
+      <button class="btn-yape-submit" onclick="confirmPaymentAndRedirect()"><i class="fa-brands fa-whatsapp"></i> Ya Yapeé - Enviar Comprobante</button>
+    </div>
+  </div>
+
   <div class="sidebar-overlay" id="sidebar-overlay"></div>
 
   <!-- PANTALLA DE CARGA -->
@@ -1548,62 +1693,62 @@
         <h1 class="hero-banner-title">ROCKET</h1>
       </section>
 
-      <!-- RENIEC PANELES CON RESULTADO -->
+      <!-- RENIEC PANELES -->
       <section class="custom-panel-view" id="panel-reniec-ficha">
         <div class="panel-header-custom">
-          <h2 class="panel-title-custom"><i class="fa-solid fa-id-card"></i> Consulta RENIEC (TXT / PDF / C4 / FICHA)</h2>
+          <h2 class="panel-title-custom"><i class="fa-solid fa-id-card"></i> Consulta RENIEC (TXT / PDF / C4 / FICHA) — <span style="color:#facc15;">S/ 5.00</span></h2>
         </div>
         <div class="panel-form-row">
           <div class="form-group-custom">
             <label>DNI</label>
             <input type="text" id="input-reniec-dni" class="form-input-custom" placeholder="Ej: 75178640" maxlength="8">
           </div>
-          <button class="btn-search-custom" onclick="sendToWhatsApp('RENIEC Ficha / C4', 'input-reniec-dni')"><i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp</button>
+          <button class="btn-search-custom" onclick="openYapeModal('RENIEC Ficha / C4', 'input-reniec-dni', '5.00')"><i class="fa-solid fa-qrcode"></i> Consultar (S/ 5.00)</button>
         </div>
       </section>
 
       <section class="custom-panel-view" id="panel-reniec-nombres">
         <div class="panel-header-custom">
-          <h2 class="panel-title-custom"><i class="fa-solid fa-users-viewfinder"></i> Búsqueda RENIEC por nombres</h2>
+          <h2 class="panel-title-custom"><i class="fa-solid fa-users-viewfinder"></i> Búsqueda RENIEC por nombres — <span style="color:#facc15;">S/ 5.00</span></h2>
         </div>
         <div class="panel-form-row">
           <div class="form-group-custom">
             <label>Nombres / Apellidos</label>
             <input type="text" id="input-reniec-nom" class="form-input-custom" placeholder="PEDRO CASTILLO TERRONES" maxlength="100">
           </div>
-          <button class="btn-search-custom" onclick="sendToWhatsApp('RENIEC Búsqueda por Nombres', 'input-reniec-nom')"><i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp</button>
+          <button class="btn-search-custom" onclick="openYapeModal('RENIEC Búsqueda por Nombres', 'input-reniec-nom', '5.00')"><i class="fa-solid fa-qrcode"></i> Consultar (S/ 5.00)</button>
         </div>
       </section>
 
       <section class="custom-panel-view" id="panel-reniec-dni-virtual">
         <div class="panel-header-custom">
-          <h2 class="panel-title-custom"><i class="fa-solid fa-address-card"></i> DNI Virtual (Imágenes)</h2>
+          <h2 class="panel-title-custom"><i class="fa-solid fa-address-card"></i> DNI Virtual (Imágenes) — <span style="color:#facc15;">S/ 5.00</span></h2>
         </div>
         <div class="panel-form-row">
           <div class="form-group-custom">
             <label>DNI</label>
             <input type="text" id="input-reniec-dnivirt" class="form-input-custom" placeholder="Ej: 70364031" maxlength="8">
           </div>
-          <button class="btn-search-custom" onclick="sendToWhatsApp('DNI Virtual', 'input-reniec-dnivirt')"><i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp</button>
+          <button class="btn-search-custom" onclick="openYapeModal('DNI Virtual (Imágenes)', 'input-reniec-dnivirt', '5.00')"><i class="fa-solid fa-qrcode"></i> Consultar (S/ 5.00)</button>
         </div>
       </section>
 
       <section class="custom-panel-view" id="panel-reniec-arbol">
         <div class="panel-header-custom">
-          <h2 class="panel-title-custom"><i class="fa-solid fa-sitemap"></i> Árbol Genealógico</h2>
+          <h2 class="panel-title-custom"><i class="fa-solid fa-sitemap"></i> Árbol Genealógico (TXT / Visual) — <span style="color:#facc15;">S/ 5.00</span></h2>
         </div>
         <div class="panel-form-row">
           <div class="form-group-custom">
             <label>DNI</label>
             <input type="text" id="input-reniec-arbol" class="form-input-custom" placeholder="Ej: 70364031" maxlength="8">
           </div>
-          <button class="btn-search-custom" onclick="sendToWhatsApp('Árbol Genealógico', 'input-reniec-arbol')"><i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp</button>
+          <button class="btn-search-custom" onclick="openYapeModal('Árbol Genealógico (TXT / Visual)', 'input-reniec-arbol', '5.00')"><i class="fa-solid fa-qrcode"></i> Consultar (S/ 5.00)</button>
         </div>
       </section>
 
       <section class="custom-panel-view" id="panel-reniec-facial">
         <div class="panel-header-custom">
-          <h2 class="panel-title-custom"><i class="fa-solid fa-user-astronaut"></i> Facial Server - ID Perú</h2>
+          <h2 class="panel-title-custom"><i class="fa-solid fa-user-astronaut"></i> Facial Server (Reconocimiento) — <span style="color:#facc15;">S/ 15.00</span></h2>
         </div>
         <div class="dropzone-facial" id="dropzone-facial-container">
           <input type="file" id="facial-file-input" accept="image/png, image/jpeg, image/webp">
@@ -1611,176 +1756,176 @@
           <p style="font-size:0.9rem; font-weight:700;">Arrastra tu foto aquí o <span style="color:#d8b4fe; text-decoration:underline;">selecciona</span></p>
           <img src="" id="facial-preview" class="preview-img-facial" alt="Vista previa">
         </div>
-        <button class="btn-search-custom" style="width:100%; justify-content:center;" onclick="sendFacialToWhatsApp()"><i class="fa-brands fa-whatsapp"></i> Solicitar Reconocimiento Facial</button>
+        <button class="btn-search-custom" style="width:100%; justify-content:center;" onclick="openYapeModalFacial()"><i class="fa-solid fa-qrcode"></i> Consultar Reconocimiento Facial (S/ 15.00)</button>
       </section>
 
       <!-- JUSTICIA PANELES -->
       <section class="custom-panel-view" id="panel-justicia-denuncias">
         <div class="panel-header-custom">
-          <h2 class="panel-title-custom"><i class="fa-solid fa-shield-halved"></i> Denuncias Policiales (SIDPOL)</h2>
+          <h2 class="panel-title-custom"><i class="fa-solid fa-shield-halved"></i> SIDPOL – Denuncias Policiales — <span style="color:#facc15;">S/ 8.00</span></h2>
         </div>
         <div class="panel-form-row">
           <div class="form-group-custom">
             <label>DNI</label>
             <input type="text" id="input-justicia-denuncias" class="form-input-custom" placeholder="Ej: 78657674" maxlength="8">
           </div>
-          <button class="btn-search-custom" onclick="sendToWhatsApp('Denuncias SIDPOL', 'input-justicia-denuncias')"><i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp</button>
+          <button class="btn-search-custom" onclick="openYapeModal('SIDPOL – Denuncias Policiales', 'input-justicia-denuncias', '8.00')"><i class="fa-solid fa-qrcode"></i> Consultar (S/ 8.00)</button>
         </div>
       </section>
 
       <section class="custom-panel-view" id="panel-justicia-antecedentes">
         <div class="panel-header-custom">
-          <h2 class="panel-title-custom"><i class="fa-solid fa-file-contract"></i> Consulta Antecedentes</h2>
+          <h2 class="panel-title-custom"><i class="fa-solid fa-file-contract"></i> Consulta Antecedentes (Judiciales/INPE) — <span style="color:#facc15;">S/ 10.00</span></h2>
         </div>
         <div class="panel-form-row">
           <div class="form-group-custom">
             <label>DNI</label>
             <input type="text" id="input-justicia-antecedentes" class="form-input-custom" placeholder="Ej: 70364031" maxlength="8">
           </div>
-          <button class="btn-search-custom" onclick="sendToWhatsApp('Antecedentes', 'input-justicia-antecedentes')"><i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp</button>
+          <button class="btn-search-custom" onclick="openYapeModal('Consulta Antecedentes (Judiciales/INPE)', 'input-justicia-antecedentes', '10.00')"><i class="fa-solid fa-qrcode"></i> Consultar (S/ 10.00)</button>
         </div>
       </section>
 
       <section class="custom-panel-view" id="panel-justicia-requisitorias">
         <div class="panel-header-custom">
-          <h2 class="panel-title-custom"><i class="fa-solid fa-handcuffs"></i> Consulta Requisitorias</h2>
+          <h2 class="panel-title-custom"><i class="fa-solid fa-handcuffs"></i> Consulta Requisitorias (e-SINPOL) — <span style="color:#facc15;">S/ 8.00</span></h2>
         </div>
         <div class="panel-form-row">
           <div class="form-group-custom">
             <label>DNI</label>
             <input type="text" id="input-justicia-req" class="form-input-custom" placeholder="Ej: 09659948" maxlength="8">
           </div>
-          <button class="btn-search-custom" onclick="sendToWhatsApp('Requisitorias e-SINPOL', 'input-justicia-req')"><i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp</button>
+          <button class="btn-search-custom" onclick="openYapeModal('Consulta Requisitorias (e-SINPOL)', 'input-justicia-req', '8.00')"><i class="fa-solid fa-qrcode"></i> Consultar (S/ 8.00)</button>
         </div>
       </section>
 
       <section class="custom-panel-view" id="panel-justicia-policia">
         <div class="panel-header-custom">
-          <h2 class="panel-title-custom"><i class="fa-solid fa-user-shield"></i> Personal Policial (PNP)</h2>
+          <h2 class="panel-title-custom"><i class="fa-solid fa-user-shield"></i> Personal Policial (PNP) — <span style="color:#facc15;">S/ 8.00</span></h2>
         </div>
         <div class="panel-form-row">
           <div class="form-group-custom">
             <label>DNI / CIP</label>
             <input type="text" id="input-justicia-pnp" class="form-input-custom" placeholder="Ej: 78678760" maxlength="20">
           </div>
-          <button class="btn-search-custom" onclick="sendToWhatsApp('Consulta PNP', 'input-justicia-pnp')"><i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp</button>
+          <button class="btn-search-custom" onclick="openYapeModal('Personal Policial (PNP)', 'input-justicia-pnp', '8.00')"><i class="fa-solid fa-qrcode"></i> Consultar (S/ 8.00)</button>
         </div>
       </section>
 
       <section class="custom-panel-view" id="panel-persona-plus">
         <div class="panel-header-custom">
-          <h2 class="panel-title-custom"><i class="fa-solid fa-fingerprint"></i> Persona Avanzada</h2>
+          <h2 class="panel-title-custom"><i class="fa-solid fa-fingerprint"></i> Persona Avanzada (RENIEC, SUNAT, etc.) — <span style="color:#facc15;">S/ 15.00</span></h2>
         </div>
         <div class="panel-form-row">
           <div class="form-group-custom">
             <label>VALOR A CONSULTAR</label>
             <input type="text" id="input-persona-plus" class="form-input-custom" placeholder="Ej: 12345678" maxlength="15">
           </div>
-          <button class="btn-search-custom" onclick="sendToWhatsApp('Persona Plus', 'input-persona-plus')"><i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp</button>
+          <button class="btn-search-custom" onclick="openYapeModal('Persona Avanzada (RENIEC, SUNAT, etc.)', 'input-persona-plus', '15.00')"><i class="fa-solid fa-qrcode"></i> Consultar (S/ 15.00)</button>
         </div>
       </section>
 
       <section class="custom-panel-view" id="panel-sunat">
         <div class="panel-header-custom">
-          <h2 class="panel-title-custom"><i class="fa-solid fa-file-invoice-dollar"></i> SUNAT</h2>
+          <h2 class="panel-title-custom"><i class="fa-solid fa-file-invoice-dollar"></i> SUNAT — <span style="color:#facc15;">S/ 5.00</span></h2>
         </div>
         <div class="panel-form-row">
           <div class="form-group-custom">
-            <label>Valor</label>
+            <label>Valor / RUC / DNI</label>
             <input type="text" id="input-sunat" class="form-input-custom" placeholder="Ej: 10001088" maxlength="15">
           </div>
-          <button class="btn-search-custom" onclick="sendToWhatsApp('SUNAT Consumos', 'input-sunat')"><i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp</button>
+          <button class="btn-search-custom" onclick="openYapeModal('Consulta SUNAT', 'input-sunat', '5.00')"><i class="fa-solid fa-qrcode"></i> Consultar (S/ 5.00)</button>
         </div>
       </section>
 
       <section class="custom-panel-view" id="panel-sentinel">
         <div class="panel-header-custom">
-          <h2 class="panel-title-custom"><i class="fa-solid fa-shield-halved"></i> Sentinel</h2>
+          <h2 class="panel-title-custom"><i class="fa-solid fa-shield-halved"></i> Sentinel V2 / Reporte Financiero SBS — <span style="color:#facc15;">S/ 15.00</span></h2>
         </div>
         <div class="panel-form-row">
           <div class="form-group-custom">
             <label>DNI / RUC</label>
             <input type="text" id="input-sentinel" class="form-input-custom" placeholder="Ej: 70318551" maxlength="11">
           </div>
-          <button class="btn-search-custom" onclick="sendToWhatsApp('Sentinel RIESGO', 'input-sentinel')"><i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp</button>
+          <button class="btn-search-custom" onclick="openYapeModal('Sentinel V2 / Reporte Financiero SBS', 'input-sentinel', '15.00')"><i class="fa-solid fa-qrcode"></i> Consultar (S/ 15.00)</button>
         </div>
       </section>
 
       <section class="custom-panel-view" id="panel-vehiculo">
         <div class="panel-header-custom">
-          <h2 class="panel-title-custom"><i class="fa-solid fa-car"></i> Vehículo (TIVE)</h2>
+          <h2 class="panel-title-custom"><i class="fa-solid fa-car"></i> Consulta Vehicular (TIVE, Boletín, Asientos) — <span style="color:#facc15;">S/ 8.00</span></h2>
         </div>
         <div class="panel-form-row">
           <div class="form-group-custom">
             <label>Placa</label>
             <input type="text" id="input-vehiculo" class="form-input-custom" placeholder="Ej: Z1270Q" maxlength="10">
           </div>
-          <button class="btn-search-custom" onclick="sendToWhatsApp('Vehicular TIVE', 'input-vehiculo')"><i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp</button>
+          <button class="btn-search-custom" onclick="openYapeModal('Consulta Vehicular (TIVE, Boletín, Asientos)', 'input-vehiculo', '8.00')"><i class="fa-solid fa-qrcode"></i> Consultar (S/ 8.00)</button>
         </div>
       </section>
 
       <section class="custom-panel-view" id="panel-siguelo-plus">
         <div class="panel-header-custom">
-          <h2 class="panel-title-custom"><i class="fa-solid fa-car-side"></i> Síguelo Plus</h2>
+          <h2 class="panel-title-custom"><i class="fa-solid fa-car-side"></i> Vehicular Avanzado (Síguelo Plus) — <span style="color:#facc15;">S/ 15.00</span></h2>
         </div>
         <div class="panel-form-row">
           <div class="form-group-custom">
             <label>Placa</label>
             <input type="text" id="input-siguelo" class="form-input-custom" placeholder="Ej: ABC123" maxlength="20">
           </div>
-          <button class="btn-search-custom" onclick="sendToWhatsApp('Síguelo Plus Placa', 'input-siguelo')"><i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp</button>
+          <button class="btn-search-custom" onclick="openYapeModal('Vehicular Avanzado (Síguelo Plus)', 'input-siguelo', '15.00')"><i class="fa-solid fa-qrcode"></i> Consultar (S/ 15.00)</button>
         </div>
       </section>
 
       <section class="custom-panel-view" id="panel-actas">
         <div class="panel-header-custom">
-          <h2 class="panel-title-custom"><i class="fa-solid fa-file-lines"></i> Actas</h2>
+          <h2 class="panel-title-custom"><i class="fa-solid fa-file-lines"></i> Consulta Actas — <span style="color:#facc15;">S/ 5.00</span></h2>
         </div>
         <div class="panel-form-row">
           <div class="form-group-custom">
             <label>DNI</label>
             <input type="text" id="input-actas" class="form-input-custom" placeholder="Ej: 27835459" maxlength="8">
           </div>
-          <button class="btn-search-custom" onclick="sendToWhatsApp('Consulta Actas', 'input-actas')"><i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp</button>
+          <button class="btn-search-custom" onclick="openYapeModal('Consulta Actas', 'input-actas', '5.00')"><i class="fa-solid fa-qrcode"></i> Consultar (S/ 5.00)</button>
         </div>
       </section>
 
       <section class="custom-panel-view" id="panel-doxing">
         <div class="panel-header-custom">
-          <h2 class="panel-title-custom"><i class="fa-solid fa-chart-simple"></i> INFO BURO (Doxing)</h2>
+          <h2 class="panel-title-custom"><i class="fa-solid fa-chart-simple"></i> Info Buró (Contacto, familia, finanzas) — <span style="color:#facc15;">S/ 8.00</span></h2>
         </div>
         <div class="panel-form-row">
           <div class="form-group-custom">
             <label>DNI</label>
             <input type="text" id="input-doxing" class="form-input-custom" placeholder="Ej: 70364031" maxlength="8">
           </div>
-          <button class="btn-search-custom" onclick="sendToWhatsApp('Doxing InfoBuro', 'input-doxing')"><i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp</button>
+          <button class="btn-search-custom" onclick="openYapeModal('Info Buró (Contacto, familia, finanzas)', 'input-doxing', '8.00')"><i class="fa-solid fa-qrcode"></i> Consultar (S/ 8.00)</button>
         </div>
       </section>
 
       <section class="custom-panel-view" id="panel-osiptel">
         <div class="panel-header-custom">
-          <h2 class="panel-title-custom"><i class="fa-solid fa-phone"></i> OSIPTEL</h2>
+          <h2 class="panel-title-custom"><i class="fa-solid fa-phone"></i> OSIPTEL Teléfonos — <span style="color:#facc15;">S/ 5.00</span></h2>
         </div>
         <div class="panel-form-row">
           <div class="form-group-custom">
             <label>DNI / Documento</label>
             <input type="text" id="input-osiptel" class="form-input-custom" placeholder="Ej: 70364031" maxlength="12">
           </div>
-          <button class="btn-search-custom" onclick="sendToWhatsApp('OSIPTEL Teléfonos', 'input-osiptel')"><i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp</button>
+          <button class="btn-search-custom" onclick="openYapeModal('OSIPTEL Teléfonos', 'input-osiptel', '5.00')"><i class="fa-solid fa-qrcode"></i> Consultar (S/ 5.00)</button>
         </div>
       </section>
 
       <section class="custom-panel-view" id="panel-sunarp">
         <div class="panel-header-custom">
-          <h2 class="panel-title-custom"><i class="fa-solid fa-building"></i> SUNARP</h2>
+          <h2 class="panel-title-custom"><i class="fa-solid fa-building"></i> SUNARP Propiedades — <span style="color:#facc15;">S/ 5.00</span></h2>
         </div>
         <div class="panel-form-row">
           <div class="form-group-custom">
             <label>DNI</label>
             <input type="text" id="input-sunarp" class="form-input-custom" placeholder="Ej: 70364031" maxlength="8">
           </div>
-          <button class="btn-search-custom" onclick="sendToWhatsApp('SUNARP', 'input-sunarp')"><i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp</button>
+          <button class="btn-search-custom" onclick="openYapeModal('SUNARP Propiedades', 'input-sunarp', '5.00')"><i class="fa-solid fa-qrcode"></i> Consultar (S/ 5.00)</button>
         </div>
       </section>
 
@@ -1812,14 +1957,12 @@
       <section class="custom-panel-view" id="panel-streaming">
         <div class="streaming-panel-wrapper">
           
-          <!-- Encabezado Hero Estilizado con Kenny -->
           <div class="streaming-hero-header">
             <img src="kennynegro.jpg" alt="Kenny Streaming" class="streaming-hero-avatar">
             <h2 class="streaming-title">KENNY <span>STREAMING</span></h2>
             <p class="streaming-subtitle">Instalación y Plataformas Premium</p>
           </div>
 
-          <!-- Barra de Contacto Rápido -->
           <div class="streaming-contact-bar">
             <div class="streaming-contact-info">
               <h4>Contacto Directo Exclusivo</h4>
@@ -1832,7 +1975,6 @@
             </div>
           </div>
 
-          <!-- Galería visual elegante de Kenny -->
           <div class="streaming-gallery-grid">
             <div class="streaming-gallery-card">
               <img src="kennyarrestado.jpg" alt="Kenny Arrestado">
@@ -1842,7 +1984,6 @@
             </div>
           </div>
 
-          <!-- Cuadrícula de Plataformas Premium -->
           <div class="streaming-section-title"><i class="fa-solid fa-play"></i> Cuadrícula de Plataformas Premium</div>
           <div class="streaming-grid-home-style">
             
@@ -1944,7 +2085,6 @@
 
           </div>
 
-          <!-- Instalación Remota de Programas -->
           <div class="streaming-section-title" style="margin-top: 40px;"><i class="fa-solid fa-laptop-code"></i> Instalación Remota de Programas</div>
           <div class="streaming-grid-home-style">
             
@@ -2008,7 +2148,7 @@
           <h2 class="info-hero-title">¿Deseas números virtuales de <span>cualquier país</span>?</h2>
           <p style="font-size:1.1rem; font-weight:800; color:#86efac; margin-top:-5px;">¡Tenemos desde S/. 15.00!</p>
           <div class="action-btn-group">
-            <a href="https://wa.me/573135022169" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-action"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+            <a href="https://wa.me/573135022169?text=Hola,%20deseo%20informacion%20sobre%20Numeros%20Virtuales" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-action"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
           </div>
         </div>
       </section>
@@ -2019,7 +2159,7 @@
           <i class="fa-brands fa-whatsapp" style="font-size: 3.5rem; color: #22c55e;"></i>
           <h2 class="info-hero-title">Consulta todo desde tu <span style="color:#22c55e;">WhatsApp</span></h2>
           <div class="action-btn-group">
-            <a href="https://wa.me/573135022169" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-action"><i class="fa-brands fa-whatsapp"></i> Empezar</a>
+            <a href="https://wa.me/573135022169?text=Hola,%20quiero%20empezar%20a%20usar%20el%20Bot%20de%20Consultas" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-action"><i class="fa-brands fa-whatsapp"></i> Empezar</a>
           </div>
         </div>
       </section>
@@ -2285,7 +2425,7 @@
         <div class="service-card" data-cat="RENIEC">
           <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('imagenlogo.jpg');">
             <span class="category-tag">IDENTIDAD</span>
-            <span class="card-price-badge">Reniec Ficha</span>
+            <span class="card-price-badge">S/ 5.00</span>
           </div>
           <div class="card-body">
             <h3 class="card-title">Ficha Reniec / C4</h3>
@@ -2300,7 +2440,7 @@
         <div class="service-card" data-cat="RENIEC">
           <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('imagenlogo.jpg');">
             <span class="category-tag">BÚSQUEDA</span>
-            <span class="card-price-badge">Nombres</span>
+            <span class="card-price-badge">S/ 5.00</span>
           </div>
           <div class="card-body">
             <h3 class="card-title">Búsqueda por Nombres</h3>
@@ -2315,7 +2455,7 @@
         <div class="service-card" data-cat="RENIEC">
           <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('imagenlogo.jpg');">
             <span class="category-tag">DNI VIRTUAL</span>
-            <span class="card-price-badge">Imágenes</span>
+            <span class="card-price-badge">S/ 5.00</span>
           </div>
           <div class="card-body">
             <h3 class="card-title">DNI Virtual & Fotos</h3>
@@ -2330,7 +2470,7 @@
         <div class="service-card" data-cat="RENIEC">
           <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('imagenlogo.jpg');">
             <span class="category-tag">FAMILIA</span>
-            <span class="card-price-badge">Genealogía</span>
+            <span class="card-price-badge">S/ 5.00</span>
           </div>
           <div class="card-body">
             <h3 class="card-title">Árbol Genealógico</h3>
@@ -2345,7 +2485,7 @@
         <div class="service-card" data-cat="RENIEC">
           <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('imagenlogo.jpg');">
             <span class="category-tag">IA FACIAL</span>
-            <span class="card-price-badge">Servidor ID</span>
+            <span class="card-price-badge">S/ 15.00</span>
           </div>
           <div class="card-body">
             <h3 class="card-title">Reconocimiento Facial</h3>
@@ -2360,7 +2500,7 @@
         <div class="service-card" data-cat="JUSTICIA">
           <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('imagenlogo.jpg');">
             <span class="category-tag">SIDPOL</span>
-            <span class="card-price-badge">Denuncias</span>
+            <span class="card-price-badge">S/ 8.00</span>
           </div>
           <div class="card-body">
             <h3 class="card-title">Denuncias Policiales</h3>
@@ -2375,7 +2515,7 @@
         <div class="service-card" data-cat="JUSTICIA">
           <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('imagenlogo.jpg');">
             <span class="category-tag">LEGAL</span>
-            <span class="card-price-badge">Antecedentes</span>
+            <span class="card-price-badge">S/ 10.00</span>
           </div>
           <div class="card-body">
             <h3 class="card-title">Consulta de Antecedentes</h3>
@@ -2390,7 +2530,7 @@
         <div class="service-card" data-cat="JUSTICIA">
           <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('imagenlogo.jpg');">
             <span class="category-tag">E-SINPOL</span>
-            <span class="card-price-badge">Requisitorias</span>
+            <span class="card-price-badge">S/ 8.00</span>
           </div>
           <div class="card-body">
             <h3 class="card-title">Requisitorias Activas</h3>
@@ -2405,7 +2545,7 @@
         <div class="service-card" data-cat="JUSTICIA">
           <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('imagenlogo.jpg');">
             <span class="category-tag">PNP</span>
-            <span class="card-price-badge">Personal</span>
+            <span class="card-price-badge">S/ 8.00</span>
           </div>
           <div class="card-body">
             <h3 class="card-title">Personal Policial (PNP)</h3>
@@ -2420,7 +2560,7 @@
         <div class="service-card" data-cat="TRIBUTARIO">
           <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('imagenlogo.jpg');">
             <span class="category-tag">SUNAT</span>
-            <span class="card-price-badge">Consumos</span>
+            <span class="card-price-badge">S/ 5.00</span>
           </div>
           <div class="card-body">
             <h3 class="card-title">Consulta SUNAT</h3>
@@ -2435,7 +2575,7 @@
         <div class="service-card" data-cat="FINANCIERO">
           <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('imagenlogo.jpg');">
             <span class="category-tag">RIESGO</span>
-            <span class="card-price-badge">Sentinel</span>
+            <span class="card-price-badge">S/ 15.00</span>
           </div>
           <div class="card-body">
             <h3 class="card-title">Sentinel & Deuda</h3>
@@ -2450,7 +2590,7 @@
         <div class="service-card" data-cat="VEHICULAR">
           <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('imagenlogo.jpg');">
             <span class="category-tag">TIVE</span>
-            <span class="card-price-badge">Vehículos</span>
+            <span class="card-price-badge">S/ 8.00</span>
           </div>
           <div class="card-body">
             <h3 class="card-title">Consulta Vehicular (TIVE)</h3>
@@ -2465,7 +2605,7 @@
         <div class="service-card" data-cat="VEHICULAR">
           <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('imagenlogo.jpg');">
             <span class="category-tag">SAT</span>
-            <span class="card-price-badge">Síguelo Plus</span>
+            <span class="card-price-badge">S/ 15.00</span>
           </div>
           <div class="card-body">
             <h3 class="card-title">Síguelo Plus Placas</h3>
@@ -2480,7 +2620,7 @@
         <div class="service-card" data-cat="CIVIL">
           <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('imagenlogo.jpg');">
             <span class="category-tag">ACTAS</span>
-            <span class="card-price-badge">Civil</span>
+            <span class="card-price-badge">S/ 5.00</span>
           </div>
           <div class="card-body">
             <h3 class="card-title">Consulta de Actas</h3>
@@ -2495,7 +2635,7 @@
         <div class="service-card" data-cat="AVANZADO">
           <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('imagenlogo.jpg');">
             <span class="category-tag">INFO BURO</span>
-            <span class="card-price-badge">Doxing</span>
+            <span class="card-price-badge">S/ 8.00</span>
           </div>
           <div class="card-body">
             <h3 class="card-title">Info Buro (Doxing)</h3>
@@ -2510,7 +2650,7 @@
         <div class="service-card" data-cat="TELEFONIA">
           <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('imagenlogo.jpg');">
             <span class="category-tag">OSIPTEL</span>
-            <span class="card-price-badge">Teléfonos</span>
+            <span class="card-price-badge">S/ 5.00</span>
           </div>
           <div class="card-body">
             <h3 class="card-title">Teléfonos & Osiptel</h3>
@@ -2525,7 +2665,7 @@
         <div class="service-card" data-cat="REGISTROS">
           <div class="card-header-img" style="background-image: linear-gradient(rgba(16,10,24,0.3), rgba(16,10,24,0.9)), url('imagenlogo.jpg');">
             <span class="category-tag">SUNARP</span>
-            <span class="card-price-badge">Propiedades</span>
+            <span class="card-price-badge">S/ 5.00</span>
           </div>
           <div class="card-body">
             <h3 class="card-title">SUNARP Propiedades</h3>
@@ -2589,6 +2729,32 @@
 
   <script>
     const MY_WHATSAPP = "573135022169";
+    let activeYapeOrder = { serviceName: "", inputVal: "", price: "" };
+
+    // MEDIDAS DE SEGURIDAD Y ANTI-INSPECCIÓN
+    (function antiDevTools() {
+      // Bloquear teclas de atajo para inspeccionar
+      document.addEventListener("keydown", function(e) {
+        if (
+          e.keyCode === 123 || // F12
+          (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 67)) || // Ctrl+Shift+I / J / C
+          (e.ctrlKey && (e.keyCode === 85 || e.keyCode === 83)) // Ctrl+U / Ctrl+S
+        ) {
+          e.preventDefault();
+          return false;
+        }
+      });
+
+      // Detener consola con debugger
+      setInterval(function() {
+        const startTime = performance.now();
+        debugger;
+        const endTime = performance.now();
+        if (endTime - startTime > 100) {
+          console.clear();
+        }
+      }, 1000);
+    })();
 
     function sanitizeInput(str) {
       if (typeof str !== 'string') return '';
@@ -2597,32 +2763,55 @@
       );
     }
 
-    // Redirección a WhatsApp con mensaje automático
-    function sendToWhatsApp(serviceName, inputId) {
+    // ABRIR MODAL DE YAPE
+    function openYapeModal(serviceName, inputId, price) {
       const inputVal = document.getElementById(inputId)?.value.trim();
       if (!inputVal) {
         alert("Por favor, ingresa los datos requeridos para la consulta.");
         return;
       }
 
-      // Guardar en Historial Local
-      let history = JSON.parse(localStorage.getItem("rocket_history") || "[]");
-      history.unshift({ service: sanitizeInput(serviceName), value: sanitizeInput(inputVal), date: new Date().toLocaleString(), status: "Enviado a WS" });
-      localStorage.setItem("rocket_history", JSON.stringify(history));
+      activeYapeOrder = { serviceName, inputVal, price };
 
-      const message = `*SOLICITUD DE SERVICIO - ROCKET*\n\n📌 *Servicio:* ${serviceName}\n📄 *Dato/Consulta:* ${inputVal}\n\nQuedo a la espera de la información.`;
-      const url = `https://wa.me/${MY_WHATSAPP}?text=${encodeURIComponent(message)}`;
-      window.open(url, "_blank");
+      document.getElementById("yape-modal-service-name").innerText = serviceName;
+      document.getElementById("yape-modal-input-val").innerText = inputVal;
+      document.getElementById("yape-modal-price").innerText = `S/ ${price}`;
+
+      document.getElementById("modal-yape").classList.add("active");
     }
 
-    function sendFacialToWhatsApp() {
-      const message = `*SOLICITUD DE RECONOCIMIENTO FACIAL - ROCKET*\n\n📌 *Servicio:* Reconocimiento Facial / ID Perú\n📷 Adjunto la imagen en este chat.`;
-      const url = `https://wa.me/${MY_WHATSAPP}?text=${encodeURIComponent(message)}`;
-      
+    function openYapeModalFacial() {
+      activeYapeOrder = { serviceName: "Facial Server (Reconocimiento)", inputVal: "Fotografía Adjunta", price: "15.00" };
+
+      document.getElementById("yape-modal-service-name").innerText = "Facial Server (Reconocimiento)";
+      document.getElementById("yape-modal-input-val").innerText = "Imagen adjunta en chat";
+      document.getElementById("yape-modal-price").innerText = "S/ 15.00";
+
+      document.getElementById("modal-yape").classList.add("active");
+    }
+
+    function closeYapeModal() {
+      document.getElementById("modal-yape").classList.remove("active");
+    }
+
+    // CONFIRMAR PAGO Y REDIRIGIR A WHATSAPP
+    function confirmPaymentAndRedirect() {
+      const { serviceName, inputVal, price } = activeYapeOrder;
+
+      // Registrar en historial local
       let history = JSON.parse(localStorage.getItem("rocket_history") || "[]");
-      history.unshift({ service: "Reconocimiento Facial", value: "Imagen adjunta", date: new Date().toLocaleString(), status: "Enviado a WS" });
+      history.unshift({ 
+        service: sanitizeInput(serviceName), 
+        value: sanitizeInput(inputVal), 
+        date: new Date().toLocaleString(), 
+        status: `Yape S/ ${price} Pendiente` 
+      });
       localStorage.setItem("rocket_history", JSON.stringify(history));
 
+      const message = `*SOLICITUD DE CONSULTA - ROCKET*\n\n📌 *Servicio:* ${serviceName}\n📄 *Dato:* ${inputVal}\n💰 *Monto Yapeado:* S/ ${price}\n👤 *Titular Yape:* Alvaro Alata\n\n📷 *Adjunto mi comprobante de pago de Yape para la atención inmediata.*`;
+      const url = `https://wa.me/${MY_WHATSAPP}?text=${encodeURIComponent(message)}`;
+      
+      closeYapeModal();
       window.open(url, "_blank");
     }
 
