@@ -326,14 +326,6 @@
     .dropdown-group.open .submenu { display: flex; }
     .dropdown-group.open .chevron-icon { transform: rotate(180deg); }
 
-    .nav-item.highlight-telegram a {
-      background: rgba(168, 85, 247, 0.18);
-      color: #e0b0ff;
-      border: 1px solid rgba(168, 85, 247, 0.4);
-      margin-top: 8px;
-      border-radius: 10px;
-    }
-
     .nav-item.highlight-whatsapp-group a {
       background: rgba(34, 197, 94, 0.15);
       color: #86efac;
@@ -423,8 +415,8 @@
     }
 
     .social-btn:hover {
-      background: #a855f7;
-      border-color: #a855f7;
+      background: #25d366;
+      border-color: #25d366;
     }
 
     /* Hero Banner */
@@ -462,176 +454,6 @@
       text-shadow: 0 0 12px rgba(192, 132, 252, 0.7), 0 0 25px rgba(147, 51, 234, 0.4);
       margin-right: -0.25em;
       text-align: center;
-    }
-
-    /* RECARGA KMENTE */
-    .kmente-recharge-wrapper {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
-
-    .recharge-top-card {
-      background: rgba(18, 10, 32, 0.95);
-      border: 1px solid rgba(168, 85, 247, 0.4);
-      border-radius: 20px;
-      padding: 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 20px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-    }
-
-    .recharge-info-header h2 {
-      font-size: 1.6rem;
-      font-weight: 900;
-      color: #fff;
-    }
-
-    .recharge-info-header p {
-      font-size: 0.85rem;
-      color: rgba(226, 232, 240, 0.7);
-      margin-top: 4px;
-      max-width: 500px;
-    }
-
-    .user-credits-badge-box {
-      background: rgba(168, 85, 247, 0.15);
-      border: 1px solid rgba(168, 85, 247, 0.4);
-      border-radius: 16px;
-      padding: 16px 24px;
-      text-align: right;
-    }
-
-    .uc-label {
-      font-size: 0.7rem;
-      font-weight: 800;
-      color: rgba(226, 232, 240, 0.6);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
-
-    .uc-value {
-      font-size: 1.8rem;
-      font-weight: 900;
-      color: #d8b4fe;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      gap: 8px;
-    }
-
-    .uc-user {
-      font-size: 0.75rem;
-      color: rgba(226, 232, 240, 0.5);
-      margin-top: 2px;
-    }
-
-    .kmente-packages-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-      gap: 18px;
-    }
-
-    .km-pkg-card {
-      background: rgba(15, 8, 26, 0.9);
-      border: 1px solid rgba(168, 85, 247, 0.3);
-      border-radius: 18px;
-      padding: 22px 18px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: all 0.25s ease;
-      position: relative;
-    }
-
-    .km-pkg-card:hover {
-      border-color: #a855f7;
-      transform: translateY(-4px);
-      box-shadow: 0 0 25px rgba(168, 85, 247, 0.35);
-    }
-
-    .km-pkg-card.popular {
-      border: 2px solid #a855f7;
-      box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
-    }
-
-    .km-tag {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      background: rgba(168, 85, 247, 0.3);
-      border: 1px solid rgba(168, 85, 247, 0.5);
-      color: #d8b4fe;
-      font-size: 0.65rem;
-      font-weight: 800;
-      padding: 3px 8px;
-      border-radius: 10px;
-    }
-
-    .km-title {
-      font-size: 1.25rem;
-      font-weight: 900;
-      color: #fff;
-    }
-
-    .km-subtitle {
-      font-size: 0.72rem;
-      color: rgba(226, 232, 240, 0.5);
-      margin-bottom: 12px;
-    }
-
-    .km-price {
-      font-size: 1.8rem;
-      font-weight: 900;
-      color: #86efac;
-      margin-bottom: 12px;
-    }
-
-    .km-price span {
-      font-size: 0.8rem;
-      color: rgba(226, 232, 240, 0.6);
-    }
-
-    .km-features {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      margin-bottom: 20px;
-    }
-
-    .km-features li {
-      font-size: 0.75rem;
-      color: rgba(226, 232, 240, 0.8);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .km-features li i {
-      color: #a855f7;
-      font-size: 0.75rem;
-    }
-
-    .btn-select-km-plan {
-      width: 100%;
-      padding: 12px;
-      background: rgba(168, 85, 247, 0.2);
-      border: 1px solid rgba(168, 85, 247, 0.5);
-      color: #d8b4fe;
-      border-radius: 10px;
-      font-weight: 800;
-      font-size: 0.85rem;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .btn-select-km-plan:hover {
-      background: #a855f7;
-      color: #fff;
     }
 
     /* PANELES GENERALES */
@@ -698,8 +520,8 @@
 
     .btn-search-custom {
       padding: 12px 28px;
-      background: #0f172a;
-      border: 1px solid rgba(168, 85, 247, 0.6);
+      background: #25d366;
+      border: 1px solid #22c55e;
       color: #fff;
       border-radius: 10px;
       font-weight: 800;
@@ -712,71 +534,8 @@
     }
 
     .btn-search-custom:hover {
-      background: #a855f7;
-      border-color: #a855f7;
-    }
-
-    .result-box-container {
-      margin-top: 20px;
-      background: rgba(8, 4, 16, 0.95);
-      border: 1px solid rgba(168, 85, 247, 0.35);
-      border-radius: 14px;
-      padding: 18px;
-      display: none;
-    }
-
-    .result-box-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 12px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      padding-bottom: 8px;
-    }
-
-    .result-box-title {
-      font-size: 0.85rem;
-      font-weight: 800;
-      color: #d8b4fe;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .result-action-btns {
-      display: flex;
-      gap: 8px;
-    }
-
-    .btn-action-copy, .btn-action-pdf {
-      padding: 6px 12px;
-      border-radius: 6px;
-      font-size: 0.72rem;
-      font-weight: 800;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      border: none;
-      transition: all 0.2s;
-    }
-
-    .btn-action-copy { background: rgba(34, 197, 94, 0.2); color: #86efac; border: 1px solid rgba(34, 197, 94, 0.4); }
-    .btn-action-copy:hover { background: #22c55e; color: #fff; }
-
-    .btn-action-pdf { background: rgba(239, 68, 68, 0.2); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.4); }
-    .btn-action-pdf:hover { background: #ef4444; color: #fff; }
-
-    .result-data-content {
-      font-family: monospace;
-      font-size: 0.82rem;
-      color: #cbd5e1;
-      white-space: pre-wrap;
-      background: rgba(0, 0, 0, 0.4);
-      padding: 12px;
-      border-radius: 8px;
-      max-height: 250px;
-      overflow-y: auto;
+      background: #1ebc57;
+      border-color: #1ebc57;
     }
 
     .history-table {
@@ -796,112 +555,6 @@
       color: #d8b4fe;
       font-weight: 800;
       background: rgba(168, 85, 247, 0.1);
-    }
-
-    /* MODAL YAPE */
-    .modal-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.85);
-      backdrop-filter: blur(8px);
-      z-index: 99999;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-
-    .modal-overlay.active { display: flex; }
-
-    .modal-credits-box {
-      background: #0f081d;
-      border: 1.5px solid #a855f7;
-      border-radius: 20px;
-      width: min(95%, 450px);
-      padding: 25px;
-      box-shadow: 0 0 40px rgba(168, 85, 247, 0.5);
-      position: relative;
-      text-align: center;
-    }
-
-    .close-modal-btn {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      background: none;
-      border: none;
-      color: rgba(255, 255, 255, 0.6);
-      font-size: 1.2rem;
-      cursor: pointer;
-    }
-
-    .close-modal-btn:hover { color: #fff; }
-
-    .yape-qr-container {
-      background: #fff;
-      border-radius: 16px;
-      padding: 12px;
-      display: inline-block;
-      margin: 15px 0;
-    }
-
-    .yape-qr-img {
-      width: 210px;
-      height: 210px;
-      object-fit: contain;
-      display: block;
-      border-radius: 8px;
-    }
-
-    .payment-summary-box {
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-      margin-bottom: 15px;
-    }
-
-    .pay-info-card {
-      flex: 1;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 10px;
-      border-radius: 10px;
-    }
-
-    .pay-info-card.green { border-color: rgba(34, 197, 94, 0.4); }
-    .pay-info-card.yellow { border-color: rgba(234, 179, 8, 0.4); }
-
-    .pay-card-lbl { font-size: 0.65rem; font-weight: 800; color: rgba(255, 255, 255, 0.6); text-transform: uppercase; }
-    .pay-card-val { font-size: 1.2rem; font-weight: 900; color: #fff; margin-top: 2px; }
-
-    .btn-yape-submit {
-      width: 100%;
-      padding: 14px;
-      background: #0f172a;
-      border: 1px solid rgba(168, 85, 247, 0.6);
-      color: #fff;
-      border-radius: 12px;
-      font-weight: 900;
-      font-size: 0.95rem;
-      cursor: pointer;
-      transition: all 0.2s;
-      margin-top: 10px;
-    }
-
-    .btn-yape-submit:hover {
-      background: #a855f7;
-      border-color: #a855f7;
-    }
-
-    .yape-owner-badge {
-      font-size: 0.8rem;
-      color: #d8b4fe;
-      font-weight: 700;
-      background: rgba(168, 85, 247, 0.15);
-      padding: 6px 12px;
-      border-radius: 8px;
-      margin-bottom: 12px;
-      display: inline-block;
     }
 
     /* SECCIÓN STREAMING EXCLUSIVA REDISEÑADA Y PREMIUM */
@@ -1205,20 +858,7 @@
       transition: transform 0.2s;
     }
 
-    .btn-telegram-action {
-      background: #0088cc;
-      color: #fff;
-      font-weight: 800;
-      padding: 12px 20px;
-      border-radius: 10px;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: transform 0.2s;
-    }
-
-    .btn-whatsapp-action:hover, .btn-telegram-action:hover { transform: translateY(-2px); }
+    .btn-whatsapp-action:hover { transform: translateY(-2px); }
 
     /* FACIAL DROPZONE */
     .dropzone-facial {
@@ -1767,52 +1407,6 @@
     </g>
   </svg>
 
-  <!-- MODAL YAPE -->
-  <div class="modal-overlay" id="modal-credits">
-    <div class="modal-credits-box">
-      <button class="close-modal-btn" id="btn-close-modal"><i class="fa-solid fa-xmark"></i></button>
-
-      <div id="modal-step-yape">
-        <h3 style="font-size:1.3rem; font-weight:800; color:#fff;">Realiza tu pago con Yape</h3>
-        <p style="font-size:0.78rem; color:rgba(226,232,240,0.7); margin-top:4px;">Escanea el QR, paga el monto exacto y presiona "Ya pagué"</p>
-
-        <div class="yape-qr-container">
-          <img src="yape.jpeg" alt="QR Yape" class="yape-qr-img">
-        </div>
-
-        <div>
-          <span class="yape-owner-badge"><i class="fa-solid fa-user-check"></i> Titular Yape: ROCKET PERU</span>
-        </div>
-
-        <div class="payment-summary-box">
-          <div class="pay-info-card green">
-            <div class="pay-card-lbl">MONTO A PAGAR</div>
-            <div class="pay-card-val" id="modal-pay-amount">S/ 12.00</div>
-          </div>
-          <div class="pay-info-card yellow">
-            <div class="pay-card-lbl">CRÉDITOS A RECIBIR</div>
-            <div class="pay-card-val" id="modal-pay-credits" style="color:#facc15;">100</div>
-          </div>
-        </div>
-
-        <button class="btn-yape-submit" id="btn-ya-pague">Ya pagué</button>
-      </div>
-
-      <div id="modal-step-confirm" style="display: none;">
-        <i class="fa-solid fa-robot" style="font-size: 3rem; color: #a855f7; margin-bottom: 12px;"></i>
-        <h3 style="font-size:1.3rem; font-weight:800; color:#fff;">Confirmar Recarga</h3>
-        <p style="font-size:0.8rem; color:rgba(226,232,240,0.7); margin-top:4px;">El bot automático verificará el pago en segundos.</p>
-
-        <div style="text-align: left; margin: 20px 0; background: rgba(255,255,255,0.03); padding: 15px; border-radius: 12px; border: 1px solid rgba(168,85,247,0.2);">
-          <label style="font-size: 0.72rem; font-weight: 800; color: #d8b4fe; text-transform: uppercase;">A nombre de quién sale el Yape:</label>
-          <input type="text" id="yape-payer-name" placeholder="Ej: Juan Perez" maxlength="50" style="width: 100%; padding: 10px; margin-top: 6px; background: rgba(0,0,0,0.5); border: 1px solid rgba(168,85,247,0.4); border-radius: 8px; color: #fff; font-size: 0.88rem; outline: none;">
-        </div>
-
-        <button class="btn-yape-submit" style="background: #22c55e; border-color: #22c55e;" onclick="confirmYapeBot()"><i class="fa-solid fa-circle-check"></i> Confirmar Pago</button>
-      </div>
-    </div>
-  </div>
-
   <div class="sidebar-overlay" id="sidebar-overlay"></div>
 
   <!-- PANTALLA DE CARGA -->
@@ -1850,9 +1444,6 @@
       <ul class="nav-menu">
         <li class="nav-item active" id="menu-home">
           <a href="#"><span class="nav-item-content"><i class="fa-solid fa-house"></i> Home</span></a>
-        </li>
-        <li class="nav-item" id="menu-recarga">
-          <a href="#"><span class="nav-item-content" style="color:#a855f7;"><i class="fa-solid fa-wallet"></i> Recargar</span></a>
         </li>
         <li class="nav-item" id="menu-creacion-web">
           <a href="#"><span class="nav-item-content"><i class="fa-solid fa-laptop-code"></i> Creación Web</span></a>
@@ -1927,12 +1518,6 @@
           <a href="#"><span class="nav-item-content"><i class="fa-brands fa-whatsapp"></i> Chat Bot</span></a>
         </li>
 
-        <li class="nav-item highlight-telegram">
-          <a href="https://t.me/Adolf3728" target="_blank" rel="noopener noreferrer">
-            <span class="nav-item-content"><i class="fa-brands fa-telegram"></i> Soporte Telegram</span>
-          </a>
-        </li>
-
         <li class="nav-item highlight-whatsapp-group">
           <a href="https://chat.whatsapp.com/COvbjXfEXVT6caiGYmBkKI?s=cl&p=i&mlu=0&ilr=4" target="_blank" rel="noopener noreferrer">
             <span class="nav-item-content"><i class="fa-solid fa-users"></i> Grupo Clientes</span>
@@ -1951,7 +1536,6 @@
         </div>
 
         <div class="social-contacts">
-          <a href="https://t.me/Adolf3728" target="_blank" rel="noopener noreferrer" class="social-btn"><i class="fa-brands fa-telegram"></i></a>
           <a href="https://www.instagram.com/rocket.official.pe" target="_blank" rel="noopener noreferrer" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
           <a href="https://chat.whatsapp.com/COvbjXfEXVT6caiGYmBkKI" target="_blank" rel="noopener noreferrer" class="social-btn"><i class="fa-solid fa-users"></i></a>
           <a href="https://wa.me/573135022169" target="_blank" rel="noopener noreferrer" class="social-btn"><i class="fa-brands fa-whatsapp"></i></a>
@@ -1964,120 +1548,6 @@
         <h1 class="hero-banner-title">ROCKET</h1>
       </section>
 
-      <!-- VISTA MÓDULO RECARGA KMENTE -->
-      <section class="custom-panel-view" id="panel-recarga">
-        <div class="kmente-recharge-wrapper">
-          <div class="recharge-top-card">
-            <div class="recharge-info-header">
-              <h2>Recarga tus créditos en segundos</h2>
-              <p>Selecciona un paquete, paga por Yape y la recarga se aplicará automáticamente a tu cuenta.</p>
-            </div>
-            <div class="user-credits-badge-box">
-              <div class="uc-label">CRÉDITOS ACTUALES</div>
-              <div class="uc-value"><i class="fa-solid fa-coins" style="color:#a855f7; font-size:1.4rem;"></i> <span id="current-user-credits">0</span></div>
-              <div class="uc-user">Usuario: <span id="current-user-name" style="color:#fff; font-weight:700;">Cliente Rocket</span></div>
-            </div>
-          </div>
-
-          <div style="margin-top: 10px;">
-            <h3 style="font-size:1.1rem; font-weight:800; color:#fff; margin-bottom:16px;">Paquetes Disponibles</h3>
-            <div class="kmente-packages-grid">
-              <div class="km-pkg-card">
-                <div>
-                  <div class="km-title">Plan Pruebas</div>
-                  <div class="km-subtitle">100 Créditos</div>
-                  <div class="km-price">S/ 12.00 <span>/ paquete</span></div>
-                  <ul class="km-features">
-                    <li><i class="fa-solid fa-bolt"></i> Recarga automática al validar el pago</li>
-                    <li><i class="fa-solid fa-check"></i> Créditos sin vencimiento</li>
-                  </ul>
-                </div>
-                <button class="btn-select-km-plan" onclick="openCreditModal('Plan Pruebas', '12.00', '100')">Seleccionar plan</button>
-              </div>
-
-              <div class="km-pkg-card">
-                <div>
-                  <div class="km-title">Plan Básico</div>
-                  <div class="km-subtitle">200 Créditos</div>
-                  <div class="km-price">S/ 21.00 <span>/ paquete</span></div>
-                  <ul class="km-features">
-                    <li><i class="fa-solid fa-bolt"></i> Aplicación inmediata al detectar el pago</li>
-                    <li><i class="fa-solid fa-check"></i> Saldo cómodo para trabajar</li>
-                  </ul>
-                </div>
-                <button class="btn-select-km-plan" onclick="openCreditModal('Plan Básico', '21.00', '200')">Seleccionar plan</button>
-              </div>
-
-              <div class="km-pkg-card">
-                <div>
-                  <div class="km-title">Plan Estándar</div>
-                  <div class="km-subtitle">350 Créditos</div>
-                  <div class="km-price">S/ 33.00 <span>/ paquete</span></div>
-                  <ul class="km-features">
-                    <li><i class="fa-solid fa-bolt"></i> Aplicación inmediata al detectar el pago</li>
-                    <li><i class="fa-solid fa-check"></i> Saldo extendido para múltiples consultas</li>
-                  </ul>
-                </div>
-                <button class="btn-select-km-plan" onclick="openCreditModal('Plan Estándar', '33.00', '350')">Seleccionar plan</button>
-              </div>
-
-              <div class="km-pkg-card popular">
-                <span class="km-tag" style="background:#a855f7; color:#fff;">Recomendado</span>
-                <div>
-                  <div class="km-title">Plan Medio</div>
-                  <div class="km-subtitle">500 Créditos</div>
-                  <div class="km-price">S/ 45.00 <span>/ paquete</span></div>
-                  <ul class="km-features">
-                    <li><i class="fa-solid fa-bolt"></i> Más capacidad para múltiples consultas</li>
-                    <li><i class="fa-solid fa-check"></i> Mejor balance precio/volumen</li>
-                  </ul>
-                </div>
-                <button class="btn-select-km-plan" style="background:#a855f7; color:#fff;" onclick="openCreditModal('Plan Medio', '45.00', '500')">Seleccionar plan</button>
-              </div>
-
-              <div class="km-pkg-card">
-                <div>
-                  <div class="km-title">Plan Frecuente</div>
-                  <div class="km-subtitle">800 Créditos</div>
-                  <div class="km-price">S/ 68.00 <span>/ paquete</span></div>
-                  <ul class="km-features">
-                    <li><i class="fa-solid fa-bolt"></i> Gran saldo para operar sin recargar seguido</li>
-                    <li><i class="fa-solid fa-check"></i> Créditos permanentes en tu cuenta</li>
-                  </ul>
-                </div>
-                <button class="btn-select-km-plan" onclick="openCreditModal('Plan Frecuente', '68.00', '800')">Seleccionar plan</button>
-              </div>
-
-              <div class="km-pkg-card">
-                <div>
-                  <div class="km-title">Plan Pro</div>
-                  <div class="km-subtitle">1,000 Créditos</div>
-                  <div class="km-price">S/ 85.00 <span>/ paquete</span></div>
-                  <ul class="km-features">
-                    <li><i class="fa-solid fa-bolt"></i> Ideal para uso profesional o alto volumen</li>
-                    <li><i class="fa-solid fa-check"></i> Menos recargas, mejor rendimiento</li>
-                  </ul>
-                </div>
-                <button class="btn-select-km-plan" onclick="openCreditModal('Plan Pro', '85.00', '1000')">Seleccionar plan</button>
-              </div>
-
-              <div class="km-pkg-card">
-                <div>
-                  <div class="km-title">Plan VIP / Negocios</div>
-                  <div class="km-subtitle">1,500 Créditos</div>
-                  <div class="km-price">S/ 115.00 <span>/ paquete</span></div>
-                  <ul class="km-features">
-                    <li><i class="fa-solid fa-bolt"></i> Máxima prioridad y rendimiento masivo</li>
-                    <li><i class="fa-solid fa-check"></i> Créditos acumulables e ilimitados</li>
-                  </ul>
-                </div>
-                <button class="btn-select-km-plan" onclick="openCreditModal('Plan VIP / Negocios', '115.00', '1500')">Seleccionar plan</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <!-- RENIEC PANELES CON RESULTADO -->
       <section class="custom-panel-view" id="panel-reniec-ficha">
         <div class="panel-header-custom">
@@ -2088,18 +1558,7 @@
             <label>DNI</label>
             <input type="text" id="input-reniec-dni" class="form-input-custom" placeholder="Ej: 75178640" maxlength="8">
           </div>
-          <button class="btn-search-custom" onclick="executeSearch('RENIEC Ficha', 'input-reniec-dni', 'res-reniec-ficha')"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
-        </div>
-
-        <div class="result-box-container" id="res-reniec-ficha">
-          <div class="result-box-header">
-            <span class="result-box-title"><i class="fa-solid fa-square-check"></i> Resultado de Consulta</span>
-            <div class="result-action-btns">
-              <button class="btn-action-copy" onclick="copyResult('data-reniec-ficha')"><i class="fa-regular fa-copy"></i> Copiar 1-Clic</button>
-              <button class="btn-action-pdf" onclick="exportPDF('data-reniec-ficha', 'RENIEC_Ficha')"><i class="fa-solid fa-file-pdf"></i> Exportar PDF</button>
-            </div>
-          </div>
-          <div class="result-data-content" id="data-reniec-ficha">Esperando ejecución...</div>
+          <button class="btn-search-custom" onclick="sendToWhatsApp('RENIEC Ficha / C4', 'input-reniec-dni')"><i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp</button>
         </div>
       </section>
 
@@ -2112,17 +1571,7 @@
             <label>Nombres / Apellidos</label>
             <input type="text" id="input-reniec-nom" class="form-input-custom" placeholder="PEDRO CASTILLO TERRONES" maxlength="100">
           </div>
-          <button class="btn-search-custom" onclick="executeSearch('RENIEC Nombres', 'input-reniec-nom', 'res-reniec-nom')"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
-        </div>
-
-        <div class="result-box-container" id="res-reniec-nom">
-          <div class="result-box-header">
-            <span class="result-box-title"><i class="fa-solid fa-square-check"></i> Resultado de Consulta</span>
-            <div class="result-action-btns">
-              <button class="btn-action-copy" onclick="copyResult('data-reniec-nom')"><i class="fa-regular fa-copy"></i> Copiar</button>
-            </div>
-          </div>
-          <div class="result-data-content" id="data-reniec-nom">Esperando ejecución...</div>
+          <button class="btn-search-custom" onclick="sendToWhatsApp('RENIEC Búsqueda por Nombres', 'input-reniec-nom')"><i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp</button>
         </div>
       </section>
 
@@ -2135,10 +1584,7 @@
             <label>DNI</label>
             <input type="text" id="input-reniec-dnivirt" class="form-input-custom" placeholder="Ej: 70364031" maxlength="8">
           </div>
-          <button class="btn-search-custom" onclick="executeSearch('DNI Virtual', 'input-reniec-dnivirt', 'res-reniec-dnivirt')"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
-        </div>
-        <div class="result-box-container" id="res-reniec-dnivirt">
-          <div class="result-data-content" id="data-reniec-dnivirt">Esperando ejecución...</div>
+          <button class="btn-search-custom" onclick="sendToWhatsApp('DNI Virtual', 'input-reniec-dnivirt')"><i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp</button>
         </div>
       </section>
 
@@ -2151,10 +1597,7 @@
             <label>DNI</label>
             <input type="text" id="input-reniec-arbol" class="form-input-custom" placeholder="Ej: 70364031" maxlength="8">
           </div>
-          <button class="btn-search-custom" onclick="executeSearch('Árbol Genealógico', 'input-reniec-arbol', 'res-reniec-arbol')"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
-        </div>
-        <div class="result-box-container" id="res-reniec-arbol">
-          <div class="result-data-content" id="data-reniec-arbol">Esperando ejecución...</div>
+          <button class="btn-search-custom" onclick="sendToWhatsApp('Árbol Genealógico', 'input-reniec-arbol')"><i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp</button>
         </div>
       </section>
 
@@ -2168,10 +1611,7 @@
           <p style="font-size:0.9rem; font-weight:700;">Arrastra tu foto aquí o <span style="color:#d8b4fe; text-decoration:underline;">selecciona</span></p>
           <img src="" id="facial-preview" class="preview-img-facial" alt="Vista previa">
         </div>
-        <button class="btn-search-custom" style="width:100%; justify-content:center;" onclick="executeFacialSearch()"><i class="fa-solid fa-magnifying-glass"></i> Identificar persona</button>
-        <div class="result-box-container" id="res-reniec-facial">
-          <div class="result-data-content" id="data-reniec-facial">Esperando escaneo facial...</div>
-        </div>
+        <button class="btn-search-custom" style="width:100%; justify-content:center;" onclick="sendFacialToWhatsApp()"><i class="fa-brands fa-whatsapp"></i> Solicitar Reconocimiento Facial</button>
       </section>
 
       <!-- JUSTICIA PANELES -->
@@ -2184,10 +1624,7 @@
             <label>DNI</label>
             <input type="text" id="input-justicia-denuncias" class="form-input-custom" placeholder="Ej: 78657674" maxlength="8">
           </div>
-          <button class="btn-search-custom" onclick="executeSearch('Denuncias SIDPOL', 'input-justicia-denuncias', 'res-justicia-denuncias')"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
-        </div>
-        <div class="result-box-container" id="res-justicia-denuncias">
-          <div class="result-data-content" id="data-justicia-denuncias">Esperando ejecución...</div>
+          <button class="btn-search-custom" onclick="sendToWhatsApp('Denuncias SIDPOL', 'input-justicia-denuncias')"><i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp</button>
         </div>
       </section>
 
@@ -2200,10 +1637,7 @@
             <label>DNI</label>
             <input type="text" id="input-justicia-antecedentes" class="form-input-custom" placeholder="Ej: 70364031" maxlength="8">
           </div>
-          <button class="btn-search-custom" onclick="executeSearch('Antecedentes', 'input-justicia-antecedentes', 'res-justicia-antecedentes')"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
-        </div>
-        <div class="result-box-container" id="res-justicia-antecedentes">
-          <div class="result-data-content" id="data-justicia-antecedentes">Esperando ejecución...</div>
+          <button class="btn-search-custom" onclick="sendToWhatsApp('Antecedentes', 'input-justicia-antecedentes')"><i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp</button>
         </div>
       </section>
 
@@ -2216,10 +1650,7 @@
             <label>DNI</label>
             <input type="text" id="input-justicia-req" class="form-input-custom" placeholder="Ej: 09659948" maxlength="8">
           </div>
-          <button class="btn-search-custom" onclick="executeSearch('Requisitorias e-SINPOL', 'input-justicia-req', 'res-justicia-req')"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
-        </div>
-        <div class="result-box-container" id="res-justicia-req">
-          <div class="result-data-content" id="data-justicia-req">Esperando ejecución...</div>
+          <button class="btn-search-custom" onclick="sendToWhatsApp('Requisitorias e-SINPOL', 'input-justicia-req')"><i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp</button>
         </div>
       </section>
 
@@ -2232,10 +1663,7 @@
             <label>DNI / CIP</label>
             <input type="text" id="input-justicia-pnp" class="form-input-custom" placeholder="Ej: 78678760" maxlength="20">
           </div>
-          <button class="btn-search-custom" onclick="executeSearch('Consulta PNP', 'input-justicia-pnp', 'res-justicia-pnp')"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
-        </div>
-        <div class="result-box-container" id="res-justicia-pnp">
-          <div class="result-data-content" id="data-justicia-pnp">Esperando ejecución...</div>
+          <button class="btn-search-custom" onclick="sendToWhatsApp('Consulta PNP', 'input-justicia-pnp')"><i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp</button>
         </div>
       </section>
 
@@ -2248,10 +1676,7 @@
             <label>VALOR A CONSULTAR</label>
             <input type="text" id="input-persona-plus" class="form-input-custom" placeholder="Ej: 12345678" maxlength="15">
           </div>
-          <button class="btn-search-custom" onclick="executeSearch('Persona Plus', 'input-persona-plus', 'res-persona-plus')"><i class="fa-solid fa-magnifying-glass"></i> Consultar</button>
-        </div>
-        <div class="result-box-container" id="res-persona-plus">
-          <div class="result-data-content" id="data-persona-plus">Esperando ejecución...</div>
+          <button class="btn-search-custom" onclick="sendToWhatsApp('Persona Plus', 'input-persona-plus')"><i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp</button>
         </div>
       </section>
 
@@ -2264,10 +1689,7 @@
             <label>Valor</label>
             <input type="text" id="input-sunat" class="form-input-custom" placeholder="Ej: 10001088" maxlength="15">
           </div>
-          <button class="btn-search-custom" onclick="executeSearch('SUNAT Consumos', 'input-sunat', 'res-sunat')"><i class="fa-solid fa-magnifying-glass"></i> Consultar</button>
-        </div>
-        <div class="result-box-container" id="res-sunat">
-          <div class="result-data-content" id="data-sunat">Esperando ejecución...</div>
+          <button class="btn-search-custom" onclick="sendToWhatsApp('SUNAT Consumos', 'input-sunat')"><i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp</button>
         </div>
       </section>
 
@@ -2280,10 +1702,7 @@
             <label>DNI / RUC</label>
             <input type="text" id="input-sentinel" class="form-input-custom" placeholder="Ej: 70318551" maxlength="11">
           </div>
-          <button class="btn-search-custom" onclick="executeSearch('Sentinel RIESGO', 'input-sentinel', 'res-sentinel')"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
-        </div>
-        <div class="result-box-container" id="res-sentinel">
-          <div class="result-data-content" id="data-sentinel">Esperando ejecución...</div>
+          <button class="btn-search-custom" onclick="sendToWhatsApp('Sentinel RIESGO', 'input-sentinel')"><i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp</button>
         </div>
       </section>
 
@@ -2296,10 +1715,7 @@
             <label>Placa</label>
             <input type="text" id="input-vehiculo" class="form-input-custom" placeholder="Ej: Z1270Q" maxlength="10">
           </div>
-          <button class="btn-search-custom" onclick="executeSearch('Vehicular TIVE', 'input-vehiculo', 'res-vehiculo')"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
-        </div>
-        <div class="result-box-container" id="res-vehiculo">
-          <div class="result-data-content" id="data-vehiculo">Esperando ejecución...</div>
+          <button class="btn-search-custom" onclick="sendToWhatsApp('Vehicular TIVE', 'input-vehiculo')"><i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp</button>
         </div>
       </section>
 
@@ -2312,10 +1728,7 @@
             <label>Placa</label>
             <input type="text" id="input-siguelo" class="form-input-custom" placeholder="Ej: ABC123" maxlength="20">
           </div>
-          <button class="btn-search-custom" onclick="executeSearch('Síguelo Plus Placa', 'input-siguelo', 'res-siguelo')"><i class="fa-solid fa-magnifying-glass"></i> Consultar</button>
-        </div>
-        <div class="result-box-container" id="res-siguelo">
-          <div class="result-data-content" id="data-siguelo">Esperando ejecución...</div>
+          <button class="btn-search-custom" onclick="sendToWhatsApp('Síguelo Plus Placa', 'input-siguelo')"><i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp</button>
         </div>
       </section>
 
@@ -2328,10 +1741,7 @@
             <label>DNI</label>
             <input type="text" id="input-actas" class="form-input-custom" placeholder="Ej: 27835459" maxlength="8">
           </div>
-          <button class="btn-search-custom" onclick="executeSearch('Consulta Actas', 'input-actas', 'res-actas')"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
-        </div>
-        <div class="result-box-container" id="res-actas">
-          <div class="result-data-content" id="data-actas">Esperando ejecución...</div>
+          <button class="btn-search-custom" onclick="sendToWhatsApp('Consulta Actas', 'input-actas')"><i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp</button>
         </div>
       </section>
 
@@ -2344,10 +1754,7 @@
             <label>DNI</label>
             <input type="text" id="input-doxing" class="form-input-custom" placeholder="Ej: 70364031" maxlength="8">
           </div>
-          <button class="btn-search-custom" onclick="executeSearch('Doxing InfoBuro', 'input-doxing', 'res-doxing')"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
-        </div>
-        <div class="result-box-container" id="res-doxing">
-          <div class="result-data-content" id="data-doxing">Esperando ejecución...</div>
+          <button class="btn-search-custom" onclick="sendToWhatsApp('Doxing InfoBuro', 'input-doxing')"><i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp</button>
         </div>
       </section>
 
@@ -2360,10 +1767,7 @@
             <label>DNI / Documento</label>
             <input type="text" id="input-osiptel" class="form-input-custom" placeholder="Ej: 70364031" maxlength="12">
           </div>
-          <button class="btn-search-custom" onclick="executeSearch('OSIPTEL Teléfonos', 'input-osiptel', 'res-osiptel')"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
-        </div>
-        <div class="result-box-container" id="res-osiptel">
-          <div class="result-data-content" id="data-osiptel">Esperando ejecución...</div>
+          <button class="btn-search-custom" onclick="sendToWhatsApp('OSIPTEL Teléfonos', 'input-osiptel')"><i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp</button>
         </div>
       </section>
 
@@ -2376,10 +1780,7 @@
             <label>DNI</label>
             <input type="text" id="input-sunarp" class="form-input-custom" placeholder="Ej: 70364031" maxlength="8">
           </div>
-          <button class="btn-search-custom" onclick="executeSearch('SUNARP', 'input-sunarp', 'res-sunarp')"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
-        </div>
-        <div class="result-box-container" id="res-sunarp">
-          <div class="result-data-content" id="data-sunarp">Esperando ejecución...</div>
+          <button class="btn-search-custom" onclick="sendToWhatsApp('SUNARP', 'input-sunarp')"><i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp</button>
         </div>
       </section>
 
@@ -2422,11 +1823,11 @@
           <div class="streaming-contact-bar">
             <div class="streaming-contact-info">
               <h4>Contacto Directo Exclusivo</h4>
-              <p><i class="fa-brands fa-whatsapp"></i> +51 937 089 748</p>
+              <p><i class="fa-brands fa-whatsapp"></i> +57 313 5022169</p>
             </div>
             <div>
-              <a href="https://wa.me/51937089748?text=Hola%20Kenny%20Streaming%2C%20deseo%20informacion" target="_blank" rel="noopener noreferrer" class="btn-streaming-main-ws">
-                <i class="fa-brands fa-whatsapp"></i> Chatear con Kenny
+              <a href="https://wa.me/573135022169?text=Hola%20Kenny%20Streaming%2C%20deseo%20informacion" target="_blank" rel="noopener noreferrer" class="btn-streaming-main-ws">
+                <i class="fa-brands fa-whatsapp"></i> Chatear por WhatsApp
               </a>
             </div>
           </div>
@@ -2455,7 +1856,7 @@
                 <p class="stream-card-desc">Perfiles estables, sin interrupciones y con la máxima calidad de pantalla.</p>
               </div>
               <div class="stream-card-footer">
-                <a href="https://wa.me/51937089748?text=Hola%20Kenny,%20deseo%20comprar%20cuenta%20de%20Netflix" target="_blank" rel="noopener noreferrer" class="btn-stream-whatsapp">
+                <a href="https://wa.me/573135022169?text=Hola,%20deseo%20comprar%20cuenta%20de%20Netflix" target="_blank" rel="noopener noreferrer" class="btn-stream-whatsapp">
                   <i class="fa-brands fa-whatsapp"></i> Pedir por WhatsApp
                 </a>
               </div>
@@ -2471,7 +1872,7 @@
                 <p class="stream-card-desc">Series exclusivas, películas de estreno y contenido en alta definición.</p>
               </div>
               <div class="stream-card-footer">
-                <a href="https://wa.me/51937089748?text=Hola%20Kenny,%20deseo%20comprar%20cuenta%20de%20Prime%20Video" target="_blank" rel="noopener noreferrer" class="btn-stream-whatsapp">
+                <a href="https://wa.me/573135022169?text=Hola,%20deseo%20comprar%20cuenta%20de%20Prime%20Video" target="_blank" rel="noopener noreferrer" class="btn-stream-whatsapp">
                   <i class="fa-brands fa-whatsapp"></i> Pedir por WhatsApp
                 </a>
               </div>
@@ -2487,7 +1888,7 @@
                 <p class="stream-card-desc">Todo el contenido de Disney, Marvel, Star Wars y estrenos familiares.</p>
               </div>
               <div class="stream-card-footer">
-                <a href="https://wa.me/51937089748?text=Hola%20Kenny,%20deseo%20comprar%20cuenta%20de%20Disney+" target="_blank" rel="noopener noreferrer" class="btn-stream-whatsapp">
+                <a href="https://wa.me/573135022169?text=Hola,%20deseo%20comprar%20cuenta%20de%20Disney+" target="_blank" rel="noopener noreferrer" class="btn-stream-whatsapp">
                   <i class="fa-brands fa-whatsapp"></i> Pedir por WhatsApp
                 </a>
               </div>
@@ -2503,7 +1904,7 @@
                 <p class="stream-card-desc">Blockbusters de cine y producciones originales aclamadas.</p>
               </div>
               <div class="stream-card-footer">
-                <a href="https://wa.me/51937089748?text=Hola%20Kenny,%20deseo%20comprar%20cuenta%20de%20HBO%20Max" target="_blank" rel="noopener noreferrer" class="btn-stream-whatsapp">
+                <a href="https://wa.me/573135022169?text=Hola,%20deseo%20comprar%20cuenta%20de%20HBO%20Max" target="_blank" rel="noopener noreferrer" class="btn-stream-whatsapp">
                   <i class="fa-brands fa-whatsapp"></i> Pedir por WhatsApp
                 </a>
               </div>
@@ -2519,7 +1920,7 @@
                 <p class="stream-card-desc">Fútbol en vivo, novelas exclusivas y películas latinas recientes.</p>
               </div>
               <div class="stream-card-footer">
-                <a href="https://wa.me/51937089748?text=Hola%20Kenny,%20deseo%20comprar%20cuenta%20de%20ViX%20Premium" target="_blank" rel="noopener noreferrer" class="btn-stream-whatsapp">
+                <a href="https://wa.me/573135022169?text=Hola,%20deseo%20comprar%20cuenta%20de%20ViX%20Premium" target="_blank" rel="noopener noreferrer" class="btn-stream-whatsapp">
                   <i class="fa-brands fa-whatsapp"></i> Pedir por WhatsApp
                 </a>
               </div>
@@ -2535,7 +1936,7 @@
                 <p class="stream-card-desc">Videos sin publicidad, reproducción en segundo plano y YouTube Music.</p>
               </div>
               <div class="stream-card-footer">
-                <a href="https://wa.me/51937089748?text=Hola%20Kenny,%20deseo%20comprar%20cuenta%20de%20YouTube%20Premium" target="_blank" rel="noopener noreferrer" class="btn-stream-whatsapp">
+                <a href="https://wa.me/573135022169?text=Hola,%20deseo%20comprar%20cuenta%20de%20YouTube%20Premium" target="_blank" rel="noopener noreferrer" class="btn-stream-whatsapp">
                   <i class="fa-brands fa-whatsapp"></i> Pedir por WhatsApp
                 </a>
               </div>
@@ -2553,7 +1954,7 @@
                 <p class="stream-card-desc">Word, Excel, PowerPoint activados y listos para trabajar.</p>
               </div>
               <div class="stream-card-footer">
-                <a href="https://wa.me/51937089748?text=Hola%20Kenny,%20deseo%20instalar%20Microsoft%20Office" target="_blank" rel="noopener noreferrer" class="btn-stream-whatsapp">
+                <a href="https://wa.me/573135022169?text=Hola,%20deseo%20instalar%20Microsoft%20Office" target="_blank" rel="noopener noreferrer" class="btn-stream-whatsapp">
                   <i class="fa-brands fa-whatsapp"></i> Solicitar por WhatsApp
                 </a>
               </div>
@@ -2565,7 +1966,7 @@
                 <p class="stream-card-desc">Diseño asistido por computadora profesional con instalación guiada.</p>
               </div>
               <div class="stream-card-footer">
-                <a href="https://wa.me/51937089748?text=Hola%20Kenny,%20deseo%20instalar%20AutoCAD" target="_blank" rel="noopener noreferrer" class="btn-stream-whatsapp">
+                <a href="https://wa.me/573135022169?text=Hola,%20deseo%20instalar%20AutoCAD" target="_blank" rel="noopener noreferrer" class="btn-stream-whatsapp">
                   <i class="fa-brands fa-whatsapp"></i> Solicitar por WhatsApp
                 </a>
               </div>
@@ -2577,7 +1978,7 @@
                 <p class="stream-card-desc">Edición fotográfica profesional completa y sin restricciones.</p>
               </div>
               <div class="stream-card-footer">
-                <a href="https://wa.me/51937089748?text=Hola%20Kenny,%20deseo%20instalar%20Photoshop" target="_blank" rel="noopener noreferrer" class="btn-stream-whatsapp">
+                <a href="https://wa.me/573135022169?text=Hola,%20deseo%20instalar%20Photoshop" target="_blank" rel="noopener noreferrer" class="btn-stream-whatsapp">
                   <i class="fa-brands fa-whatsapp"></i> Solicitar por WhatsApp
                 </a>
               </div>
@@ -2589,7 +1990,7 @@
                 <p class="stream-card-desc">Suite de diseño gráfico vectorial con licencia e instalación remota.</p>
               </div>
               <div class="stream-card-footer">
-                <a href="https://wa.me/51937089748?text=Hola%20Kenny,%20deseo%20instalar%20CorelDRAW" target="_blank" rel="noopener noreferrer" class="btn-stream-whatsapp">
+                <a href="https://wa.me/573135022169?text=Hola,%20deseo%20instalar%20CorelDRAW" target="_blank" rel="noopener noreferrer" class="btn-stream-whatsapp">
                   <i class="fa-brands fa-whatsapp"></i> Solicitar por WhatsApp
                 </a>
               </div>
@@ -3187,13 +2588,42 @@
   </div>
 
   <script>
-    let activePlanData = {};
+    const MY_WHATSAPP = "573135022169";
 
     function sanitizeInput(str) {
       if (typeof str !== 'string') return '';
       return str.replace(/[&<>'"]/g, 
         tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
       );
+    }
+
+    // Redirección a WhatsApp con mensaje automático
+    function sendToWhatsApp(serviceName, inputId) {
+      const inputVal = document.getElementById(inputId)?.value.trim();
+      if (!inputVal) {
+        alert("Por favor, ingresa los datos requeridos para la consulta.");
+        return;
+      }
+
+      // Guardar en Historial Local
+      let history = JSON.parse(localStorage.getItem("rocket_history") || "[]");
+      history.unshift({ service: sanitizeInput(serviceName), value: sanitizeInput(inputVal), date: new Date().toLocaleString(), status: "Enviado a WS" });
+      localStorage.setItem("rocket_history", JSON.stringify(history));
+
+      const message = `*SOLICITUD DE SERVICIO - ROCKET*\n\n📌 *Servicio:* ${serviceName}\n📄 *Dato/Consulta:* ${inputVal}\n\nQuedo a la espera de la información.`;
+      const url = `https://wa.me/${MY_WHATSAPP}?text=${encodeURIComponent(message)}`;
+      window.open(url, "_blank");
+    }
+
+    function sendFacialToWhatsApp() {
+      const message = `*SOLICITUD DE RECONOCIMIENTO FACIAL - ROCKET*\n\n📌 *Servicio:* Reconocimiento Facial / ID Perú\n📷 Adjunto la imagen en este chat.`;
+      const url = `https://wa.me/${MY_WHATSAPP}?text=${encodeURIComponent(message)}`;
+      
+      let history = JSON.parse(localStorage.getItem("rocket_history") || "[]");
+      history.unshift({ service: "Reconocimiento Facial", value: "Imagen adjunta", date: new Date().toLocaleString(), status: "Enviado a WS" });
+      localStorage.setItem("rocket_history", JSON.stringify(history));
+
+      window.open(url, "_blank");
     }
 
     document.addEventListener("DOMContentLoaded", () => {
@@ -3232,21 +2662,6 @@
         overlay.classList.add("active");
       });
       overlay.addEventListener("click", closeSidebar);
-
-      const modalCredits = document.getElementById("modal-credits");
-      const btnCloseModal = document.getElementById("btn-close-modal");
-      const btnYaPague = document.getElementById("btn-ya-pague");
-
-      if (btnCloseModal) {
-        btnCloseModal.addEventListener("click", () => modalCredits.classList.remove("active"));
-      }
-
-      if (btnYaPague) {
-        btnYaPague.addEventListener("click", () => {
-          document.getElementById("modal-step-yape").style.display = "none";
-          document.getElementById("modal-step-confirm").style.display = "block";
-        });
-      }
 
       const fileInput = document.getElementById("facial-file-input");
       const previewImg = document.getElementById("facial-preview");
@@ -3294,7 +2709,6 @@
       }
 
       document.getElementById("menu-home").addEventListener("click", (e) => { e.preventDefault(); showHome(); closeSidebar(); });
-      document.getElementById("menu-recarga").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-recarga"); });
 
       document.getElementById("menu-creacion-web").addEventListener("click", (e) => { e.preventDefault(); hideAllPanels(); if(webPlansContainer) webPlansContainer.classList.add("active"); closeSidebar(); });
 
@@ -3329,66 +2743,6 @@
       document.getElementById("menu-streaming").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-streaming"); });
       document.getElementById("card-streaming-btn").addEventListener("click", (e) => { e.preventDefault(); openPanel("panel-streaming"); });
     });
-
-    function openCreditModal(planName, price, credits) {
-      activePlanData = { planName, price, credits };
-      document.getElementById("modal-pay-amount").innerText = `S/ ${price}`;
-      document.getElementById("modal-pay-credits").innerText = credits;
-      document.getElementById("modal-step-yape").style.display = "block";
-      document.getElementById("modal-step-confirm").style.display = "none";
-      document.getElementById("yape-payer-name").value = "";
-      document.getElementById("modal-credits").classList.add("active");
-    }
-
-    function confirmYapeBot() {
-      const payerName = sanitizeInput(document.getElementById("yape-payer-name").value.trim());
-      if (!payerName || payerName.length < 2) {
-        alert("Ingresa un nombre de titular válido.");
-        return;
-      }
-      alert(`[BOT YAPE]\nRegistro correcto de S/ ${activePlanData.price} a nombre de: ${payerName}\nCréditos asignados: ${activePlanData.credits}`);
-      document.getElementById("modal-credits").classList.remove("active");
-    }
-
-    function executeSearch(serviceName, inputId, resultBoxId) {
-      const inputVal = sanitizeInput(document.getElementById(inputId)?.value.trim());
-      if (!inputVal) {
-        alert("Ingresa un valor válido.");
-        return;
-      }
-      const resBox = document.getElementById(resultBoxId);
-      const dataBox = resBox.querySelector(".result-data-content");
-      resBox.style.display = "block";
-      dataBox.innerHTML = `[CONSULTANDO...] Servicio: ${sanitizeInput(serviceName)} | Valor: ${inputVal}`;
-
-      setTimeout(() => {
-        dataBox.innerText = `=== RESULTADO ===\nServicio: ${sanitizeInput(serviceName)}\nConsulta: ${inputVal}\nEstado: EXITOSO`;
-        let history = JSON.parse(localStorage.getItem("rocket_history") || "[]");
-        history.unshift({ service: sanitizeInput(serviceName), value: inputVal, date: new Date().toLocaleString(), status: "Exitoso" });
-        localStorage.setItem("rocket_history", JSON.stringify(history));
-      }, 800);
-    }
-
-    function executeFacialSearch() {
-      const resBox = document.getElementById("res-reniec-facial");
-      const dataBox = document.getElementById("data-reniec-facial");
-      resBox.style.display = "block";
-      dataBox.innerText = "[ESCANEANDO ROSTRO... Aguarde un momento]";
-      setTimeout(() => {
-        dataBox.innerText = `=== RECONOCIMIENTO FACIAL ===\nEstado: Coincidencia Exitosa (99.1%)\nFecha: ${new Date().toLocaleString()}`;
-      }, 1000);
-    }
-
-    function copyResult(dataBoxId) {
-      navigator.clipboard.writeText(document.getElementById(dataBoxId).innerText).then(() => alert("Copiado al portapapeles"));
-    }
-
-    function exportPDF(dataBoxId, fileName) {
-      const w = window.open("", "", "width=800,height=600");
-      w.document.write(`<pre style="background:#000;color:#fff;padding:20px;">${sanitizeInput(document.getElementById(dataBoxId).innerText)}</pre>`);
-      w.document.close();
-      w.print();
-    }
 
     function renderHistory() {
       const tbody = document.getElementById("history-table-body");
